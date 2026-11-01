@@ -13,7 +13,7 @@ description: 从指定会话或材料提炼有证据的个人记录、参考资�
 
 默认只处理当前会话新增或纠正的信息。用户指定材料或历史范围时遵从该范围；仅为还原指代、核对事实和去重回看必要上下文，不扫描全部历史。
 
-用户要求只输出时，直接给候选，不读取默认目标、不写入。需要保存时依次选择：本轮明确指定的接入文件、`MEMORY_DISTILL_TARGET` 指向的文件、本机 `~/.config/memory-distill/target.md`。仅在新环境变量和默认文件均不存在时，兼容旧 `WORK_MEMORY_DISTILL_TARGET` 或 `~/.config/work-memory-distill/target.md`。配置存在但无效时不回退其他位置。
+用户要求只输出时，直接给候选，不读取默认目标、不写入。需要保存时依次选择：本轮明确指定的接入文件、`MEMORY_DISTILL_TARGET` 指向的文件、本机 `~/.config/memory-distill/target.md`。配置缺失或无效时不搜索旧配置或回退其他位置。
 
 配置缺失、无效或目标不可用时，仅输出候选和原因，不创建仓库或从当前目录猜保存位置。配置约定见 [references/target-contract.md](references/target-contract.md)。调用方可以多次调用本技能，每次显式指定一个目标和获准材料；一次写入不推导其他目标的授权。
 
