@@ -8,6 +8,8 @@ Its **Comic article** shape adds complete prose, factual storyboards, scene artw
 
 **Book mode** covers books, ebooks, handbooks, manuscripts, chapter planning, and cross-chapter revision. It keeps a durable book contract, chapter map, evidence or story state, and cross-chapter review cadence. Its AI technical-book profile adds minimally qualified reader design, executable examples, reproducible experiments, version snapshots, and operational boundaries.
 
+Its [Picture book](references/picture-book.md) workflow owns the story, exact copy, page count including requested covers, typography, print templates, validation and separate-image delivery. `better-imagegen` is the designated illustration and image-edit provider. Cover and interior templates are recorded independently; changing the page count also updates visible folios and packaged filenames.
+
 Proposals, reports, technical documentation, product copy, speeches, and short copy continue to use the shared writing workflow; they are utility deliverables rather than a third publishing mode. All paths start from audience, purpose, evidence, and structure, test reasoning when needed, apply an optional named voice profile, and review clarity and natural wording.
 
 The first bundled profile is **紫升风格**, distilled from the author's public writing on `blog.zisheng.pro`. The profile system is extensible: each future voice lives in its own reference and is selected explicitly rather than becoming a global default.

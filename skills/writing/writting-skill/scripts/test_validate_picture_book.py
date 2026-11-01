@@ -1,4 +1,4 @@
-"""Regression checks for book-delivery failures using synthetic local images."""
+"""Writing-owned book-delivery regression checks using synthetic images."""
 import copy
 import hashlib
 from pathlib import Path

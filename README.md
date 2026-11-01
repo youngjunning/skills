@@ -42,7 +42,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | Engineering | [browser-performance-audit](skills/engineering/browser-performance-audit/SKILL.md) | 加载、资源与长会话性能审查 |
 | Design | [better-imagegen](skills/design/better-imagegen/SKILL.md) | 图像生成、编辑与素材校验 |
 | Design | [qingshan-design](skills/design/qingshan-design/SKILL.md) | 青山湖跨平台设计系统 |
-| Writing | [writting-skill](skills/writing/writting-skill/SKILL.md) | 中文与英文写作、博客与书稿 |
+| Writing | [writting-skill](skills/writing/writting-skill/SKILL.md) | 中文与英文写作、博客、书稿与绘本制作；插画指定 better-imagegen |
 | Writing | [fiction-site-builder](skills/writing/fiction-site-builder/SKILL.md) | 小说创作与阅读站点建设 |
 | Publishing | [adsense-site-builder](skills/publishing/adsense-site-builder/SKILL.md) | AdSense 站点规划、建设与就绪审查 |
 | productivity | [memory-distill](skills/productivity/memory-distill/SKILL.md) | 通用个人记录、参考资料与概念笔记提炼，支持候选输出和显式目标接入 |

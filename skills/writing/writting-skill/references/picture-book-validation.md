@@ -1,9 +1,9 @@
 # Picture-book manifest and deterministic validation
 
-Use the skill's Pillow virtual environment:
+Use a Python environment with Pillow, reusing the image provider's virtual environment if available. Resolve `WRITTING_SKILL_DIR` to the installed writing skill:
 
 ```bash
-"$BETTER_IMAGEGEN_PYTHON" "$SKILL_DIR/scripts/validate_picture_book.py" /path/to/book/manifest.json
+"$BOOK_PYTHON" "$WRITTING_SKILL_DIR/scripts/validate_picture_book.py" /path/to/book/manifest.json
 ```
 
 Exit 1 means a structural, file, geometry, or recorded-review failure. Warnings flag planned repetition for inspection; they are not similarity judgments. The checker neither generates nor approves pictures. Do not fill `pass` automatically to obtain a successful exit.

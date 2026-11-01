@@ -28,7 +28,7 @@ The bundled cast and reference art are included under the user's explicit distri
 
 Read the available better-imagegen Skill before image work. It owns API calls, credentials, model selection, timeout and fallback behavior, prompt compliance, response handling, and generation metadata. This workflow does not duplicate those instructions or invoke a different generator as a shortcut.
 
-Pass a page- or panel-specific brief with the visible action, camera, character identity references and their roles, scene-specific props, and space for lettering. Use its image-edit route when preserving existing character designs. For a continuous multi-page scene sequence, consult its picture-book guidance for recurring-character and composition QA without importing print-book packaging requirements into a web article.
+Pass a page- or panel-specific brief with the visible action, camera, character identity references and their roles, scene-specific props, and space for lettering. Use its image-edit route when preserving existing character designs. For continuous multi-page scene planning, consult this writing skill's [picture-book guidance](picture-book.md), and use `better-imagegen` for the artwork; do not import print-book packaging requirements into a web article.
 
 Keep the scene instruction prominent. Reuse authoritative identity references rather than repeatedly chaining each new output as the next reference. Avoid identity details that make two characters visually converge. Their silhouette and large clothing colors should remain distinct at article reading size.
 

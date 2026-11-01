@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check exported picture-book geometry and evidence; never infer visual approval."""
+"""Validate writing-owned picture-book geometry; never infer visual approval."""
 import argparse
 import hashlib
 import json

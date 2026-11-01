@@ -1,6 +1,6 @@
 ---
 name: writting-skill
-description: Create, continue, restructure, review, or rewrite Chinese and English prose while preserving facts, intent, terminology, constraints, and the author's voice. Route persistent publishing work into Blog or Book mode. Always use for books and manuscripts, blogs, comic articles (漫画文章、漫画拆解), technical documentation, proposals, reports, product copy, speeches, social posts, articles, titles, taglines, and other substantial writing. Also use when text needs book planning, chapter drafting, long-form continuity, outlining, stronger reasoning or argumentation, logical consistency, clearer structure, fact-aware editing, a named voice profile such as 紫升风格 or 团队项目外宣风格, tone adjustment, proofreading, natural wording, or a final editorial review.
+description: Create, continue, restructure, review, or rewrite Chinese and English prose while preserving facts, intent, terminology, constraints, and the author's voice. Route persistent publishing work into Blog or Book mode. Always use for picture books (绘本、亲子故事书), books and manuscripts, blogs, comic articles (漫画文章、漫画拆解), technical documentation, proposals, reports, product copy, speeches, social posts, articles, titles, taglines, and other substantial writing. Picture books are orchestrated here, with better-imagegen designated for illustrations and image edits. Also use when text needs book planning, chapter drafting, long-form continuity, outlining, stronger reasoning or argumentation, logical consistency, clearer structure, fact-aware editing, a named voice profile such as 紫升风格 or 团队项目外宣风格, tone adjustment, proofreading, natural wording, or a final editorial review.
 ---
 
 # Writting Skill
@@ -28,9 +28,10 @@ Persistent publishing work starts in exactly one of two modes:
 | Mode | Use when | Required reference |
 | --- | --- | --- |
 | **Blog** | Blog post, article, ATA, tutorial, product or project introduction, opinion essay, or another reader-facing single piece | [references/blog-writing.md](references/blog-writing.md) |
-| **Book** | Book, ebook, handbook, manuscript, chapter plan or draft, or any work requiring cross-chapter continuity | [references/book-writing.md](references/book-writing.md) |
+| **Book** | Book, ebook, handbook, manuscript, chapter plan or draft, or cross-chapter continuity | [references/book-writing.md](references/book-writing.md) |
+| **Book — picture book / 绘本** | Illustrated children's story, family picture book, page planning, count changes, print-template adaptation or complete book delivery | [references/picture-book.md](references/picture-book.md); designate `better-imagegen` for raster generation and edits |
 
-Select the mode before planning or drafting. Do not apply Book state and release machinery to a Blog, and do not manage a multi-chapter manuscript as a collection of unrelated articles.
+Select the mode before planning or drafting. Do not apply Book state and release machinery to a Blog, and do not manage a multi-chapter manuscript as a collection of unrelated articles. For picture books, this skill owns story, exact copy, pagination, typography, template geometry and delivery; `better-imagegen` owns illustration generation and bounded image repairs. Use page-level planning instead of chapter machinery. Confirm whether the requested total includes front and back covers; when explicitly included, count both within the total. Short children's books about AI use reader-level factual review, not engineering-code gates unless the edition actually requires them.
 
 Proposals, reports, technical documentation, product copy, speeches, titles, taglines, and other non-publishing deliverables use the shared workflow below without creating a third publishing mode. For them, route by task operation:
 

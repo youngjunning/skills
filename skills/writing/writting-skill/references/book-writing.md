@@ -8,6 +8,7 @@ Before using third-party material or calling a manuscript publish-ready, also re
 
 | Type | Primary contract | Main failure mode |
 | --- | --- | --- |
+| Picture book / 绘本 | Page-level story, exact copy, illustration briefs, cover-inclusive count and print geometry; follow [picture-book.md](picture-book.md), using `better-imagegen` for images | Repeated scenes, lost learning outcomes, tiny text, clipped important objects, incorrect page totals |
 | Nonfiction or technical | Reader problem, thesis, evidence map, chapter promise, usable outcome | Repetition, unsupported authority, chapter-as-article fragmentation |
 | Fiction | Story promise, character desire, causality, viewpoint, world rules, reveal boundaries | Continuity drift, inert chapters, implausible knowledge or agency |
 | Memoir or narrative nonfiction | Lived truth, memory limits, privacy boundaries, documentary support, narrative arc | Invented certainty, composite people presented as literal, privacy harm |
@@ -17,7 +18,7 @@ Before using third-party material or calling a manuscript publish-ready, also re
 
 If a book mixes types, name one primary contract and list the secondary contracts. Do not let a narrative device weaken factual standards in nonfiction.
 
-For an AI technical book, also load [ai-technical-book.md](ai-technical-book.md). Its executable-code, experiment, version-drift, and technical-review gates extend rather than replace this workflow.
+For an AI technical book, also load [ai-technical-book.md](ai-technical-book.md). Its executable-code, experiment, version-drift, and technical-review gates extend rather than replace this workflow. For a short children's picture book, use the picture-book page manifest instead of chapter machinery, and the child's read-aloud register instead of a technical author's voice. An AI subject does not by itself require the technical-book profile.
 
 ## Book contract
 
