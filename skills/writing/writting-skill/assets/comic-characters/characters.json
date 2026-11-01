@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-02",
+  "defaultCast": [
+    "xiaojie",
+    "xiaonan"
+  ],
+  "pathBase": "this manifest directory",
+  "characters": [
+    {
+      "id": "xiaojie",
+      "name": "小界",
+      "identityVersion": 1,
+      "appearance": {
+        "hair": "银蓝短波波头、青绿发梢",
+        "eyes": "蓝色虹膜",
+        "accessories": "蓝色星形发夹与既有金色发饰",
+        "outfit": "深湖青中式刺绣服装，沿用参考中的领口、纹样与配饰",
+        "rendering": "清晰手绘动漫线条、赛璐璐明暗；保持既有造型"
+      },
+      "references": {
+        "portrait": "xiaojie-portrait.webp",
+        "fullbody": "xiaojie-fullbody.webp"
+      },
+      "invariants": [
+        "保持既有脸型、发型、瞳色、服装与配饰",
+        "姿势、表情和镜头按场景重新生成"
+      ]
+    },
+    {
+      "id": "xiaonan",
+      "name": "小南",
+      "identityVersion": 2,
+      "appearance": {
+        "eyes": "琥珀金色虹膜、深色瞳孔",
+        "hair": "深靛蓝头发，钴蓝高光，明显的侧高马尾；不使用小界的银蓝短发与青绿发梢",
+        "accessories": "赭橙色宽发带、单侧录制耳麦、珊瑚红录制灯；不使用星形发夹",
+        "outfit": "暖米白现代技术短外套，珊瑚橙大色块与陶橙色内搭，少量深石墨滚边和铜扣",
+        "silhouette": "束袖短外套、高马尾和录制装备；全身形象搭配深墨蓝长裤",
+        "rendering": "保持项目现有手绘动漫线条和赛璐璐明暗，不改变其他角色"
+      },
+      "palette": {
+        "jacket": "#F2E6D2",
+        "coral": "#DF7955",
+        "terracotta": "#B9553C",
+        "iris": "#D89A35",
+        "hair": "#29375C",
+        "hairHighlight": "#566CB2",
+        "trim": "#34363F"
+      },
+      "references": {
+        "portrait": "xiaonan-portrait.webp",
+        "fullbody": "xiaonan-fullbody.webp"
+      },
+      "invariants": [
+        "深靛高马尾、橙发带、金瞳、暖米白与珊瑚橙衣服、录制耳麦",
+        "与小界保持明显的发型轮廓和服装配色差异",
+        "姿势、表情和镜头按场景重新生成"
+      ]
+    }
+  ],
+  "assets": {
+    "xiaojie-portrait.webp": {
+      "file": "xiaojie-portrait.webp",
+      "size": [
+        1254,
+        1254
+      ],
+      "bytes": 128142,
+      "sha256": "c794c1534b31233e3bcf23a83ee39176cf2a7522c612a4e7cfbbc10a03a3a389"
+    },
+    "xiaojie-fullbody.webp": {
+      "file": "xiaojie-fullbody.webp",
+      "size": [
+        255,
+        719
+      ],
+      "bytes": 25548,
+      "sha256": "3b88bdc2f6672088c2ff21ac37a6d5c2dc6c5b56ea93b879bf8e20ed0b8674da"
+    },
+    "xiaonan-portrait.webp": {
+      "file": "xiaonan-portrait.webp",
+      "size": [
+        1536,
+        1536
+      ],
+      "bytes": 158180,
+      "sha256": "f61fd698947ff378b6f58c97e3ee4e0285097c2fd81d828d10c5e7b8fbfacf41"
+    },
+    "xiaonan-fullbody.webp": {
+      "file": "xiaonan-fullbody.webp",
+      "size": [
+        257,
+        720
+      ],
+      "bytes": 38632,
+      "sha256": "d08c1932d98c6ce2194723f6e99d8364afdf130f6be05d95e4c0d71cd0cd0386"
+    },
+    "comparison.webp": {
+      "file": "comparison.webp",
+      "size": [
+        1000,
+        660
+      ],
+      "bytes": 64160,
+      "sha256": "856d53d07413d24f86b6c37abcfcb3bbaf3a9d3306e498ab6b944f4355ca7719"
+    }
+  },
+  "provenance": "Existing approved character artwork, copied without image alteration for the user-authorized skill distribution. Private project paths and generation records are excluded."
+}

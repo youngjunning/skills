@@ -4,6 +4,8 @@ A general-purpose Codex writing skill for Chinese and English prose. Persistent 
 
 **Blog mode** covers blog posts, technical articles, ATA, tutorials, product or project introductions, and opinion essays. It owns single-article structure, current-product evidence, and publication checks.
 
+Its **Comic article** shape adds complete prose, factual storyboards, scene artwork through better-imagegen, consistent recurring characters, editable lettering, and final article/page review. The bundled [小界 and 小南 roster](references/comic-characters.md) includes identity specifications and portrait/full-body references using portable relative paths. An optional local roster at `~/.config/writting-skill/comic-characters.md` can override this cast. See [Comic articles](references/comic-articles.md).
+
 **Book mode** covers books, ebooks, handbooks, manuscripts, chapter planning, and cross-chapter revision. It keeps a durable book contract, chapter map, evidence or story state, and cross-chapter review cadence. Its AI technical-book profile adds minimally qualified reader design, executable examples, reproducible experiments, version snapshots, and operational boundaries.
 
 Proposals, reports, technical documentation, product copy, speeches, and short copy continue to use the shared writing workflow; they are utility deliverables rather than a third publishing mode. All paths start from audience, purpose, evidence, and structure, test reasoning when needed, apply an optional named voice profile, and review clarity and natural wording.
@@ -37,6 +39,15 @@ Apply the bundled 紫升风格 profile:
 ```text
 使用 $writting-skill，以紫升风格重构这篇技术文章。保留事实和第一人称经历，
 先修正论证，再强化“真实问题 → 工程机制 → 判断框架”的推进方式。
+```
+
+## Use Comic articles
+
+For a comic article, stay in Blog mode:
+
+```text
+使用 $writting-skill 写一篇漫画拆解文章。先核验原理并完成正文与分镜，
+默认使用随包的小界和小南，生图使用 better-imagegen；人物按每格场景重新表演，保持外观一致。
 ```
 
 ## Use Book mode

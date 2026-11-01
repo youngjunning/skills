@@ -49,6 +49,10 @@ For a tool or product comparison, define what “good” means before listing ca
 
 State the end state and prerequisites, provide a reproducible path, explain only the mechanisms needed to make correct decisions, include verification and failure recovery, and separate version-specific behavior from durable principles.
 
+### Comic article
+
+Use [comic-articles.md](comic-articles.md) when scenes, recurring characters, and dialogue explain a mechanism or practical task. Keep the complete article and factual argument readable alongside the comic; plan panels from that argument. Use better-imagegen for scene artwork and the configured character roster for identity. This is a Blog article shape, not Book production or an image-only deliverable.
+
 ### Product or project introduction
 
 Show the current user, visible product surface, representative task, and observable result before project history or architecture. Use the product-facing reality gate below.

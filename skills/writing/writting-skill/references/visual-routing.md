@@ -12,6 +12,7 @@ Choose by the information the reader must recover, then choose the output format
 | Data pipelines, lineage, transformations | Archify `dataflow` | Sources, sinks, transformations, data movement |
 | States, events, lifecycle transitions | Archify `lifecycle` | State distinctions, transition conditions, terminal states |
 | Scene-led or identity-led cover, editorial illustration, atmosphere, portrait, texture | better-imagegen | Exact titles, figures, identifiers, or captions added outside the raster model when needed |
+| Comic article with recurring characters, scene actions, and dialogue | better-imagegen, with [comic-articles.md](comic-articles.md) owning the article/storyboard | Dialogue, commands, facts, reading order, and any explanatory relationships |
 | Statistical charts, scientific plots, numeric comparisons | Standard plotting tools | Data, scales, axes, units, uncertainty, legends |
 | Lookup, specifications, small comparisons | Markdown or document table | Values and column meanings; an image is often unnecessary |
 | Current product behavior or an observed failure | Real screenshot or recording | Provenance and any annotations; identify a mockup as illustrative |
