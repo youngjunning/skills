@@ -62,7 +62,7 @@
   {
     "name": "memory-distill",
     "category": "productivity",
-    "summary": "按配置蒸馏个人记忆、收藏与技能清单",
+    "summary": "独立整理个人记录、参考资料与概念笔记，按配置同步清单与统计",
     "path": "skills/productivity/memory-distill"
   },
   {
