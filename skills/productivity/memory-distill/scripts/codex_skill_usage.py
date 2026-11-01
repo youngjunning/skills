@@ -17,7 +17,7 @@ import sys
 
 from session_excerpt import clean_user
 
-VERSION = 1
+VERSION = 2
 PARSER_REVISION = '3'
 LITERAL = r'''("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|`[^`]*`)'''
 MAINTENANCE = re.compile(
@@ -151,20 +151,25 @@ def connect(path):
             line INTEGER, status TEXT, PRIMARY KEY(file, call_id, skill));
         CREATE TABLE IF NOT EXISTS excluded_turns (
             file TEXT, turn_key TEXT, reason TEXT, PRIMARY KEY(file, turn_key));
+        CREATE TABLE IF NOT EXISTS projects (
+            cwd TEXT PRIMARY KEY, project_id TEXT, name TEXT, root TEXT, kind TEXT);
+        CREATE TABLE IF NOT EXISTS turn_aliases (turn_key TEXT PRIMARY KEY, canonical_turn TEXT);
         CREATE INDEX IF NOT EXISTS observation_turn ON observations(turn_key, skill);
         CREATE INDEX IF NOT EXISTS observation_call ON observations(call_id, skill);
         CREATE INDEX IF NOT EXISTS excluded_turn ON excluded_turns(turn_key);
     ''')
     old = db.execute("SELECT value FROM meta WHERE key='version'").fetchone()
-    if old and old[0] != str(VERSION):
+    if old and old[0] not in ('1', str(VERSION)):
         raise ValueError('Unsupported state version; use a separate state database for a rebuild.')
-    db.execute("INSERT OR IGNORE INTO meta VALUES ('version', ?)", (str(VERSION),))
+    if 'cwd' not in {r[1] for r in db.execute('PRAGMA table_info(observations)')}:
+        db.execute('ALTER TABLE observations ADD COLUMN cwd TEXT')
+    db.execute("INSERT OR REPLACE INTO meta VALUES ('version', ?)", (str(VERSION),))
     db.commit()
     return db
 
 
 @contextmanager
-def source(path):
+def source(path, partial=False):
     if path.name.endswith('.zst'):
         if not shutil.which('zstd'):
             raise RuntimeError('zstd is required for compressed rollouts')
@@ -172,7 +177,7 @@ def source(path):
                                    stderr=subprocess.DEVNULL)
         try:
             yield process.stdout
-            if process.wait() != 0:
+            if not partial and process.wait() != 0:
                 raise RuntimeError('zstd could not decode rollout')
         finally:
             process.stdout.close()
@@ -213,6 +218,9 @@ def process_row(db, filename, row, line, context):
     kind, subtype = row.get('type'), payload.get('type')
     if kind == 'session_meta':
         context['session'] = payload.get('id', payload.get('session_id', ''))
+        context['cwd'] = payload.get('cwd') or ''
+    if kind == 'turn_context' and 'cwd' in payload:
+        context['cwd'] = payload.get('cwd') or ''
     if kind == 'turn_context' or (kind == 'event_msg' and subtype == 'task_started'):
         turn = payload.get('turn_id')
         if turn:
@@ -254,7 +262,8 @@ def process_row(db, filename, row, line, context):
         call_id = payload.get('call_id')
         if paths and call_id:
             pending[call_id] = {'paths': paths, 'turn': context.get('turn'),
-                                'timestamp': row.get('timestamp'), 'line': line}
+                                'timestamp': row.get('timestamp'), 'line': line,
+                                'cwd': context.get('cwd') or ''}
     elif subtype in ('function_call_output', 'custom_tool_call_output'):
         call_id = payload.get('call_id')
         call = pending.pop(call_id, None)
@@ -266,8 +275,110 @@ def process_row(db, filename, row, line, context):
             status = 'verified' if skill in names else 'unconfirmed_read'
             if not call.get('turn'):
                 status = 'missing_turn'
-            db.execute('INSERT OR REPLACE INTO observations VALUES (?, ?, ?, ?, ?, ?, ?)',
-                       (filename, call_id, skill, call.get('turn'), call['timestamp'], call['line'], status))
+            db.execute('''INSERT OR REPLACE INTO observations
+                       (file, call_id, skill, turn_key, timestamp, line, status, cwd)
+                       VALUES (?, ?, ?, ?, ?, ?, ?, ?)''',
+                       (filename, call_id, skill, call.get('turn'), call['timestamp'], call['line'],
+                        status, call.get('cwd') or ''))
+
+
+def backfill_locations(db, path, checkpoint):
+    """Enrich old evidence from metadata only; keep trigger decisions unchanged."""
+    context = json.loads(checkpoint[5])
+    targets = {r[0] for r in db.execute('SELECT DISTINCT line FROM observations WHERE file=?', (str(path),))}
+    targets.update(c['line'] for c in context.get('pending', {}).values())
+    cwd, locations = '', {}
+    if targets:
+        with source(path, partial=True) as stream:
+            for line in range(1, checkpoint[3] + 1):
+                raw = stream.readline()
+                if not raw:
+                    raise ValueError('Rollout ended before its saved checkpoint during project backfill')
+                if any(k in raw[:180] for k in (b'"session_meta"', b'"turn_context"')):
+                    row = json.loads(raw)
+                    if row.get('type') in ('session_meta', 'turn_context'):
+                        payload = row.get('payload', {})
+                        if 'cwd' in payload:
+                            cwd = payload.get('cwd') or ''
+                if line in targets:
+                    locations[line] = cwd
+        db.executemany('UPDATE observations SET cwd=? WHERE file=? AND line=?',
+                       [(value, str(path), line) for line, value in locations.items()])
+    context['cwd'] = cwd
+    for call in context.get('pending', {}).values():
+        call['cwd'] = locations.get(call['line'], '')
+    db.execute('UPDATE files SET context=? WHERE path=?',
+               (json.dumps(context, ensure_ascii=False), str(path)))
+    return context
+
+
+def project_for(cwd):
+    """Resolve a logged directory against current Git metadata; no network/remotes."""
+    if not cwd or not Path(cwd).is_absolute():
+        return ('unknown', '未识别项目', None, 'unknown')
+    directory = Path(cwd)
+    if directory.is_dir():
+        try:
+            env = {k: v for k, v in os.environ.items()
+                   if k not in ('GIT_DIR', 'GIT_WORK_TREE', 'GIT_COMMON_DIR', 'GIT_INDEX_FILE')}
+            result = subprocess.run(['git', '-C', cwd, 'rev-parse', '--path-format=absolute',
+                                     '--show-toplevel', '--git-common-dir'],
+                                    capture_output=True, text=True, timeout=5, env=env)
+            if result.returncode == 0:
+                root, common = result.stdout.strip().splitlines()[:2]
+                common = str(Path(common).resolve())
+                canonical = str(Path(common).parent) if Path(common).name == '.git' else root
+                return ('git:' + digest(common)[:16], Path(canonical).name, canonical, 'git')
+        except (OSError, ValueError, subprocess.TimeoutExpired):
+            pass
+    return ('directory:' + digest(cwd)[:16], directory.name or cwd, cwd, 'directory')
+
+
+def index_projects(db):
+    missing = db.execute('''SELECT DISTINCT COALESCE(o.cwd, '') FROM observations o
+        LEFT JOIN projects p ON p.cwd=COALESCE(o.cwd, '') WHERE p.cwd IS NULL''').fetchall()
+    for (cwd,) in missing:
+        db.execute('INSERT OR REPLACE INTO projects VALUES (?, ?, ?, ?, ?)', (cwd, *project_for(cwd)))
+
+
+def reconcile_turns(db):
+    """Copied call IDs connect original and rewritten fork turn identifiers."""
+    parents, calls = {}, {}
+
+    def find(turn):
+        parents.setdefault(turn, turn)
+        if parents[turn] != turn:
+            parents[turn] = find(parents[turn])
+        return parents[turn]
+
+    for call, skill, turn in db.execute('SELECT call_id, skill, turn_key FROM observations WHERE turn_key IS NOT NULL'):
+        key = (call, skill)
+        left = find(turn)
+        right = find(calls.setdefault(key, turn))
+        if left != right:
+            parents[max(left, right)] = min(left, right)
+    db.execute('DELETE FROM turn_aliases')
+    db.executemany('INSERT INTO turn_aliases VALUES (?, ?)', [(turn, find(turn)) for turn in parents])
+
+
+def recover_archived_locations(db, paths):
+    retained = {str(path) for path in paths}
+    recovered = unavailable = 0
+    pending = db.execute('SELECT file, call_id, skill FROM observations WHERE cwd IS NULL').fetchall()
+    for filename, call, skill in pending:
+        variants = {r[0] for r in db.execute('''SELECT DISTINCT cwd FROM observations
+            WHERE call_id=? AND skill=? AND cwd IS NOT NULL AND cwd!='' ''', (call, skill))}
+        if len(variants) == 1:
+            cwd = next(iter(variants))
+            recovered += 1
+        elif filename not in retained:
+            cwd = ''
+            unavailable += 1
+        else:
+            continue  # A readable source with a failed backfill must remain pending for retry.
+        db.execute('UPDATE observations SET cwd=? WHERE file=? AND call_id=? AND skill=?',
+                   (cwd, filename, call, skill))
+    return recovered, unavailable
 
 
 def scan_file(db, path):
@@ -275,13 +386,22 @@ def scan_file(db, path):
     stat = path.stat()
     old = db.execute('SELECT size, mtime, offset, line, boundary, context FROM files WHERE path=?',
                      (filename,)).fetchone()
-    if old and old[:2] == (stat.st_size, stat.st_mtime_ns):
-        return 'unchanged'
+    unchanged = bool(old and old[:2] == (stat.st_size, stat.st_mtime_ns))
     compressed = path.name.endswith('.zst')
     resume = bool(old and not compressed and (stat.st_size > old[2] or old[0] == -1)
                   and boundary(path, old[2]) == old[4])
+    enriched = False
+    if old and (unchanged or resume) and ('cwd' not in json.loads(old[5]) or db.execute(
+            'SELECT 1 FROM observations WHERE file=? AND cwd IS NULL LIMIT 1', (filename,)).fetchone()):
+        backfill_locations(db, path, old)
+        old = db.execute('SELECT size, mtime, offset, line, boundary, context FROM files WHERE path=?',
+                         (filename,)).fetchone()
+        enriched = True
+    if unchanged:
+        return 'project_backfilled' if enriched else 'unchanged'
     offset, line = (old[2], old[3]) if resume else (0, 0)
     context = json.loads(old[5]) if resume else {}
+    context.setdefault('cwd', '')
     if not resume:
         db.execute('DELETE FROM observations WHERE file=?', (filename,))
         db.execute('DELETE FROM excluded_turns WHERE file=?', (filename,))
@@ -321,12 +441,61 @@ def scan_file(db, path):
     return 'appended' if resume else 'scanned'
 
 
-ACCEPTED = '''SELECT turn_key, skill, timestamp FROM (
-        SELECT o.turn_key, o.skill, o.timestamp,
-               ROW_NUMBER() OVER (PARTITION BY o.call_id, o.skill ORDER BY o.timestamp, o.turn_key) AS occurrence
-        FROM observations o WHERE o.status='verified' AND NOT EXISTS
-        (SELECT 1 FROM observations copy JOIN excluded_turns e ON e.turn_key=copy.turn_key
-         WHERE copy.call_id=o.call_id AND copy.skill=o.skill)) WHERE occurrence=1'''
+TURN_FILTER = '''COALESCE(a.canonical_turn, o.turn_key) NOT IN
+        (SELECT COALESCE(ea.canonical_turn, e.turn_key) FROM excluded_turns e
+         LEFT JOIN turn_aliases ea ON ea.turn_key=e.turn_key WHERE e.turn_key IS NOT NULL)'''
+ACCEPTED = '''SELECT turn_key, skill, timestamp, file, line, cwd, call_id FROM (
+        SELECT COALESCE(a.canonical_turn, o.turn_key) AS turn_key, o.skill, o.timestamp,
+               o.file, o.line, o.cwd, o.call_id,
+               ROW_NUMBER() OVER (PARTITION BY o.call_id, o.skill ORDER BY o.timestamp, o.file, o.turn_key) AS occurrence
+        FROM observations o LEFT JOIN turn_aliases a ON a.turn_key=o.turn_key
+        WHERE o.status='verified' AND ''' + TURN_FILTER + ''') WHERE occurrence=1'''
+
+
+def project_summary(db):
+    triggers = db.execute('''SELECT skill, timestamp, COALESCE(cwd, ''), call_id FROM (
+        SELECT *, ROW_NUMBER() OVER (PARTITION BY turn_key, skill ORDER BY timestamp, line, file) AS first_load
+        FROM (''' + ACCEPTED + ''')) WHERE first_load=1''').fetchall()
+    lookup = {r[0]: r[1:] for r in db.execute('SELECT cwd, project_id, name, root, kind FROM projects')}
+    evidence = {}
+    for call, skill, cwd in db.execute("SELECT call_id, skill, COALESCE(cwd, '') FROM observations WHERE status='verified'"):
+        project = lookup.get(cwd)
+        if project and project[3] != 'unknown':
+            evidence.setdefault((call, skill), {})[project[0]] = project
+    groups, ambiguous = {}, 0
+    for skill, timestamp, cwd, call in triggers:
+        identity, name, root, kind = lookup.get(cwd, ('unknown', '未识别项目', None, 'unknown'))
+        variants = evidence.get((call, skill), {})
+        if len(variants) > 1:
+            identity, name, root, kind = ('unknown', '未识别项目', None, 'unknown')
+            ambiguous += 1
+        elif len(variants) == 1:
+            identity, name, root, kind = next(iter(variants.values()))
+        group = groups.setdefault(identity, {'id': identity, 'name': name, 'root': root, 'kind': kind,
+                                             'paths': set(), 'triggerCount': 0, 'skills': {},
+                                             'firstSeen': None, 'lastSeen': None})
+        if cwd:
+            group['paths'].add(cwd)
+        group['triggerCount'] += 1
+        group['skills'][skill] = group['skills'].get(skill, 0) + 1
+        if timestamp:
+            group['firstSeen'] = min(group['firstSeen'] or timestamp, timestamp)
+            group['lastSeen'] = max(group['lastSeen'] or timestamp, timestamp)
+    projects = []
+    for group in groups.values():
+        group['paths'] = sorted(group['paths'])
+        group['skillCount'] = len(group['skills'])
+        group['skills'] = [{'name': n, 'triggerCount': c} for n, c in
+                           sorted(group['skills'].items(), key=lambda p: (-p[1], p[0]))]
+        projects.append(group)
+    projects.sort(key=lambda p: (-p['triggerCount'], p['id']))
+    attributed = sum(p['triggerCount'] for p in projects if p['kind'] == 'git')
+    return {'projectCount': sum(p['kind'] == 'git' for p in projects),
+            'directoryGroupCount': sum(p['kind'] == 'directory' for p in projects),
+            'attributedTriggers': attributed, 'unattributedTriggers': len(triggers) - attributed,
+            'ambiguousTriggers': ambiguous,
+            'pendingBackfillObservations': db.execute('SELECT COUNT(*) FROM observations WHERE cwd IS NULL').fetchone()[0],
+            'basis': 'Logged turn cwd; Git roots resolved locally at indexing time.', 'projects': projects}
 
 
 def summary(db):
@@ -336,18 +505,26 @@ def summary(db):
         GROUP BY skill ORDER BY COUNT(*) DESC, skill''').fetchall()
     total_reads = db.execute('SELECT COUNT(*) FROM observations').fetchone()[0]
     unconfirmed = db.execute("SELECT COUNT(*) FROM observations WHERE status!='verified'").fetchone()[0]
-    excluded = db.execute('''SELECT COUNT(*) FROM observations o WHERE status='verified' AND EXISTS
-        (SELECT 1 FROM observations copy JOIN excluded_turns e ON e.turn_key=copy.turn_key
-         WHERE copy.call_id=o.call_id AND copy.skill=o.skill)''').fetchone()[0]
+    excluded = db.execute('''SELECT COUNT(*) FROM observations o
+        LEFT JOIN turn_aliases a ON a.turn_key=o.turn_key
+        WHERE status='verified' AND NOT (''' + TURN_FILTER + ')').fetchone()[0]
     total = sum(row[1] for row in rows)
+    projects = project_summary(db)
+    skills = [{'name': r[0], 'triggerCount': r[1], 'firstSeen': r[2], 'lastSeen': r[3],
+               'projects': [{'projectId': p['id'], 'name': p['name'], 'kind': p['kind'],
+                             'triggerCount': s['triggerCount']}
+                            for p in projects['projects'] for s in p['skills'] if s['name'] == r[0]]}
+              for r in rows]
+    if (projects['attributedTriggers'] + projects['unattributedTriggers'] != total or
+            any(sum(p['triggerCount'] for p in s['projects']) != s['triggerCount'] for s in skills)):
+        raise ValueError('Project and skill cross totals do not reconcile with global trigger counts')
     return {'version': VERSION, 'metric': 'verified_skill_read_turns', 'complete': False,
             'coverage': 'Locally retained rollouts only; verified loads are not workflow successes.',
             'files': db.execute('SELECT COUNT(*) FROM files').fetchone()[0],
             'triggerCount': total, 'skillCount': len(rows), 'observedReads': total_reads,
             'unconfirmedReads': unconfirmed, 'maintenanceReads': excluded,
             'duplicateReads': total_reads - unconfirmed - excluded - total,
-            'skills': [{'name': r[0], 'triggerCount': r[1], 'firstSeen': r[2], 'lastSeen': r[3]}
-                       for r in rows]}
+            'skills': skills, 'projectAttribution': projects}
 
 
 def scan(db, codex_home, progress=False):
@@ -363,6 +540,7 @@ def scan(db, codex_home, progress=False):
         db.execute('DELETE FROM files')
         db.execute("INSERT OR REPLACE INTO meta VALUES ('parser_revision', ?)", (PARSER_REVISION,))
         db.commit()
+    reconcile_turns(db)
     db.execute('DROP TABLE IF EXISTS temp.before_scan')
     db.execute('CREATE TEMP TABLE before_scan AS SELECT DISTINCT turn_key, skill FROM (' + ACCEPTED + ')')
     counts, errors = {}, []
@@ -379,12 +557,18 @@ def scan(db, codex_home, progress=False):
             errors.append({'file': str(path), 'error': str(error)})
         if progress and (index % 50 == 0 or index == len(paths)):
             print(f'Scanned {index}/{len(paths)} files; errors={len(errors)}', file=sys.stderr, flush=True)
+    reconcile_turns(db)
+    recovered, unavailable = recover_archived_locations(db, paths)
+    index_projects(db)
+    db.commit()
     result = summary(db)
     after = 'SELECT DISTINCT turn_key, skill FROM (' + ACCEPTED + ')'
     added = db.execute('SELECT COUNT(*) FROM (' + after + ' EXCEPT SELECT * FROM before_scan)').fetchone()[0]
     removed = db.execute('SELECT COUNT(*) FROM (SELECT * FROM before_scan EXCEPT ' + after + ')').fetchone()[0]
     result['scan'] = {**counts, 'discoveredFiles': len(paths), 'addedTriggers': added,
                       'removedTriggers': removed, 'reindexed': reindex,
+                      'projectLocationsRecovered': recovered, 'projectLocationsUnavailable': unavailable,
+                      'retainedMissingFiles': len({r[0] for r in db.execute('SELECT path FROM files')} - {str(p) for p in paths}),
                       'scanComplete': not errors, 'errors': errors}
     return result
 
@@ -395,6 +579,7 @@ def main():
     parser.add_argument('--codex-home', type=Path, default=Path(os.environ.get('CODEX_HOME', '~/.codex')).expanduser())
     parser.add_argument('--state', type=Path, required=True, help='Local private SQLite state, outside Git repositories')
     parser.add_argument('--progress', action='store_true')
+    parser.add_argument('--compact', action='store_true', help='Omit detailed skill/project matrices from stdout')
     args = parser.parse_args()
     state = args.state.expanduser().resolve()
     state.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
@@ -406,6 +591,9 @@ def main():
         os.chmod(state, 0o600)
         try:
             result = scan(db, args.codex_home.expanduser().resolve(), args.progress) if args.action == 'scan' else summary(db)
+            if args.compact:
+                result.pop('skills', None)
+                result['projectAttribution'].pop('projects', None)
             print(json.dumps(result, ensure_ascii=False, indent=2))
             return 1 if result.get('scan', {}).get('errors') else 0
         finally:
