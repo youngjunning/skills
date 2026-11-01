@@ -1,6 +1,6 @@
 ---
 name: better-imagegen
-description: Use when generating, creating, or editing images, photos, illustrations, covers, banners, structured knowledge maps, architecture diagrams, domain concept graphs, logos, icons, macOS app icons (.icns / iconset / Dock icon), wallpapers, sprite loops, Codex-compatible v2 animated pets, frame animations, visual assets, or Chinese image requests such as 生成图片、画图、出图、做封面、知识图谱、领域概念图、架构图、做图标、做 mac 应用图标、生成插图、壁纸、帧动画、序列帧、Runcat 风格动画、Codex 宠物、宠物 spritesheet, using the apiyi OpenAI-compatible image API.
+description: Generate or edit images with the apiyi image API, including illustrations, covers, posters, knowledge maps, architecture diagrams, logos, macOS icons, wallpapers, sprite loops, Codex v2 pets, and complete illustrated picture books. Use for 绘本、亲子故事书、连续角色多页插画、生成图片、改图、封面、知识图谱、架构图、图标、壁纸、帧动画 and 宠物 spritesheet requests.
 ---
 
 # better-imagegen
@@ -71,6 +71,7 @@ Pick one type reference per task:
 
 | Request | Load |
 |---|---|
+| **Picture book / illustrated children's story / 绘本 / multi-page story with recurring characters, including rewrites preserving an existing cast** | `references/picture-book.md`; also load `references/image-edit.md` when preserving existing characters or artwork |
 | **Structured knowledge map / architecture diagram / domain concept graph with accurate labels and relationships** | `references/knowledge-map.md` |
 | **Text-heavy cover / technical book cover / competition (大赛/黑客松) entry cover / product KV / PPT hero where accurate text + product info must appear** | `references/text-poster.md`; additionally load `references/book-cover.md` for a book cover |
 | Portrait, cover, banner, hero, illustration, product image (no baked-in text) | `references/portrait.md` |
@@ -86,6 +87,8 @@ Pick one type reference per task:
 For layered diagram creation or repair, apply the layered-spacing and rendered-copy gates in `references/knowledge-map.md`; existing vector sources are not exempt from validation.
 
 ## Default visual style
+
+For picture books, load [references/picture-book.md](references/picture-book.md) before generation or repair. It governs distinct compositions, identity references, integrated lettering, pilot pages, and final-page QA. Default to full-page scenes with text on the illustrated surface; separate text panels require the user's chosen layout. Approved artwork governs identity and style, not every page's pose or camera.
 
 Qingshan Lake is the default style when the user does not specify another one. Read `references/qingshan-lake-style.md` and select exactly one appearance:
 
@@ -198,6 +201,8 @@ Use the summary helpers in `references/generation.md`; do not rely on memory or 
 **Exception — sprite loop:** generate a sprite sheet, split into numbered PNG frames, produce `preview.gif`, and save `manifest.json`. Follow `references/sprite-loop.md`.
 
 **Exception — Codex v2 pet:** keep the final spritesheet as transparent PNG or WebP (never generic WebP conversion), produce `pet.json` with `spriteVersionNumber: 2`, and retain the required QA artifacts. Follow `references/codex-pet.md`.
+
+**Exception — picture book:** preserve source illustrations and editable copy; export numbered PNG or high-quality JPEG pages at the requested physical size. A PDF or contact sheet supplements requested separate images. Keep per-page metadata in a linked manifest; do not apply article WebP defaults to book pages. Follow `references/picture-book.md`.
 
 Post-process steps (resize, WebP conversion, PNG compression) are in `references/post-process.md`.
 
