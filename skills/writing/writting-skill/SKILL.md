@@ -1,11 +1,17 @@
 ---
 name: writting-skill
-description: Create, continue, restructure, review, or rewrite Chinese and English prose while preserving facts, intent, terminology, constraints, and the author's voice. Route persistent publishing work into Blog or Book mode. Always use for picture books (绘本、亲子故事书), books and manuscripts, blogs, comic articles (漫画文章、漫画拆解), technical documentation, proposals, reports, product copy, speeches, social posts, articles, titles, taglines, and other substantial writing. Picture books are orchestrated here, with better-imagegen designated for illustrations and image edits. Also use when text needs book planning, chapter drafting, long-form continuity, outlining, stronger reasoning or argumentation, logical consistency, clearer structure, fact-aware editing, a named voice profile such as 紫升风格 or 团队项目外宣风格, tone adjustment, proofreading, natural wording, or a final editorial review.
+description: Use when the user explicitly requests writing, continuing, rewriting, polishing, or editorial review of prose, such as articles, blogs, books, picture books (绘本、亲子故事书), technical documents, proposals, report drafts, product copy, speeches, or social posts. A natural writing request is enough; the user need not name the skill. Do not activate for ordinary Q&A, coding, debugging, routine progress or completion replies, incidental documentation edits, automatic maintenance, or questions about this skill. Preserve facts and the author's voice; picture books use better-imagegen for illustrations.
 ---
 
 # Writting Skill
 
 Produce useful writing, not merely polished sentences. Establish the task, build a defensible structure, draft from verified material, and review accuracy, clarity, structure, and voice before delivery.
+
+## Activation boundary
+
+Start the writing workflow only when the user's requested deliverable is authored or edited prose. Requests such as “写一篇博客”, “润色这份方案”, “写一本绘本”, or “帮我起草汇报材料” qualify without an explicit skill mention. Continue an already requested writing task when the user asks to continue.
+
+Routine explanations, engineering handoffs, progress replies, PR descriptions, incidental README updates, automatic distillation, and skill configuration maintenance do not activate this workflow by themselves. A writing request embedded in a larger task qualifies only for that requested writing part. Otherwise complete the actual task directly.
 
 ## Core standard
 

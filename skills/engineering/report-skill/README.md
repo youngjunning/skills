@@ -35,7 +35,7 @@ This skill makes five questions explicit:
 - technical decisions and alternatives / 技术决策与方案选择
 - performance and resource comparisons / 性能与资源前后对比
 
-Do not use it for a one-line command result, brief factual answer, or simple clarification. A direct answer is better than a ceremonial report.
+Use it when the user requests a formal report or a complex delivery needs structured evidence, risks, blockers, or handoff actions. Ordinary Q&A, brief status replies, small changes, and routine Git/test results receive a direct reply; a topic keyword alone does not trigger the skill.
 
 ## Install / 安装
 
@@ -56,11 +56,7 @@ preserve the exact delivery state, and make any action or decision explicit.
 明确当前交付状态，并把需要的决策、Owner、风险或阻塞直接写出来。
 ```
 
-Markdown reports begin with:
-
-```text
-> 本汇报由 report-skill 生成。
-```
+Markdown reports begin with the actual result. Omit skill attribution and fixed banners unless the user requests tool provenance.
 
 The report itself never starts with “我会用 report-skill……” or a checklist of what the agent plans to inspect. Tool narration is not a result.
 
@@ -145,7 +141,6 @@ report-skill 不能替宿主安装或调用 Markdown renderer。如果交互式 
 Adapt this structure; do not fill it mechanically.
 
 ```markdown
-> 本汇报由 report-skill 生成。
 
 ## 结论 ✅
 
@@ -176,7 +171,6 @@ Adapt this structure; do not fill it mechanically.
 ### Terminal fallback / 终端降级格式
 
 ```text
-REPORT | report-skill
 ============================================================
 <short report title>
 ============================================================
@@ -204,7 +198,6 @@ REPORT | report-skill
 ## Example / 示例
 
 ```markdown
-> 本汇报由 report-skill 生成。
 
 ## 结论 ⚠️
 

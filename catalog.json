@@ -15,13 +15,13 @@
     "name": "report-skill",
     "category": "engineering",
     "path": "skills/engineering/report-skill",
-    "summary": "工程汇报与交付证据"
+    "summary": "按需生成正式工程汇报与复杂交付说明"
   },
   {
     "name": "writting-skill",
     "category": "writing",
     "path": "skills/writing/writting-skill",
-    "summary": "中文与英文写作、漫画文章、博客、书稿与绘本制作"
+    "summary": "用户要求写作时调用，支持文章、博客、书稿与绘本"
   },
   {
     "name": "tauri-skills",

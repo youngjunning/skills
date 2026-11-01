@@ -81,7 +81,6 @@ Use the selected report-skill output mode. Markdown mode is the default and may 
 Terminal mode uses labeled metric blocks:
 
 ```text
-REPORT | report-skill
 ============================================================
 Performance comparison
 ============================================================

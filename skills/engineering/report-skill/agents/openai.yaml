@@ -1,4 +1,4 @@
 interface:
   display_name: "Report Skill"
-  short_description: "Write decision-ready, evidence-first engineering reports"
+  short_description: "Formal reports and complex handoffs on demand; no fixed attribution"
   default_prompt: "Use $report-skill to write a Markdown decision-ready report by default for interactive Codex CLI/TUI, Codex App/chat, IDE chat, PRs, issues, and documents. Lead with the result versus target, connect verified impact to evidence, preserve the exact delivery state, and make remaining action, risk, blocker, owner, or decision explicit. Use terminal mode only for redirected stdout, plain-text or CI output, or an explicit compatibility fallback; never put ANSI control codes in the report source."

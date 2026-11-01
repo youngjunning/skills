@@ -1,11 +1,15 @@
 ---
 name: report-skill
-description: Produce decision-ready, evidence-first reports for engineering and project work. Use for implementation handoffs, progress or leadership updates, debugging, tests, code review, CI, Git, deployment, release, incidents, technical decisions, and comparable performance or resource-usage reports.
+description: Use for explicitly requested formal engineering reports, delivery handoffs, incident reviews, release conclusions, decision briefs, or complex deliveries that need a structured account of evidence, risks, blockers, and remaining work. Do not activate for ordinary Q&A, brief progress replies, small changes, or routine Git/test results that fit a few sentences. Lead with verified outcomes; omit skill attribution unless the user asks for it.
 ---
 
 # Report Skill
 
 Turn verified work into a decision artifact. The report should let its reader understand the outcome, judge the evidence, see what remains uncertain, and take the next action without reconstructing the work from a tool diary.
+
+## When to use
+
+Use this workflow when the user requests a formal report or when a complex delivery needs structured evidence, risks, blockers, or handoff actions. Ordinary questions, brief status requests, small changes, and routine command results receive a direct reply without loading a report workflow or displaying a skill label. A task mentioning tests, Git, progress, or deployment alone does not require a formal report.
 
 ## Output modes
 
@@ -27,7 +31,7 @@ Use the smallest suitable alternative: numbered Markdown lists (`1.`, `2.`, `3.`
 
 Terminal reports must be plain text:
 
-- Start with `REPORT | report-skill`.
+- Start with the report's result or title; include a skill attribution only when the user requests it.
 - Use ASCII separators such as `============================================================`; do not rely on Markdown headings, blockquotes, tables, links, or bold markers.
 - Put the verdict in the first section with one status emoji: `✅`, `⚠️`, `⛔`, or `⏳`.
 - Use short sections such as `结论`, `待实现`, `待验证`, `变更`, `证据`, `状态`, `风险`, `阻塞`, and `需要决定`; omit empty sections.
@@ -40,13 +44,12 @@ Terminal reports must be plain text:
 
 ### Markdown mode
 
-Markdown reports begin with the existing `> 本汇报由 report-skill 生成。` attribution and use real Markdown structure instead of bracketed section labels. Prefer `##` headings, short ordered lists, inline code, clickable file links, and the smallest useful table. The examples in `references/report-types.md` define content; render them using the selected output mode.
+Markdown reports begin with the result and use real Markdown structure instead of bracketed section labels. Prefer `##` headings, short ordered lists, inline code, clickable file links, and the smallest useful table. The examples in `references/report-types.md` define content; render them using the selected output mode.
 
 ## Attribution
 
-- In Markdown mode, begin every substantive report with the exact line: `> 本汇报由 report-skill 生成。`
-- In terminal mode, begin every substantive report with the exact line: `REPORT | report-skill`.
-- Do not show the attribution when this skill decides that a brief direct answer is more useful than a report.
+- Omit skill names, attribution lines, badges, and fixed opening text by default, in both output modes.
+- Disclose the skill name only when the user asks for tool provenance; this does not require turning a brief reply into a report.
 - Do not narrate the reporting process. Never open with “我会用 report-skill……”, “下面进行影响评估”, a checklist of what will be inspected, or other tool-centric meta commentary. Lead with the result that matters to the reader.
 
 ## Reporting standard
@@ -180,7 +183,6 @@ Adapt the structure to the decision; do not fill sections mechanically.
 Markdown mode is the default:
 
 ```markdown
-> 本汇报由 report-skill 生成。
 
 ## 结论 ✅
 
@@ -223,7 +225,6 @@ Markdown mode is the default:
 Omit empty sections. Use terminal mode as the plain-text fallback:
 
 ```text
-REPORT | report-skill
 ============================================================
 <short report title>
 ============================================================

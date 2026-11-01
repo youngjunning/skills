@@ -2,6 +2,8 @@
 
 A general-purpose Codex writing skill for Chinese and English prose. Persistent publishing work has two top-level modes: **Blog** and **Book**.
 
+It activates when the user asks for a writing deliverable, continuation, rewrite, polish, or editorial review. Natural requests such as “写一篇文章” are sufficient. Routine coding, explanations, progress replies, incidental documentation updates, automatic maintenance, and questions about the skill do not activate its writing workflow.
+
 **Blog mode** covers blog posts, technical articles, ATA, tutorials, product or project introductions, and opinion essays. It owns single-article structure, current-product evidence, and publication checks.
 
 Its **Comic article** shape adds complete prose, factual storyboards, scene artwork through better-imagegen, consistent recurring characters, editable lettering, and final article/page review. The bundled [小界 and 小南 roster](references/comic-characters.md) includes identity specifications and portrait/full-body references using portable relative paths. An optional local roster at `~/.config/writting-skill/comic-characters.md` can override this cast. See [Comic articles](references/comic-articles.md).
