@@ -62,7 +62,7 @@
   {
     "name": "memory-distill",
     "category": "productivity",
-    "summary": "独立整理个人记录、参考资料与概念笔记，按配置同步清单与 Codex 项目触发统计",
+    "summary": "通用个人记录、参考资料与概念笔记提炼，支持候选输出和显式目标接入",
     "path": "skills/productivity/memory-distill"
   },
   {
