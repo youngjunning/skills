@@ -1,0 +1,23 @@
+{
+  "name": "kbase-xianxia-male-protagonist",
+  "role": "identity_reference",
+  "source": "user-supplied cinematic xianxia still",
+  "extraction": "image-edit isolation followed by edge-connected background removal and bounded checkerboard cleanup",
+  "locked_identity": [
+    "face",
+    "long dark half-up hair",
+    "blue-and-gold layered cultivation robe",
+    "ornate bronze waist guard",
+    "jade-green luminous sword",
+    "adult proportions",
+    "forward sword pose"
+  ],
+  "format": "PNG with alpha",
+  "resolution": "1481x940",
+  "qa": {
+    "alpha_channel": "passed",
+    "transparent_outer_background": "passed",
+    "face_hair_costume_sword_continuity": "passed",
+    "intended_use": "locked raster compositing or identity-guided image editing"
+  }
+}

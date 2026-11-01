@@ -1,0 +1,90 @@
+:root {
+  --qsl-canvas: #f4f6f1;
+  --qsl-surface: #fbfcfa;
+  --qsl-surface-muted: #e8eeea;
+  --qsl-text: #183b40;
+  --qsl-text-secondary: #4d676b;
+  --qsl-primary: #2e948a;
+  --qsl-primary-action: #286b66;
+  --qsl-on-primary: #ffffff;
+  --qsl-primary-container: #dcefeb;
+  --qsl-success: #356439;
+  --qsl-warning: #7a5b1e;
+  --qsl-error: #8e493e;
+  --qsl-border: #d4dfdc;
+  --qsl-focus: #286b66;
+  --qsl-radius-control: 10px;
+  --qsl-radius-surface: 16px;
+  --qsl-duration-fast: 140ms;
+  --qsl-duration-normal: 200ms;
+}
+
+.qsl-canvas {
+  color: var(--qsl-text);
+  background:
+    radial-gradient(ellipse at 12% 8%, rgb(133 199 186 / 20%), transparent 34%),
+    radial-gradient(ellipse at 88% 16%, rgb(184 204 219 / 22%), transparent 32%),
+    var(--qsl-canvas);
+}
+
+.qsl-surface {
+  background: rgb(251 252 250 / 86%);
+  border: 1px solid rgb(46 148 138 / 18%);
+  border-radius: var(--qsl-radius-surface);
+  box-shadow: 0 18px 48px rgb(15 43 54 / 8%);
+  backdrop-filter: blur(18px) saturate(112%);
+}
+
+.qsl-primary-action {
+  min-block-size: 40px;
+  color: var(--qsl-on-primary);
+  background: var(--qsl-primary-action);
+  border: 1px solid rgb(255 255 255 / 18%);
+  border-radius: var(--qsl-radius-control);
+  transition: background-color var(--qsl-duration-fast) ease,
+    transform var(--qsl-duration-fast) ease;
+}
+
+.qsl-primary-action:hover {
+  background: #205954;
+}
+
+.qsl-primary-action:active {
+  transform: translateY(1px);
+}
+
+.qsl-primary-action:focus-visible {
+  outline: 3px solid var(--qsl-focus);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qsl-primary-action {
+    transition: none;
+  }
+
+  .qsl-primary-action:active {
+    transform: none;
+  }
+}
+
+@media (prefers-contrast: more), (forced-colors: active) {
+  .qsl-surface {
+    background: var(--qsl-surface);
+    border-color: currentColor;
+    box-shadow: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .qsl-surface {
+    background: var(--qsl-surface);
+    backdrop-filter: none;
+  }
+}
+
+@supports not (backdrop-filter: blur(1px)) {
+  .qsl-surface {
+    background: var(--qsl-surface);
+  }
+}

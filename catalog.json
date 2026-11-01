@@ -1,0 +1,104 @@
+[
+  {
+    "name": "top-architect",
+    "category": "engineering",
+    "path": "skills/engineering/top-architect",
+    "summary": "架构讨论、决策与评审"
+  },
+  {
+    "name": "better-imagegen",
+    "category": "design",
+    "path": "skills/design/better-imagegen",
+    "summary": "图像生成、编辑与素材校验"
+  },
+  {
+    "name": "report-skill",
+    "category": "engineering",
+    "path": "skills/engineering/report-skill",
+    "summary": "工程汇报与交付证据"
+  },
+  {
+    "name": "writting-skill",
+    "category": "writing",
+    "path": "skills/writing/writting-skill",
+    "summary": "中文与英文写作、博客与书稿"
+  },
+  {
+    "name": "tauri-skills",
+    "category": "engineering",
+    "path": "skills/engineering/tauri-skills",
+    "summary": "Tauri 2 安全边界与 Node.js sidecar"
+  },
+  {
+    "name": "qingshan-design",
+    "category": "design",
+    "path": "skills/design/qingshan-design",
+    "summary": "青山湖跨平台设计系统"
+  },
+  {
+    "name": "windows-app-automation",
+    "category": "engineering",
+    "path": "skills/engineering/windows-app-automation",
+    "summary": "Windows 桌面自动化与状态验收"
+  },
+  {
+    "name": "fiction-site-builder",
+    "category": "writing",
+    "path": "skills/writing/fiction-site-builder",
+    "summary": "小说创作与阅读站点建设"
+  },
+  {
+    "name": "adsense-site-builder",
+    "category": "publishing",
+    "path": "skills/publishing/adsense-site-builder",
+    "summary": "AdSense 站点规划、建设与就绪审查"
+  },
+  {
+    "name": "browser-performance-audit",
+    "category": "engineering",
+    "path": "skills/engineering/browser-performance-audit",
+    "summary": "浏览器加载、资源与长会话性能审查"
+  },
+  {
+    "name": "memory-distill",
+    "category": "productivity",
+    "summary": "按配置蒸馏个人记忆、收藏与技能清单",
+    "path": "skills/productivity/memory-distill"
+  },
+  {
+    "name": "personal-records-reader",
+    "category": "productivity",
+    "summary": "从显式配置的资料站读取记录、文章与收藏",
+    "path": "skills/productivity/personal-records-reader"
+  },
+  {
+    "name": "qoderwork-cup",
+    "category": "engineering",
+    "summary": "QoderWork Chat 的 Computer Use 验收",
+    "path": "skills/engineering/qoderwork-cup"
+  },
+  {
+    "name": "qwenwork-cup",
+    "category": "engineering",
+    "summary": "千问办公 Chat 的 Computer Use 验收",
+    "path": "skills/engineering/qwenwork-cup"
+  },
+  {
+    "name": "polyglot-service-deploy",
+    "category": "engineering",
+    "summary": "多运行时服务的构建、监督与部署诊断",
+    "path": "skills/engineering/polyglot-service-deploy"
+  },
+  {
+    "name": "lake-report-design",
+    "category": "design",
+    "summary": "可移植 HTML 报告、语义设计与可探索图表",
+    "path": "skills/design/lake-report-design"
+  },
+  {
+    "name": "macos-app-develop",
+    "category": "engineering",
+    "path": "skills/engineering/macos-app-develop",
+    "summary": "原生 macOS、SwiftUI 与 Instruments 工作流（含许可改编）"
+  }
+]

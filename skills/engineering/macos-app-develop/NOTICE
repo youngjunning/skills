@@ -1,0 +1,18 @@
+This maintained adaptation combines SwiftUI engineering guidance and
+Instruments helpers from AvdLee/SwiftUI-Agent-Skill with a project-maintained
+native macOS workflow and Qingshan Lake visual guidance.
+
+Upstream: https://github.com/AvdLee/SwiftUI-Agent-Skill
+License: MIT, Copyright (c) 2026 Antoine van der Lee
+The complete upstream license is retained in UPSTREAM-LICENSE.txt.
+The local analyze_trace.py matches upstream blob
+250dbfdfb262f09301d097b597be3c92c5b6dc6e, verified during this migration.
+Other adapted references may differ from current upstream.
+
+The earlier third-party macOS design guide had no explicit redistribution
+license in its source repository and is not redistributed here. Its slot is
+replaced with original concise guidance based on the maintained visual system
+and public Apple documentation links.
+
+Bundled API notes are snapshots. Check the installed SDK, deployment target
+and current Apple availability documentation when implementing a task.

@@ -1,0 +1,22 @@
+{
+  "file": "assets/identity-references/zisheng-avatar.png",
+  "role": "identity_reference",
+  "subject": "紫升",
+  "actual_resolution": "1024x1024",
+  "output_format": "png",
+  "file_size_bytes": 1935426,
+  "sha256": "46dfa826f94da17f26f9d2fcc4a6c57d7e75a388477ff0484495b1c1f090e8dc",
+  "identity_lock": [
+    "warm brown eyes",
+    "thick black eyebrows",
+    "short upward-spiked black hair",
+    "friendly confident smile",
+    "warm skin tone",
+    "deep-purple oversized hoodie",
+    "hand-drawn cel-animation texture"
+  ],
+  "usage": "Authoritative face, hair and expression reference when the user explicitly asks to include or preserve Zisheng.",
+  "adult_rendering_rule": "Render the author as an adult age 25+; do not copy age labels or youth framing from earlier generation metadata.",
+  "source": "FiaOS ATA synthetic avatar asset",
+  "created_at": "2026-08-22T10:32:00+0800"
+}

@@ -1,0 +1,299 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "Lake Report Design",
+  "version": "1.0.0",
+  "source": {
+    "authority": "Bundled Lake Report visual system",
+    "derivedFrom": "A multi-reference design-system matrix combining Ant Design, Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI with Qingshan Lake visual language and contemporary Chinese visual cues, adapted through product-specific for internal React/web products and HTML reports",
+    "culturalScope": {
+      "tradition": "chinese-traditional-culture",
+      "dynastyScope": "non-dynastic",
+      "excluded": ["qing-dynasty-aesthetics-and-characteristic-symbols"]
+    },
+    "selfContained": true,
+    "verifiedAt": "2026-09-22"
+  },
+  "architecture": {
+    "tokenLayers": ["seed", "map", "alias", "component"],
+    "aliasGroup": "semantic",
+    "brandLayer": "contemporary-chinese-cues",
+    "appearanceAxes": {
+      "mode": ["light", "dark"],
+      "season": ["spring", "summer", "autumn", "winter"]
+    },
+    "materialPresets": ["celadon-glaze", "glass"],
+    "currentAppearance": {
+      "mode": "light",
+      "season": "autumn",
+      "material": "celadon-glaze"
+    },
+    "languageAxes": ["style", "mood"],
+    "currentLanguage": {
+      "style": "contemporary-chinese-cues",
+      "mood": "quiet-youthful-distance"
+    },
+    "systemReference": "reference-system-matrix",
+    "referenceSystems": [
+      "ant-design",
+      "material-3",
+      "radix-primitives",
+      "shadcn-ui",
+      "tailwind-css",
+      "magic-ui"
+    ],
+    "cssVariableStrategy": "semantic",
+    "utilityFramework": "tailwind-css-4",
+    "primitiveStrategy": "shadcn-open-code",
+    "motionEnhancement": "magic-ui-progressive"
+  },
+  "appearanceContract": {
+    "seasonTokens": {
+      "summer": {
+        "background": "{color.canvas}",
+        "surface": "{color.surface}",
+        "surfaceMuted": "{color.surfaceMuted}",
+        "primary": "{color.primary}",
+        "primaryHover": "{color.primaryHover}",
+        "primaryAction": "{color.primaryAction}",
+        "accent": "{color.summerLeaf}",
+        "text": "{color.text}",
+        "textSecondary": "{color.textSecondary}",
+        "border": "{color.border}",
+        "success": "{color.successStrong}",
+        "warning": "{color.warningStrong}",
+        "error": "{color.errorStrong}",
+        "focus": "{color.primaryAction}"
+      },
+      "autumn": {
+        "background": "#F7F3EB",
+        "surface": "#FCFAF4",
+        "surfaceMuted": "#EBE8DC",
+        "primary": "#4E7159",
+        "primaryHover": "#40634C",
+        "primaryAction": "#52795A",
+        "accent": "#5D8061",
+        "text": "#3B4039",
+        "textSecondary": "#6D756B",
+        "border": "#C8D3BD",
+        "success": "#5D8A60",
+        "warning": "{color.warningStrong}",
+        "error": "{color.errorStrong}",
+        "focus": "#6B9572"
+      }
+    },
+    "materialTokens": {
+      "celadon-glaze": {
+        "surfaceAlpha": 1,
+        "surfaceStrongAlpha": 1,
+        "surfaceMutedAlpha": 1,
+        "borderAlpha": 0.92,
+        "quietBorderAlpha": 0.58,
+        "blur": "0px",
+        "selectedItemTreatment": "opaque-season-neutral-fill-with-inset-fired-edge",
+        "actionTreatment": "opaque-season-action-with-glaze-highlight-and-inset-fired-edge",
+        "fallback": "opaque-surface",
+        "atmosphere": "restrained"
+      },
+      "glass": {
+        "surfaceAlpha": 0.68,
+        "surfaceStrongAlpha": 0.86,
+        "surfaceMutedAlpha": 0.6,
+        "borderAlpha": 0.78,
+        "quietBorderAlpha": 0.52,
+        "blur": "22px",
+        "selectedItemTreatment": "translucent-season-neutral-fill-with-specular-edge-and-backdrop-blur",
+        "actionTreatment": "season-action-with-soft-specular-edge-and-translucent-secondary-control",
+        "fallback": "opaque-surface",
+        "atmosphere": "peripheral-only"
+      }
+    },
+    "materialRules": {
+      "contentSurface": "surfaceStrong",
+      "transparentAllowed": ["navigation", "perimeter", "orientation"],
+      "transparentForbidden": ["evidence", "table", "code", "log", "long-text"],
+      "surfaceRoles": {
+        "materialChrome": ["app-shell", "sidebar", "selected-navigation-item", "selected-conversation-item", "selected-tab", "selected-segment", "selected-menu-option", "selected-pagination-page", "interactive-skill-card", "chat-status-tile", "page-frame", "toolbar-shell", "primary-action", "outline-action", "supporting-panel", "card-shell", "dialog-chrome", "chat-document-header", "chat-document-footer"],
+        "opaqueReading": ["table", "form-field", "editor", "composer-input", "chat-document-body", "evidence", "code", "log", "long-text"]
+      },
+      "reducedTransparencyFallback": "remove-backdrop-filter-and-use-surfaceStrong",
+      "semanticColorsUnaffected": true
+    }
+  },
+  "color": {
+    "canvas": "#F7F5F0",
+    "surface": "#FFFDFA",
+    "surfaceMuted": "#E8EEEA",
+    "mistWhite": "#F2F7F2",
+    "cloudBelt": "#B8CCDB",
+    "lakeMist": "#85C7BA",
+    "summerLeaf": "#4F8D50",
+    "primary": "#397A46",
+    "primaryHover": "#306A3D",
+    "primaryAction": "#275A34",
+    "primaryContainer": "#DFEDDA",
+    "primarySubtle": "#EFF6ED",
+    "text": "#253C2D",
+    "textSecondary": "#526A56",
+    "textTertiary": "#748B76",
+    "success": "#4F8751",
+    "successStrong": "#356439",
+    "warning": "#D89848",
+    "warningStrong": "#96620F",
+    "error": "#C86848",
+    "errorStrong": "#A7472D",
+    "info": "#4D7180",
+    "border": "#D6E0D3",
+    "darkCanvas": "#0F2B36",
+    "darkSurface": "#183B40",
+    "white": "#FFFFFF",
+    "inkBlack": "#1F2E2E",
+    "cinnabar": "#B34A3C",
+    "cinnabarStrong": "#8E352D",
+    "celadon": "#7FB5A7",
+    "xuanPaper": "#F5F1E8",
+    "indigo": "#34556B"
+  },
+  "seed": {
+    "colorCanvas": "{color.canvas}",
+    "colorPrimary": "{color.primary}",
+    "colorText": "{color.text}",
+    "radiusControl": "10px",
+    "spaceUnit": "8px",
+    "motionBase": "200ms"
+  },
+  "map": {
+    "colorPrimaryHover": "{color.primaryHover}",
+    "colorPrimaryAction": "{color.primaryAction}",
+    "colorPrimaryContainer": "{color.primaryContainer}",
+    "colorSuccess": "{color.successStrong}",
+    "colorWarning": "{color.warningStrong}",
+    "colorError": "{color.errorStrong}"
+  },
+  "semantic": {
+    "background": "{color.canvas}",
+    "surface": "{color.surface}",
+    "surfaceStrong": "{color.surface}",
+    "surfaceMuted": "{color.surfaceMuted}",
+    "text": "{color.text}",
+    "textSecondary": "{color.textSecondary}",
+    "textTertiary": "{color.textTertiary}",
+    "primary": "{color.primary}",
+    "primaryHover": "{color.primaryHover}",
+    "primaryAction": "{color.primaryAction}",
+    "onPrimaryAction": "{color.white}",
+    "primaryContainer": "{color.primaryContainer}",
+    "primarySubtle": "{color.primarySubtle}",
+    "onPrimaryContainer": "{color.text}",
+    "success": "{color.successStrong}",
+    "warning": "{color.warningStrong}",
+    "error": "{color.errorStrong}",
+    "info": "{color.info}",
+    "border": "{color.border}",
+    "focus": "{color.primaryAction}",
+    "darkBackground": "{color.darkCanvas}",
+    "darkSurface": "{color.darkSurface}",
+    "onDark": "{color.mistWhite}",
+    "onDarkSecondary": "{color.cloudBelt}",
+    "inkAccent": "{color.inkBlack}",
+    "cinnabar": "{color.cinnabarStrong}",
+    "heritageSurface": "{color.xuanPaper}",
+    "celadon": "{color.celadon}"
+  },
+  "component": {
+    "primaryButtonBackground": "{semantic.primaryAction}",
+    "primaryButtonForeground": "{semantic.onPrimaryAction}",
+    "selectedBackground": "{semantic.primaryContainer}",
+    "focusRing": "{semantic.focus}",
+    "evidenceSurface": "{semantic.surfaceStrong}",
+    "successForeground": "{semantic.success}",
+    "warningForeground": "{semantic.warning}",
+    "errorForeground": "{semantic.error}"
+  },
+  "dimension": {
+    "radiusXS": "4px",
+    "radiusSM": "6px",
+    "radiusControl": "10px",
+    "radiusMD": "8px",
+    "radiusSurface": "16px",
+    "radiusLG": "12px",
+    "radiusXL": "16px",
+    "controlCompact": "32px",
+    "controlDefault": "36px",
+    "controlPrimary": "40px",
+    "focusRingWidth": "2px",
+    "focusRingOffset": "2px",
+    "spaceMicro": "4px",
+    "spaceUnit": "8px",
+    "spaceComponent": "16px",
+    "spaceSection": "24px",
+    "spaceRegion": "32px",
+    "contentMeasure": "72ch",
+    "sidebarExpanded": "248px",
+    "sidebarCompact": "64px"
+  },
+  "typography": {
+    "fontBody": "Inter, SF Pro Display, PingFang SC, Microsoft YaHei, sans-serif",
+    "fontDisplay": "Noto Serif SC, Source Han Serif SC, Songti SC, STSong, serif",
+    "fontMono": "SFMono-Regular, Consolas, Liberation Mono, monospace",
+    "sizeCaption": "12px",
+    "sizeBody": "14px",
+    "sizeBodyLarge": "16px",
+    "sizeTitle": "20px",
+    "sizeDisplay": "28px",
+    "lineBody": "1.6",
+    "lineHeading": "1.3",
+    "weightRegular": "400",
+    "weightMedium": "500",
+    "weightSemibold": "600"
+  },
+  "elevation": {
+    "none": "none",
+    "subtle": "0 1px 2px rgba(35, 78, 74, 0.06)",
+    "card": "0 4px 16px rgba(35, 78, 74, 0.06)",
+    "floating": "0 16px 42px rgba(35, 78, 74, 0.10)"
+  },
+  "responsive": {
+    "narrow": "640px",
+    "medium": "768px",
+    "wide": "1024px",
+    "expanded": "1280px"
+  },
+  "motion": {
+    "fast": "140ms",
+    "normal": "200ms",
+    "narrative": "600ms"
+  },
+  "state": {
+    "selectedIndicatorWidth": "3px",
+    "focusRingWidth": "2px",
+    "focusRingOffset": "2px",
+    "disabledOpacity": "0.48",
+    "loadingOpacity": "0.64",
+    "hoverLift": "0 1px 2px rgba(35, 78, 74, 0.06)"
+  },
+  "density": {
+    "defaultControl": "36px",
+    "compactControl": "32px",
+    "presentationControl": "40px",
+    "defaultRhythm": "8px",
+    "compactRhythm": "4px"
+  },
+  "layer": {
+    "base": "0",
+    "sticky": "20",
+    "dropdown": "40",
+    "modal": "60",
+    "toast": "80"
+  },
+  "contrastPairs": [
+    { "foreground": "semantic.text", "background": "semantic.background", "minimum": 4.5 },
+    { "foreground": "semantic.textSecondary", "background": "semantic.background", "minimum": 4.5 },
+    { "foreground": "semantic.onPrimaryAction", "background": "semantic.primaryAction", "minimum": 4.5 },
+    { "foreground": "semantic.onPrimaryContainer", "background": "semantic.primaryContainer", "minimum": 4.5 },
+    { "foreground": "semantic.success", "background": "semantic.surface", "minimum": 4.5 },
+    { "foreground": "semantic.warning", "background": "semantic.surface", "minimum": 4.5 },
+    { "foreground": "semantic.error", "background": "semantic.surface", "minimum": 4.5 },
+    { "foreground": "semantic.onDark", "background": "semantic.darkBackground", "minimum": 4.5 },
+    { "foreground": "semantic.onDarkSecondary", "background": "semantic.darkBackground", "minimum": 4.5 }
+  ]
+}

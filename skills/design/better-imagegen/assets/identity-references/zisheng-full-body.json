@@ -1,0 +1,25 @@
+{
+  "file": "assets/identity-references/zisheng-full-body.png",
+  "role": "identity_reference",
+  "subject": "紫升",
+  "model": "gpt-image-2.5-all",
+  "requested_size": "1024x1536",
+  "actual_resolution": "1024x1536",
+  "generation_time_seconds": 129,
+  "generation_attempts": 2,
+  "response_format": "b64_json",
+  "output_format": "png",
+  "file_size_bytes": 713863,
+  "sha256": "d9aeae206c4b4f27f9d159370c1e463aff10b2ebe508cd03fa7726b6bfce5f86",
+  "postprocess": "Two-pass image edit: extended the supplied avatar into a full-body adult identity reference, then removed all generated profile-card text and graphics onto a uniform matte before edge-connected transparency cleanup. Alpha coverage and full-body safe area verified.",
+  "identity_lock": [
+    "same face, eyes, eyebrows, hair and smile as zisheng-avatar.png",
+    "adult age 25+ and approximately seven-head body proportion",
+    "deep-purple oversized hoodie",
+    "dark tapered utility pants",
+    "black sneakers with restrained lake-teal accents",
+    "relaxed three-quarter standing pose"
+  ],
+  "reference_image": "assets/identity-references/zisheng-avatar.png",
+  "created_at": "2026-08-22T10:32:00+0800"
+}

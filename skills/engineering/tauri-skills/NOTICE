@@ -1,0 +1,13 @@
+Tauri Skills is an original synthesis based primarily on the official
+Tauri v2 documentation.
+
+The project structure and selected general Tauri workflow ideas were informed
+by `tauri-v2` from `nodnarbnitram/claude-code-extensions`, distributed under
+the MIT License:
+
+Copyright (c) 2025 Brandon Martin
+https://github.com/nodnarbnitram/claude-code-extensions
+
+The topics of capability management and Node.js sidecar lifecycle were also
+evaluated against public community Skills. Text from repositories without an
+explicit redistribution license was not copied into this project.

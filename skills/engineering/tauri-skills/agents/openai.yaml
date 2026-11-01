@@ -1,0 +1,4 @@
+interface:
+  display_name: "Tauri Skills"
+  short_description: "Tauri 2 security, IPC, and Node sidecar guidance"
+  default_prompt: "Use $tauri-skills to design or implement this Tauri 2 desktop change with secure boundaries."

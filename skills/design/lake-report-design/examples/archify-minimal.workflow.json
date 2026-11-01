@@ -1,0 +1,83 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "报告图表生成流程",
+    "locale": "zh-CN",
+    "quality_profile": "showcase"
+  },
+  "lanes": [
+    { "id": "input", "label": "输入" },
+    { "id": "runtime", "label": "处理" },
+    { "id": "output", "label": "交付" }
+  ],
+  "phases": [
+    { "id": "prepare", "label": "准备", "fromCol": 0, "toCol": 1 },
+    { "id": "render", "label": "生成", "fromCol": 2, "toCol": 3, "variant": "emphasis" },
+    { "id": "publish", "label": "交付", "fromCol": 4, "toCol": 5 }
+  ],
+  "mainPath": ["source", "ir", "validate", "artifact"],
+  "nodes": [
+    {
+      "id": "source",
+      "lane": "input",
+      "col": 0,
+      "type": "external",
+      "label": "报告数据",
+      "sublabel": "事实与结论",
+      "width": 132
+    },
+    {
+      "id": "ir",
+      "lane": "runtime",
+      "col": 1,
+      "type": "backend",
+      "label": "Typed IR",
+      "sublabel": "稳定图表语义",
+      "width": 132
+    },
+    {
+      "id": "validate",
+      "lane": "runtime",
+      "col": 3,
+      "type": "security",
+      "label": "校验",
+      "sublabel": "schema 与构图",
+      "width": 132
+    },
+    {
+      "id": "artifact",
+      "lane": "output",
+      "col": 5,
+      "type": "frontend",
+      "label": "自包含图表",
+      "sublabel": "HTML / SVG",
+      "width": 132
+    },
+    {
+      "id": "fallback",
+      "lane": "output",
+      "col": 4,
+      "type": "external",
+      "label": "文字摘要",
+      "sublabel": "图表不可用时",
+      "width": 132
+    }
+  ],
+  "edges": [
+    { "id": "source-ir", "from": "source", "to": "ir", "role": "main" },
+    { "id": "ir-validate", "from": "ir", "to": "validate", "label": "validate", "role": "main", "variant": "emphasis" },
+    { "id": "validate-artifact", "from": "validate", "to": "artifact", "label": "deliver", "role": "main", "variant": "emphasis" },
+    { "id": "validate-fallback", "from": "validate", "to": "fallback", "label": "失败或禁用脚本", "role": "error", "variant": "dashed" }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "内置边界",
+      "items": [
+        "图表是正文的可选增强，不取代结论与摘要",
+        "校验失败时不嵌入旧产物"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "Qingshan Lake Image Style",
+  "version": "1.0.0",
+  "defaultMode": "light",
+  "disclaimer": "Independent visual language inspired by mist, water, cypress forests, hills, and boardwalk atmosphere; not an official scenic-area design system.",
+  "mode": {
+    "light": {
+      "canvas": "#F4F6F1",
+      "surface": "#FBFCFA",
+      "surfaceMuted": "#E8EEEA",
+      "text": "#183B40",
+      "textSecondary": "#4D676B",
+      "primary": "#2E948A",
+      "primaryStrong": "#286B66",
+      "primaryContainer": "#DCEFEB",
+      "success": "#356439",
+      "warning": "#7A5B1E",
+      "error": "#8E493E",
+      "border": "#D4DFDC"
+    },
+    "dark": {
+      "canvas": "#0F2B36",
+      "surface": "#183B40",
+      "surfaceMuted": "#234B50",
+      "text": "#F2F7F2",
+      "textSecondary": "#B8CCDB",
+      "primary": "#85C7BA",
+      "primaryStrong": "#62B3A6",
+      "primaryContainer": "#244F50",
+      "success": "#8DBB82",
+      "warning": "#D6A352",
+      "error": "#D58B7D",
+      "border": "#365D62"
+    }
+  }
+}
