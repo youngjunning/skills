@@ -50,7 +50,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | engineering | [qwenwork-cup](skills/engineering/qwenwork-cup/SKILL.md) | 千问办公 Chat 的 Computer Use 验收 |
 | Engineering | [macos-app-develop](skills/engineering/macos-app-develop/SKILL.md) | 原生 macOS、SwiftUI 与 Instruments 工作流（含许可改编） |
 | engineering | [polyglot-service-deploy](skills/engineering/polyglot-service-deploy/SKILL.md) | 多运行时服务的构建、监督与部署诊断 |
-| design | [joyally-design](skills/design/joyally-design/SKILL.md) | 可移植 HTML 报告、语义设计与可探索图表 |
+| design | [joyally-design](skills/design/joyally-design/SKILL.md) | 跨平台品牌设计系统、HTML 报告与可探索图表 |
 
 机器可读目录位于 [catalog.json](catalog.json)。现有技能名保持不变，包括 `writting-skill` 的历史拼写。
 

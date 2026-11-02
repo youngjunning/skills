@@ -1,10 +1,10 @@
-# Joyally Design report design system
+# Joyally Design: design system and bundled preset
 
-This is the Joyally Design brand layer for React/web products and HTML reports. Joyally Design follows a reference-system matrix: Ant Design, Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI each contribute a bounded strength. Qingshan Lake and contemporary Chinese visual cues provide the visual character. The Chinese cultural layer is not tied to one dynasty; it excludes Qing-dynasty aesthetics and their characteristic symbols. The system is encoded in [../assets/joyally-design.tokens.json](../assets/joyally-design.tokens.json) and [../assets/joyally-pakco-theme.css](../assets/joyally-pakco-theme.css). Those bundled files are authoritative at use time.
+Joyally Design supplies a cross-platform method for hierarchy, semantic tokens, component behavior, and evidence-rich reports. Start from the product's own identity and audience. Ant Design, Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI each contribute a bounded implementation strength. The bundled [tokens](../assets/joyally-design.tokens.json) and [Pakco theme](../assets/joyally-pakco-theme.css) implement one Qingshan Lake-inspired preset. They are authoritative when that preset is selected; another brand may provide its own token values and theme while retaining the semantic roles and validation process below.
 
 ## Design character
 
-The report should feel calm, translucent at the perimeter, natural, precise, capable, and evidence-aware. Landscape cues are abstract responsibilities rather than literal scenery.
+Choose the report's visual character from the product brief, brand assets, and reading context. The following cues describe the bundled Qingshan Lake preset. Landscape cues are abstract responsibilities rather than literal scenery.
 
 | Visual cue | Report responsibility |
 | --- | --- |
@@ -46,7 +46,7 @@ Style and mood are peer-level design decisions, but they answer different questi
 | Style | How does the interface look and behave? | Contemporary Chinese cues, celadon-glaze material, glass material, compact density, restrained motion |
 | Mood / 意境 | What feeling, spatial distance, and narrative temperature should the interface leave? | Quiet distance, understated warmth, light time-worn texture, clear and youthful calm |
 
-The baseline mood / 意境 is a quiet, youthful sense of distance and time. Its references may include the cool object-focus and spacious composition associated with *青花瓷*, and the restrained seasonal/time feeling associated with *东风破*. Use those as high-level atmosphere references only: do not quote lyrics, reproduce song copy, or imitate a musical work. In the token contract, `mood` means emotional atmosphere plus spatial distance, temporal feeling, and narrative restraint. It is expressed through pacing, contrast, section rhythm, imagery selection, and the amount of visual silence; it never overrides hierarchy, readability, accessibility, or evidence.
+For the bundled Qingshan Lake preset, the mood / 意境 is a quiet, youthful sense of distance and time. Its references may include the cool object-focus and spacious composition associated with *青花瓷*, and the restrained seasonal/time feeling associated with *东风破*. Use those as high-level atmosphere references only: do not quote lyrics, reproduce song copy, or imitate a musical work. For any brand, `mood` means emotional atmosphere plus spatial distance, temporal feeling, and narrative restraint. Derive it from the product brief and express it through pacing, contrast, section rhythm, imagery selection, and visual silence; it never overrides hierarchy, readability, accessibility, or evidence.
 
 ## Reference system matrix
 
@@ -55,16 +55,16 @@ Joyally Design uses a multi-reference approach. Each reference system contribute
 | Reference | Adopted responsibility | Joyally Design translation |
 | --- | --- | --- |
 | Ant Design | Token derivation, component tokens, enterprise information density, feedback states | `Seed → Map → Alias → Component`, compact workbench defaults |
-| Material 3 | Semantic roles, tonal surface relationships, state layers, motion and accessibility | Clear state layers and restrained tonal contrast on lake surfaces |
+| Material 3 | Semantic roles, tonal surface relationships, state layers, motion and accessibility | Clear state layers and appropriate tonal contrast on the chosen surfaces |
 | Radix Primitives | Keyboard behavior, focus management, WAI-ARIA patterns, overlay logic | Shared primitives must remain operable before styling is applied |
 | shadcn/ui | Open component source, composition, predictable local APIs | Components stay editable in `components/ui` and use explicit variants |
 | Tailwind CSS | Theme variables and utility composition | Alias tokens exposed through `@theme`; utilities express layout |
 | Magic UI | Optional emphasis motion | Shine and shimmer remain progressive enhancement, never the base system |
-| Joyally Design | Brand character and cultural expression | Qingshan Lake atmosphere plus contemporary Chinese restraint |
+| Joyally Design | Product-specific brand character and cultural expression | Derive a visual preset from the product; the bundled Qingshan Lake preset is one example |
 
 This matrix is a division of responsibilities, not a request to install every library. The project should keep one semantic token vocabulary and one component contract while borrowing proven solutions where each reference is strongest.
 
-## Contemporary Chinese expression
+## Contemporary Chinese expression in the bundled preset
 
 中国传统文化只作为可转译的视觉语汇，不限定单一朝代；排除清代典型审美、服饰、宫廷纹样与相关符号，不做清代历史复原。现代清晰度、年轻感和产品可用性优先，传统线索必须经过轻量、当代的设计转译。
 
@@ -222,4 +222,4 @@ The following rules express Qingshan Lake's visual discipline in Joyally Design'
 
 ## Provenance
 
-The token layers and component discipline follow a composed reference-system model, with each reference contributing only where it is strongest. The quiet landscape abstraction and contemporary Chinese visual cues are Joyally Design's brand layer, grounded in Qingshan Lake's visual language and distilled through 产品专属's product design. They remain independent of 产品专属's product domain and can be applied to other internal products and reports.
+The token layers and component discipline follow a composed reference-system model, with each reference contributing only where it is strongest. The quiet landscape abstraction and contemporary Chinese visual cues belong to the bundled Qingshan Lake preset. Other products can retain the same semantic and accessibility contract while deriving their own visual language from their brand and audience.

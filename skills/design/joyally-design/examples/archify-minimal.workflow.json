@@ -4,7 +4,8 @@
   "meta": {
     "title": "报告图表生成流程",
     "locale": "zh-CN",
-    "quality_profile": "showcase"
+    "quality_profile": "showcase",
+    "output": "examples/joyally-minimal.workflow.html"
   },
   "lanes": [
     { "id": "input", "label": "输入" },

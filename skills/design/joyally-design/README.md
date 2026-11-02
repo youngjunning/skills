@@ -1,6 +1,6 @@
 # Joyally Design
 
-统一的跨平台设计 Skill：青山湖视觉语言、原生平台适配、React 组件契约、可移植 HTML 报告与 Archify 图表。
+统一的跨平台设计 Skill：从产品与品牌建立视觉语言，覆盖原生平台适配、React 组件契约、可移植 HTML 报告与 Archify 图表。青山湖是随包预设之一。
 
 ```bash
 npx skills add youngjunning/skills --skill joyally-design -g

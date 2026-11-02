@@ -4,7 +4,7 @@ Joyally Design 将官方 [Archify](https://github.com/tt-a1i/archify) 核心作�
 
 ## 使用场景
 
-报告需要可探索的架构图、工作流图、时序图、数据流图或生命周期/状态图时使用 Archify。图表仍然是可选增强：省略、阻塞、打印或启用 reduced motion 时，报告必须仍然可理解。
+报告需要可探索的架构图、工作流图、时序图、数据流图、生命周期图、ERD、树图、类图、时间线、瀑布图或解释型图文时使用 Archify。根据要表达的关系选择图表类型，不让预设风格决定内容。图表仍然是可选增强：省略、阻塞、打印或启用 reduced motion 时，报告必须仍然可理解。
 
 ## 交付契约
 
@@ -94,4 +94,4 @@ Markdown 文档直接使用原生 HTML 块，前后留空行。独立打开链�
 
 ## 范围与来源
 
-bundled directory 是官方 Archify `archify/` core，包含 CLI、schemas、renderers、viewer template、references 和 examples。来源与 license 记录在 `vendor/archify/UPSTREAM.json`、`vendor/archify/UPSTREAM-LICENSE.txt` 和 `vendor/archify/THIRD_PARTY_NOTICES.md`。
+bundled directory 是官方 Archify `archify/` core 的运行时子集，包含 CLI、schemas、renderers、viewer template、references 和 doctor 所需的最小示例。来源与 Apache-2.0 license、历史 MIT 声明记录在 `vendor/archify/UPSTREAM.json`、`vendor/archify/LICENSE`、`LICENSE-MIT`、`NOTICE` 和 `THIRD_PARTY_NOTICES.md`。

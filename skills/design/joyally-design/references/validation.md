@@ -17,11 +17,11 @@ Do not claim completion from source inspection or a successful build alone.
 
 ## Style gate
 
-- The screen is recognizable without relying on a literal lake image.
+- The screen expresses the product's own brand without relying on a literal scenic image.
 - Primary action, navigation, and status are immediately legible.
-- Mist, glass, and particles never sit between users and dense content.
-- Warm colors remain rare.
-- There is no generic blue-purple AI gradient, full neon, pure-black chrome, or nested-card maze.
+- Atmospheric effects never sit between users and dense content.
+- Color, imagery, and material choices follow the chosen brand and content.
+- Decorative patterns serve hierarchy and meaning rather than filling empty space.
 - Custom styling preserves the platform's semantics and input behavior.
 
 ## Token gate

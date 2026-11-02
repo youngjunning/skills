@@ -1,13 +1,13 @@
 ---
 name: joyally-design
-description: 使用 Joyally Design（青山湖视觉语言）设计、实现或审查 macOS、iOS、Android、React Native 和 Web 界面，生成或改造 HTML 报告，并通过内置 Archify 绘制可探索图表。
+description: 使用 Joyally Design 为 macOS、iOS、Android、React Native 和 Web 建立可适配品牌的设计系统，设计或审查界面、HTML 报告与可探索图表。
 ---
 
 # Joyally Design
 
 将层级、材质、颜色、间距与证据呈现用于用户的实际主题。保留事实、链接、标题、数据与交互，不植入来源产品的角色、术语或业务流程。
 
-Joyally Design 是统一的开源设计语言，合并原 Qingshan Design 与 Joyally Design Design。青山湖是自然视觉来源，不是另一套设计系统，也不代表景区官方。唯一维护源为本目录；产品服务、角色素材和上传配置由使用项目管理。
+Joyally Design 是跨平台的设计方法与实现契约：从产品目标、读者、品牌和使用情境出发，形成语义 tokens、组件行为、内容层级和可验证的交付。青山湖是随包提供的一套视觉预设，不限定其他品牌、文化语汇或审美方向。唯一维护源为本目录；产品服务、角色素材和上传配置由使用项目管理。
 
 ## 跨平台路径
 
@@ -22,7 +22,7 @@ Joyally Design 是统一的开源设计语言，合并原 Qingshan Design 与 Jo
 | Web 工作台 | [工作台](references/web-dashboard.md) 与 [React](references/react-design-system.md) |
 | 营销页 | [Landing page](references/web-landing-page.md) |
 
-移动端保留原生触控热区与字体缩放；桌面保持专业密度。先布局与层级，再语义颜色、表面、组件状态，最后加入氛围与动效。原生示例和默认湖色预设见 [平台视觉参考](references/native-visual-system.md)。
+移动端保留原生触控热区与字体缩放；桌面根据任务选择信息密度。先布局与层级，再语义颜色、表面、组件状态，最后加入品牌氛围与动效。原生示例和随包湖色预设见 [平台视觉参考](references/native-visual-system.md)。
 
 ## 选择路径
 
@@ -33,7 +33,7 @@ Joyally Design 是统一的开源设计语言，合并原 Qingshan Design 与 Jo
 
 ## 设计契约
 
-内容和可读性先于氛围。正文、表格、日志与证据使用不透明表面；湖色、雾白、克制的中国材质线索用于页面外围与必要强调。保持紧凑的专业密度，避免嵌套玻璃卡片、持续装饰动画与颜色单独表示状态。
+内容和可读性先于氛围。正文、表格、日志与证据使用足够清晰的表面；品牌色、材质、字体与图像由具体项目确定。青山湖预设可用于自然、克制的场景，其他项目应从自身品牌素材派生视觉语言。避免嵌套玻璃卡片、持续装饰动画与颜色单独表示状态。
 
 语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn 提供开放组合方式，Tailwind 用于表达已有 tokens，Magic UI 动效只作为可降级增强；不要求安装全部参考库。
 
@@ -58,4 +58,4 @@ node <skill-dir>/scripts/validate-joyally-html.mjs <output-dir>/index.html
 
 默认交付可用的本地产物。用户明确要求托管时，使用其已配置且获授权的上传方式，上传后读回最终 URL 比较 SHA-256；没有托管配置时直接交付本地文件，不推断上传目标或调用私有服务。保留用户要求的源文件。
 
-内置 Pakco HTML 与 Archify 仅作为 MIT 运行时依赖，署名及许可见 [第三方声明](THIRD_PARTY_NOTICES.md)。第三方 runtime 不作为本人原创技能单独发现。公开包不包含角色素材、内部上传代码、账号、真实报告或安装证据。
+内置 Pakco HTML 与 Archify 作为第三方运行时依赖，署名及各自许可见 [第三方声明](THIRD_PARTY_NOTICES.md)。第三方 runtime 不作为本人原创技能单独发现。公开包不包含角色素材、内部上传代码、账号、真实报告或安装证据。
