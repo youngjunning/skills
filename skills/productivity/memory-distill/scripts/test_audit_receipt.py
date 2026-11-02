@@ -14,7 +14,7 @@ def receipt():
         'version': 1, 'scope_complete': True, 'expected_inputs': ['m1', 'm2'],
         'inputs': [{'id': 'm1', 'candidate_ids': ['c1'], 'reason': ''},
                    {'id': 'm2', 'candidate_ids': [], 'reason': '仅请求查看执行进度'}],
-        'reviewed_kinds': ['record', 'reference', 'concept', 'research', 'excerpt'],
+        'reviewed_kinds': ['record', 'vibe', 'reference', 'concept', 'research', 'excerpt'],
         'candidates': [{'id': 'c1', 'kind': 'record', 'source_ids': ['m1'], 'targets': ['personal']}],
         'results': [{'candidate_id': 'c1', 'target': 'personal', 'status': 'created',
                      'record_id': 'item-1', 'reason': '本人明确选择',
@@ -95,6 +95,13 @@ class AuditTests(unittest.TestCase):
         result = audit(data)
         self.assertEqual(result['completion'], 'attention')
         self.assertEqual(result['summary'][0]['status'], 'candidate')
+
+    def test_vibe_observation_uses_its_own_kind(self):
+        data = receipt()
+        data['candidates'][0]['kind'] = 'vibe'
+        result = audit(data)
+        self.assertTrue(result['ok'])
+        self.assertEqual(result['summary'][0]['kind'], 'vibe')
 
     def test_duplicate_target_identity_is_not_double_counted(self):
         data = receipt()

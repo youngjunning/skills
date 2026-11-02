@@ -6,7 +6,7 @@ import json
 from pathlib import Path
 import sys
 
-KINDS = {'record', 'reference', 'concept', 'research', 'excerpt'}
+KINDS = {'record', 'vibe', 'reference', 'concept', 'research', 'excerpt'}
 STATES = {'created', 'updated', 'duplicate', 'candidate', 'skipped', 'failed'}
 
 
@@ -42,7 +42,7 @@ def audit(data):
     need(data.get('scope_complete') is True, 'input scope must be complete before reporting')
     expected = ids(data.get('expected_inputs'), 'expected_inputs')
     reviewed = ids(data.get('reviewed_kinds'), 'reviewed_kinds')
-    need(set(reviewed) == KINDS, 'all five content kinds must be reviewed')
+    need(set(reviewed) == KINDS, 'all six content kinds must be reviewed')
     inputs, candidates, results = rows('inputs'), rows('candidates'), rows('results')
 
     def index(items, name):

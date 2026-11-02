@@ -44,7 +44,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | Writing | [writting-skill](skills/writing/writting-skill/SKILL.md) | 中文与英文写作、博客、书稿与绘本制作；插画指定 better-imagegen |
 | Writing | [fiction-site-builder](skills/writing/fiction-site-builder/SKILL.md) | 小说创作与阅读站点建设 |
 | Publishing | [adsense-site-builder](skills/publishing/adsense-site-builder/SKILL.md) | AdSense 站点规划、建设与就绪审查 |
-| productivity | [memory-distill](skills/productivity/memory-distill/SKILL.md) | 通用记录、资料、研究待办与精选会话蒸馏，支持每轮自动执行与内容变更统计 |
+| productivity | [memory-distill](skills/productivity/memory-distill/SKILL.md) | 个人记录、vibe 观察、资料与精选会话蒸馏，支持每轮增量更新 |
 | productivity | [personal-records-reader](skills/productivity/personal-records-reader/SKILL.md) | 从显式配置的资料站读取记录、文章与收藏 |
 | engineering | [qoderwork-cup](skills/engineering/qoderwork-cup/SKILL.md) | QoderWork Chat 的 Computer Use 验收 |
 | engineering | [qwenwork-cup](skills/engineering/qwenwork-cup/SKILL.md) | 千问办公 Chat 的 Computer Use 验收 |

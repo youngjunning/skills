@@ -56,7 +56,7 @@
   {
     "name": "memory-distill",
     "category": "productivity",
-    "summary": "通用记录、资料、研究待办与精选会话蒸馏，支持每轮自动执行与内容变更统计",
+    "summary": "个人记录、vibe 观察、资料与精选会话蒸馏，支持每轮增量更新",
     "path": "skills/productivity/memory-distill"
   },
   {
