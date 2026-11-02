@@ -1,5 +1,10 @@
 # Changelog
 
+## 2026-11-02
+
+1. 将 Qingshan Design 与 Lake Report Design 合并为 Joyally Design，统一跨平台入口、语义 token 契约和安装名；保留原生平台、React、HTML 报告及 Archify 能力。
+2. 原生示例和报告脚本统一 Joyally 命名，旧项目采用迁移说明更新；内部服务与上传配置继续留在使用项目。
+
 ## 2026-11-01
 
 1. 补充项目级来源复核，迁入维护改编的 macOS 开发技能；保留 SwiftUI 资料 MIT 署名，并以原创检查清单替换未获分发许可的参考正文。

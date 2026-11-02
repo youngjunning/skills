@@ -41,7 +41,6 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | Engineering | [windows-app-automation](skills/engineering/windows-app-automation/SKILL.md) | Windows 桌面自动化与状态验收 |
 | Engineering | [browser-performance-audit](skills/engineering/browser-performance-audit/SKILL.md) | 加载、资源与长会话性能审查 |
 | Design | [better-imagegen](skills/design/better-imagegen/SKILL.md) | 图像生成、编辑与素材校验 |
-| Design | [qingshan-design](skills/design/qingshan-design/SKILL.md) | 青山湖跨平台设计系统 |
 | Writing | [writting-skill](skills/writing/writting-skill/SKILL.md) | 中文与英文写作、博客、书稿与绘本制作；插画指定 better-imagegen |
 | Writing | [fiction-site-builder](skills/writing/fiction-site-builder/SKILL.md) | 小说创作与阅读站点建设 |
 | Publishing | [adsense-site-builder](skills/publishing/adsense-site-builder/SKILL.md) | AdSense 站点规划、建设与就绪审查 |
@@ -51,7 +50,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | engineering | [qwenwork-cup](skills/engineering/qwenwork-cup/SKILL.md) | 千问办公 Chat 的 Computer Use 验收 |
 | Engineering | [macos-app-develop](skills/engineering/macos-app-develop/SKILL.md) | 原生 macOS、SwiftUI 与 Instruments 工作流（含许可改编） |
 | engineering | [polyglot-service-deploy](skills/engineering/polyglot-service-deploy/SKILL.md) | 多运行时服务的构建、监督与部署诊断 |
-| design | [lake-report-design](skills/design/lake-report-design/SKILL.md) | 可移植 HTML 报告、语义设计与可探索图表 |
+| design | [joyally-design](skills/design/joyally-design/SKILL.md) | 可移植 HTML 报告、语义设计与可探索图表 |
 
 机器可读目录位于 [catalog.json](catalog.json)。现有技能名保持不变，包括 `writting-skill` 的历史拼写。
 

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Qingshan Design"
-  short_description: "跨 macOS、iOS、Android 与 Web 的青山湖设计系统"
-  default_prompt: "Use $qingshan-design to design or audit this product in the Qingshan Lake style with platform-native accessibility."

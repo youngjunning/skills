@@ -30,12 +30,6 @@
     "summary": "Tauri 2 安全边界与 Node.js sidecar"
   },
   {
-    "name": "qingshan-design",
-    "category": "design",
-    "path": "skills/design/qingshan-design",
-    "summary": "青山湖跨平台设计系统"
-  },
-  {
     "name": "windows-app-automation",
     "category": "engineering",
     "path": "skills/engineering/windows-app-automation",
@@ -90,10 +84,10 @@
     "path": "skills/engineering/polyglot-service-deploy"
   },
   {
-    "name": "lake-report-design",
+    "name": "joyally-design",
     "category": "design",
     "summary": "可移植 HTML 报告、语义设计与可探索图表",
-    "path": "skills/design/lake-report-design"
+    "path": "skills/design/joyally-design"
   },
   {
     "name": "macos-app-develop",

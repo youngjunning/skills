@@ -1,0 +1,23 @@
+# Joyally Design 统一 token 契约
+
+采用 `Seed → Map → Alias → Component`。文件中的 `semantic` 就是 Alias；平台示例可以省略没有派生值的 Map 层，但不得另立语义体系。
+
+| 角色 | 语义 token | 使用约定 |
+| --- | --- | --- |
+| 画布与阅读表面 | background / surface / surfaceMuted | 长文、表格、代码和证据用不透明表面 |
+| 正文 | text / textSecondary | 在实际背景上验证对比度 |
+| 操作 | primaryAction / onPrimaryAction | primary 是视觉强调，不能默认用于小号白字按钮 |
+| 选中 | primaryContainer / onPrimaryContainer | 不改变控件几何；配合文字或图标 |
+| 焦点 | focus | 保留键盘可见焦点 |
+| 状态 | success / warning / error | 不仅靠颜色表达 |
+| 深色 | darkBackground / darkSurface / onDark | 平台深色实现映射到同一角色 |
+
+## 预设与平台适配
+
+- `assets/joyally-design.tokens.json` 与 `joyally-pakco-theme.css`：报告和 React 的完整分层、四季/材质契约，保留现有青瓷釉与季节预设。
+- `assets/joyally-native.tokens.json`：默认湖色预设的语义值与对比度声明；`JoyallyPalette.swift`、`JoyallyTheme.kt`、`JoyallyTheme.ts`、`joyally-native.css` 是对应平台的起点。
+- 两份 JSON 是同一语义契约的不同预设，不要求色值相同。一次实现先选项目已有预设或明确一种预设，再映射全部相关角色；不要混用两份预设的前景/背景。
+- mode、season、material 是外观选择；style 和 mood 描述视觉语言与意境，不改变交互状态和语义角色。
+- 平台尺寸与交互由平台参考决定：桌面紧凑控件与移动端触控热区共存，不把 Web 布局和 32px 控件直接搬到手机。
+
+变更预设时运行对应 token 校验器。交付产品还需核对运行时配色、字体缩放、键盘/触控、辅助技术与降低动态效果；静态 token 通过不代表设备验收。
