@@ -12,6 +12,8 @@ import sys
 def clean_user(text):
     text = re.sub(r'<in-app-browser-context\b[^>]*>[\s\S]*?</in-app-browser-context>', '', text)
     text = re.sub(r'<external_codex_apps_open_page>[\s\S]*?</external_codex_apps_open_page>', '', text)
+    text = re.sub(r'<environment_context\b[^>]*>[\s\S]*?</environment_context>', '', text)
+    text = re.sub(r'<permissions instructions>[\s\S]*?</permissions instructions>', '', text)
     text = text.strip()
     if not text or text.startswith(('# AGENTS.md instructions', '<environment_context>', '<permissions instructions>')):
         return ''
@@ -74,8 +76,10 @@ def excerpt(filename, match=None, before=2, after=2, tail=12, max_hits=5):
             previous.append(message)
     messages = sorted(selected.values(), key=lambda row: row['line']) if match is not None else list(recent)
     return {'session_file': str(Path(filename).resolve()), 'session': metadata,
+            'selection_mode': 'match' if match is not None else 'tail',
+            'omitted_messages': total - len(messages),
             'matching_messages': matches_seen, 'selected_matches': hits,
-            'truncated': matches_seen > max_hits,
+            'truncated': matches_seen > max_hits if match is not None else total > len(messages),
             'eligible_messages': total, 'messages': messages}
 
 

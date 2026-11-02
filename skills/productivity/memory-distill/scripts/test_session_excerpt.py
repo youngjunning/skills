@@ -78,6 +78,23 @@ class ExcerptTests(unittest.TestCase):
         self.assertEqual(result.returncode, 2)
         self.assertEqual(json.loads(result.stdout)['messages'], [])
 
+    def test_tail_discloses_omitted_earlier_judgment(self):
+        self.write([message('user', '我认为内置脚本足够了'),
+                    message('assistant', '开始检查'), message('assistant', '检查结束')])
+        result = excerpt(self.file, tail=2)
+        self.assertTrue(result['truncated'])
+        self.assertEqual(result['selection_mode'], 'tail')
+        self.assertEqual(result['omitted_messages'], 1)
+        recovered = excerpt(self.file, '内置脚本', before=0, after=0)
+        self.assertEqual(recovered['messages'][0]['line'], 1)
+        self.assertEqual(recovered['selection_mode'], 'match')
+
+    def test_context_block_followed_by_real_request_is_preserved(self):
+        self.write([message('user', '<environment_context>ambient</environment_context>\n我改选方案 B'),
+                    message('user', '<environment_context>ambient only</environment_context>')])
+        result = excerpt(self.file)
+        self.assertEqual([x['text'] for x in result['messages']], ['我改选方案 B'])
+
 
 if __name__ == '__main__':
     unittest.main()
