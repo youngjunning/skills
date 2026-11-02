@@ -18,6 +18,8 @@ Before drafting, establish:
 
 If a missing choice does not materially alter the result, make a reasonable assumption and proceed. Keep editorial workflow out of reader-facing prose unless it changes what the reader must know.
 
+For Blog-mode articles, use a default ceiling of 40 minutes of estimated reading time unless the user specifies another limit. Apply the target publication's actual counting and rounding algorithm when available; otherwise state the estimation assumptions. Report the resulting length ceiling as a consequence of that algorithm: a reading-time limit is also an indirect character or word-count limit. Do not add a second, unrelated fixed word-count cap. When the user explicitly wants no length limit, do not enforce the 40-minute default.
+
 Before drafting or approving a Blog-mode artifact, run the mandatory [publication-value gate](publication-value.md). A polished article is not useful merely because its statements are correct: it must contribute a defensible judgment, evidence-bearing process, reusable mechanism, verified result, or clearly bounded lesson that the intended reader can take away.
 
 ### ATA Markdown title convention
