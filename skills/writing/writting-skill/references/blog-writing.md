@@ -11,6 +11,7 @@ Before drafting, establish:
 - the intended reader and what they should understand, decide, or do;
 - the central judgment or useful outcome;
 - the publication surface, expected length, format, frontmatter, and asset constraints;
+- when the publication surface displays a character count or reading time, its actual counting and rounding algorithm; use that rendered metric to translate a requested reading-time limit into a length budget and verify the finished article, rather than substituting file bytes, raw Markdown length, or a generic words-per-minute estimate;
 - the available facts, firsthand evidence, code, screenshots, measurements, and sources;
 - the author position and selected voice profile;
 - whether the task ends at a draft, repository change, build, or publication.
