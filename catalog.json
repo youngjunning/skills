@@ -56,7 +56,7 @@
   {
     "name": "memory-distill",
     "category": "productivity",
-    "summary": "通用个人记录、参考资料与概念笔记提炼，支持候选输出和显式目标接入",
+    "summary": "通用记录、资料、研究待办与精选会话蒸馏，支持每轮自动执行与内容变更统计",
     "path": "skills/productivity/memory-distill"
   },
   {

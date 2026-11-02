@@ -1,4 +1,4 @@
 interface:
   display_name: "记忆蒸馏"
-  short_description: "从指定材料提炼有证据的个人记录、参考资料与概念笔记，支持候选输出和目标接入"
-  default_prompt: "使用 $memory-distill 整理当前会话中的个人记录、参考资料与概念笔记，核对上下文、来源和重复；按明确目标保存，未配置时只输出候选。"
+  short_description: "按证据蒸馏记录、资料、研究待办与精选会话，支持每轮自动执行和真实变更统计"
+  default_prompt: "使用 $memory-distill 蒸馏本轮记录、资料、概念、研究待办与精选会话，按目标权限保存并报告本轮新增、更新或未保存的候选。"
