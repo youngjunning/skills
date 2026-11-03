@@ -7,7 +7,6 @@ Use named profiles to reproduce a stable set of writing decisions without copyin
 | Request | Load |
 | --- | --- |
 | 紫升风格, 俊宁风格, `blog.zisheng.pro` house voice | [style-zisheng.md](style-zisheng.md) |
-| 团队项目外宣、团队项目介绍、阶段成果对外表达、产品形态与工作方式说明 | [style-team-project-external.md](style-team-project-external.md) |
 | 体系化技术长文、系统性知识梳理、原理/架构/工程实践文章、框架式技术文章 | [style-systematic-engineering.md](style-systematic-engineering.md) |
 
 If no profile matches, preserve the source voice or use the general workflow. Do not approximate a named author from vague cultural stereotypes.
