@@ -1,4 +1,0 @@
-interface:
-  display_name: "Windows App Automation"
-  short_description: "Operate Windows desktop apps with UI Automation"
-  default_prompt: "Use $windows-app-automation to operate a Windows desktop app and verify the result."

@@ -38,7 +38,6 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | Engineering | [top-architect](skills/engineering/top-architect/SKILL.md) | 架构讨论、决策与评审 |
 | Engineering | [report-skill](skills/engineering/report-skill/SKILL.md) | 工程汇报与交付证据 |
 | Engineering | [tauri-skills](skills/engineering/tauri-skills/SKILL.md) | Tauri 2 安全边界与 Node.js sidecar |
-| Engineering | [windows-app-automation](skills/engineering/windows-app-automation/SKILL.md) | Windows 桌面自动化与状态验收 |
 | Engineering | [browser-performance-audit](skills/engineering/browser-performance-audit/SKILL.md) | 加载、资源与长会话性能审查 |
 | Design | [better-imagegen](skills/design/better-imagegen/SKILL.md) | 图像生成、编辑与素材校验 |
 | Writing | [writting-skill](skills/writing/writting-skill/SKILL.md) | 中文与英文写作、博客、书稿与绘本制作；插画指定 better-imagegen |

@@ -30,12 +30,6 @@
     "summary": "Tauri 2 安全边界与 Node.js sidecar"
   },
   {
-    "name": "windows-app-automation",
-    "category": "engineering",
-    "path": "skills/engineering/windows-app-automation",
-    "summary": "Windows 桌面自动化与状态验收"
-  },
-  {
     "name": "fiction-site-builder",
     "category": "writing",
     "path": "skills/writing/fiction-site-builder",
