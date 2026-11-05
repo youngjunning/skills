@@ -30,10 +30,16 @@ Review material consequences rather than completeness for its own sake. Select a
 
 ## AI and runtime
 
+- Is the delivered unit explicit: Skill, Agent execution, or an ongoing digital employee service? Are reusable knowledge, authoritative business rules and deterministic code placed appropriately?
+- Do model choice, context/memory, authorized knowledge access and tool integration fit the real tasks and current environment?
+- Do Skills have useful discovery boundaries, preconditions, dependencies, accepted outputs, regression cases, ownership, versioning and retirement?
+- Is the Agent loop/state recoverable and bounded? When multiple Agents are proposed, is the benefit supported, with delegation, shared-state and acceptance ownership defined?
+- For digital employees, are business duties, intake, workload/service limits, result recipients, human handoff, support and operating ownership defined and tested across repeated work?
 - Are model reasoning, orchestration, tools, state, policy, and permissions distinct?
 - Is autonomy appropriate for severity/reversibility, with bounded execution, verification, audit, and accountable recovery?
 - Do representative evals cover exceptions, partial effects, intervention, and end-to-end accepted outcomes?
 - Do full cost and latency include retries, abandoned attempts, human review, and rework?
+- Does the AI release identify the relevant model/prompt/Skill/tool/data/runtime versions, actual loaded configuration, regression evidence, rollout, in-flight task handling and result correction?
 - Are workload, capacity, resource bounds, and quality budgets supported by comparable measurements?
 - Does performance work address the demonstrated bottleneck and ownership/lifecycle before micro-optimization?
 
@@ -46,4 +52,4 @@ Review material consequences rather than completeness for its own sake. Select a
 - Are technical readiness, deployment, consumer acceptance, adoption, and outcome improvement reported separately?
 - Is there an observable review/stop trigger and an owner for cost, debt, and ongoing operation?
 
-For deep technical concerns, use the matching reference linked from SKILL.md. For a narrow review, a few evidenced findings are sufficient; do not manufacture a business audit or numeric score.
+For AI depth, use [ai-engineering.md](ai-engineering.md); for other technical concerns use the matching reference linked from SKILL.md. For a narrow review, a few evidenced findings are sufficient; do not manufacture a business audit or numeric score.

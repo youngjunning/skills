@@ -1,8 +1,8 @@
 ---
 name: top-architect
-description: Discuss, decide, or review business, product, and technical tradeoffs for software and AI systems. Use for industry workflow analysis, product bets and prioritization, build-versus-buy, architecture, system evolution, and runtime performance when a consequential decision needs evidence and reliable delivery. Excludes routine implementation, copywriting, and generic career advice.
+description: Discuss, decide, or review business, product, and technical tradeoffs for software and AI systems. Use for product bets, build-versus-buy, architecture, Skill and Agent systems, digital employees, system evolution, and runtime performance when a consequential decision needs evidence and reliable delivery. Excludes routine implementation, copywriting, and generic career advice.
 metadata:
-  short-description: Connect business value, product choices, and engineering
+  short-description: Business, product, AI architecture, and reliable delivery
 ---
 
 # Top Architect
@@ -22,6 +22,7 @@ Read the project's instructions, relevant artifacts, and existing decisions befo
 | Discuss before deciding | Offer a provisional view, expose the strongest alternative, and advance one uncertainty per turn. | [Discussion guide](references/discussion-guide.md) for sustained dialogue |
 | Review a product, design, or system | Trace material weaknesses to user/business consequences and the smallest corrective action. | [Review checklist](references/review-checklist.md) |
 | Evolve or deliver an existing system | Find the first useful slice, preserve contracts, plan adoption, migration, operations, and measurement. | [Systems and delivery](references/systems-delivery.md) |
+| Design or deliver AI applications, Skills, Agents, or digital employees | Choose the right automation scope; design capability assets, model/context/tool execution, business-role operation, evals, and versioned delivery. | [AI engineering and delivery](references/ai-engineering.md); [systems and delivery](references/systems-delivery.md) for state and runtime boundaries |
 | Diagnose runtime performance | Establish comparable measurements and fix ownership, lifecycle, and algorithmic causes. | [JavaScript runtime performance](references/javascript-runtime-performance.md) for JS/TS; use the relevant profiler for other runtimes |
 
 For a narrow technical question, use the known product goal and constraints in a sentence and proceed to the technical work. Investigate business or product details only when they could change that decision. A small internal tool needs neither a market study nor a monetization plan. A substantial new product bet requires explicit business and product reasoning before component selection.
@@ -54,11 +55,14 @@ Select one initial segment and a complete journey. Separate essential capabiliti
 
 Map business rules and product behavior to domain concepts, ownership, state transitions, data lifecycle, contracts, and failure boundaries. Domain modeling and technical boundaries should follow real invariants and responsibility; a product module does not automatically need a service.
 
+For AI work, identify the delivered unit: a reusable Skill, an Agent that completes bounded tasks, or a digital employee service responsible for an ongoing business job. They have different contracts and acceptance evidence. Connect domain expertise to skills, data and tools, then to the execution loop, human collaboration, and operating workflow. Compare the necessary level of AI with existing software or deterministic automation; a digital employee does not require a new platform or multiple Agents. Read [ai-engineering.md](references/ai-engineering.md) for these design decisions, not only permission checks.
+
 For a consequential open choice, compare at least two viable options under the same workload, quality, time horizon, and delivery constraints. Include implementation, integration, licensing, infrastructure/model usage, support, migration, and exit costs where material. Explain what is bought with each added complexity and what would reverse the choice. Prefer the smallest operable design that serves the chosen slice.
 
 **Completion:** a recommendation tied to the business/product outcome, rejected alternatives with reasons, owner and contract per consequential boundary, total-cost assumptions, and the riskiest unproven claim. For technical depth, load only the matching reference:
 
-- **Data, distributed systems, security, AI/Agents, rollout, and operating ownership:** [systems-delivery.md](references/systems-delivery.md). Read for consequential system design or delivery, especially stateful, multi-service, or agentic execution.
+- **Models, context/knowledge, tools, Skill lifecycle, Agent execution/collaboration, digital employee operation, AI evals and release:** [ai-engineering.md](references/ai-engineering.md). Read when any of these changes the design or delivery promise.
+- **Data, distributed systems, security, rollout, and operating ownership:** [systems-delivery.md](references/systems-delivery.md). Read for consequential system design or delivery, especially stateful, multi-service, or agentic execution.
 - **Web rendering, state, component boundaries, loading, or browser performance:** [web-architecture-patterns.md](references/web-architecture-patterns.md).
 - **CLI contracts, TTY/CI behavior, child processes, and cross-platform delivery:** [cli-architecture.md](references/cli-architecture.md). For named upstream comparisons also read [cli-source-benchmarks.md](references/cli-source-benchmarks.md).
 - **JS/TS memory, CPU, caches, retention, or hot paths:** [javascript-runtime-performance.md](references/javascript-runtime-performance.md).
@@ -70,11 +74,15 @@ Choose the cheapest check that distinguishes plausible choices. Workflow observa
 
 For AI products, evaluate the complete accepted outcome, including human review, retries, recovery, and abandoned runs. Model accuracy, token savings, and a successful demo are inputs, not proof of customer value or economical automation. Match autonomy to error severity, reversibility, and tested controls.
 
+Evaluate each delivered unit at its own boundary: Skill discovery and correct reuse; Agent task completion and recovery; digital employee service quality, handoff, and sustained business results. Exercise changed dependencies and versions through the real entrypoint. Use representative cases and failure cases; capability count, a chat demo, and a single successful run do not establish these outcomes.
+
 **Completion:** recorded results or an actionable experiment with explicit assumptions and a next decision. Keep unmeasured benefits provisional; fabricated precision and weighted scores cannot substitute for evidence.
 
 ## 5. Deliver, operate, and learn
 
 Plan an end-to-end slice people can adopt. Give it an owner, dependencies, acceptance evidence, rollout boundary, observability, recovery, and support path. Check that team skills, capacity, incentives, and ongoing cost fit the promise. For broader change, sequence migration, compatibility, data correction, and customer communication through the project's authorized process.
+
+For AI delivery, hand over the runnable capability and its operating contract: relevant model/prompt/Skill/tool/data versions, tested configurations, representative evals, deployment and rollback path, human escalation, and feedback ownership. A digital employee additionally needs defined business duties, intake/dispatch, service coverage and workload limits, and acceptance by the people who receive or supervise its work. Use existing project artifacts and release mechanisms; retain human effort and unsuccessful attempts in cost accounting.
 
 Track engineering readiness, production availability, actual adoption, and business/product outcome separately. Tests, commits, pushes, builds, published packages, deployment, installed clients, and user acceptance prove different things. Follow the formal entrypoint and target environment for the claim being made.
 

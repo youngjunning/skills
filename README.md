@@ -35,7 +35,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 
 | 类别 | 技能 | 用途 |
 | --- | --- | --- |
-| Engineering | [top-architect](skills/engineering/top-architect/SKILL.md) | 业务判断、产品取舍、技术架构与稳定交付 |
+| Engineering | [top-architect](skills/engineering/top-architect/SKILL.md) | 业务产品判断、AI 架构与 Skill、Agent、数字员工交付 |
 | Engineering | [report-skill](skills/engineering/report-skill/SKILL.md) | 工程汇报与交付证据 |
 | Engineering | [tauri-skills](skills/engineering/tauri-skills/SKILL.md) | Tauri 2 安全边界与 Node.js sidecar |
 | Engineering | [browser-performance-audit](skills/engineering/browser-performance-audit/SKILL.md) | 加载、资源与长会话性能审查 |

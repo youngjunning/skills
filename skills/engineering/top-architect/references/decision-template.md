@@ -27,6 +27,8 @@ Compare viable options while the choice is open, including existing/manual/buy/d
 
 Describe domain invariants, authoritative state, data lifecycle, boundaries, and interfaces at the needed depth. State the chosen option, opportunity cost, rejected alternatives, and costs accepted.
 
+For AI decisions, name the delivered unit (Skill, Agent, digital employee service), model/context/data/tool choices, capability lifecycle, execution/coordination and human handoff. Define its task or business-role contract and explain why simpler automation is insufficient. Use [ai-engineering.md](ai-engineering.md) where these choices are consequential.
+
 ## Evidence and next decision
 
 | Claim or assumption | Smallest useful check | Baseline/source | Pass/change/stop condition | Limits | Owner/timebox |
@@ -38,5 +40,7 @@ Use verified inputs for economics or show missing variables. Evaluate complete a
 ## Delivery and accountability
 
 First useful slice, dependencies and sequencing, acceptance owner/evidence, rollout boundary, migration/compatibility, rollback and data correction, observability, support, and adoption path. Match commitments to available capacity. Link to existing plans rather than duplicating them.
+
+For AI delivery, identify relevant behavior/configuration versions, representative and failure-case evals, actual runtime adoption, operating duties/service limits, and feedback owner. Keep Skill publication, Agent runtime loading, and business acceptance separate.
 
 Track separately: implementation/tests, artifact/publication/deployment, target-environment acceptance, actual adoption, and outcome improvement. Record residual risks, operational cost/debt owner, recovery path, and the trigger for expand/change/stop.

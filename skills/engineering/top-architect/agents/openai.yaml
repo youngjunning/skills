@@ -1,6 +1,6 @@
 interface:
   display_name: "Top Architect"
-  short_description: "Connect business value, product choices, and engineering"
-  default_prompt: "Use $top-architect to connect this business or user problem to product scope, technical choices, and a verifiable delivery plan, testing the assumptions that could change the decision."
+  short_description: "Business, product, AI architecture, and reliable delivery"
+  default_prompt: "Use $top-architect to connect this business or user problem to product scope, technical and AI choices, and verifiable delivery; for Skills, Agents or digital employees, define capability, execution, operating and acceptance boundaries."
 policy:
   allow_implicit_invocation: true

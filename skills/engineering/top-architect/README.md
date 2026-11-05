@@ -8,7 +8,7 @@ Its working loop is:
 
 > Industry reality → valuable problem → product behavior → system boundaries → delivered outcome → feedback
 
-Use it to understand an industry workflow, assess a product bet, prioritize a first useful slice, compare build/buy options, review architecture, evolve systems, or diagnose runtime performance. It covers users versus buyers/sponsors, incentives, economics per accepted outcome, adoption, trustworthy failure behavior, technical contracts, and operating accountability. Discussion keeps facts, estimates, hypotheses, and preferences visible. Narrow technical work stays narrow; a small internal tool does not require a market study.
+Use it to understand an industry workflow, assess a product bet, prioritize a first useful slice, compare build/buy options, design and deliver Skills, Agents or digital employees, review architecture, evolve systems, or diagnose runtime performance. It covers users versus buyers/sponsors, incentives, economics per accepted outcome, adoption, model/context/data/tool choices, capability lifecycle, execution and collaboration, business-role operation, evaluation and release. Discussion keeps facts, estimates, hypotheses, and preferences visible. Narrow technical work stays narrow; a small internal tool does not require a market study.
 
 ## Use
 
@@ -18,6 +18,7 @@ Invoke it explicitly:
 $top-architect Review this system architecture, focusing on boundaries, data consistency, capacity, and evolution risks.
 $top-architect Discuss the execution boundaries of this Agent with me before reaching a conclusion. Surface the key assumptions and alternatives step by step.
 $top-architect Assess this AI product opportunity: who benefits and pays, what users will adopt, which first slice is worth building, and how to verify its economics and delivery.
+$top-architect Design a digital employee for this business duty: what belongs in Skills, how the Agent runs, how people take over, and what proves the service is ready to operate.
 ```
 
 Install it globally in Codex:
@@ -33,6 +34,7 @@ For a shared source checkout and local links, see the repository [installation g
 - `SKILL.md`: invocation, depth selection, and the business → product → system → evidence → delivery workflow.
 - `references/business-product.md`: industry workflows, incentives, product promise, prioritization, adoption, economics, and bounded validation.
 - `references/systems-delivery.md`: domain invariants, data/distributed systems, AI/Agent control, rollout, and operation.
+- `references/ai-engineering.md`: model/context/data/tool choices, Skill lifecycle, Agent execution and collaboration, digital employee operation, layered evals and AI release.
 - `references/decision-template.md`: business/product/architecture decision memo and ADR template.
 - `references/review-checklist.md`: evidence-led business, product, technical, and delivery review.
 - `references/discussion-guide.md`: provisional judgments, productive disagreement, and convergence.

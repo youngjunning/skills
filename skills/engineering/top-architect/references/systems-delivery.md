@@ -20,13 +20,9 @@ For memory/CPU, establish executable/version, build mode, process scope, workloa
 
 ## AI and Agent systems
 
-Separate model reasoning from orchestration, authoritative state, authorization/policy, data, and execution. The model may propose an action; the trusted execution path enforces the capability contract.
+Use [AI engineering and delivery](ai-engineering.md) for model/context/data choices, Skill lifecycle, Agent loops and collaboration, digital employee workflows, evaluation, and release. Apply the state, data, runtime, and rollout contracts here to that design; permission checks alone do not cover AI engineering.
 
-Define allowed actions, permissions, input/output schema, tenant/session scope, deadlines, idempotency, cancellation, verification, human handoff, and audit. Match autonomy to action severity and reversibility. Treat model output, retrieved content, and remote UI/data according to trust level; a tool connection or sandbox is not a grant of business authority.
-
-Evaluate representative complete tasks: ambiguity, stale state, partial failure, intervention, and recovery. Report accepted completion, severe-error rate, human effort, end-to-end latency, and full cost. Compare deterministic automation, assistance, and autonomy while the choice is open. Surface uncertainty and use calibrated confidence thresholds. Keep an accountable fallback for unsupported cases.
-
-Version prompts, models, tools, schemas, retrieval sources, and eval cases when they affect reproducibility. Use the formal entrypoint and target environment for acceptance. A debug harness, fixed fixture, mock, or lower-layer check proves only its own scope.
+Keep model proposals separate from trusted orchestration, authoritative state, authorization/policy and execution. Use the formal entrypoint and target environment for acceptance. A debug harness, fixed fixture, mock, or lower-layer check proves only its own scope.
 
 ## First useful slice and rollout
 
