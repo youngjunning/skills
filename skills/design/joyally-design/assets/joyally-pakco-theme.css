@@ -302,6 +302,38 @@ body.joyally-report {
   border-bottom: 0;
 }
 
+/* Keep interactive fills inside the same rounded border in every state. */
+.joyally-report .report-disclosure {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.joyally-report .report-disclosure > summary {
+  cursor: pointer;
+  padding: 12px 16px;
+  color: var(--accent);
+  background: var(--surface);
+}
+
+.joyally-report .report-disclosure > summary:hover {
+  background: var(--surface-2);
+}
+
+.joyally-report .report-disclosure > summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -3px;
+}
+
+.joyally-report .report-disclosure[open] > summary {
+  border-bottom: 1px solid var(--border);
+}
+
+.joyally-report .report-disclosure > :not(summary) {
+  padding: 12px 16px;
+}
+
 .joyally-report .report-footer {
   margin-top: 64px;
   padding-top: 20px;

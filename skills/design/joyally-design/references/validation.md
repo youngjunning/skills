@@ -14,6 +14,7 @@ Do not claim completion from source inspection or a successful build alone.
 8. Check light and dark appearances when supported.
 9. Verify foreground/background contrast from computed or runtime colors, not only source hex values.
 10. Inspect performance while atmosphere is idle, offscreen, and backgrounded.
+11. For rounded interactive containers such as report disclosures, inspect all four corners in default, hover, keyboard focus, and expanded states. The fill must remain clipped inside one continuous border; use the bundled `report-disclosure` pattern for generated reports.
 
 ## Style gate
 

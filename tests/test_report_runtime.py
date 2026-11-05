@@ -35,6 +35,19 @@ class ReportRuntimeTests(unittest.TestCase):
             self.assertIn('<svg', output.read_text())
             self.assertGreater(output.stat().st_size, 1000)
 
+    def test_report_disclosure_clips_hover_fill_inside_rounded_border(self):
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / 'report'
+            self.run_command('node', str(ROOT / 'scripts/new-joyally-html.mjs'), 'report', str(target))
+            html = (target / 'index.html').read_text()
+            css = (target / 'pakco/joyally-theme.css').read_text()
+            self.assertIn('<details class="report-disclosure">', html)
+            disclosure = css.split('.joyally-report .report-disclosure {', 1)[1].split('}', 1)[0]
+            self.assertIn('overflow: hidden;', disclosure)
+            self.assertIn('border-radius: var(--radius-sm);', disclosure)
+            self.assertIn('.joyally-report .report-disclosure > summary:hover', css)
+            self.assertIn('.joyally-report .report-disclosure > summary:focus-visible', css)
+
 
 if __name__ == '__main__':
     unittest.main()
