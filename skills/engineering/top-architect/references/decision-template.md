@@ -1,54 +1,42 @@
-# Architecture decision template
+# Business, product, and architecture decision
 
-Use this template for an ADR, design memo, or a decision that deserves a durable record. Keep only sections that change the decision.
+Use for a requested ADR, decision memo, or durable project decision. Retain only fields that affect this choice. Place it in the project's existing location.
 
-## Decision
+## Decision and status
 
-- **Status:** proposed / accepted / superseded
-- **Decision:** one sentence with the chosen boundary or action
-- **Owner:** person or team responsible for follow-through
-- **Date:** when the decision was made
-- **Review trigger:** the observable fact that should cause reconsideration
+Decision or provisional recommendation, owner, date, status, next decision, and observable review trigger. State the evidence most likely to reverse the recommendation.
 
-## Outcome and constraints
+## Business problem and product promise
 
-- **User or business outcome:**
-- **Users and affected systems:**
-- **Success measures:** metric, target, scope, unit, and time window
-- **Hard constraints:** deadline, budget, SLO, compliance, data, contracts, team, or platform limits
-- **Non-goals:**
-- **Known assumptions:** fact / estimate / hypothesis
+- Target user/segment and workflow; beneficiary, buyer/sponsor, approver, and operator when different.
+- Observed problem and current alternative; source and limits of the evidence.
+- Value mechanism and binding constraint: money, time/capacity, risk, quality, or another explicit outcome.
+- First complete user journey, accepted result, exception/recovery path, and adoption or integration barrier.
+- Scope/exclusions, deadline, budget/team capacity, domain rules, and existing commitments.
+- Primary outcome: baseline, target (measured or proposed), denominator, time window, evidence source; relevant guardrails.
+- Critical assumptions and unknowns. For a narrow technical ADR, summarize the established business/product context rather than reopening it.
 
-## Context and model
+## Options and system consequences
 
-Describe only the relevant user journey, data lifecycle, ownership, interfaces, runtime path, and failure boundaries. Link to a diagram only when it removes ambiguity.
+Compare viable options while the choice is open, including existing/manual/buy/defer paths when credible.
 
-## Options
+| Option | User/business effect | Product scope and adoption | Contracts and failure behavior | Total cost and team fit | Evidence and uncertainty |
+| --- | --- | --- | --- | --- | --- |
+| A | | | | | |
+| B | | | | | |
 
-| Option | Value | Complexity | Risk | Cost/operability | Migration | When it wins |
-| --- | --- | --- | --- | --- | --- | --- |
-| A |  |  |  |  |  |  |
-| B |  |  |  |  |  |  |
+Describe domain invariants, authoritative state, data lifecycle, boundaries, and interfaces at the needed depth. State the chosen option, opportunity cost, rejected alternatives, and costs accepted.
 
-State the chosen option, the rejected alternatives, and which facts would change the choice.
+## Evidence and next decision
 
-## Evidence plan
+| Claim or assumption | Smallest useful check | Baseline/source | Pass/change/stop condition | Limits | Owner/timebox |
+| --- | --- | --- | --- | --- | --- |
+| | | | | | |
 
-| Assumption or claim | Why it matters | Smallest useful check | Pass condition | What it cannot prove |
-| --- | --- | --- | --- | --- |
-|  |  |  |  |  |
+Use verified inputs for economics or show missing variables. Evaluate complete accepted outcomes, including human work and unsuccessful attempts. Keep proposed targets and expected benefits distinct from results.
 
-## Delivery and evolution
+## Delivery and accountability
 
-1. First releasable slice and its acceptance condition.
-2. Boundary or contract needed for the next slice.
-3. Migration, compatibility, rollout, rollback, and data-correction path.
-4. Observability, support ownership, and user adoption plan.
-5. Technical debt, repayment trigger, and stop condition.
+First useful slice, dependencies and sequencing, acceptance owner/evidence, rollout boundary, migration/compatibility, rollback and data correction, observability, support, and adoption path. Match commitments to available capacity. Link to existing plans rather than duplicating them.
 
-## Consequences
-
-- **Positive:**
-- **Negative or deferred:**
-- **Risks:** cause → impact → mitigation → owner
-- **Open decisions:** question → decision owner → unblock condition
+Track separately: implementation/tests, artifact/publication/deployment, target-environment acceptance, actual adoption, and outcome improvement. Record residual risks, operational cost/debt owner, recovery path, and the trigger for expand/change/stop.

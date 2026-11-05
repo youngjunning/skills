@@ -1,57 +1,31 @@
-# Architecture discussion guide
+# Business, product, and architecture discussion
 
-Use this guide when the user wants to think together before choosing a design. The goal is to improve the model and the decision quality, not to win an argument or prolong the conversation.
+Use when the user wants to explore before choosing. Improve the shared model without turning a conversation into an intake form.
 
-## Opening turn
+## Start with a provisional view
 
-Start with a compact frame:
+State the understood decision, current evidence, most consequential unknown, and a tentative judgment. Add the strongest counterexample or alternative when useful. Business, product, and technical reasoning should appear where it changes the choice, not as three repeated reports.
 
-```text
-【当前理解】我认为要解决的是……，最终可能需要决定……
-【关键不确定性】目前最可能改变方向的是……
-【暂定判断】在现有信息下，我倾向于……，但它依赖……
-【反向检查】如果……成立，这个判断会失效
-【下一问】为了继续判断，我只需要确认……
-```
+For a new opportunity, a useful first distinction is whether the bottleneck is problem value, adoption, economic viability, or execution. For a technical issue with an established goal, start from the relevant boundary or measurement.
 
-Do not ask for every requirement up front. Ask the smallest question that separates the plausible paths.
+Ask only the one or two questions whose answers materially separate the plausible paths. Reuse supplied context; missing optional facts can remain unknown while useful work continues.
 
-## Each discussion turn
+## Advance each turn
 
-1. Update the shared model with new facts, constraints, or user intent.
-2. Mark each important statement as fact, assumption, hypothesis, preference, or open question.
-3. Advance one decision axis: value, boundary, data, runtime, people, economics, risk, or change.
-4. Present a concrete alternative, counterexample, or failure mode when it improves the discussion.
-5. State what evidence would resolve the disagreement.
-6. End with one next question, experiment, artifact to inspect, or provisional checkpoint.
+- Incorporate new facts and corrections; distinguish evidence, estimates, hypotheses, and preferences.
+- Trace one important connection: industry rule to product behavior, adoption barrier to scope, or promise to system contract.
+- Compare a credible alternative or failure case when it changes the reasoning.
+- Name the smallest observation or experiment that would resolve the uncertainty.
+- End with an actionable next move: inspect evidence, test a slice, answer a focused question, or accept a provisional checkpoint.
 
-Use this compact form when the conversation is moving quickly:
-
-```text
-【新增信息】
-【模型变化】这会让……变得更重要 / 不再重要
-【两个方向】A……；B……
-【我的判断】暂时偏向……，因为……
-【仍未解决】……
-【下一步】确认…… / 验证…… / 查看……
-```
+Match depth to the user's pace. A short exchange can use a few connected paragraphs; headings and exhaustive option tables are optional.
 
 ## Productive disagreement
 
-- Attack assumptions and consequences, not the people who hold them.
-- Make the strongest case for the alternative before rejecting it.
-- Separate “can be built” from “should be built” and “can be operated safely”.
-- If the disagreement is about taste, expose the measurable consequence or label it as preference.
-- If the disagreement cannot be resolved with current information, preserve both options and design the cheapest experiment that distinguishes them.
+Explain which assumption or consequence you disagree with, give the strongest version of the alternative, and identify the evidence that would change your view. Separate ability to build, likelihood of adoption, sustainable economics, and ability to operate. Avoid making strategy claims from a successful implementation or market claims without current evidence.
 
-## Signals to converge
+When evidence is unavailable, preserve competing hypotheses and choose a reversible learning step. For external research, customer contact, production trials, spending, or commitments, follow existing authorization.
 
-Move to decision mode when:
+## Converge
 
-- the desired outcome and hard constraints are stable;
-- the main alternatives and their tradeoffs are understood;
-- the riskiest assumption has evidence or an explicitly accepted risk;
-- the user asks to choose, write the ADR, or start implementation;
-- further discussion would repeat known arguments without changing the decision.
-
-Before closing, summarize the alternatives considered, the chosen boundary, unresolved risks, validation plan, owner, and review trigger. A provisional decision is valid when it names the evidence that can overturn it.
+Choose when the user asks, or when outcomes/constraints are stable and further discussion would repeat known arguments. Summarize the recommendation, alternatives, decisive evidence, accepted uncertainty, first useful slice, ownership, and review trigger at the appropriate length. A bounded provisional decision is valid when it states what could overturn it.

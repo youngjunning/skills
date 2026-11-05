@@ -2,13 +2,13 @@
 
 **English** | [简体中文](README.zh-CN.md)
 
-An architecture skill for Codex that helps teams discuss and review systems, then turn ambiguous goals into executable, verifiable, and evolvable architecture decisions.
+An engineering decision skill for Codex that connects business judgment, product choices, technical architecture, and reliable delivery.
 
-It reorganizes the ideas behind “99 Things a Top Architect Should Know” into a practical loop:
+Its working loop is:
 
-> Value → constraints → boundaries → options → evidence → evolution → ownership
+> Industry reality → valuable problem → product behavior → system boundaries → delivered outcome → feedback
 
-Use it for architecture discussions, decisions, design reviews, system evolution, runtime performance, and architecture communication across software systems, Web frontends, AI applications, Agents, and AI Infra. It supports discussion before decision: facts, assumptions, disagreements, and open questions stay explicit instead of being turned into conclusions too early. Its primary output is not a catalogue of design patterns, but a clear recommendation with tradeoffs, validation evidence, a migration path, operational boundaries, and review triggers.
+Use it to understand an industry workflow, assess a product bet, prioritize a first useful slice, compare build/buy options, review architecture, evolve systems, or diagnose runtime performance. It covers users versus buyers/sponsors, incentives, economics per accepted outcome, adoption, trustworthy failure behavior, technical contracts, and operating accountability. Discussion keeps facts, estimates, hypotheses, and preferences visible. Narrow technical work stays narrow; a small internal tool does not require a market study.
 
 ## Use
 
@@ -17,6 +17,7 @@ Invoke it explicitly:
 ```text
 $top-architect Review this system architecture, focusing on boundaries, data consistency, capacity, and evolution risks.
 $top-architect Discuss the execution boundaries of this Agent with me before reaching a conclusion. Surface the key assumptions and alternatives step by step.
+$top-architect Assess this AI product opportunity: who benefits and pays, what users will adopt, which first slice is worth building, and how to verify its economics and delivery.
 ```
 
 Install it globally in Codex:
@@ -29,14 +30,17 @@ For a shared source checkout and local links, see the repository [installation g
 
 ## Design
 
-- `SKILL.md`: invocation boundaries, architecture decision workflow, AI/Agent-specific checks, and the response contract.
-- `references/decision-template.md`: ADR and decision memo template.
-- `references/review-checklist.md`: architecture review checklist.
-- `references/discussion-guide.md`: turn-by-turn protocol and convergence signals for sustained architecture discussions.
+- `SKILL.md`: invocation, depth selection, and the business → product → system → evidence → delivery workflow.
+- `references/business-product.md`: industry workflows, incentives, product promise, prioritization, adoption, economics, and bounded validation.
+- `references/systems-delivery.md`: domain invariants, data/distributed systems, AI/Agent control, rollout, and operation.
+- `references/decision-template.md`: business/product/architecture decision memo and ADR template.
+- `references/review-checklist.md`: evidence-led business, product, technical, and delivery review.
+- `references/discussion-guide.md`: provisional judgments, productive disagreement, and convergence.
 - `references/web-architecture-patterns.md`: Web architecture decision gates, evidence contracts, and a complete coverage map distilled from the 58 JavaScript, React, and Vue skills in PatternsDev.
 - `references/cli-architecture.md`: CLI contract, interaction, automation, and cross-platform architecture guidance.
 - `references/javascript-runtime-performance.md`: comparable profiling, memory ownership, lifecycle cleanup, bounded caches, hot-path allocation, and evidence rules for JavaScript runtimes.
 - `references/framework-source-benchmarks.md`: framework engineering decisions, including pnpm workspace and Changesets release ownership.
+- `references/behavior-checks.md`: independent replay scenarios and the limits of the observed evaluation.
 
 ## Source note
 

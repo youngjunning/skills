@@ -1,49 +1,49 @@
-# Architecture review checklist
+# Business, product, and architecture review
 
-Use the checklist to find material risks, not to score a design for style. Mark each item `yes`, `no`, or `unknown`, and attach evidence for non-trivial claims.
+Review material consequences rather than completeness for its own sake. Select applicable questions; record evidence or unknowns. For each finding give severity, affected actor/outcome, evidence, mechanism, smallest useful fix, and verification. Retain the existing product direction unless the assignment asks to reconsider it or evidence exposes a blocking premise.
 
-## Problem and value
+## Business and opportunity
 
-- Is the user or business outcome explicit?
-- Are the current problem and the proposed solution separate?
-- Are success measures quantifiable and scoped?
-- Are non-goals and hard constraints visible?
+- Who benefits, uses, pays/sponsors, approves, and operates? Where do incentives conflict?
+- Is the current workflow and its actual alternative understood? Is the bottleneck supported by evidence?
+- What creates value, and what could prevent value capture or internal benefit?
+- Are domain rules, data access, procurement/distribution, and integration constraints reflected?
+- Are material costs, exceptions, support burden, opportunity cost, and ownership included?
+- Would a simpler process, existing tool, buy/partner, smaller scope, or deferral serve the outcome?
 
-## Boundaries and data
+## Product and adoption
 
-- Does each component or service have a clear responsibility and owner?
-- Are interfaces, contracts, versioning, and compatibility defined?
-- Is data ownership, lifecycle, consistency, retention, and sensitive data handling clear?
-- Are synchronous, asynchronous, timeout, retry, idempotency, and failure boundaries explicit?
+- Is there an initial segment and complete journey from trigger to accepted result?
+- Does the promise address the observed job? Are essential scope and exclusions explicit?
+- Can users reach first value with realistic data, onboarding, permissions, and learning?
+- Are ambiguity, interruption, correction, failure, cancellation, and human recovery usable?
+- Why would users switch or return? What evidence supports adoption beyond interest or demos?
+- Does the metric measure the accepted outcome with a denominator, baseline/time window, and guardrails?
 
-## Runtime and operations
+## Technical boundaries and data
 
-- Are workload shape, capacity dimensions, latency, availability, and cost assumptions stated?
-- Is the critical path observable and diagnosable?
-- Are degraded behavior, containment, recovery, rollback, and data correction designed?
-- Can the system be deployed and changed incrementally?
-- Can support teams operate it without the original designers?
+- Do domain invariants, authoritative state, responsibilities, and owners align?
+- Are module/service boundaries justified by current needs?
+- Are contracts, versioning, compatibility, and consumer impact explicit?
+- Are data lifecycle, rights/access, tenant separation, retention, and recovery covered where relevant?
+- Do consistency, concurrency, retries, idempotency, timeouts, cancellation, and compensation protect the business operation?
 
-## Options and evidence
+## AI and runtime
 
-- Were at least two credible options considered when the decision is consequential?
-- Are tradeoffs tied to the stated outcome and constraints rather than preference?
-- Is the riskiest assumption tested first?
-- Does each test or metric say what it proves and what it does not prove?
-- Is there a clear review trigger for changing the decision?
+- Are model reasoning, orchestration, tools, state, policy, and permissions distinct?
+- Is autonomy appropriate for severity/reversibility, with bounded execution, verification, audit, and accountable recovery?
+- Do representative evals cover exceptions, partial effects, intervention, and end-to-end accepted outcomes?
+- Do full cost and latency include retries, abandoned attempts, human review, and rework?
+- Are workload, capacity, resource bounds, and quality budgets supported by comparable measurements?
+- Does performance work address the demonstrated bottleneck and ownership/lifecycle before micro-optimization?
 
-## Delivery and people
+## Evidence, delivery, and operation
 
-- Is there a walking skeleton or first vertical slice?
-- Does the plan fit team skills, ownership, and the deadline?
-- Does the design reduce cognitive load for future maintainers?
-- Are adoption, migration, training, and user experience considered?
-- Is technical debt attached to an owner and repayment trigger?
+- Were credible alternatives considered on comparable scope, quality, and time horizon?
+- Is the riskiest assumption tested with a bounded check and go/change/stop condition?
+- Does the first slice deliver a usable outcome within team capacity and dependencies?
+- Are rollout, compatibility, migration, rollback/data correction, observability, and support owned?
+- Are technical readiness, deployment, consumer acceptance, adoption, and outcome improvement reported separately?
+- Is there an observable review/stop trigger and an owner for cost, debt, and ongoing operation?
 
-## AI and Agent systems
-
-- Are model behavior, orchestration, tools, state, policy, and data boundaries separated?
-- Are tool permissions, schemas, timeouts, retries, idempotency, escalation, and auditability explicit?
-- Are quality, safety, privacy, latency, cost, and recovery evaluated on representative tasks?
-- Are prompts, models, tools, knowledge sources, schemas, and eval sets versioned when needed?
-- Is uncertainty observable, and is there a safe degraded or human path?
+For deep technical concerns, use the matching reference linked from SKILL.md. For a narrow review, a few evidenced findings are sufficient; do not manufacture a business audit or numeric score.
