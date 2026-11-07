@@ -20,7 +20,10 @@ function options(overrides = {}) {
       if (path === '/api/records') return json({ records: [{ id, title: 'Example', text: 'A real choice', visibility: 'shared' }, { id: 'ffffffffffffffff', title: 'Example secret', visibility: 'private' }] });
       if (path === `/api/records/${id}`) return json({ record: { id, visibility: 'shared' } });
       if (path === `/raw/${id}`) return new Response(text, { headers: { 'content-type': 'text/markdown' } });
-      if (path === '/api/favorites') return json({ favorites: [{ title: 'Example', visibility: 'shared' }, { title: 'Hidden', visibility: 'private' }] });
+      if (path === '/api/favorites') return json({ version: 1, favorites: [{ id, title: 'Example', visibility: 'shared' }, { id: 'ffffffffffffffff', title: 'Hidden', visibility: 'private' }] });
+      if (path === '/api/research' || path === '/api/excerpts') return json({ version: 1, items: [] });
+      if (path === '/api/okr') return json({ period: 'FY27', objectives: [], materials: [] });
+      if (path === '/api/skills') return json({ version: 1, updatedAt: '2026-11-07', skills: [] });
       return new Response('', { status: 404 });
     },
   };

@@ -56,7 +56,7 @@
   {
     "name": "personal-records-reader",
     "category": "productivity",
-    "summary": "从显式配置的资料站读取记录、文章与收藏",
+    "summary": "从显式配置的资料站检索七类内容、主题与本周更新",
     "path": "skills/productivity/personal-records-reader"
   },
   {
