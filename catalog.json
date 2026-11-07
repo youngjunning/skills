@@ -72,12 +72,6 @@
     "path": "skills/engineering/qwenwork-cup"
   },
   {
-    "name": "polyglot-service-deploy",
-    "category": "engineering",
-    "summary": "多运行时服务的构建、监督与部署诊断",
-    "path": "skills/engineering/polyglot-service-deploy"
-  },
-  {
     "name": "joyally-design",
     "category": "design",
     "summary": "跨平台品牌设计系统、HTML 报告与可探索图表",

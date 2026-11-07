@@ -54,7 +54,6 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | [qoderwork-cup](skills/engineering/qoderwork-cup/SKILL.md) | QoderWork Chat 的 Computer Use 验收 |
 | [qwenwork-cup](skills/engineering/qwenwork-cup/SKILL.md) | 千问办公 Chat 的 Computer Use 验收 |
 | [macos-app-develop](skills/engineering/macos-app-develop/SKILL.md) | 原生 macOS、SwiftUI 与 Instruments 工作流（含许可改编） |
-| [polyglot-service-deploy](skills/engineering/polyglot-service-deploy/SKILL.md) | 多运行时服务的构建、监督与部署诊断 |
 
 ### Design
 
