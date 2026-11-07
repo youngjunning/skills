@@ -49,17 +49,10 @@ Landscape, dark, with **large empty negative space** for text. Prompt rules:
 export PROMPT="Wide-format abstract dark tech background for an enterprise AI product poster, lots of empty negative space for text overlay. Deep gradient from near-black navy to dark indigo, cinematic premium. Soft blurred color auras: cool blue glow upper-left, warm amber glow upper-right, emerald green glow along the bottom edge, low-opacity, nebula bokeh. Fine particle dust and thin circuit-board traces along the left and right edges fading to black. Center and upper-middle stay dark, clean, empty. no text, no letters, no watermark, no logos, no humanoid figure, no faces, no icons, no focal subject, no DNA, no helix. Ultra minimal, moody, high-end keynote stage backdrop, studio-grade digital art, wide 16:9."
 OUTPUT_PATH="/tmp/poster_bg.png"
 if   GEN_LOG=$(gen_image_apiyi "$MODEL_GPT"    "1280x720" "$OUTPUT_PATH"); then MODEL_USED="$MODEL_GPT";    SIZE="1280x720"
-elif GEN_LOG=$(gen_image_apiyi "$MODEL_GEMINI" "1280x720" "$OUTPUT_PATH"); then MODEL_USED="$MODEL_GEMINI"; SIZE="1280x720"
-elif GEN_LOG=$(gen_image_apiyi "$MODEL_DOUBAO" "2560x1440" "$OUTPUT_PATH"); then MODEL_USED="$MODEL_DOUBAO"; SIZE="2560x1440"
-elif GEN_LOG=$(gen_image_apiyi "$MODEL_DOUBAO" "2560x1440" "$OUTPUT_PATH"); then MODEL_USED="$MODEL_DOUBAO"; SIZE="2560x1440"
 else echo "POSTER_BACKDROP_GENERATION_FAILED"; exit 1
 fi
 GENERATION_MS=$(printf '%s\n' "$GEN_LOG" | awk -F: '/^ELAPSED_MS:/{v=$2} END{print v+0}')
 RESPONSE_FORMAT=$(printf '%s\n' "$GEN_LOG" | awk -F: '/^RESPONSE_FORMAT:/{v=$2} END{print v}')
-if [ "$MODEL_USED" = "$MODEL_DOUBAO" ]; then
-  strip_doubao_watermark "$OUTPUT_PATH" 1280 720
-  SIZE="1280x720 (cropped from 2560x1440)"
-fi
 ```
 
 Preview it small before compositing (Read a resized copy), and regenerate if the center is too busy or an unwanted element appears:

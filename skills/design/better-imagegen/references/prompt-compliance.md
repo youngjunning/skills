@@ -2,7 +2,7 @@
 
 Load this reference after `references/generation.md` and before any type-specific reference.
 
-Purpose: reduce accidental GPT Image 2.5 rejections and malformed outputs by normalizing prompts into safe, visual, generation-friendly language. This layer is not for bypassing safety rules. If the user asks for disallowed content, refuse or transform it into an allowed, non-explicit concept before generation.
+Purpose: reduce accidental GPT Image rejections and malformed outputs by normalizing prompts into safe, visual, generation-friendly language. This layer is not for bypassing safety rules. If the user asks for disallowed content, refuse or transform it into an allowed, non-explicit concept before generation.
 
 ---
 
@@ -20,7 +20,7 @@ Purpose: reduce accidental GPT Image 2.5 rejections and malformed outputs by nor
 
 ## Rewrite Targets
 
-Use these replacements before sending a GPT Image 2.5 request.
+Use these replacements before sending a GPT Image request.
 
 | Risky wording | Safer wording |
 |---|---|

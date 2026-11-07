@@ -23,7 +23,7 @@ Load first:
 | Default frames | 12 |
 | Sprite sheet layout | 4 columns x 3 rows |
 | Frame size | `256x256` |
-| Model flow | Gemini `1280x960` → GPT `1280x960` (no Doubao — watermark crop and upscale break the sprite grid) |
+| Model | GPT Image 2.6, `quality=high`, `1280x960` |
 
 The source sheet is a generation target, not the final asset. Split it into frames and verify the loop.
 
@@ -60,7 +60,6 @@ OUTPUT_PATH="/tmp/${SLUG}_sheet.png"
 SHEET_PATH="$OUT_DIR/sprite-sheet.png"
 
 if   GEN_LOG=$(gen_image_apiyi "$MODEL_GPT"    "1280x960" "$OUTPUT_PATH"); then MODEL_USED="$MODEL_GPT"
-elif GEN_LOG=$(gen_image_apiyi "$MODEL_GEMINI" "1280x960" "$OUTPUT_PATH"); then MODEL_USED="$MODEL_GEMINI"
 else echo "SPRITE_LOOP_GENERATION_FAILED"; exit 1
 fi
 SIZE="1280x960"

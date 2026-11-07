@@ -1,6 +1,6 @@
-# Image Generation — GPT-Primary Cascade
+# Image Generation — GPT Image 2.6
 
-Load this reference before generating any image, then load `references/prompt-compliance.md` before composing the final outbound prompt. It provides the `gen_image_apiyi` shell function, the model cascade, metadata helpers, and batch parallelism patterns.
+Load this reference before generating any image, then load `references/prompt-compliance.md` before composing the final outbound prompt. It provides the `gen_image_apiyi` shell function, fixed model settings, metadata helpers, and batch parallelism patterns.
 
 ---
 
@@ -34,19 +34,14 @@ All Python snippets in this reference assume the helper has been initialized and
 
 ## Model Setup
 
-GPT is the primary model. `gpt-image-2.5-all` is preferred for prompt adherence and visual quality; every type reference falls back through Gemini, then Doubao, before giving up.
+Generation and editing use only APIyi `gpt-image-2.6-sunburst` with explicit `quality=high`.
 
 ```bash
-MODEL_GPT="gpt-image-2.5-all"
-MODEL_GEMINI="gemini-3.1-flash-image-4k"
-MODEL_DOUBAO="doubao-seedream-5-0-260128"
+MODEL_GPT="gpt-image-2.6-sunburst"
+QUALITY_GPT="high"
 ```
 
-- **GPT** (`$MODEL_GPT`) — primary. Best prompt adherence and photorealism; preferred for normal generation.
-- **Gemini** (`$MODEL_GEMINI`) — first fallback. Free-form sizing (no preset table), no watermark, true 4K output.
-- **Doubao** (`$MODEL_DOUBAO`) — last-resort fallback. Stamps an `AI生成` watermark bottom-right that must be cropped (`strip_doubao_watermark` in `references/post-process.md`), and has a hard minimum pixel-area floor (3,686,400 px) — request oversized and resize down if the type's target is below that floor.
-
-If Gemini fails, normalize/soften the prompt once with `references/prompt-compliance.md` when appropriate, then fall through to GPT and Doubao. Skip Doubao for sprite sheets and transparent logo/icon art — its watermark crop and pixel floor upscaling break sprite grids and alpha-critical edges; those types stop at GPT.
+Keep both settings unchanged for every request. Do not accept model overrides. Editing follows `references/image-edit.md`; verification scope and bounded retries are in `references/apiyi.md`. At most one same-model retry is allowed per image request, including service errors, permitted prompt corrections and visual corrections. If that attempt fails, preserve the original asset, stop and report the failure.
 
 ---
 
@@ -73,17 +68,19 @@ file_bytes() {
 
 write_image_metadata() {
   local final_path="$1" meta_path="$2" model="$3" requested_size="$4" elapsed_ms="$5" response_format="$6" postprocess_note="${7:-none}"
-  local actual_size bytes format prompt_json
+  local actual_size bytes format prompt_json requested_quality=""
+  if [ "$model" = "$MODEL_GPT" ]; then requested_quality="$QUALITY_GPT"; fi
   actual_size="$(image_dimensions "$final_path")"
   bytes="$(file_bytes "$final_path")"
   format="${final_path##*.}"
   prompt_json=$(printf '%s' "$PROMPT" | "$BETTER_IMAGEGEN_PYTHON" -c 'import json,sys; print(json.dumps(sys.stdin.read().strip()))')
-  "$BETTER_IMAGEGEN_PYTHON" - "$meta_path" "$final_path" "$model" "$requested_size" "$actual_size" "$elapsed_ms" "$response_format" "$format" "$bytes" "$postprocess_note" "$prompt_json" <<'PY'
+  "$BETTER_IMAGEGEN_PYTHON" - "$meta_path" "$final_path" "$model" "$requested_size" "$actual_size" "$elapsed_ms" "$response_format" "$format" "$bytes" "$postprocess_note" "$prompt_json" "$requested_quality" <<'PY'
 import json, sys, time
-meta_path, final_path, model, requested_size, actual_size, elapsed_ms, response_format, fmt, bytes_, postprocess_note, prompt_json = sys.argv[1:]
+meta_path, final_path, model, requested_size, actual_size, elapsed_ms, response_format, fmt, bytes_, postprocess_note, prompt_json, requested_quality = sys.argv[1:]
 data = {
   "file": final_path,
   "model": model,
+  "requested_quality": requested_quality or None,
   "requested_size": requested_size,
   "actual_resolution": actual_size,
   "generation_time_ms": int(elapsed_ms),
@@ -185,7 +182,11 @@ On success it also prints machine-readable lines:
 ```bash
 gen_image_apiyi() {
   local model="$1" size="$2" output_path="$3"
-  local prompt_json start_ms end_ms cmd_status
+  local prompt_json start_ms end_ms cmd_status quality_param=',"quality":"high"'
+  if [ "$model" != "gpt-image-2.6-sunburst" ]; then
+    echo "ERROR: only gpt-image-2.6-sunburst is supported"
+    return 2
+  fi
   prompt_json=$(printf '%s' "$PROMPT" | "$BETTER_IMAGEGEN_PYTHON" -c 'import json,sys; print(json.dumps(sys.stdin.read().strip()))')
   start_ms=$("$BETTER_IMAGEGEN_PYTHON" - <<'PY'
 import time
@@ -196,7 +197,7 @@ PY
   curl -s --max-time 300 "https://api.apiyi.com/v1/images/generations" \
     -H "Content-Type: application/json" \
     -H "Authorization: Bearer $APIYI_API_KEY" \
-    -d "{\"model\":\"$model\",\"prompt\":$prompt_json,\"size\":\"$size\"}" \
+    -d "{\"model\":\"$model\",\"prompt\":$prompt_json,\"size\":\"$size\"$quality_param}" \
   | OUTPUT_PATH="$output_path" "$BETTER_IMAGEGEN_PYTHON" -c "
 import sys, json, base64, os, urllib.request
 output_path = os.environ['OUTPUT_PATH']
@@ -282,7 +283,7 @@ Apply `references/prompt-compliance.md` before the first request. If the primary
 | `lips pressed against` | `faces close, the moment before` |
 | `erotic`, `sexual`, `explicit` | `alluring`, `intimate atmosphere`, `romantic tension` |
 
-Also remove platform names, third-party brand marks, exact in-image text, and aggressive marketing words when they are not essential to the requested visual. After softening, retry GPT once. If it still fails, skip and log.
+Also remove platform names, third-party brand marks, exact in-image text, and aggressive marketing words when they are not essential to the requested visual. For a permitted request, retry GPT Image 2.6 once with the corrected prompt and high quality. If it still fails, record the error and stop.
 
 ---
 

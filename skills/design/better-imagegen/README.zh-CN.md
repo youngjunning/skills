@@ -1,6 +1,6 @@
 # better-imagegen
 
-**通用多模型 AI 生图 Skill** — 可接入支持 `SKILL.md` 的 Agent 运行时或直接复用其脚本；由 [apiyi](https://api.apiyi.com/register/?aff_code=ijv5) 驱动，通过 OpenAI 兼容图片接口自动级联 GPT、Gemini 与豆包模型。
+**通用 GPT Image 2.6 生图 Skill** — 可接入支持 `SKILL.md` 的 Agent 运行时或直接复用其脚本；由 [apiyi](https://api.apiyi.com/register/?aff_code=ijv5) 驱动，通过 OpenAI 兼容图片接口，仅使用 GPT Image 2.6 高质量模式。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Agent Skill](https://img.shields.io/badge/Agent-Skill-blueviolet)](#)
@@ -24,7 +24,7 @@
 把这篇技术文章中的架构、依赖和更新流程文字示意换成正式技术图
 ```
 
-技能按图片类型选择工作流，优先使用 GPT，失败时自动降级到 Gemini 和豆包，再完成后处理并保存到 `~/Pictures/better-imagegen/`。
+技能按图片类型选择工作流，统一使用 GPT Image 2.6 高质量模式，再完成后处理并保存到 `~/Pictures/better-imagegen/`。
 
 生成前会先过一层提示词合规化：自动弱化平台 Logo、图片内精确文字、露骨内容、血腥暴力、模仿在世艺术家等高风险表达，减少正常创意需求被误拒的概率。
 
@@ -34,9 +34,7 @@
 
 | 模型 ID | 角色 | 说明 |
 |---------|------|------|
-| `gpt-image-2.5-all` | 主模型 | 提示词遵循和写实效果最佳，支持 30 个尺寸预设 |
-| `gemini-3.1-flash-image-4k` | 第一降级模型 | 支持自由尺寸、无水印、原生 4K |
-| `doubao-seedream-5-0-260128` | 最终兜底模型 | 输出带水印，自动裁切；存在最小像素面积限制 |
+| `gpt-image-2.6-sunburst` | 生成与编辑唯一模型 | 显式使用 `quality=high`；最多原模型重试一次，仍失败则停止并报告错误。实测范围见 `references/apiyi.md`。 |
 
 **GPT 16:9 尺寸预设：**
 
@@ -55,13 +53,13 @@
 | 请求类型 | 模型 | 输出 |
 |---------|-------------|------|
 | 知识图谱 / 架构图 / 生命周期图 | GPT 无文字底图 + HTML/CSS/SVG 确定性语义层 | 3200×1800 PNG + WebP + 布局门禁报告 |
-| 人像 / 插图 | GPT → Gemini → 豆包 | `.webp` q78，≤ 300 KB |
-| Logo / favicon | GPT → Gemini | `.png`（pngquant），≤ 100 KB |
-| Mac 静态壁纸（4K） | GPT → Gemini → 豆包 | `wallpaper.png`（无损 PNG） |
-| Mac 动态壁纸 | 每帧 GPT → Gemini → 豆包 | `wallpaper-apr.heic`（2 帧，亮/暗模式切换） |
-| Sprite loop 帧动画 | GPT → Gemini | 序列帧 PNG + `preview.gif` |
-| Codex v2 宠物 | GPT → Gemini | 8×11 spritesheet + `pet.json` + QA 产物 |
-| 批量生成（N 张） | 每张独立执行模型级联 | N × `.webp`，并行生成 |
+| 人像 / 插图 | GPT Image 2.6 | `.webp` q78，≤ 300 KB |
+| Logo / favicon | GPT Image 2.6 | `.png`（pngquant），≤ 100 KB |
+| Mac 静态壁纸（4K） | GPT Image 2.6 | `wallpaper.png`（无损 PNG） |
+| Mac 动态壁纸 | 每帧 GPT Image 2.6 | `wallpaper-apr.heic`（2 帧，亮/暗模式切换） |
+| Sprite loop 帧动画 | GPT Image 2.6 | 序列帧 PNG + `preview.gif` |
+| Codex v2 宠物 | GPT Image 2.6 | 8×11 spritesheet + `pet.json` + QA 产物 |
+| 批量生成（N 张） | 每张使用 GPT Image 2.6 | N × `.webp`，并行生成 |
 
 ---
 

@@ -164,8 +164,6 @@ Wide abstract technical-systems backdrop in Qingshan Lake dark visual language. 
 PROMPT="Wide abstract technical-systems backdrop in Qingshan Lake light visual language. Warm mist-white canvas, subtle pale lake haze, restrained lake-teal and cypress-green topology only around the outer edges, distant gray-blue hill layering, rare soft dawn-gold accent. Center and all content lanes stay clean, calm, low-contrast, and empty for a precise diagram overlay. no text, no letters, no numbers, no watermark, no logos, no icons, no cards, no arrows, no flowchart, no central subject, no humanoid figure. Wide 16:9."
 OUTPUT_PATH="/tmp/knowledge_map_bg.png"
 if   GEN_LOG=$(gen_image_apiyi "$MODEL_GPT"    "1280x720" "$OUTPUT_PATH"); then MODEL_USED="$MODEL_GPT";    SIZE="1280x720"
-elif GEN_LOG=$(gen_image_apiyi "$MODEL_GEMINI" "1280x720" "$OUTPUT_PATH"); then MODEL_USED="$MODEL_GEMINI"; SIZE="1280x720"
-elif GEN_LOG=$(gen_image_apiyi "$MODEL_DOUBAO" "2560x1440" "$OUTPUT_PATH"); then MODEL_USED="$MODEL_DOUBAO"; SIZE="2560x1440"; strip_doubao_watermark "$OUTPUT_PATH" 1280 720
 else echo "KNOWLEDGE_MAP_BACKDROP_GENERATION_FAILED"; exit 1
 fi
 GENERATION_MS=$(printf '%s\n' "$GEN_LOG" | awk -F: '/^ELAPSED_MS:/{v=$2} END{print v+0}')

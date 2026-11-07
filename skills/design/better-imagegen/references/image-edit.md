@@ -34,15 +34,16 @@ Load first:
 
 ## Endpoint
 
-`POST https://api.apiyi.com/v1/images/edits` — multipart form (NOT JSON):
+`POST https://api.apiyi.com/v1/images/edits` — multipart form (NOT JSON). Load the model setup from `references/generation.md` first; editing uses the same Sunburst model and high quality as generation:
 
 ```bash
 curl -s --max-time 300 "https://api.apiyi.com/v1/images/edits" \
   -H "Authorization: Bearer $APIYI_API_KEY" \
-  -F "model=gpt-image-2.5-all" \
+  -F "model=$MODEL_GPT" \
+  -F "quality=$QUALITY_GPT" \
   -F "image=@input.png" \
   -F "prompt=$PROMPT" \
-  -F "size=1024x1024"
+  -F "size=1280x1280"
 ```
 
 Response is the same shape as generations: `data[0].b64_json` or `data[0].url`. Reuse the same Python extraction block from `gen_image_apiyi` in `references/generation.md`.
@@ -87,7 +88,7 @@ upward gaze, side glance, eye roll, looking past the viewer, or off-camera focus
 
 Run the shared `Direct-gaze hard gate` in `SKILL.md` after generation. A centered face, symmetric eye outlines, or similar catchlights are insufficient evidence. Inspect the dark pupil body inside each iris at 4× or greater before marking the edit as passed.
 
-The current `gpt-image-2.5-all` API path has no true inpainting contract. Do not invent a mask-based guarantee, and do not locally translate a generic circular/elliptical pupil patch in a flattened antialiased mascot image; those approaches can leave visible seams or overwrite eyelids, sclera, muzzle, fur, or feathers. After the permitted edit and semantic-model fallback fail, preserve the source. Only route to a fresh generation when the user has prioritized correct gaze over exact identity continuity, and record that tradeoff in metadata.
+The current Sunburst integration has not verified mask-based inpainting. Do not invent a mask-based guarantee, and do not locally translate a generic circular/elliptical pupil patch in a flattened antialiased mascot image; those approaches can leave visible seams or overwrite eyelids, sclera, muzzle, fur, or feathers. After the permitted edit and one same-model correction fail, preserve the source. Only route to a fresh generation when the user has prioritized correct gaze over exact identity continuity, and record that tradeoff in metadata.
 
 For multi-character references, enumerate invariants per character and then lock ensemble invariants: character count, left-to-right order, foreground/background depth, overlaps, gaze direction, and task interaction. A result that preserves the style but changes one person is an identity failure.
 

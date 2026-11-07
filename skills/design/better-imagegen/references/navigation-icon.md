@@ -64,7 +64,7 @@ checkerboard pattern, rounded rectangle container, app icon tile, mockup frame, 
 drop shadow outside the subject, canvas, backdrop, wallpaper, scene, watermark, brand marks.
 ```
 
-Use GPT first and Gemini as the fallback for transparent icon art. Skip Doubao for alpha-critical icon assets because watermark removal and resizing can damage small edges.
+Use GPT Image 2.6 with high quality for transparent icon art, then verify alpha and small-edge integrity.
 
 ## Post-processing
 

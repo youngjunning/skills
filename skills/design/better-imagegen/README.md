@@ -1,6 +1,6 @@
 # better-imagegen
 
-**A general-purpose multi-model AI image generation Skill** — usable from any Agent runtime that supports `SKILL.md`, or by reusing its scripts directly. Powered by [apiyi](https://api.apiyi.com/register/?aff_code=ijv5), with automatic GPT, Gemini, and Doubao fallback through an OpenAI-compatible image API.
+**A general-purpose GPT Image 2.6 AI image generation Skill** — usable from any Agent runtime that supports `SKILL.md`, or by reusing its scripts directly. Powered by [apiyi](https://api.apiyi.com/register/?aff_code=ijv5), using only GPT Image 2.6 at high quality through an OpenAI-compatible image API.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Agent Skill](https://img.shields.io/badge/Agent-Skill-blueviolet)](#)
@@ -24,7 +24,7 @@ Create a Mac dynamic wallpaper of a deep-sea coral reef, with Light/Dark mode va
 Turn this technical article's architecture, dependency, and update-flow text blocks into real diagrams
 ```
 
-The skill routes each image type to the right workflow, tries GPT first, automatically falls back to Gemini and then Doubao when needed, post-processes output, and saves files to `~/Pictures/better-imagegen/`.
+The skill routes each image type to the right workflow, uses GPT Image 2.6 at high quality, post-processes output, and saves files to `~/Pictures/better-imagegen/`.
 
 It also applies a prompt compliance layer before generation: prompts are normalized away from platform logos, exact in-image text, explicit content, graphic violence, and living-artist imitation so routine creative requests are less likely to be rejected accidentally.
 
@@ -34,9 +34,7 @@ It also applies a prompt compliance layer before generation: prompts are normali
 
 | Model | Role | Notes |
 |-------|------|-------|
-| `gpt-image-2.5-all` | Primary | Best prompt adherence and photorealism; 30 size presets |
-| `gemini-3.1-flash-image-4k` | First fallback | Free-form sizes, no watermark, true 4K |
-| `doubao-seedream-5-0-260128` | Last-resort fallback | Watermarked output is auto-cropped; pixel-area floor applies |
+| `gpt-image-2.6-sunburst` | Only model for generation and editing | Explicit `quality=high`; at most one same-model retry, then stop and report the error. Verification scope is in `references/apiyi.md`. |
 
 **GPT size presets (16:9 tier):**
 
@@ -55,13 +53,13 @@ Full model specifications and size constraints are in `references/apiyi.md`.
 | Request | Model | Output |
 |---------|--------------|--------|
 | Knowledge map / architecture / lifecycle diagram | GPT backdrop + deterministic HTML/CSS/SVG | 3200×1800 PNG + WebP + layout-gate report |
-| Portrait / illustration | GPT → Gemini → Doubao | `.webp` q78, ≤ 300 KB |
-| Logo / favicon | GPT → Gemini | `.png` (pngquant), ≤ 100 KB |
-| Mac static wallpaper (4K) | GPT → Gemini → Doubao | `wallpaper.png` (lossless PNG) |
-| Mac dynamic wallpaper | GPT → Gemini → Doubao per frame | `wallpaper-apr.heic` (2-frame, Light/Dark) |
-| Sprite loop | GPT → Gemini | numbered PNG frames + `preview.gif` |
-| Codex v2 pet | GPT → Gemini | 8×11 spritesheet + `pet.json` + QA artifacts |
-| Batch (N images) | Cascade per image | N × `.webp`, generated in parallel |
+| Portrait / illustration | GPT Image 2.6 | `.webp` q78, ≤ 300 KB |
+| Logo / favicon | GPT Image 2.6 | `.png` (pngquant), ≤ 100 KB |
+| Mac static wallpaper (4K) | GPT Image 2.6 | `wallpaper.png` (lossless PNG) |
+| Mac dynamic wallpaper | GPT Image 2.6 per frame | `wallpaper-apr.heic` (2-frame, Light/Dark) |
+| Sprite loop | GPT Image 2.6 | numbered PNG frames + `preview.gif` |
+| Codex v2 pet | GPT Image 2.6 | 8×11 spritesheet + `pet.json` + QA artifacts |
+| Batch (N images) | GPT Image 2.6 per image | N × `.webp`, generated in parallel |
 
 ---
 
