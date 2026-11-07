@@ -30,6 +30,16 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(result['summary'], [{'target': 'personal', 'kind': 'record',
                                              'status': 'created', 'count': 1}])
 
+    def test_method_note_uses_existing_concept_kind_and_updates_identity(self):
+        data = receipt()
+        data['candidates'][0]['kind'] = 'concept'
+        data['results'][0].update(status='updated', record_id='note-1',
+                                 reason='补全已有方法笔记，保留本人陈述与 AI 补充的归属')
+        result = audit(data)
+        self.assertTrue(result['ok'])
+        self.assertEqual(result['summary'], [{'target': 'personal', 'kind': 'concept',
+                                             'status': 'updated', 'count': 1}])
+
     def test_missing_input_cannot_report_no_new(self):
         data = receipt()
         data['inputs'].pop()

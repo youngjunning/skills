@@ -50,7 +50,7 @@
   {
     "name": "memory-distill",
     "category": "productivity",
-    "summary": "个人记录、资料与精选会话蒸馏，支持每轮增量更新",
+    "summary": "蒸馏个人记录、外部资源、概念与方法笔记、探索问题和对话摘录",
     "path": "skills/productivity/memory-distill"
   },
   {
