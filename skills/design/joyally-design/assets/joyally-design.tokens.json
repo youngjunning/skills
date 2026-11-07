@@ -4,30 +4,51 @@
   "version": "1.0.0",
   "source": {
     "authority": "Bundled Joyally Design visual system",
-    "derivedFrom": "A multi-reference design-system matrix combining Ant Design, Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI with Qingshan Lake visual language and contemporary Chinese visual cues, adapted through product-specific for internal React/web products and HTML reports",
+    "derivedFrom": "A multi-reference design-system matrix combining Ant Design, Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI with lake-landscape visual language and contemporary Chinese visual cues, adapted through product-specific for internal React/web products and HTML reports",
     "culturalScope": {
       "tradition": "chinese-traditional-culture",
       "dynastyScope": "non-dynastic",
-      "excluded": ["qing-dynasty-aesthetics-and-characteristic-symbols"]
+      "excluded": [
+        "qing-dynasty-aesthetics-and-characteristic-symbols"
+      ]
     },
     "selfContained": true,
     "verifiedAt": "2026-09-22"
   },
   "architecture": {
-    "tokenLayers": ["seed", "map", "alias", "component"],
+    "tokenLayers": [
+      "seed",
+      "map",
+      "alias",
+      "component"
+    ],
     "aliasGroup": "semantic",
     "brandLayer": "contemporary-chinese-cues",
     "appearanceAxes": {
-      "mode": ["light", "dark"],
-      "season": ["spring", "summer", "autumn", "winter"]
+      "mode": [
+        "light",
+        "dark"
+      ],
+      "season": [
+        "spring",
+        "summer",
+        "autumn",
+        "winter"
+      ]
     },
-    "materialPresets": ["celadon-glaze", "glass"],
+    "materialPresets": [
+      "celadon-glaze",
+      "glass"
+    ],
     "currentAppearance": {
       "mode": "light",
       "season": "autumn",
       "material": "celadon-glaze"
     },
-    "languageAxes": ["style", "mood"],
+    "languageAxes": [
+      "style",
+      "mood"
+    ],
     "currentLanguage": {
       "style": "contemporary-chinese-cues",
       "mood": "quiet-youthful-distance"
@@ -109,11 +130,51 @@
     },
     "materialRules": {
       "contentSurface": "surfaceStrong",
-      "transparentAllowed": ["navigation", "perimeter", "orientation"],
-      "transparentForbidden": ["evidence", "table", "code", "log", "long-text"],
+      "transparentAllowed": [
+        "navigation",
+        "perimeter",
+        "orientation"
+      ],
+      "transparentForbidden": [
+        "evidence",
+        "table",
+        "code",
+        "log",
+        "long-text"
+      ],
       "surfaceRoles": {
-        "materialChrome": ["app-shell", "sidebar", "selected-navigation-item", "selected-conversation-item", "selected-tab", "selected-segment", "selected-menu-option", "selected-pagination-page", "interactive-skill-card", "chat-status-tile", "page-frame", "toolbar-shell", "primary-action", "outline-action", "supporting-panel", "card-shell", "dialog-chrome", "chat-document-header", "chat-document-footer"],
-        "opaqueReading": ["table", "form-field", "editor", "composer-input", "chat-document-body", "evidence", "code", "log", "long-text"]
+        "materialChrome": [
+          "app-shell",
+          "sidebar",
+          "selected-navigation-item",
+          "selected-conversation-item",
+          "selected-tab",
+          "selected-segment",
+          "selected-menu-option",
+          "selected-pagination-page",
+          "interactive-skill-card",
+          "chat-status-tile",
+          "page-frame",
+          "toolbar-shell",
+          "primary-action",
+          "outline-action",
+          "supporting-panel",
+          "card-shell",
+          "dialog-chrome",
+          "chat-document-header",
+          "chat-document-footer"
+        ],
+        "opaqueReading": [
+          "table",
+          "form-field",
+          "editor",
+          "composer-input",
+          "chat-document-body",
+          "evidence",
+          "code",
+          "log",
+          "long-text"
+        ]
       },
       "reducedTransparencyFallback": "remove-backdrop-filter-and-use-surfaceStrong",
       "semanticColorsUnaffected": true
@@ -286,14 +347,151 @@
     "toast": "80"
   },
   "contrastPairs": [
-    { "foreground": "semantic.text", "background": "semantic.background", "minimum": 4.5 },
-    { "foreground": "semantic.textSecondary", "background": "semantic.background", "minimum": 4.5 },
-    { "foreground": "semantic.onPrimaryAction", "background": "semantic.primaryAction", "minimum": 4.5 },
-    { "foreground": "semantic.onPrimaryContainer", "background": "semantic.primaryContainer", "minimum": 4.5 },
-    { "foreground": "semantic.success", "background": "semantic.surface", "minimum": 4.5 },
-    { "foreground": "semantic.warning", "background": "semantic.surface", "minimum": 4.5 },
-    { "foreground": "semantic.error", "background": "semantic.surface", "minimum": 4.5 },
-    { "foreground": "semantic.onDark", "background": "semantic.darkBackground", "minimum": 4.5 },
-    { "foreground": "semantic.onDarkSecondary", "background": "semantic.darkBackground", "minimum": 4.5 }
-  ]
+    {
+      "foreground": "semantic.text",
+      "background": "semantic.background",
+      "minimum": 4.5
+    },
+    {
+      "foreground": "semantic.textSecondary",
+      "background": "semantic.background",
+      "minimum": 4.5
+    },
+    {
+      "foreground": "semantic.onPrimaryAction",
+      "background": "semantic.primaryAction",
+      "minimum": 4.5
+    },
+    {
+      "foreground": "semantic.onPrimaryContainer",
+      "background": "semantic.primaryContainer",
+      "minimum": 4.5
+    },
+    {
+      "foreground": "semantic.success",
+      "background": "semantic.surface",
+      "minimum": 4.5
+    },
+    {
+      "foreground": "semantic.warning",
+      "background": "semantic.surface",
+      "minimum": 4.5
+    },
+    {
+      "foreground": "semantic.error",
+      "background": "semantic.surface",
+      "minimum": 4.5
+    },
+    {
+      "foreground": "semantic.onDark",
+      "background": "semantic.darkBackground",
+      "minimum": 4.5
+    },
+    {
+      "foreground": "semantic.onDarkSecondary",
+      "background": "semantic.darkBackground",
+      "minimum": 4.5
+    }
+  ],
+  "diagram": {
+    "light": {
+      "bg": "{color.canvas}",
+      "grid": "#E4E7E2",
+      "canvas-dot": "{color.border}",
+      "text": "{color.text}",
+      "text-muted": "{color.textSecondary}",
+      "text-dim": "{color.textSecondary}",
+      "text-faint": "{color.textSecondary}",
+      "panel": "{color.surface}",
+      "panel-border": "{color.border}",
+      "lane-fill": "{color.surfaceMuted}",
+      "lane-stroke": "#8B9D8F",
+      "arrow": "{color.textSecondary}",
+      "arrow-emphasis": "{color.primaryAction}",
+      "mask": "{color.surface}",
+      "toolbar-bg": "{color.surface}",
+      "toolbar-border": "{color.border}",
+      "toolbar-text": "{color.text}",
+      "toolbar-hover": "{color.surfaceMuted}",
+      "toolbar-menu-bg": "{color.surface}",
+      "frontend-fill": "#E6EFF3",
+      "frontend-stroke": "#34556B",
+      "backend-fill": "#DFEDDA",
+      "backend-stroke": "#275A34",
+      "database-fill": "#EDE8F4",
+      "database-stroke": "#685184",
+      "cloud-fill": "#FFF2D9",
+      "cloud-stroke": "#96620F",
+      "security-fill": "#FBEAE2",
+      "security-stroke": "#A7472D",
+      "messagebus-fill": "#F5EADD",
+      "messagebus-stroke": "#89512D",
+      "external-fill": "#E8EEEA",
+      "external-stroke": "#526A56"
+    },
+    "dark": {
+      "bg": "{color.darkCanvas}",
+      "grid": "#2C444A",
+      "canvas-dot": "#365058",
+      "text": "#F2F7F2",
+      "text-muted": "#B8CCDB",
+      "text-dim": "#B8CCDB",
+      "text-faint": "#B8CCDB",
+      "panel": "{color.darkSurface}",
+      "panel-border": "#49676B",
+      "lane-fill": "#234B50",
+      "lane-stroke": "#719296",
+      "arrow": "#B8CCDB",
+      "arrow-emphasis": "#9BC79E",
+      "mask": "{color.darkSurface}",
+      "toolbar-bg": "{color.darkSurface}",
+      "toolbar-border": "#49676B",
+      "toolbar-text": "#F2F7F2",
+      "toolbar-hover": "#234B50",
+      "toolbar-menu-bg": "{color.darkSurface}",
+      "frontend-fill": "#203F52",
+      "frontend-stroke": "#A9C9E0",
+      "backend-fill": "#254735",
+      "backend-stroke": "#A8D3AC",
+      "database-fill": "#39334D",
+      "database-stroke": "#CBB8E3",
+      "cloud-fill": "#493F25",
+      "cloud-stroke": "#E5C47B",
+      "security-fill": "#4D3330",
+      "security-stroke": "#E5A394",
+      "messagebus-fill": "#493A2C",
+      "messagebus-stroke": "#E3B58E",
+      "external-fill": "#2E4447",
+      "external-stroke": "#B8CCDB"
+    }
+  },
+  "readerMapping": {
+    "paper": "bg",
+    "panel": "panel",
+    "surface": "panel",
+    "sunk": "lane-fill",
+    "zebra": "lane-fill",
+    "ink": "text",
+    "secondary": "text",
+    "muted": "text-muted",
+    "faint": "text-faint",
+    "rule": "panel-border",
+    "rule-strong": "lane-stroke",
+    "control-border": "lane-stroke",
+    "accent": "arrow-emphasis",
+    "accent-soft": "backend-fill",
+    "accent-ink": "backend-stroke",
+    "marker": "backend-fill",
+    "good": "backend-stroke",
+    "good-soft": "backend-fill",
+    "caution": "cloud-stroke",
+    "caution-soft": "cloud-fill",
+    "bad": "security-stroke",
+    "bad-soft": "security-fill",
+    "violet": "database-stroke",
+    "violet-soft": "database-fill",
+    "code": "lane-fill",
+    "badge": "arrow-emphasis",
+    "badge-ink": "bg"
+  }
 }

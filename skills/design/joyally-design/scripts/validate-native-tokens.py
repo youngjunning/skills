@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the bundled Qingshan token file and declared contrast pairs."""
+"""Validate the bundled Joyally token file and declared contrast pairs."""
 
 from __future__ import annotations
 

@@ -21,3 +21,7 @@
 - 平台尺寸与交互由平台参考决定：桌面紧凑控件与移动端触控热区共存，不把 Web 布局和 32px 控件直接搬到手机。
 
 变更预设时运行对应 token 校验器。交付产品还需核对运行时配色、字体缩放、键盘/触控、辅助技术与降低动态效果；静态 token 通过不代表设备验收。
+
+## 图表配色
+
+`joyally-design.tokens.json` 的 `diagram.light` / `diagram.dark` 是 Archify 配色源。通用画布与文字引用已有 seed，七种图表类别保留可区分的独立色相。四种 preset 使用同一映射；打印以浅色类别配色加白色背景输出。运行 `validate-archify-theme.py` 检查模板映射及正文、节点和连线对比度。保留 `lakeTeal`、`lakeMist`、`deepLakeInk` 等湖色种子名称与景观映射；原生 CSS 使用 `joyally-` 技能前缀。

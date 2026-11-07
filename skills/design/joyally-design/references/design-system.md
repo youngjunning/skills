@@ -1,10 +1,10 @@
 # Joyally Design: design system and bundled preset
 
-Joyally Design supplies a cross-platform method for hierarchy, semantic tokens, component behavior, and evidence-rich reports. Start from the product's own identity and audience. Ant Design, Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI each contribute a bounded implementation strength. The bundled [tokens](../assets/joyally-design.tokens.json) and [Pakco theme](../assets/joyally-pakco-theme.css) implement one Qingshan Lake-inspired preset. They are authoritative when that preset is selected; another brand may provide its own token values and theme while retaining the semantic roles and validation process below.
+Joyally Design supplies a cross-platform method for hierarchy, semantic tokens, component behavior, and evidence-rich reports. Start from the product's own identity and audience. Ant Design, Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI each contribute a bounded implementation strength. The bundled [tokens](../assets/joyally-design.tokens.json) and [Pakco theme](../assets/joyally-pakco-theme.css) implement one lake-landscape-inspired preset. They are authoritative when that preset is selected; another brand may provide its own token values and theme while retaining the semantic roles and validation process below.
 
 ## Design character
 
-Choose the report's visual character from the product brief, brand assets, and reading context. The following cues describe the bundled Qingshan Lake preset. Landscape cues are abstract responsibilities rather than literal scenery.
+Choose the report's visual character from the product brief, brand assets, and reading context. The following cues describe the bundled lake-landscape preset. Landscape cues are abstract responsibilities rather than literal scenery.
 
 | Visual cue | Report responsibility |
 | --- | --- |
@@ -16,11 +16,11 @@ Choose the report's visual character from the product brief, brand assets, and r
 | Dawn gold and clay | Warning and error signals used sparingly |
 | Sparse particles or gradients | Peripheral identity around the header, never behind evidence |
 
-### Autumn / Qingshan Lake distillation
+### Autumn / lake-landscape distillation
 
 When the user provides landscape references, inspect those images before selecting a seasonal palette. The public package does not distribute private reference images.
 
-Autumn takes its seasonal identity from red, rust, copper, ochre, and yellow cypress foliage in the user-provided Qingshan Lake references. Summer takes its identity from green cypress foliage. Keep the large application canvas a warm mist-white paper tone in both seasons; do not flood it with lake green, cyan, or autumn orange. Water, reflected sparkle, duckweed, cloud mist, morning light, and sunset light are local supporting details. Text, tables, and evidence stay on opaque reading surfaces.
+Autumn takes its seasonal identity from red, rust, copper, ochre, and yellow cypress foliage in the user-provided lake-landscape references. Summer takes its identity from green cypress foliage. Keep the large application canvas a warm mist-white paper tone in both seasons; do not flood it with lake green, cyan, or autumn orange. Water, reflected sparkle, duckweed, cloud mist, morning light, and sunset light are local supporting details. Text, tables, and evidence stay on opaque reading surfaces.
 
 Empty work surfaces may use visible but soft neutral gray-white mist at their edges. Build it from overlapping, uneven patches with slow motion, keep it away from text and controls, and stop the motion for reduced-motion preferences. Mist must not recolor the seasonal canvas or appear as a repeated geometric band.
 
@@ -46,7 +46,7 @@ Style and mood are peer-level design decisions, but they answer different questi
 | Style | How does the interface look and behave? | Contemporary Chinese cues, celadon-glaze material, glass material, compact density, restrained motion |
 | Mood / 意境 | What feeling, spatial distance, and narrative temperature should the interface leave? | Quiet distance, understated warmth, light time-worn texture, clear and youthful calm |
 
-For the bundled Qingshan Lake preset, the mood / 意境 is a quiet, youthful sense of distance and time. Its references may include the cool object-focus and spacious composition associated with *青花瓷*, and the restrained seasonal/time feeling associated with *东风破*. Use those as high-level atmosphere references only: do not quote lyrics, reproduce song copy, or imitate a musical work. For any brand, `mood` means emotional atmosphere plus spatial distance, temporal feeling, and narrative restraint. Derive it from the product brief and express it through pacing, contrast, section rhythm, imagery selection, and visual silence; it never overrides hierarchy, readability, accessibility, or evidence.
+For the bundled lake-landscape preset, the mood / 意境 is a quiet, youthful sense of distance and time. Its references may include the cool object-focus and spacious composition associated with *青花瓷*, and the restrained seasonal/time feeling associated with *东风破*. Use those as high-level atmosphere references only: do not quote lyrics, reproduce song copy, or imitate a musical work. For any brand, `mood` means emotional atmosphere plus spatial distance, temporal feeling, and narrative restraint. Derive it from the product brief and express it through pacing, contrast, section rhythm, imagery selection, and visual silence; it never overrides hierarchy, readability, accessibility, or evidence.
 
 ## Reference system matrix
 
@@ -60,7 +60,7 @@ Joyally Design uses a multi-reference approach. Each reference system contribute
 | shadcn/ui | Open component source, composition, predictable local APIs | Components stay editable in `components/ui` and use explicit variants |
 | Tailwind CSS | Theme variables and utility composition | Alias tokens exposed through `@theme`; utilities express layout |
 | Magic UI | Optional emphasis motion | Shine and shimmer remain progressive enhancement, never the base system |
-| Joyally Design | Product-specific brand character and cultural expression | Derive a visual preset from the product; the bundled Qingshan Lake preset is one example |
+| Joyally Design | Product-specific brand character and cultural expression | Derive a visual preset from the product; the bundled lake-landscape preset is one example |
 
 This matrix is a division of responsibilities, not a request to install every library. The project should keep one semantic token vocabulary and one component contract while borrowing proven solutions where each reference is strongest.
 
@@ -211,7 +211,7 @@ Hierarchy comes from alignment, spacing, typography, opacity, and one clear emph
 
 ## Internal web surface rules
 
-The following rules express Qingshan Lake's visual discipline in Joyally Design's React/web and report surfaces:
+The following rules express lake-landscape's visual discipline in Joyally Design's React/web and report surfaces:
 
 1. Establish layout zones and reading order before adding atmosphere or animation.
 2. Use opaque readable surfaces for tables, logs, evidence, and long descriptions; reserve translucency for perimeter atmosphere and orientation.
@@ -222,4 +222,4 @@ The following rules express Qingshan Lake's visual discipline in Joyally Design'
 
 ## Provenance
 
-The token layers and component discipline follow a composed reference-system model, with each reference contributing only where it is strongest. The quiet landscape abstraction and contemporary Chinese visual cues belong to the bundled Qingshan Lake preset. Other products can retain the same semantic and accessibility contract while deriving their own visual language from their brand and audience.
+The token layers and component discipline follow a composed reference-system model, with each reference contributing only where it is strongest. The quiet landscape abstraction and contemporary Chinese visual cues belong to the bundled lake-landscape preset. Other products can retain the same semantic and accessibility contract while deriving their own visual language from their brand and audience.

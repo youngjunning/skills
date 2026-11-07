@@ -1,0 +1,27 @@
+{
+  "repository": "https://github.com/pbakaus/impeccable",
+  "commit": "687bc381bc9091bf252c0a05303640561014a425",
+  "integration": "adapted-guidance",
+  "license": "Apache-2.0",
+  "sourceFilesSha256": {
+    "LICENSE": "02bb8c3b4e70190e3986c0404ad2fd8d639b4f534252d82379cc1b502b6d1812",
+    "NOTICE.md": "c60a093c2845fd9fb82f9c6f742ece31f379f8190b535309d32d66c45ccffdcb",
+    "skill/reference/craft-floor.md": "086e731940b72db13d9693b575db377a7b102729a56da5c79a21461635695c87",
+    "skill/reference/polish.md": "c504e12ea076fd1a57b8c9ece79fbb532c54226b2b6298c5c62fa889ae1dd34d",
+    "skill/reference/critique.md": "f2ece6380e378ab644d0508adf10e213eb2d6e241e3d7339727fb8e61cd2d39b",
+    "skill/reference/audit.md": "6f2850794a8e74fd07ab9410104f99e3f20dee5490d5e82c98880852203341d0",
+    "skill/reference/typeset.md": "925720c1d610d2a08a6811001303f395e4b2c971ef3d2506fbce43b2a1303152",
+    "skill/reference/clarify.md": "4738e125835bd6c166aec2622977c9bc59bada52aaeb186585ed38b3900860b5",
+    "skill/reference/adapt.md": "004b339416187222206adee5ff08ef1fa9bc346d4ceba2932f770d640449ec6d"
+  },
+  "adaptedFiles": [
+    "../../references/design-quality.md",
+    "../../SKILL.md"
+  ],
+  "changes": [
+    "Condensed and translated selected design methods into Joyally's workflow.",
+    "Retained product and platform authority over aesthetic defaults.",
+    "Excluded runtime, installer, hooks, detectors, storage and agent orchestration."
+  ],
+  "updatePolicy": "Review source changes against the pinned commit, adapt only relevant guidance, retain notices and refresh hashes. Do not replace Joyally's workflow with upstream commands."
+}

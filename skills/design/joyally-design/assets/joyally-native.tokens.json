@@ -2,7 +2,7 @@
   "$schema": "https://design-tokens.github.io/community-group/format/",
   "name": "Joyally Design",
   "version": "1.0.0",
-  "disclaimer": "Independent design language inspired by Qingshan Lake in Lin'an, Hangzhou; not an official scenic-area design system.",
+  "disclaimer": "Independent lake-landscape design language with mist, water, cypress foliage and seasonal light; not an official scenic-area design system.",
   "color": {
     "canvas": "#F4F6F1",
     "surface": "#FBFCFA",

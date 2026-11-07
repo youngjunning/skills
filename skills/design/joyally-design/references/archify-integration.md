@@ -83,13 +83,14 @@ Markdown 文档直接使用原生 HTML 块，前后留空行。独立打开链�
 
 容器必须设置 `aspect-ratio` 或明确的最小高度、`max-width: 100%` 和窄屏纵向降级；不要用 `overflow: hidden` 掩盖 Archify 自身的溢出诊断。`sandbox`、`title` 和 `figcaption` 是默认可访问性边界，若需要导出或交互桥接，必须在具体报告中说明扩展权限。
 
-升级 vendored core 时只改 `UPSTREAM.json`、vendor 文件和对应校验记录；不要把上游 Archify 的颜色、preset 或主题选择直接写入 Joyally Design tokens。Archify 负责图表语义和自身 viewer，Joyally Design 负责报告外围的层级、材质、间距和降级策略。
+升级 vendored core 时保留 `UPSTREAM.json` 中的本地修改声明。图表配色由 `assets/joyally-design.tokens.json` 的 `diagram.light` / `diagram.dark` 管理；重新同步 viewer 后核对八组主题和打印映射，运行 `python3 scripts/validate-archify-theme.py`。Archify 负责图表语义与 viewer 行为，Joyally Design 统一报告及图表的颜色、层级与降级策略。
 
 ## Joyally Design 视觉映射
 
-- 默认使用 Archify light mode 与 `classic` preset，优先保证报告可读性。
-- 只有当主题确实受益于对应视觉语法时才使用 `signal-flow` 或 `blueprint`；不要为了让技术图表显得复古而选择 `editorial`。
-- Joyally Design 的气质应落在外围报告的 tokens、间距、标题处理和克制的墨色/青瓷釉强调上。不要修改 Archify 核心 renderer，也不要给图表添加仿古装饰。
+- `classic`、`signal-flow`、`blueprint`、`editorial` 的明暗模式共用 Joyally 语义配色，保留各自的线条、网格、排版和动效特点。按阅读任务选 preset；主题由用户选择、URL 或系统外观决定。
+- 画布、面板、正文、弱文字和强调路径映射到 Joyally tokens。frontend、backend、database、cloud、security、messagebus、external 使用蓝、绿、紫、琥珀、红、橙、灰七类低噪声配色；类别色不代表成功或失败，节点类型与标签仍须可读。
+- viewer、节点、边、工具栏、preset 缩略图和打印使用同一语义来源。SVG 导出沿用 viewer 的主题变量；修改配色不改变 renderer 几何、布局或节点含义。
+- Explainer 的 `clean`、`editorial`、`product`、`swiss` 也通过 `readerMapping` 使用同一配色，保留各自排版、字体和形状；系统深色回退与打印分别校验。
 - 嵌入产物时提供明确的 `title`、`loading="lazy"` 和有边界的响应式 frame；为 print 与 reduced-motion 提供文字摘要或静态/export fallback。
 
 ## 范围与来源

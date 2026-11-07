@@ -14,7 +14,7 @@ Use this reference for Jetpack Compose and Material 3 apps. Preserve Material ro
 
 - Map lake teal to `primary`, deep lake ink to `onSurface`, mist to `surface`, cypress to success-compatible custom roles, and clay to error-compatible roles.
 - Supply tonal containers and `on-*` colors; do not insert raw scenic colors directly into Material components.
-- Dynamic Color is a product decision. When enabled, let the user's palette own primary UI and retain Qingshan Lake through illustration, shape, motion, and optional branded surfaces. When brand consistency is required, use the bundled static scheme and document that decision.
+- Dynamic Color is a product decision. When enabled, let the user's palette own primary UI and retain lake-landscape through illustration, shape, motion, and optional branded surfaces. When brand consistency is required, use the bundled static scheme and document that decision.
 - Keep ripple, pressed, focus, selected, disabled, and TalkBack state behavior even when visual styling changes.
 
 ## Adaptive recipes

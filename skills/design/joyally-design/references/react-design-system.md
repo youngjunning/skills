@@ -2,13 +2,13 @@
 
 Joyally Design 在 React 项目中首先是一套可复用的设计系统约束，然后才是页面样式。目标是让 tokens、组件状态、布局节奏和页面组合拥有同一套语义，同时保留项目原有的业务术语、路由和交互合同。
 
-Ant Design is one of several primary reference systems for Joyally Design's React contract, chiefly responsible for token derivation, component states, hierarchy, and density. Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI provide complementary implementation constraints. Qingshan Lake and contemporary Chinese visual cues are the brand layer; the Chinese cultural layer is not tied to one dynasty and excludes Qing-dynasty aesthetics and characteristic symbols. The rules below translate that matrix into Alias tokens, layout rhythm, and responsive behavior for internal web products.
+Ant Design is one of several primary reference systems for Joyally Design's React contract, chiefly responsible for token derivation, component states, hierarchy, and density. Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI provide complementary implementation constraints. lake-landscape and contemporary Chinese visual cues are the brand layer; the Chinese cultural layer is not tied to one dynasty and excludes Qing-dynasty aesthetics and characteristic symbols. The rules below translate that matrix into Alias tokens, layout rhythm, and responsive behavior for internal web products.
 
 ## Reference architecture for the current stack
 
 | Layer | Joyally Design decision | Implementation boundary |
 | --- | --- | --- |
-| Seed | Qingshan Lake palette, contemporary Chinese color cues, type scale, 8px rhythm, radius and motion base values | `joyally-design.tokens.json` primitive values |
+| Seed | lake-landscape palette, contemporary Chinese color cues, type scale, 8px rhythm, radius and motion base values | `joyally-design.tokens.json` primitive values |
 | Map | Derived hover, active, disabled, elevated, muted and status values | token derivation; never hand-tuned in page JSX |
 | Alias | `background`, `surface`, `text`, `primary`, `focus`, `success`, `warning`, `error` | CSS variables consumed by Tailwind `@theme`; stored as `semantic` for compatibility |
 | Component | Button, Input, Card, Table, Dialog, Sidebar, Empty, Toast and state variants | `components/ui`, `cva` variants and composable slots |
@@ -51,7 +51,7 @@ Style and mood are separate peer-level creative descriptors layered above these 
 | Source ownership and composition | shadcn/ui | Keep primitives open in `components/ui`; use `cn` and `cva` for variants |
 | Token-to-utility implementation | Tailwind CSS 4 | Use `@theme` namespaces and semantic utilities; document measured exceptions |
 | Expressive emphasis motion | Magic UI | Add only after static hierarchy is correct, with reduced-motion fallback |
-| Brand and cultural expression | Joyally Design | Apply Qingshan Lake and contemporary Chinese cues through Alias tokens and bounded artwork |
+| Brand and cultural expression | Joyally Design | Apply lake-landscape and contemporary Chinese cues through Alias tokens and bounded artwork |
 
 These references are complementary. Do not merge their APIs into a new abstraction layer or install a library only to imitate its look.
 
@@ -148,8 +148,8 @@ Choose the mode at the surface or component boundary. Do not mix compact and pre
 
 ### Seasonal color and scene motion
 
-1. Summer interactions use the saturated pond-cypress canopy green from the Qingshan Lake summer reference (for example `#2e7731`), with a deeper green for pressed states. Autumn interactions use a visibly more yellow, muted matcha green (for example `#687644`); red and gold stay in foliage and semantic status accents. Compare both seasons at the same material setting so translucency does not hide the hue difference.
-2. Large application surfaces remain warm mist-white in both seasons. The loading scene uses an illustrated Qingshan Lake composition: distant mountains, clustered water-cypress groves, a calm lake and mist, with an open center for a compact loading subject and copy. Its summer and autumn plates share one layout; foliage changes with the season. Keep the painting stylized and the center readable, without binary streams, photographic scenery or large opaque shapes behind copy.
+1. Summer interactions use the saturated pond-cypress canopy green from the lake-landscape summer reference (for example `#2e7731`), with a deeper green for pressed states. Autumn interactions use a visibly more yellow, muted matcha green (for example `#687644`); red and gold stay in foliage and semantic status accents. Compare both seasons at the same material setting so translucency does not hide the hue difference.
+2. Large application surfaces remain warm mist-white in both seasons. The loading scene uses an illustrated lake-landscape composition: distant mountains, clustered water-cypress groves, a calm lake and mist, with an open center for a compact loading subject and copy. Its summer and autumn plates share one layout; foliage changes with the season. Keep the painting stylized and the center readable, without binary streams, photographic scenery or large opaque shapes behind copy.
 3. A character approach uses registered full-body walking frames with visible alternating leg steps and opposite arm swings, then holds a neutral final pose. Scale and depth travel use the same duration as the frame sequence; `prefers-reduced-motion` shows a still image. A walking decoration must synchronize step frames and horizontal travel on the same timeline, travel only in its facing direction, and keep its feet on the host surface baseline.
 4. A swimming flock uses a few side-facing cutouts at staggered depths and sizes, with all travel following the facing direction. Keep body bobbing within 2px and 1 degree, stagger each bird’s cadence, and attach low-contrast wakes to its waterline. Keep the flock compact below the stationary loading copy; it is the waiting indicator, with no simulated progress bar or completion percentage. Fade the loop boundary rather than visibly snapping backward. Under `prefers-reduced-motion`, center a still flock and remove wake and mist motion.
 5. Decorative branches belong at the perimeter and must never overlap labels or controls. Compact headers with action controls omit the foliage layer; do not rely on stacking buttons above decorative leaves. A chat thread title should not span the full document surface when the conversation rail already identifies the active thread.

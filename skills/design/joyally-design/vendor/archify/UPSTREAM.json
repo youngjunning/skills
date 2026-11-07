@@ -5,5 +5,10 @@
   "version": "3.2.0",
   "license": "Apache-2.0",
   "included": "A runtime subset of the official archify/ core: CLI, schemas, renderers, viewer assets, references, runtime scripts, migrations, delta, recipes, brand metadata, bundled explainer dependencies and thirteen doctor proof fixtures. Upstream skill instructions, tests and generated example output artifacts are omitted.",
-  "updatePolicy": "Update deliberately from the upstream repository; keep the vendored CLI offline by setting ARCHIFY_UPDATE_CHECK_DISABLED=1."
+  "updatePolicy": "Update deliberately from the upstream repository; keep the vendored CLI offline by setting ARCHIFY_UPDATE_CHECK_DISABLED=1.",
+  "localModifications": {
+    "assets/template.html": "Joyally semantic palettes replace all four presets in light and dark mode. Source: ../../assets/joyally-design.tokens.json diagram. Geometry and export workflow preserved.",
+    "verification": "python3 scripts/validate-archify-theme.py from the Joyally skill directory",
+    "explainer/reader.css": "All clean/editorial/product/swiss themes, system dark fallback and print share Joyally diagram colors via readerMapping."
+  }
 }
