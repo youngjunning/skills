@@ -43,6 +43,15 @@ test('search filters non-shared records and constructs same-origin source links'
   assert.equal(result.articles[0].url, `https://records.example/blog/${id}`);
 });
 
+test('retired OKR is excluded from search without contacting its missing endpoint', async () => {
+  const opts = { ...options({ '/api/okr': () => new Response('', { status: 404 }) }), disabledCollections: ['okr'] };
+  const result = await run(['search', 'Example'], opts);
+  assert.equal(result.records.length, 1);
+  assert.equal(Object.hasOwn(result, 'okr'), false);
+  assert.ok(!opts.requests.some(request => new URL(request.url).pathname === '/api/okr'));
+  await assert.rejects(run(['okr'], opts), /已撤下/);
+});
+
 test('article validates raw bytes before slicing and exposes continuation', async () => {
   const result = await run(['article', id, '--chars', '10'], options());
   assert.equal(result.content, text.slice(0, 10));
