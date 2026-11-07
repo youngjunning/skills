@@ -57,7 +57,7 @@ Do not call a single noisy sample an optimization or regression. Prefer at least
 
 ## 4. Report format
 
-Use the selected report-skill output mode. Markdown mode is the default and may use the smallest useful table:
+Use the selected report-for-human output mode. Markdown mode is the default and may use the smallest useful table:
 
 ```markdown
 ## 结论 ⚠️

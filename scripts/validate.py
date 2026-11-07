@@ -56,6 +56,10 @@ def validate(root=ROOT):
     for path in paths:
         if path + '/SKILL.md' not in readme:
             errors.append(f'missing README catalog link: {path}')
+    readme_paths = set(re.findall(r'skills/[a-z0-9-]+/[a-z0-9-]+/SKILL\.md', readme))
+    stale_paths = readme_paths - {path + '/SKILL.md' for path in paths}
+    if stale_paths:
+        errors.append(f'stale README skill links: {sorted(stale_paths)}')
     for p in root.rglob('*'):
         rel = p.relative_to(root)
         if any(part in SKIP for part in rel.parts):

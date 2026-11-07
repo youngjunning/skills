@@ -12,10 +12,10 @@
     "summary": "图像生成、编辑与素材校验"
   },
   {
-    "name": "report-skill",
+    "name": "report-for-human",
     "category": "engineering",
-    "path": "skills/engineering/report-skill",
-    "summary": "按需生成正式工程汇报与复杂交付说明"
+    "path": "skills/engineering/report-for-human",
+    "summary": "向人说明进展、交付、排障与评审结论，按事情大小调整篇幅"
   },
   {
     "name": "writting-skill",

@@ -50,7 +50,7 @@ Turn unresolved facts into explicit control points:
 
 ## Anti-patterns
 
-- **Tool narration:** “我会用 report-skill 做一次影响评估……” describes the reporter, not the result.
+- **Tool narration:** “我会用 report-for-human 做一次影响评估……” describes the reporter, not the result.
 - **Activity theater:** “完成 12 项工作、召开 3 次会议” says nothing about target attainment or impact.
 - **Managing up:** positive results are prominent while misses, caveats, or unverified gates are buried.
 - **Metric theater:** a number has no baseline, target, denominator, time window, or decision consequence.

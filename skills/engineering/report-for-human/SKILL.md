@@ -1,15 +1,17 @@
 ---
-name: report-skill
-description: Use for explicitly requested formal engineering reports, delivery handoffs, incident reviews, release conclusions, decision briefs, or complex deliveries that need a structured account of evidence, risks, blockers, and remaining work. Do not activate for ordinary Q&A, brief progress replies, small changes, or routine Git/test results that fit a few sentences. Lead with verified outcomes; omit skill attribution unless the user asks for it.
+name: report-for-human
+description: Turn completed or ongoing work into clear, evidence-based communication for a person. Use for progress and completion updates, engineering handoffs, bug diagnoses, reviews, incident summaries, release conclusions, and decision briefs, including brief updates after small changes or tests. Scale the response to the decision: a few sentences for a small update, structured sections for consequential work. Do not activate for unrelated factual Q&A or simple acknowledgments.
 ---
 
-# Report Skill
+# Report for Human
 
 Turn verified work into a decision artifact. The report should let its reader understand the outcome, judge the evidence, see what remains uncertain, and take the next action without reconstructing the work from a tool diary.
 
 ## When to use
 
-Use this workflow when the user requests a formal report or when a complex delivery needs structured evidence, risks, blockers, or handoff actions. Ordinary questions, brief status requests, small changes, and routine command results receive a direct reply without loading a report workflow or displaying a skill label. A task mentioning tests, Git, progress, or deployment alone does not require a formal report.
+Use this workflow whenever the agent needs to tell a person what work achieved, where it stands, what evidence supports it, or what needs attention. Include brief status and completion replies, small changes, test outcomes, diagnoses, reviews, and complex handoffs. An unrelated factual question or acknowledgment does not need this workflow. A topic keyword alone does not demand a formal report.
+
+Scale the output to the reader's decision. For a small change or progress update, use one to three direct sentences with no template or heading. For a consequential delivery, failure, or handoff, add only the sections needed to show evidence and next action. Do not turn every update into an audit of all possible risks.
 
 ## Output modes
 
@@ -50,7 +52,7 @@ Markdown reports begin with the result and use real Markdown structure instead o
 
 - Omit skill names, attribution lines, badges, and fixed opening text by default, in both output modes.
 - Disclose the skill name only when the user asks for tool provenance; this does not require turning a brief reply into a report.
-- Do not narrate the reporting process. Never open with “我会用 report-skill……”, “下面进行影响评估”, a checklist of what will be inspected, or other tool-centric meta commentary. Lead with the result that matters to the reader.
+- Do not narrate the reporting process. Never open with “我会用 report-for-human……”, “下面进行影响评估”, a checklist of what will be inspected, or other tool-centric meta commentary. Lead with the result that matters to the reader.
 
 ## Reporting standard
 

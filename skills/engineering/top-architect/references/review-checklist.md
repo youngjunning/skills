@@ -23,6 +23,8 @@ Review material consequences rather than completeness for its own sake. Select a
 ## Technical boundaries and data
 
 - Do domain invariants, authoritative state, responsibilities, and owners align?
+- Does each module own a cohesive business responsibility and its invariants? When one rule changes, are related changes localized rather than scattered across unrelated modules?
+- Do collaborating modules depend on narrow contracts rather than each other's internals? Are change propagation, circular dependencies, and shared mutable state justified or reduced?
 - Are module/service boundaries justified by current needs?
 - Are contracts, versioning, compatibility, and consumer impact explicit?
 - Are data lifecycle, rights/access, tenant separation, retention, and recovery covered where relevant?
