@@ -50,14 +50,8 @@
   {
     "name": "memory-distill",
     "category": "productivity",
-    "summary": "蒸馏个人记录、外部资源、概念与方法笔记、探索问题和对话摘录",
+    "summary": "只读查询资料站，或按证据蒸馏个人记录、资料与精选会话",
     "path": "skills/productivity/memory-distill"
-  },
-  {
-    "name": "personal-records-reader",
-    "category": "productivity",
-    "summary": "从显式配置的资料站检索七类内容、主题与本周更新",
-    "path": "skills/productivity/personal-records-reader"
   },
   {
     "name": "qoderwork-cup",

@@ -1,6 +1,6 @@
 ---
 name: memory-distill
-description: 从会话或本轮新写、修订的文章等材料提炼个人记录、外部资源、知识笔记、探索问题与对话摘录，核对证据、受众和重复；支持按需蒸馏及用户配置的每轮自动蒸馏。
+description: 只读检索显式配置的个人资料站，或从会话与文章蒸馏个人记录、外部资源、知识笔记、探索问题和对话摘录；读取不自动保存，蒸馏按目标授权执行。
 ---
 
 # 记忆蒸馏
@@ -8,6 +8,21 @@ description: 从会话或本轮新写、修订的文章等材料提炼个人记�
 把材料整理成离开原聊天也能读懂、归属与证据清楚的记录。个人记录的主体是指定的本人；外部资源和知识笔记独立整理，不冒充本人经历、立场或掌握程度。
 
 本技能统一维护内容提炼、目标选择、探索问题、对话摘录和本轮蒸馏统计。用户可在全局指令中配置每轮主任务完成后、最终回复前调用；安装本身不启用自动执行。自动模式及多目标分流见 [references/automatic-distillation.md](references/automatic-distillation.md)。文章发布、工具清单和 Skills 加载次数属于独立维护任务，不计为蒸馏条目。
+
+## 只读查询资料站
+
+用户询问资料站已有的记录、文章、资源、笔记、目标或 Skills 时，先确定资料主体与站点根地址，再使用 `scripts/read.mjs` 只读查询。此路径不触发下文蒸馏流程，不写入记忆或执行代办。通用技能没有默认站点；通过 `--base-url` 或 `RECORDS_BASE_URL` 显式指定地址。脚本需要 Node.js 18 或以上，无第三方依赖及模型密钥。
+
+```bash
+node <skill-dir>/scripts/read.mjs --base-url https://records.example search "Agent 架构"
+node <skill-dir>/scripts/read.mjs --base-url https://records.example record RECORD_ID
+node <skill-dir>/scripts/read.mjs --base-url https://records.example article ARTICLE_ID
+node <skill-dir>/scripts/read.mjs --base-url https://records.example favorites --type method --subject business
+```
+
+先用 `search` 定位，再按 ID 读取必要原文。文章读取校验 SHA-256，长文按 `nextOffset` 续读；记录保留事件与录入时间，收藏区分归属、保存方式和有证据的使用。`research`、`excerpts`、`okr`、`skills`、`graph`、`subjects` 与 `activity` 按响应保留各自语义。依据实际原文回答，在事实旁附脚本返回的 `url` 或 `siteUrl`；收藏不证明采用，摘要不冒充全文，推断明确标注。
+
+脚本只 GET 共享接口，不调用 `/api/chat`。跨站跳转、登录页、权限错误、超时、缺失接口、格式错误和校验失败分别报告；无命中不等于读取失败。完整命令、筛选、接口和版本兼容见 [读取接口](references/read-api.md)，排查或手动读取时再打开。站点专属 Skill 可以配置地址与权限说明，并携带相同字节的读取脚本。
 
 ## 处理体系
 

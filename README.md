@@ -39,7 +39,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | 向人说明进展、交付、排障或评审结论 | [report-for-human](skills/engineering/report-for-human/SKILL.md) |
 | 生成图像、统一设计或制作视觉报告 | [better-imagegen](skills/design/better-imagegen/SKILL.md)、[joyally-design](skills/design/joyally-design/SKILL.md) |
 | 写文章、绘本或建设内容站点 | [writting-skill](skills/writing/writting-skill/SKILL.md)、[fiction-site-builder](skills/writing/fiction-site-builder/SKILL.md)、[adsense-site-builder](skills/publishing/adsense-site-builder/SKILL.md) |
-| 整理或读取个人资料 | [memory-distill](skills/productivity/memory-distill/SKILL.md)、[personal-records-reader](skills/productivity/personal-records-reader/SKILL.md) |
+| 整理或读取个人资料 | [memory-distill](skills/productivity/memory-distill/SKILL.md) |
 
 ## 分类索引
 
@@ -79,8 +79,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 
 | 技能 | 用途 |
 | --- | --- |
-| [memory-distill](skills/productivity/memory-distill/SKILL.md) | 个人记录、资料与精选会话蒸馏，支持每轮增量更新 |
-| [personal-records-reader](skills/productivity/personal-records-reader/SKILL.md) | 从显式配置的资料站读取记录、文章与收藏 |
+| [memory-distill](skills/productivity/memory-distill/SKILL.md) | 只读查询资料站，或按证据蒸馏个人记录、资料与精选会话 |
 
 机器可读目录位于 [catalog.json](catalog.json)。历史拼写 `writting-skill` 保持不变。
 
