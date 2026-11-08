@@ -1,13 +1,15 @@
 ---
 name: better-imagegen
-description: Generate or edit images and create sequential comics with the apiyi image API. Use for 漫画、知识漫画、漫画分镜、漫画排版与修复，以及绘本插画、连续角色多页插画、封面、知识图谱、架构图、图标、壁纸、帧动画 and 宠物 spritesheet requests. Comic production lives here; writting-skill owns surrounding article prose and complete picture-book manuscripts.
+description: Generate or edit images and create sequential comics with the apiyi image API. Use for 漫画、绘本插画、封面、静态架构图与知识图谱、图标、壁纸、帧动画 and 宠物 spritesheet requests. Lead static diagram images; interactive diagrams default to joyally-design with Archify. Honor an explicitly chosen Skill. Comic production lives here; writting-skill owns surrounding prose and complete picture-book manuscripts.
 ---
 
 # better-imagegen
 
 AI image generation skill powered by [apiyi](https://api.apiyi.com/register/?aff_code=ijv5) using only GPT Image 2.6 (`gpt-image-2.6-sunburst`, `quality=high`) through an OpenAI-compatible image API.
 
-**Trigger this skill when:** the user asks to create or repair a comic, storyboard, panel sequence, image, illustration, cover, diagram, icon, animation, or visual asset. Comic articles also use this skill for their complete comic production, while `writting-skill` owns the article prose and factual argument. Image-only edits that must preserve a supplied design use the image-edit route.
+**Trigger this skill when:** the user asks to create or repair a comic, storyboard, panel sequence, image, illustration, cover, static diagram, icon, animation, or visual asset. Comic articles also use this skill for their complete comic production, while `writting-skill` owns the article prose and factual argument. Image-only edits that must preserve a supplied design use the image-edit route.
+
+**Diagram ownership:** Honor the user's explicitly chosen Skill. Otherwise, lead static architecture, knowledge-map and flow images for articles, PPT or sharing; a diagram request without an interactive requirement defaults to a static image. Route clickable, zoomable or node/path-exploration deliverables to `joyally-design` with Archify. Exporting an existing interactive diagram preserves its source workflow. Joyally Design may supply visual guidance without taking over image production; the full deliverable routing table is in `../joyally-design/SKILL.md` under “选择路径”. This choice does not change the precise text-and-arrow workflow in `references/knowledge-map.md`.
 
 **Language:** Detect the user's language from their request. If the user writes in Chinese, respond entirely in Chinese (status updates, confirmations, questions, summaries). If English, respond in English. Never mix languages mid-response.
 

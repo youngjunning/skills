@@ -2,6 +2,8 @@
 
 Use for domain knowledge graphs, architecture overviews, lifecycle maps, responsibility boundaries, dependency graphs, and other explanatory visuals where exact terminology and relationships matter.
 
+This workflow delivers static images. Apply the entrypoint's diagram ownership rule before starting: follow an explicit Skill choice, otherwise route interactive deliverables to Joyally Design / Archify. Visual styling from Joyally Design does not change this workflow's ownership or turn an image request into an interactive page. The HTML/SVG below is a precise drawing source for image export, not an additional user-facing website.
+
 Load first:
 
 - `references/generation.md`

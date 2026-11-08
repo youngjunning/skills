@@ -1,6 +1,6 @@
 ---
 name: joyally-design
-description: 使用 Joyally Design 为 macOS、iOS、Android、React Native 和 Web 建立可适配品牌的设计系统，设计或审查界面、HTML 报告与可探索图表。
+description: 使用 Joyally Design 为 macOS、iOS、Android、React Native 和 Web 建立可适配品牌的设计系统，设计或审查界面、HTML 报告与交互图表。静态架构图片默认由 better-imagegen 主导；用户明确指定 Skill 时优先遵从。
 ---
 
 # Joyally Design
@@ -26,10 +26,20 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 ## 选择路径
 
+先按交付物确定主导 Skill，再选择视觉风格。用户明确指定 Skill 时优先遵从；未指定时按下表路由：
+
+| 交付物 | 主导 Skill |
+| --- | --- |
+| 文章、PPT 或分享使用的静态架构图、知识图谱、流程图片 | `better-imagegen` |
+| 可点击、缩放、聚焦节点或探索路径的交互图表 | `joyally-design` → Archify |
+| 网页、工作台、报告整体设计或跨平台设计系统 | `joyally-design`；其中的静态插图交给 `better-imagegen` |
+
+仅说“画架构图”且现有交付上下文未要求交互时，默认按静态图片处理。Joyally Design 可提供配色、字体、层级与材质参考；采用这些视觉规范不改变主导 Skill，也不自动增加交互页面。生成工具、绘制方式与视觉风格分别确定；`better-imagegen` 的结构图仍按其知识图谱流程完成精确文字和箭头排版。
+
 1. 新建报告：明确读者、决策与证据结构，读取 [设计系统](references/design-system.md)、[报告语言](references/report-language.md)、[布局](references/layout.md) 与 [Pakco 集成](references/pakco-html-integration.md)。
 2. 改造已有 HTML：先读 [改造约定](references/adapting-existing-html.md)，保留 DOM、锚点、事件与导出功能，优先增加 scoped theme。
 3. React 设计系统：读 [React 约定](references/react-design-system.md)，依次核对 tokens、共享 primitives、组件状态和页面组合。
-4. 动态图表：读 [Archify 集成](references/archify-integration.md)，使用内置 wrapper 验证 typed JSON IR，再生成自包含 HTML。
+4. 交互图表：读 [Archify 集成](references/archify-integration.md)，使用内置 wrapper 验证 typed JSON IR，再生成自包含 HTML。既有交互图表的静态导出沿用其源文件。
 5. 界面评审或精修：读 [设计质量工作流](references/design-quality.md)。区分 critique（视觉与任务判断）、audit（可核验缺陷）、polish（保留方向的精修）；排版、文案、响应式、动效或风格强弱调整按该文的任务表选择范围。
 
 新建界面也先使用该工作流的「确定方向」：区分阅读、操作与展示场景，再落实到上述平台路径。已有品牌和设计系统是依据，默认配色与第三方审美建议均不覆盖它们。
