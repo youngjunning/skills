@@ -37,7 +37,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | --- | --- |
 | 判断产品方向、系统边界或 AI Agent 方案 | [top-architect](skills/engineering/top-architect/SKILL.md) |
 | 向人说明进展、交付、排障或评审结论 | [report-for-human](skills/engineering/report-for-human/SKILL.md) |
-| 生成图像、统一设计或制作视觉报告 | [better-imagegen](skills/design/better-imagegen/SKILL.md)、[joyally-design](skills/design/joyally-design/SKILL.md) |
+| 生成图像或漫画、统一设计或制作视觉报告 | [better-imagegen](skills/design/better-imagegen/SKILL.md)、[joyally-design](skills/design/joyally-design/SKILL.md) |
 | 写文章、绘本或建设内容站点 | [writting-skill](skills/writing/writting-skill/SKILL.md)、[fiction-site-builder](skills/writing/fiction-site-builder/SKILL.md)、[adsense-site-builder](skills/publishing/adsense-site-builder/SKILL.md) |
 | 整理或读取个人资料 | [memory-distill](skills/productivity/memory-distill/SKILL.md) |
 
@@ -59,7 +59,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 
 | 技能 | 用途 |
 | --- | --- |
-| [better-imagegen](skills/design/better-imagegen/SKILL.md) | 图像生成、编辑与素材校验 |
+| [better-imagegen](skills/design/better-imagegen/SKILL.md) | 图像生成、编辑、漫画制作与素材校验 |
 | [joyally-design](skills/design/joyally-design/SKILL.md) | 跨平台品牌设计系统、HTML 报告与可探索图表 |
 
 ### Writing

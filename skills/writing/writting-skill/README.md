@@ -6,7 +6,7 @@ It activates when the user asks for a writing deliverable, continuation, rewrite
 
 **Blog mode** covers blog posts, technical articles, ATA, tutorials, product or project introductions, and opinion essays. It owns single-article structure, current-product evidence, and publication checks.
 
-Its **Comic article** shape adds complete prose, factual storyboards, scene artwork through better-imagegen, consistent recurring characters, editable lettering, and final article/page review. The bundled [小界 and 小南 roster](references/comic-characters.md) includes identity specifications and portrait/full-body references using portable relative paths. An optional local roster at `~/.config/writting-skill/comic-characters.md` can override this cast. See [Comic articles](references/comic-articles.md).
+Its **Comic article** shape owns prose, fact checks, sources, and page integration. `better-imagegen` owns the comic production, including storyboard, cast, scene art, lettering, layout, and visual review. Its [小界 and 小南 roster](../../design/better-imagegen/references/comic-characters.md) includes portable portrait and full-body references. See [Comic articles](references/comic-articles.md).
 
 **Book mode** covers books, ebooks, handbooks, manuscripts, chapter planning, and cross-chapter revision. It keeps a durable book contract, chapter map, evidence or story state, and cross-chapter review cadence. Its AI technical-book profile adds minimally qualified reader design, executable examples, reproducible experiments, version snapshots, and operational boundaries.
 
@@ -50,8 +50,8 @@ Apply the bundled 紫升风格 profile:
 For a comic article, stay in Blog mode:
 
 ```text
-使用 $writting-skill 写一篇漫画拆解文章。先核验原理并完成正文与分镜，
-默认使用随包的小界和小南，生图使用 better-imagegen；人物按每格场景重新表演，保持外观一致。
+使用 $writting-skill 写一篇漫画拆解文章。先核验原理并完成正文，
+将漫画的分镜、人物、对白、排版与验收交给 better-imagegen，最后把成品放回文章对应位置。
 ```
 
 ## Use Book mode

@@ -1,13 +1,13 @@
 ---
 name: better-imagegen
-description: Generate or edit images with the apiyi image API, including illustrations, covers, posters, knowledge maps, architecture diagrams, logos, macOS icons, wallpapers, sprite loops, Codex v2 pets, and picture-book illustrations. Use for 绘本插画、连续角色多页插画、生成图片、改图、封面、知识图谱、架构图、图标、壁纸、帧动画 and 宠物 spritesheet requests. Complete picture books are orchestrated by writting-skill, with this skill as their designated image provider.
+description: Generate or edit images and create sequential comics with the apiyi image API. Use for 漫画、知识漫画、漫画分镜、漫画排版与修复，以及绘本插画、连续角色多页插画、封面、知识图谱、架构图、图标、壁纸、帧动画 and 宠物 spritesheet requests. Comic production lives here; writting-skill owns surrounding article prose and complete picture-book manuscripts.
 ---
 
 # better-imagegen
 
 AI image generation skill powered by [apiyi](https://api.apiyi.com/register/?aff_code=ijv5) using only GPT Image 2.6 (`gpt-image-2.6-sunburst`, `quality=high`) through an OpenAI-compatible image API.
 
-**Trigger this skill when:** the user asks to generate, create, or produce an image, photo, illustration, cover, banner, logo, icon, sprite animation, **Codex pet / custom pet / pet spritesheet**, frame animation, or any visual asset — including Chinese requests: 生成图片、画图、出图、做封面、做 banner、做 logo、做图标、生成插图、画一张、帮我画、创作图像、制作海报、做壁纸、生成壁纸、mac 壁纸、桌面壁纸、动态壁纸、帧动画、逐帧动画、序列帧、Runcat 风格动画、Codex 宠物、制作宠物、宠物动画、宠物 spritesheet、8x11 宠物图集 — and when the user provides an existing image to refine, upscale, or vary while keeping the same design: 图生图、改图、编辑图片、基于这张图、保持形象不变、更精致一点。
+**Trigger this skill when:** the user asks to create or repair a comic, storyboard, panel sequence, image, illustration, cover, diagram, icon, animation, or visual asset. Comic articles also use this skill for their complete comic production, while `writting-skill` owns the article prose and factual argument. Image-only edits that must preserve a supplied design use the image-edit route.
 
 **Language:** Detect the user's language from their request. If the user writes in Chinese, respond entirely in Chinese (status updates, confirmations, questions, summaries). If English, respond in English. Never mix languages mid-response.
 
@@ -63,6 +63,7 @@ Pick one type reference per task:
 
 | Request | Load |
 |---|---|
+| **Comic / knowledge comic / 漫画文章里的连续画面、分镜、对白与排版** | `references/comics.md`; use `references/comic-characters.md` when the 小界和小南 cast is selected, and `references/image-edit.md` for an existing-panel repair. |
 | **Picture-book illustration or repair / 绘本插画 / recurring characters** | `references/picture-book.md`; use `references/image-edit.md` for existing art. Route complete-book planning and delivery to `writting-skill`. |
 | **Structured knowledge map / architecture diagram / domain concept graph with accurate labels and relationships** | `references/knowledge-map.md` |
 | **Text-heavy cover / technical book cover / competition (大赛/黑客松) entry cover / product KV / PPT hero where accurate text + product info must appear** | `references/text-poster.md`; additionally load `references/book-cover.md` for a book cover |

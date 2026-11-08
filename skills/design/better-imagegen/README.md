@@ -22,9 +22,10 @@ Make a RunCat-style menu bar sprite loop of a tiny robot running
 Create a Codex-compatible pet: a plush lake otter with all 16 look directions
 Create a Mac dynamic wallpaper of a deep-sea coral reef, with Light/Dark mode variants
 Turn this technical article's architecture, dependency, and update-flow text blocks into real diagrams
+Create a knowledge comic with connected panels, in-panel speech balloons, and phone-width review
 ```
 
-The skill routes each image type to the right workflow, uses GPT Image 2.6 at high quality, post-processes output, and saves files to `~/Pictures/better-imagegen/`.
+The skill routes each image type to the right workflow, uses GPT Image 2.6 at high quality, post-processes output, and saves files to `~/Pictures/better-imagegen/`. Its [comic workflow](references/comics.md) owns storyboards, panel art, lettering, layout, and page review; the bundled [小界 and 小南 cast](references/comic-characters.md) is available when the story calls for them.
 
 It also applies a prompt compliance layer before generation: prompts are normalized away from platform logos, exact in-image text, explicit content, graphic violence, and living-artist imitation so routine creative requests are less likely to be rejected accidentally.
 
@@ -52,6 +53,7 @@ Full model specifications and size constraints are in `references/apiyi.md`.
 
 | Request | Model | Output |
 |---------|--------------|--------|
+| Comic / knowledge comic | GPT Image 2.6 panel art + editable lettering and layout | Sequential page or vertical strip with storyboard, sources, and review notes |
 | Knowledge map / architecture / lifecycle diagram | GPT backdrop + deterministic HTML/CSS/SVG | 3200×1800 PNG + WebP + layout-gate report |
 | Portrait / illustration | GPT Image 2.6 | `.webp` q78, ≤ 300 KB |
 | Logo / favicon | GPT Image 2.6 | `.png` (pngquant), ≤ 100 KB |
