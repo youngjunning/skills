@@ -48,10 +48,10 @@
     "summary": "浏览器加载、资源与长会话性能审查"
   },
   {
-    "name": "memory-distill",
+    "name": "distill-me",
     "category": "productivity",
     "summary": "按证据蒸馏个人记录与资料，并参与项目方案管理",
-    "path": "skills/productivity/memory-distill"
+    "path": "skills/productivity/distill-me"
   },
   {
     "name": "qoderwork-cup",

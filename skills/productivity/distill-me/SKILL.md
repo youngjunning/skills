@@ -1,5 +1,5 @@
 ---
-name: memory-distill
+name: distill-me
 description: 从会话与文章蒸馏个人记录和资料；参与当前项目方案的保存、决策与进展更新、状态核对和索引维护；也可只读检索显式配置的资料站。按项目约定和目标授权写入。
 ---
 
@@ -36,7 +36,7 @@ node <skill-dir>/scripts/read.mjs --base-url https://records.example favorites -
 
 默认处理本轮新增或纠正的信息，以及本轮指出的相邻轮次漏项；用户指定材料或历史范围时遵从该范围。先从用户原话提取候选；本轮新写或实质修订的文章也作为输入，按 [每轮自动蒸馏](references/automatic-distillation.md) 检查文中的概念。再按五类内容判断，不能用本轮工程改动量代替内容增量。仅为还原指代、核对事实和去重回看必要上下文，不扫描全部历史。自动模式在开始判断前读取自动蒸馏协议，按其中的完成检查收口。
 
-用户要求只输出时，直接给候选，不读取默认目标、不写入。需要保存时依次选择：本轮明确指定的接入文件、`MEMORY_DISTILL_TARGET` 指向的文件、本机 `~/.config/memory-distill/target.md`。配置缺失或无效时不搜索旧配置或回退其他位置。
+用户要求只输出时，直接给候选，不读取默认目标、不写入。需要保存时依次选择：本轮明确指定的接入文件、`DISTILL_ME_TARGET` 指向的文件、本机 `~/.config/distill-me/target.md`。配置缺失或无效时不搜索旧配置或回退其他位置。
 
 个人资料目标配置缺失、无效或不可用时，仅输出该目标候选和原因，不创建仓库或从当前目录猜资料保存位置；当前项目已授权的方案维护仍按项目约定进行。配置约定见 [references/target-contract.md](references/target-contract.md)。多目标配置按各自授权依次处理；一次写入不推导其他目标的授权。
 

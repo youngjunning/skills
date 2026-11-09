@@ -40,7 +40,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | 生成图像、漫画或静态架构图片 | [better-imagegen](skills/design/better-imagegen/SKILL.md) |
 | 统一设计、制作报告或交互图表 | [joyally-design](skills/design/joyally-design/SKILL.md) |
 | 写文章、绘本或建设内容站点 | [writting-skill](skills/writing/writting-skill/SKILL.md)、[fiction-site-builder](skills/writing/fiction-site-builder/SKILL.md)、[adsense-site-builder](skills/publishing/adsense-site-builder/SKILL.md) |
-| 整理或读取个人资料、维护项目方案 | [memory-distill](skills/productivity/memory-distill/SKILL.md) |
+| 整理或读取个人资料、维护项目方案 | [distill-me](skills/productivity/distill-me/SKILL.md) |
 
 ## 分类索引
 
@@ -80,7 +80,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 
 | 技能 | 用途 |
 | --- | --- |
-| [memory-distill](skills/productivity/memory-distill/SKILL.md) | 按证据蒸馏个人记录与资料，并参与项目方案管理 |
+| [distill-me](skills/productivity/distill-me/SKILL.md) | 按证据蒸馏个人记录与资料，并参与项目方案管理 |
 
 机器可读目录位于 [catalog.json](catalog.json)。历史拼写 `writting-skill` 保持不变。
 

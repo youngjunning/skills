@@ -15,7 +15,7 @@ jobs:
           node-version: '22'
       - run: python3 scripts/validate.py
       - run: python3 -m unittest discover -s tests
-      - run: python3 -m unittest discover -s skills/productivity/memory-distill/scripts -p 'test_*.py'
+      - run: python3 -m unittest discover -s skills/productivity/distill-me/scripts -p 'test_*.py'
       - run: node --test skills/productivity/personal-records-reader/tests/read.test.mjs
       - run: python3 skills/design/joyally-design/scripts/validate-joyally-tokens.py
       - run: python3 -m unittest discover -s skills/writing/writting-skill/tests

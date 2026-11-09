@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-09
+
+1. 将 `memory-distill` 更名为 `distill-me`，同步 Skill 入口、调用提示、目录索引与 CI 校验路径。
+
 ## 2026-11-08
 
 5. 将 `personal-records-reader` 的只读查询与接口文档合入 `memory-distill`，移除独立技能入口；查询不触发蒸馏写入，站点读取包继续复用同字节脚本。
