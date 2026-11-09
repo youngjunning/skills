@@ -1,6 +1,6 @@
 ---
 name: writting-skill
-description: Use when the user explicitly requests writing, continuing, rewriting, polishing, or editorial review of prose, such as articles, blogs, books, picture books (绘本、亲子故事书), technical documents, proposals, report drafts, product copy, speeches, or social posts. A natural writing request is enough; the user need not name the skill. Do not activate for ordinary Q&A, coding, debugging, routine progress or completion replies, incidental documentation edits, automatic maintenance, or questions about this skill. Preserve facts and the author's voice; picture books use better-imagegen for illustrations.
+description: Write or edit reader-facing articles, books, picture books, copy, speeches, and formal reports; polish existing prose when explicitly requested. Engineering requirements, architecture decisions, implementation plans, specs, ADRs, and task tickets belong to engineering workflows, even when called drafts or documents. For those artifacts, use this skill only for an explicitly requested editorial pass, preserving the owning workflow and delivery requirements.
 ---
 
 # Writting Skill
@@ -9,7 +9,11 @@ Produce useful writing, not merely polished sentences. Establish the task, build
 
 ## Activation boundary
 
-Start the writing workflow only when the user's requested deliverable is authored or edited prose. Requests such as “写一篇博客”, “润色这份方案”, “写一本绘本”, or “帮我起草汇报材料” qualify without an explicit skill mention. Continue an already requested writing task when the user asks to continue.
+Choose by the purpose of the deliverable, not the words “写”, “整理”, “文档”, or “草案”. Reader-facing writing such as “写一篇博客”, “写一本绘本”, or “起草一份对外演讲稿” activates this skill without an explicit skill mention. Continue an already requested writing task when the user asks to continue.
+
+Engineering requirements, architecture decisions, implementation plans, specs, ADRs, and task tickets stay in the project's engineering workflow. “把刚才的实现方案整理成草案” is engineering synthesis, not a writing trigger. Use the applicable engineering skill when its invocation policy permits; preserve explicit-only policies rather than treating this rule as permission to invoke any skill automatically. The engineering workflow owns source inspection, decisions, validation, file placement, tracker state, and delivery.
+
+An explicit request to improve the wording of an existing engineering artifact, such as “润色这份 spec，不改技术方案”, activates only an editorial pass. Keep its technical decisions, acceptance criteria, status, storage location, and owning workflow intact. If engineering design and prose editing are both requested, complete the engineering work under its own workflow and apply this skill only to the requested prose portion.
 
 Routine explanations, engineering handoffs, progress replies, PR descriptions, incidental README updates, automatic distillation, and skill configuration maintenance do not activate this workflow by themselves. A writing request embedded in a larger task qualifies only for that requested writing part. Otherwise complete the actual task directly.
 
@@ -39,7 +43,7 @@ Persistent publishing work starts in exactly one of two modes:
 
 Select the mode before planning or drafting. Do not apply Book state and release machinery to a Blog, and do not manage a multi-chapter manuscript as a collection of unrelated articles. For picture books, this skill owns story, exact copy, pagination, typography, template geometry and delivery; `better-imagegen` owns illustration generation and bounded image repairs. Use page-level planning instead of chapter machinery. Confirm whether the requested total includes front and back covers; when explicitly included, count both within the total. Short children's books about AI use reader-level factual review, not engineering-code gates unless the edition actually requires them.
 
-Proposals, reports, technical documentation, product copy, speeches, titles, taglines, and other non-publishing deliverables use the shared workflow below without creating a third publishing mode. For them, route by task operation:
+Reader-facing reports, non-engineering proposals, explanatory technical prose, product copy, speeches, titles, and taglines use the shared workflow below without creating a third publishing mode. Engineering artifacts qualify only for the explicitly requested editorial pass defined above. For eligible work, route by task operation:
 
 - new draft: define purpose, audience, evidence, and structure;
 - continuation: recover the existing argument, voice, and unfinished transition;
