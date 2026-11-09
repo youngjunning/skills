@@ -1,4 +1,4 @@
 interface:
   display_name: "记忆蒸馏"
-  short_description: "只读查询资料站，或按证据蒸馏个人记录与资料"
-  default_prompt: "使用 $memory-distill 蒸馏本轮个人记录、外部资源、概念与方法笔记、探索问题和对话摘录，按目标权限保存并报告实际新增、更新或未保存的候选。"
+  short_description: "按证据蒸馏个人记录与资料，并维护当前项目的方案原文、进展和索引"
+  default_prompt: "使用 $memory-distill 蒸馏本轮内容，并维护当前项目涉及的方案原文、决策、进展和获准索引，分别报告蒸馏及方案管理的实际结果。"
