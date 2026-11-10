@@ -1,4 +1,4 @@
-# better-imagegen
+# Joyally imagegen
 
 **通用 GPT Image 2.6 生图 Skill** — 可接入支持 `SKILL.md` 的 Agent 运行时或直接复用其脚本；由 [apiyi](https://api.apiyi.com/register/?aff_code=ijv5) 驱动，通过 OpenAI 兼容图片接口，仅使用 GPT Image 2.6 高质量模式。
 

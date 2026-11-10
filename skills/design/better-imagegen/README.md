@@ -1,4 +1,4 @@
-# better-imagegen
+# Joyally imagegen
 
 **A general-purpose GPT Image 2.6 AI image generation Skill** — usable from any Agent runtime that supports `SKILL.md`, or by reusing its scripts directly. Powered by [apiyi](https://api.apiyi.com/register/?aff_code=ijv5), using only GPT Image 2.6 at high quality through an OpenAI-compatible image API.
 

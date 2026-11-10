@@ -1,4 +1,4 @@
-# Writting Skill
+# Joyally writting
 
 A general-purpose Codex writing skill for Chinese and English prose. Persistent publishing work has two top-level modes: **Blog** and **Book**.
 

@@ -3,7 +3,7 @@ name: better-imagegen
 description: Generate or edit images and create sequential comics with the apiyi image API. Use for 漫画、绘本插画、封面、静态架构图与知识图谱、图标、壁纸、帧动画 and 宠物 spritesheet requests. Lead static diagram images; interactive diagrams default to joyally-design with Archify. Honor an explicitly chosen Skill. Comic production lives here; writting-skill owns surrounding prose and complete picture-book manuscripts.
 ---
 
-# better-imagegen
+# Joyally imagegen
 
 AI image generation skill powered by [apiyi](https://api.apiyi.com/register/?aff_code=ijv5) using only GPT Image 2.6 (`gpt-image-2.6-sunburst`, `quality=high`) through an OpenAI-compatible image API.
 

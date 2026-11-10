@@ -3,7 +3,7 @@ name: writting-skill
 description: Write or edit reader-facing articles, books, picture books, copy, speeches, and formal reports; polish existing prose when explicitly requested. Engineering requirements, architecture decisions, implementation plans, specs, ADRs, and task tickets belong to engineering workflows, even when called drafts or documents. For those artifacts, use this skill only for an explicitly requested editorial pass, preserving the owning workflow and delivery requirements.
 ---
 
-# Writting Skill
+# Joyally writting
 
 Produce useful writing, not merely polished sentences. Establish the task, build a defensible structure, draft from verified material, and review accuracy, clarity, structure, and voice before delivery.
 
