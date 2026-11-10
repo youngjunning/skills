@@ -16,7 +16,7 @@ jobs:
       - run: python3 scripts/validate.py
       - run: python3 -m unittest discover -s tests
       - run: python3 -m unittest discover -s skills/productivity/distill-me/scripts -p 'test_*.py'
-      - run: node --test skills/productivity/personal-records-reader/tests/read.test.mjs
+      - run: node --test skills/productivity/distill-me/tests/read.test.mjs
       - run: python3 skills/design/joyally-design/scripts/validate-joyally-tokens.py
       - run: python3 -m unittest discover -s skills/writing/writting-skill/tests
       - run: python3 -m pip install -r skills/design/better-imagegen/requirements.txt
