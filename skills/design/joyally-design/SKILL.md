@@ -1,6 +1,6 @@
 ---
 name: joyally-design
-description: 所有 UI 设计相关任务使用 Joyally Design，包括 Web/React、macOS、iOS、Android 和 React Native 的新界面、现有页面调整、交互与组件设计、视觉精修、响应式、无障碍和截图评审；混合功能修复时参与界面方案与验收。也适用于设计系统、HTML 报告与交互图表。静态架构图片由 better-imagegen 主导。
+description: 所有 UI 设计相关任务使用 Joyally Design，包括 Web/React、macOS、iOS、Android 和 React Native 的新界面、现有页面调整、交互与组件设计、视觉精修、响应式、无障碍和截图评审；混合功能修复时参与界面方案与验收。可接入本机已安装的 oil-ui-pro 完整设计方法与工具；也适用于设计系统、HTML 报告与交互图表。静态架构图片由 better-imagegen 主导。
 ---
 
 # Joyally Design
@@ -9,11 +9,11 @@ description: 所有 UI 设计相关任务使用 Joyally Design，包括 Web/Reac
 
 Joyally Design 是跨平台的设计方法与实现契约：从产品目标、读者、品牌和使用情境出发，形成语义 tokens、组件行为、内容层级和可验证的交付。自身采用[江南山水视觉语言](references/visual-language.md)：以雾白留出呼吸，以远山灰蓝组织远近，以湖色标识操作，以水杉绿表达生长与完成，以少量晨光暖色建立高光；青瓷釉与克制的玻璃材质承接这些层次。Joyally 品牌界面默认沿用这套语言；服务其他品牌时保留设计方法和语义契约，视觉按该品牌派生。唯一维护源为本目录；产品服务、角色素材和上传配置由使用项目管理。
 
-设计任务先按 [方向与交付流程](references/design-workflow.md) 判断范围和交付物：明确改法的小改动直接完成；新建或重塑先形成一个有依据的方向；用户要求比较时再制作可并排评估的候选。代表性页面或关键流程先用真实内容与状态验证，再铺开到同类页面。该流程不能扩大用户已定的范围或改变现有品牌。
+设计任务先按[完整能力集成](references/oil-ui-pro-integration.md)检查本机安装包，并以 Joyally Design 为入口调用其适用的领域方法、方向探索、存量改造、交互状态、素材、动效、对比页、截图、评审与规范工具；Joyally 的视觉语言和跨平台契约贯穿全程。未安装外部包时使用[内置流程](references/design-workflow.md)。明确改法的小改动直接完成，任务范围和交付物仍由用户决定。
 
 ## 现有界面精修
 
-所有涉及界面设计决策的任务都从本 Skill 进入；用户给出截图并要求调整页面、指出操作拥挤或视觉不协调时尤其如此。先读取实际界面、目标任务路径和项目现有组件与 tokens，再用[设计质量工作流](references/design-quality.md)确定范围，按目标平台读取对应参考。交互缺陷与视觉问题同在一个操作区时，与工程排障一起处理：先确认状态和下一步动作，再调整布局与层级，最后检查颜色与细节。不要只改装饰而保留难以发现、无法继续或语义相反的操作。
+所有涉及界面设计决策的任务都从本 Skill 进入；用户给出截图并要求调整页面、指出操作拥挤或视觉不协调时尤其如此。先读取实际界面、目标任务路径和项目现有组件与 tokens；本机外部包可用时按[完整能力集成](references/oil-ui-pro-integration.md)进入精修、回改或存量项目路径，未安装时再按[内置设计质量工作流](references/design-quality.md)选择范围。交互缺陷与视觉问题同在一个操作区时，与工程排障一起处理：先确认状态和下一步动作，再调整布局与层级，最后检查颜色与细节。不要只改装饰而保留难以发现、无法继续或语义相反的操作。
 
 交付前在目标页面核对主要操作、恢复路径、加载与禁用状态，以及实际支持的窄屏；源码、构建和截图各自只证明对应范围。纯业务逻辑或 API 改动没有界面决策时，不因同属前端仓库而触发本流程。
 
@@ -48,9 +48,9 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 2. 改造已有 HTML：先读 [改造约定](references/adapting-existing-html.md)，保留 DOM、锚点、事件与导出功能，优先增加 scoped theme。
 3. React 设计系统：读 [React 约定](references/react-design-system.md)，依次核对 tokens、共享 primitives、组件状态和页面组合。
 4. 交互图表：读 [Archify 集成](references/archify-integration.md)，使用内置 wrapper 验证 typed JSON IR，再生成自包含 HTML。既有交互图表的静态导出沿用其源文件。
-5. 界面评审或精修：读 [设计质量工作流](references/design-quality.md)。区分 critique（视觉与任务判断）、audit（可核验缺陷）、polish（保留方向的精修）；排版、文案、响应式、动效或风格强弱调整按该文的任务表选择范围。
+5. 界面评审或精修：本机外部包可用时按[完整能力集成](references/oil-ui-pro-integration.md)读取原包的评审、精修、回改或存量路径；没有外部包时读[设计质量工作流](references/design-quality.md)。技术审计仍需可复现条件与证据。
 
-新建界面也先使用该工作流的「确定方向」：区分阅读、操作与展示场景，再落实到上述平台路径。方向比较、代表性页面、多页扩展、回改和项目设计规范按 [方向与交付流程](references/design-workflow.md) 执行。已有品牌和设计系统是依据，默认配色与第三方审美建议均不覆盖它们。
+新建界面先区分阅读、操作与展示场景，再落实到上述平台路径。本机外部包可用时按[完整能力集成](references/oil-ui-pro-integration.md)选择原包任务与领域参考；否则按[内置流程](references/design-workflow.md)处理方向比较、代表性页面、多页扩展、回改和项目设计规范。已有品牌和设计系统是依据，默认配色与第三方审美建议均不覆盖它们。
 
 ## 设计契约
 
@@ -62,10 +62,12 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 ## 生成与校验
 
-以下 `<skill-dir>` 是当前技能目录，输出使用用户指定位置或临时目录：
+以下 `<skill-dir>` 是当前技能目录，输出使用用户指定位置或临时目录。本机外部包的工具路径由 `find-oil-ui-pro.mjs` 返回，使用方法见[完整能力集成](references/oil-ui-pro-integration.md)：
 
 ```bash
 node <skill-dir>/scripts/new-joyally-html.mjs report <output-dir> --title "报告标题" --subtitle "证据与下一步"
+node <skill-dir>/scripts/find-oil-ui-pro.mjs
+node <skill-dir>/scripts/oil-ui.mjs --help
 python3 <skill-dir>/scripts/validate-joyally-tokens.py
 python3 <skill-dir>/scripts/validate-native-tokens.py
 python3 <skill-dir>/scripts/validate-archify-theme.py

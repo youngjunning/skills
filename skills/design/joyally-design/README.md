@@ -6,7 +6,7 @@
 npx skills add youngjunning/skills --skill joyally-design -g
 ```
 
-使用 `$joyally-design`，说明产品、目标平台和要完成的任务。入口与按需参考见 [SKILL.md](SKILL.md)。
+使用 `$joyally-design`，说明产品、目标平台和要完成的任务。入口与按需参考见 [SKILL.md](SKILL.md)。本机已安装 `oil-ui-pro` 时，Joyally Design 会按[完整能力集成](references/oil-ui-pro-integration.md)使用其方向探索、各类页面方法、存量改造、素材、动效、对比页、截图、评审和规范工具，同时保留[江南山水视觉语言](references/visual-language.md)。外部包由用户单独安装与维护，不随本仓库分发。
 
 ## 配色与使用
 
