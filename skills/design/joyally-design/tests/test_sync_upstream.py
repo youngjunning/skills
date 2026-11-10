@@ -54,6 +54,19 @@ class SyncUpstreamTests(unittest.TestCase):
         self.assertIn("REVIEW references/example.md", conflict.stdout)
         self.assertEqual(self.target.read_text(encoding="utf-8"), "本地修改\n")
 
+    def test_skips_dsh_adapter_during_sync(self):
+        self.pack("上游更新\n")
+        with ZipFile(self.archive, "a") as bundle:
+            bundle.writestr("source-design-kit/adapters/dsh/adapter.json", "{}")
+            bundle.writestr("source-design-kit/adapters/dsh/new-rule.json", "{}")
+
+        applied = self.run_sync("--apply")
+        self.assertEqual(applied.returncode, 0, applied.stderr)
+        self.assertEqual(self.target.read_text(encoding="utf-8"), "上游更新\n")
+        self.assertFalse((self.root / "adapters/dsh").exists())
+        manifest = json.loads((self.root / "UPSTREAM_SYNC.json").read_text(encoding="utf-8"))
+        self.assertEqual(set(manifest["files"]), {"references/example.md"})
+
 
 if __name__ == "__main__":
     unittest.main()

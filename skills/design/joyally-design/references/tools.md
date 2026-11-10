@@ -8,7 +8,7 @@
 
 ## 宿主工具
 
-宿主自带截图、素材、生图或对比页工具时，直接用宿主的，不运行本目录里对应的脚本，例如 DeepSeek Harness 的 `joyally_shoot`、`joyally_media`、`joyally_image`、`joyally_explorer`。本 Skill 里写的命令行参数对应工具里的同名字段，连字符改成驼峰：`--stitch` 对应 `stitch`，`--match-width` 对应 `matchWidth`；`--full` 对应 `fullPage`。宿主有状态工具时，生图来源和版本以它报告的为准。
+宿主自带截图、素材、生图或对比页工具时，优先使用宿主工具，并按它的参数说明调用。宿主有状态工具时，生图来源和版本以它报告的为准。
 
 ## 截图和录屏
 

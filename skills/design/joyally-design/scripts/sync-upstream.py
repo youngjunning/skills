@@ -28,7 +28,7 @@ def digest(data: bytes) -> str:
 
 
 def destination(relative: str) -> str | None:
-    if relative in SKIPPED:
+    if relative in SKIPPED or relative.startswith("adapters/dsh/"):
         return None
     if relative == "SKILL.md":
         return "DESIGN_PROCESS.md"

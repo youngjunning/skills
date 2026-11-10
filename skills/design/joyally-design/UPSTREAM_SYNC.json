@@ -5,14 +5,6 @@
       "source_sha256": "01db4953621143b884896af376d13c1d4df5feb98ab2f8d21b44e074bba6dfcb",
       "local_sha256": "34c6db83a908f2c862cf0a7ad8a0615b11e7d2375ea4cb0a4d426c223c21c118"
     },
-    "adapters/dsh/adapter.json": {
-      "source_sha256": "fbb153452199d741b7665961cf196cd544f702076cb381140de05626849932eb",
-      "local_sha256": "fbb153452199d741b7665961cf196cd544f702076cb381140de05626849932eb"
-    },
-    "adapters/dsh/rules.json": {
-      "source_sha256": "14b2c3645eb7ece9cf49277a6571c7602984d5dcbf85599d8346e56732ef2e82",
-      "local_sha256": "43fd65703fde88d661d9be5c8066b994e761e1a842dcd220c7e43267c7033b88"
-    },
     "assets/cards/README.md": {
       "source_sha256": "5f7aef26bbd261bd5a3148d45007bf91abe27b1ca5d5e4ac2eb6dbce36645234",
       "local_sha256": "7e556871fd65d21452d11da19251744d6fe3fea635d73c5d4e28189aa15366c0"
