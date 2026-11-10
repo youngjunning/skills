@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-11
+
+1. Joyally Design、Joyally imagegen 和 Joyally writting 统一使用 `joyally-design`、`joyally-imagegen` 和 `joyally-writting` 作为安装及调用名。原 `better-imagegen` 和 `writting-skill` 的目录、项目引用和 CI 路径已迁移。
+
 ## 2026-11-09
 
 1. 将 `memory-distill` 更名为 `distill-me`，同步 Skill 入口、调用提示、目录索引与 CI 校验路径。

@@ -1,6 +1,6 @@
 # Picture-book illustration provider
 
-For a complete picture book, use the installed `writting-skill` Book mode and its `references/picture-book.md` as the production owner. That skill owns manuscript, page count, storyboard, lettering, template geometry, validation and packaging. This skill supplies images from approved page briefs.
+For a complete picture book, use the installed `joyally-writting` Book mode and its `references/picture-book.md` as the production owner. That skill owns manuscript, page count, storyboard, lettering, template geometry, validation and packaging. This skill supplies images from approved page briefs.
 
 1. Read the supplied scene, action, camera, visible evidence, identity/style references with roles, text surface, protected objects and canvas. Leave story, copy and edition decisions with the writing workflow.
 2. Apply generation and prompt-compliance guidance; use `image-edit.md` for existing artwork and identity-preserving edits.

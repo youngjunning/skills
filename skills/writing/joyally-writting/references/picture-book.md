@@ -1,6 +1,6 @@
 # Picture books — Book mode
 
-`writting-skill` owns story, page planning, exact copy, typography, print-template adaptation, review and final delivery. Designate `better-imagegen` as the raster illustration provider, following its generation and editing instructions. It returns artwork and metadata; this writing workflow determines the story, count and edition contract.
+`joyally-writting` owns story, page planning, exact copy, typography, print-template adaptation, review and final delivery. Designate `joyally-imagegen` as the raster illustration provider, following its generation and editing instructions. It returns artwork and metadata; this writing workflow determines the story, count and edition contract.
 
 Explicitly separate total images from interior pages. 20 images including front and back covers means 1 front cover + 18 interiors + 1 back cover. When counts change, remove or merge redundant beats while preserving required learning outcomes, renumber visible folios and filenames, and rebuild the package. Reuse approved art for ordering and text-only changes.
 
@@ -8,7 +8,7 @@ For short private family picture books, use page-level planning and reader-level
 
 ## Illustration handoff and templates
 
-Pass approved copy, scene/action, camera, visible evidence, references with roles, quiet text surface and protected objects to `better-imagegen`. Review returned illustrations and request bounded repairs there; exact lettering and package acceptance stay here.
+Pass approved copy, scene/action, camera, visible evidence, references with roles, quiet text surface and protected objects to `joyally-imagegen`. Review returned illustrations and request bounded repairs there; exact lettering and package acceptance stay here.
 
 Record cover and interior geometry independently: upload canvas, trim, bleed, safe area and binding groove can differ. Match template ratios without stretching subjects. Screenshot measurements are estimates, not certified millimetres. Extend expendable scenery to the boundary while keeping text, faces, hands and story evidence within safety and binding clearances. Review objects as well as text bounds. Distinguish source pixels from export DPI; local guides do not prove printer acceptance. Label cover placement according to the actual template, and exclude guides from print-image packages.
 
@@ -53,7 +53,7 @@ Generate and typeset two or three representative pages before the remaining batc
 
 This is an agent QA step, not an automatic request for user approval. Continue under existing authorization once it passes. If the pilot repeats a composition or lacks text space, repair references/prompt/layout before multiplying the defect across the book.
 
-Use `better-imagegen`'s timeout, response-safety, cascade, and metadata rules. API success means an image exists, not that it satisfies the page. Record semantic failures separately from transport failures. Retry rejected pages with the observed defect named, retaining accepted pages. After two targeted repairs still fail, pause the affected batch and revise the reference/layout strategy; do not substitute an old page or mark the failed one accepted.
+Use `joyally-imagegen`'s timeout, response-safety, cascade, and metadata rules. API success means an image exists, not that it satisfies the page. Record semantic failures separately from transport failures. Retry rejected pages with the observed defect named, retaining accepted pages. After two targeted repairs still fail, pause the affected batch and revise the reference/layout strategy; do not substitute an old page or mark the failed one accepted.
 
 ## Put lettering on the illustrated scene
 

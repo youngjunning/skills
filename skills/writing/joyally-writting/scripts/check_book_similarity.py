@@ -108,7 +108,7 @@ class BraveSearchProvider:
             f"{self.endpoint}?{parameters}",
             headers={
                 "Accept": "application/json",
-                "User-Agent": "writting-skill-similarity-gate/1",
+                "User-Agent": "joyally-writting-similarity-gate/1",
                 "X-Subscription-Token": self.api_key,
             },
         )

@@ -6,9 +6,9 @@
     "summary": "业务产品判断、AI 架构与 Skill、Agent、数字员工交付"
   },
   {
-    "name": "better-imagegen",
+    "name": "joyally-imagegen",
     "category": "design",
-    "path": "skills/design/better-imagegen",
+    "path": "skills/design/joyally-imagegen",
     "summary": "图像生成、编辑、漫画制作与素材校验"
   },
   {
@@ -18,9 +18,9 @@
     "summary": "向人说明进展、交付、排障与评审结论，按事情大小调整篇幅"
   },
   {
-    "name": "writting-skill",
+    "name": "joyally-writting",
     "category": "writing",
-    "path": "skills/writing/writting-skill",
+    "path": "skills/writing/joyally-writting",
     "summary": "用户要求写作时调用，支持文章、博客、书稿与绘本"
   },
   {

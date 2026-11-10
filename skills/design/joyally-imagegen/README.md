@@ -144,12 +144,12 @@ export APIYI_API_KEY="your-key-here"
 **3. Install it in your Agent's skill directory**
 ```bash
 # Use the location and loading convention for your Agent runtime.
-npx skills add youngjunning/skills --skill better-imagegen -g
+npx skills add youngjunning/skills --skill joyally-imagegen -g
 ```
 
 **4. Install the core local dependency**
 
-Run the following command from the installed `better-imagegen` directory shown by the installer:
+Run the following command from the installed `joyally-imagegen` directory shown by the installer:
 
 ```bash
 eval "$(./scripts/ensure_venv.sh)"

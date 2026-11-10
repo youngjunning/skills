@@ -1,6 +1,6 @@
 # Comics: sequential art production
 
-Use for a comic page, strip, vertical webtoon, knowledge comic, storyboard, or repair of one of these. This skill owns the entire comic: narrative beats, panel design, art, lettering, composition, export, and visual review. When the comic appears in an article, `writting-skill` supplies the article's verified claims and places the finished pages; it does not direct panels or letter them. A standalone comic needs no article.
+Use for a comic page, strip, vertical webtoon, knowledge comic, storyboard, or repair of one of these. This skill owns the entire comic: narrative beats, panel design, art, lettering, composition, export, and visual review. When the comic appears in an article, `joyally-writting` supplies the article's verified claims and places the finished pages; it does not direct panels or letter them. A standalone comic needs no article.
 
 This workflow adapts the analysis → storyboard → cast → prompts → page review → targeted repair cycle from [baoyu-comic](https://github.com/JimLiu/baoyu-skills/tree/main/skills/baoyu-comic) ([MIT License](https://github.com/JimLiu/baoyu-skills/blob/main/LICENSE), Copyright © 2026 Jim Liu). It keeps this skill's image backend and editable lettering. The sequential-design criteria are grounded in the linked creator and editor sources in [the research note](../../../../research/comic-sequential-design.md).
 
@@ -8,7 +8,7 @@ This workflow adapts the analysis → storyboard → cast → prompts → page r
 
 Record the reader, format (page, strip, or vertical scroll), reading direction, scene's before/after change, technical or narrative facts, cast, target display width, and destination asset conventions. For a knowledge comic, separate observed product behavior from illustrative scenes. Choose page and panel count from the action; no fixed six-panel layout or repeated two-panel template.
 
-Choose characters in this order: user-provided cast, destination project's approved cast, local `~/.config/better-imagegen/comic-characters.md` override, then the bundled [小界和小南 roster](comic-characters.md) **only when those characters suit the requested comic**. Do not add them to an unrelated comic by default. Read the manifest and inspect the relevant reference images before drawing. Preserve identity across panels while changing pose, expression, camera, and staging as the story requires.
+Choose characters in this order: user-provided cast, destination project's approved cast, local `~/.config/joyally-imagegen/comic-characters.md` override, then the bundled [小界和小南 roster](comic-characters.md) **only when those characters suit the requested comic**. Do not add them to an unrelated comic by default. Read the manifest and inspect the relevant reference images before drawing. Preserve identity across panels while changing pose, expression, camera, and staging as the story requires.
 
 ## 2. Thumbnail the whole page before rendering
 

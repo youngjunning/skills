@@ -18,11 +18,11 @@ jobs:
       - run: python3 -m unittest discover -s skills/productivity/distill-me/scripts -p 'test_*.py'
       - run: node --test skills/productivity/distill-me/tests/read.test.mjs
       - run: python3 skills/design/joyally-design/scripts/validate-joyally-tokens.py
-      - run: python3 -m unittest discover -s skills/writing/writting-skill/tests
-      - run: python3 -m pip install -r skills/design/better-imagegen/requirements.txt
-      - run: python3 -m unittest discover -s skills/design/better-imagegen/scripts -p 'test_*.py'
-      - run: python3 -m unittest discover -s skills/design/better-imagegen/tests
+      - run: python3 -m unittest discover -s skills/writing/joyally-writting/tests
+      - run: python3 -m pip install -r skills/design/joyally-imagegen/requirements.txt
+      - run: python3 -m unittest discover -s skills/design/joyally-imagegen/scripts -p 'test_*.py'
+      - run: python3 -m unittest discover -s skills/design/joyally-imagegen/tests
       - run: python3 skills/design/joyally-design/scripts/validate-native-tokens.py
       - run: node skills/design/joyally-design/scripts/joyally-archify.mjs doctor
       - run: node skills/design/joyally-design/scripts/joyally-archify.mjs validate workflow skills/design/joyally-design/examples/archify-minimal.workflow.json --json
-      - run: node --test skills/design/better-imagegen/scripts/test_validate_diagram_layout.mjs
+      - run: node --test skills/design/joyally-imagegen/scripts/test_validate_diagram_layout.mjs

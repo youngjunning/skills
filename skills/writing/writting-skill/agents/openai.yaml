@@ -1,4 +1,0 @@
-interface:
-  display_name: "Joyally writting"
-  short_description: "创作面向读者的文章与书稿；工程方案仅在明确要求时辅助润色"
-  default_prompt: "使用 $writting-skill 完成面向读者的写作或明确要求的文字编辑；工程方案保留原工程流程、技术决策、验收条件与保存位置。"

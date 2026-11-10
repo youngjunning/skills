@@ -4,7 +4,7 @@ Use this reference for every persistent reader-facing article, blog post, ATA, t
 
 ## Ownership
 
-`writting-skill` owns the cover decision: what promise the cover should make, which identity and facts it must preserve, where it appears, whether an existing cover remains valid, and what evidence proves it is deliverable. An image-generation skill or tool may create the pixels, but it does not decide the article's thesis or publication state.
+`joyally-writting` owns the cover decision: what promise the cover should make, which identity and facts it must preserve, where it appears, whether an existing cover remains valid, and what evidence proves it is deliverable. An image-generation skill or tool may create the pixels, but it does not decide the article's thesis or publication state.
 
 ## Hard requirement
 
@@ -56,7 +56,7 @@ Avoid generic AI glows, floating dashboard cards, illegible pseudo-UI, decorativ
 
 Use [visual-routing.md](visual-routing.md) to distinguish a cover from an explanatory figure and to route mixed artwork plus semantic content. The cover-specific requirements below still apply.
 
-When a new cover is required, use the image-generation capability available in the current environment. If `better-imagegen` is available, route scene-led covers through its cover/portrait reference and text-heavy covers through its text-poster reference. Do not route a cover through the knowledge-map or architecture-diagram reference.
+When a new cover is required, use the image-generation capability available in the current environment. If `joyally-imagegen` is available, route scene-led covers through its cover/portrait reference and text-heavy covers through its text-poster reference. Do not route a cover through the knowledge-map or architecture-diagram reference.
 
 Pass the cover brief and every required identity reference to the image workflow. Identity preservation outranks stylistic reinterpretation. Keep exact title text out of the raster model when deterministic overlay is available.
 

@@ -1,6 +1,6 @@
 ---
 name: joyally-design
-description: 所有 UI 设计相关任务使用 Joyally Design，包括 Web/React、macOS、iOS、Android 和 React Native 的新界面、现有页面调整、交互与组件设计、视觉精修、响应式、无障碍和截图评审；混合功能修复时参与界面方案与验收。提供完整的设计方法、工具、设计系统、HTML 报告与交互图表能力。静态架构图片由 better-imagegen 主导。
+description: 所有 UI 设计相关任务使用 Joyally Design，包括 Web/React、macOS、iOS、Android 和 React Native 的新界面、现有页面调整、交互与组件设计、视觉精修、响应式、无障碍和截图评审；混合功能修复时参与界面方案与验收。提供完整的设计方法、工具、设计系统、HTML 报告与交互图表能力。静态架构图片由 joyally-imagegen 主导。
 ---
 
 # Joyally Design
@@ -38,11 +38,11 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 | 交付物 | 主导 Skill |
 | --- | --- |
-| 文章、PPT 或分享使用的静态架构图、知识图谱、流程图片 | `better-imagegen` |
+| 文章、PPT 或分享使用的静态架构图、知识图谱、流程图片 | `joyally-imagegen` |
 | 可点击、缩放、聚焦节点或探索路径的交互图表 | `joyally-design` |
-| 网页或工作台的新建与局部精修、报告整体设计、跨平台设计系统 | `joyally-design`；其中的静态插图交给 `better-imagegen` |
+| 网页或工作台的新建与局部精修、报告整体设计、跨平台设计系统 | `joyally-design`；其中的静态插图交给 `joyally-imagegen` |
 
-仅说“画架构图”且现有交付上下文未要求交互时，默认按静态图片处理。Joyally Design 可提供配色、字体、层级与材质参考；采用这些视觉规范不改变主导 Skill，也不自动增加交互页面。生成工具、绘制方式与视觉风格分别确定；`better-imagegen` 的结构图仍按其知识图谱流程完成精确文字和箭头排版。
+仅说“画架构图”且现有交付上下文未要求交互时，默认按静态图片处理。Joyally Design 可提供配色、字体、层级与材质参考；采用这些视觉规范不改变主导 Skill，也不自动增加交互页面。生成工具、绘制方式与视觉风格分别确定；`joyally-imagegen` 的结构图仍按其知识图谱流程完成精确文字和箭头排版。
 
 1. 新建报告：明确读者、决策与证据结构，读取 [设计系统](references/design-system.md)、[报告语言](references/report-language.md)、[布局](references/layout.md) 与 [HTML 报告与演示](references/html-reports.md)。
 2. 改造已有 HTML：先读 [改造约定](references/adapting-existing-html.md)，保留 DOM、锚点、事件与导出功能，优先增加 scoped theme。

@@ -143,12 +143,12 @@ export APIYI_API_KEY="your-key-here"
 **3. 安装到你的 Agent Skill 目录**
 ```bash
 # 将目录放入你所用 Agent 的 skills 目录，并按该 Agent 的加载约定启用。
-npx skills add youngjunning/skills --skill better-imagegen -g
+npx skills add youngjunning/skills --skill joyally-imagegen -g
 ```
 
 **4. 安装核心本地依赖**
 ```bash
-# 在安装工具给出的 better-imagegen 技能目录内执行。
+# 在安装工具给出的 joyally-imagegen 技能目录内执行。
 eval "$(./scripts/ensure_venv.sh)"
 # 依赖会安装到当前项目的 .venv，不会修改系统 Python
 ```

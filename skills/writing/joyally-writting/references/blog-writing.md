@@ -56,7 +56,7 @@ State the end state and prerequisites, provide a reproducible path, explain only
 
 ### Comic article
 
-Use [comic-articles.md](comic-articles.md) when scenes, recurring characters, and dialogue explain a mechanism or practical task. Keep the complete article and factual argument readable alongside the comic; hand its verified claims and scene purpose to better-imagegen, which owns the comic production and character references. This is a Blog article shape, not Book production or an image-only deliverable.
+Use [comic-articles.md](comic-articles.md) when scenes, recurring characters, and dialogue explain a mechanism or practical task. Keep the complete article and factual argument readable alongside the comic; hand its verified claims and scene purpose to joyally-imagegen, which owns the comic production and character references. This is a Blog article shape, not Book production or an image-only deliverable.
 
 ### Product or project introduction
 

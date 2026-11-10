@@ -37,9 +37,9 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | --- | --- |
 | 判断产品方向、系统边界或 AI Agent 方案 | [top-architect](skills/engineering/top-architect/SKILL.md) |
 | 向人说明进展、交付、排障或评审结论 | [report-for-human](skills/engineering/report-for-human/SKILL.md) |
-| 生成图像、漫画或静态架构图片 | [Joyally imagegen](skills/design/better-imagegen/SKILL.md) |
+| 生成图像、漫画或静态架构图片 | [Joyally imagegen](skills/design/joyally-imagegen/SKILL.md) |
 | 统一设计、制作报告或交互图表 | [Joyally Design](skills/design/joyally-design/SKILL.md) |
-| 写文章、绘本或建设内容站点 | [Joyally writting](skills/writing/writting-skill/SKILL.md)、[fiction-site-builder](skills/writing/fiction-site-builder/SKILL.md)、[adsense-site-builder](skills/publishing/adsense-site-builder/SKILL.md) |
+| 写文章、绘本或建设内容站点 | [Joyally writting](skills/writing/joyally-writting/SKILL.md)、[fiction-site-builder](skills/writing/fiction-site-builder/SKILL.md)、[adsense-site-builder](skills/publishing/adsense-site-builder/SKILL.md) |
 | 整理或读取个人资料、维护项目方案 | [distill-me](skills/productivity/distill-me/SKILL.md) |
 
 ## 分类索引
@@ -60,14 +60,14 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 
 | 技能 | 用途 |
 | --- | --- |
-| [Joyally imagegen](skills/design/better-imagegen/SKILL.md) | 图像生成、编辑、漫画制作与素材校验 |
+| [Joyally imagegen](skills/design/joyally-imagegen/SKILL.md) | 图像生成、编辑、漫画制作与素材校验 |
 | [Joyally Design](skills/design/joyally-design/SKILL.md) | 跨平台界面设计与精修、HTML 报告和可探索图表 |
 
 ### Writing
 
 | 技能 | 用途 |
 | --- | --- |
-| [Joyally writting](skills/writing/writting-skill/SKILL.md) | 中文与英文写作、博客、书稿与绘本制作，插画由 Joyally imagegen 提供 |
+| [Joyally writting](skills/writing/joyally-writting/SKILL.md) | 中文与英文写作、博客、书稿与绘本制作，插画由 Joyally imagegen 提供 |
 | [fiction-site-builder](skills/writing/fiction-site-builder/SKILL.md) | 小说创作与阅读站点建设 |
 
 ### Publishing
@@ -82,7 +82,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | --- | --- |
 | [distill-me](skills/productivity/distill-me/SKILL.md) | 按证据蒸馏个人记录与资料，并参与项目方案管理 |
 
-Joyally Design、Joyally imagegen 和 Joyally writting 的安装与调用标识分别为 `joyally-design`、`better-imagegen` 和 `writting-skill`。机器可读目录见 [catalog.json](catalog.json)。
+Joyally Design、Joyally imagegen 和 Joyally writting 的安装与调用标识分别为 `joyally-design`、`joyally-imagegen` 和 `joyally-writting`。机器可读目录见 [catalog.json](catalog.json)。
 
 ## 使用与维护
 

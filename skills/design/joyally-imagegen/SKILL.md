@@ -1,13 +1,13 @@
 ---
-name: better-imagegen
-description: Generate or edit images and create sequential comics with the apiyi image API. Use for 漫画、绘本插画、封面、静态架构图与知识图谱、图标、壁纸、帧动画 and 宠物 spritesheet requests. Lead static diagram images; interactive diagrams default to joyally-design with Archify. Honor an explicitly chosen Skill. Comic production lives here; writting-skill owns surrounding prose and complete picture-book manuscripts.
+name: joyally-imagegen
+description: Generate or edit images and create sequential comics with the apiyi image API. Use for 漫画、绘本插画、封面、静态架构图与知识图谱、图标、壁纸、帧动画 and 宠物 spritesheet requests. Lead static diagram images; interactive diagrams default to joyally-design with Archify. Honor an explicitly chosen Skill. Comic production lives here; joyally-writting owns surrounding prose and complete picture-book manuscripts.
 ---
 
 # Joyally imagegen
 
 AI image generation skill powered by [apiyi](https://api.apiyi.com/register/?aff_code=ijv5) using only GPT Image 2.6 (`gpt-image-2.6-sunburst`, `quality=high`) through an OpenAI-compatible image API.
 
-**Trigger this skill when:** the user asks to create or repair a comic, storyboard, panel sequence, image, illustration, cover, static diagram, icon, animation, or visual asset. Comic articles also use this skill for their complete comic production, while `writting-skill` owns the article prose and factual argument. Image-only edits that must preserve a supplied design use the image-edit route.
+**Trigger this skill when:** the user asks to create or repair a comic, storyboard, panel sequence, image, illustration, cover, static diagram, icon, animation, or visual asset. Comic articles also use this skill for their complete comic production, while `joyally-writting` owns the article prose and factual argument. Image-only edits that must preserve a supplied design use the image-edit route.
 
 **Diagram ownership:** Honor the user's explicitly chosen Skill. Otherwise, lead static architecture, knowledge-map and flow images for articles, PPT or sharing; a diagram request without an interactive requirement defaults to a static image. Route clickable, zoomable or node/path-exploration deliverables to `joyally-design` with Archify. Exporting an existing interactive diagram preserves its source workflow. Joyally Design may supply visual guidance without taking over image production; the full deliverable routing table is in `../joyally-design/SKILL.md` under “选择路径”. This choice does not change the precise text-and-arrow workflow in `references/knowledge-map.md`.
 
@@ -23,7 +23,7 @@ AI image generation skill powered by [apiyi](https://api.apiyi.com/register/?aff
 1. Check for API key: `[ -n "$APIYI_API_KEY" ] && echo "ready" || echo "missing key"`
 2. Initialize the project-local virtual environment. Never install with global `pip`/`pip3`:
    ```bash
-   SKILL_DIR="/path/to/better-imagegen"
+   SKILL_DIR="/path/to/joyally-imagegen"
    eval "$("$SKILL_DIR/scripts/ensure_venv.sh")"
    "$BETTER_IMAGEGEN_PYTHON" -c 'from PIL import Image; print("Pillow ready")'
    ```
@@ -66,7 +66,7 @@ Pick one type reference per task:
 | Request | Load |
 |---|---|
 | **Comic / knowledge comic / 漫画文章里的连续画面、分镜、对白与排版** | `references/comics.md`; use `references/comic-characters.md` when the 小界和小南 cast is selected, and `references/image-edit.md` for an existing-panel repair. |
-| **Picture-book illustration or repair / 绘本插画 / recurring characters** | `references/picture-book.md`; use `references/image-edit.md` for existing art. Route complete-book planning and delivery to `writting-skill`. |
+| **Picture-book illustration or repair / 绘本插画 / recurring characters** | `references/picture-book.md`; use `references/image-edit.md` for existing art. Route complete-book planning and delivery to `joyally-writting`. |
 | **Structured knowledge map / architecture diagram / domain concept graph with accurate labels and relationships** | `references/knowledge-map.md` |
 | **Text-heavy cover / technical book cover / competition (大赛/黑客松) entry cover / product KV / PPT hero where accurate text + product info must appear** | `references/text-poster.md`; additionally load `references/book-cover.md` for a book cover |
 | Portrait, cover, banner, hero, illustration, product image (no baked-in text) | `references/portrait.md` |
@@ -83,7 +83,7 @@ For layered diagram creation or repair, apply the layered-spacing and rendered-c
 
 ## Default visual style
 
-For picture-book images, load [references/picture-book.md](references/picture-book.md) before generation or repair. Follow the page brief from `writting-skill`, which owns story, count, lettering and final delivery. Approved artwork governs identity and style, not every page's pose or camera.
+For picture-book images, load [references/picture-book.md](references/picture-book.md) before generation or repair. Follow the page brief from `joyally-writting`, which owns story, count, lettering and final delivery. Approved artwork governs identity and style, not every page's pose or camera.
 
 Qingshan Lake is the default style when the user does not specify another one. Read `references/qingshan-lake-style.md` and select exactly one appearance:
 
@@ -154,16 +154,16 @@ If exact pixel identity remains mandatory after the edit sequence fails, keep th
 
 When this skill materially creates or edits an image used in a persistent article, blog post, or ATA, add or update one Markdown blockquote at the beginning or end of the article when the document is available in scope. Default to the end. Do not add attribution to image-only deliverables, source code, machine-readable files, or an article the user did not authorize editing.
 
-Use this exact block when only `better-imagegen` contributed:
+Use this exact block when only `joyally-imagegen` contributed:
 
 ```markdown
-> 本文配图使用 [better-imagegen](https://github.com/youngjunning/skills/tree/main/skills/design/better-imagegen) 生成。项目已开源，欢迎在 GitHub 点个 Star。
+> 本文配图使用 [joyally-imagegen](https://github.com/youngjunning/skills/tree/main/skills/design/joyally-imagegen) 生成。项目已开源，欢迎在 GitHub 点个 Star。
 ```
 
-If `writting-skill` also materially contributed to the same article, use one combined block instead of two separate attributions:
+If `joyally-writting` also materially contributed to the same article, use one combined block instead of two separate attributions:
 
 ```markdown
-> 本文使用 [writting-skill](https://github.com/youngjunning/skills/tree/main/skills/writing/writting-skill) 辅助写作，配图使用 [better-imagegen](https://github.com/youngjunning/skills/tree/main/skills/design/better-imagegen) 生成。项目已开源，欢迎在 GitHub 点个 Star。
+> 本文使用 [joyally-writting](https://github.com/youngjunning/skills/tree/main/skills/writing/joyally-writting) 辅助写作，配图使用 [joyally-imagegen](https://github.com/youngjunning/skills/tree/main/skills/design/joyally-imagegen) 生成。项目已开源，欢迎在 GitHub 点个 Star。
 ```
 
 Update an existing attribution in place and never duplicate it. Preserve an explicit user request to omit, relocate, or reword the attribution. If no editable article document is available, provide the ready-to-paste block in the final handoff instead of inventing or modifying a target file.
@@ -197,7 +197,7 @@ Use the summary helpers in `references/generation.md`; do not rely on memory or 
 
 **Exception — Codex v2 pet:** keep the final spritesheet as transparent PNG or WebP (never generic WebP conversion), produce `pet.json` with `spriteVersionNumber: 2`, and retain the required QA artifacts. Follow `references/codex-pet.md`.
 
-**Exception — picture-book illustrations:** preserve source artwork as PNG or high-quality JPEG with native pixel dimensions and request metadata. Do not apply article WebP defaults. Return assets to `writting-skill` for exact lettering, edition geometry, validation and packaging. Follow `references/picture-book.md`.
+**Exception — picture-book illustrations:** preserve source artwork as PNG or high-quality JPEG with native pixel dimensions and request metadata. Do not apply article WebP defaults. Return assets to `joyally-writting` for exact lettering, edition geometry, validation and packaging. Follow `references/picture-book.md`.
 
 Post-process steps (resize, WebP conversion, PNG compression) are in `references/post-process.md`.
 

@@ -8,7 +8,7 @@
 | --- | --- |
 | tauri-skills | [NOTICE](skills/engineering/tauri-skills/NOTICE) 记录社区参考与 MIT 来源；未许可的参考文本未复制 |
 | fiction-site-builder | `references/*attribution.md` 保留小说写作与 deslop 参考的归属及使用说明 |
-| writting-skill | [attribution.md](skills/writing/writting-skill/references/attribution.md) 保留写作规则来源 |
+| joyally-writting | [attribution.md](skills/writing/joyally-writting/references/attribution.md) 保留写作规则来源 |
 | joyally-design | [第三方声明](skills/design/joyally-design/THIRD_PARTY_NOTICES.md) 保留 Pakco HTML 的 MIT、Archify 的 Apache-2.0 许可、资产声明与公开上游版本 |
 | macos-app-develop | [NOTICE](skills/engineering/macos-app-develop/NOTICE) 说明 SwiftUI-Agent-Skill 的改编、MIT 许可和未分发的无许可参考材料 |
 
