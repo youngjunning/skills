@@ -61,7 +61,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | 技能 | 用途 |
 | --- | --- |
 | [better-imagegen](skills/design/better-imagegen/SKILL.md) | 图像生成、编辑、漫画制作与素材校验 |
-| [joyally-design](skills/design/joyally-design/SKILL.md) | 跨平台品牌设计系统、HTML 报告与可探索图表 |
+| [joyally-design](skills/design/joyally-design/SKILL.md) | 跨平台界面设计与精修、HTML 报告和可探索图表 |
 
 ### Writing
 

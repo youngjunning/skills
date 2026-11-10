@@ -1,4 +1,4 @@
 interface:
   display_name: "Joyally Design"
-  short_description: "支持品牌适配的跨平台设计系统"
-  default_prompt: "Use $joyally-design to design or audit this product using the bundled lake-landscape palette and scenic guidance, adapted to the product with platform-native accessibility."
+  short_description: "设计并精修界面布局、操作与视觉层级"
+  default_prompt: "Use $joyally-design to design or polish this interface. Inspect the current task flow and component states, then adapt the visual system and accessibility guidance to this product."
