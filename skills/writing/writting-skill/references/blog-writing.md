@@ -83,6 +83,7 @@ Human voice comes from observed scenes, decisions, friction, failed approaches, 
 
 ## Evidence and publication checks
 
+- For Chinese-language articles, search for an official Chinese version of each useful primary source first and cite that version when its relevant content is complete and current. If the Chinese page is absent, incomplete, or behind the original, verify the claim against the current primary source and cite that source. Keep version-specific wording and normative details aligned with the original specification or documentation; a translation alone does not establish that a technical claim is current.
 - Verify load-bearing product, technical, historical, and quantitative claims from current sources or label them as inference.
 - Keep shipped, tested, committed, pushed, deployed, and publicly available states distinct.
 - For technical claims that may drift, record the version or verification date.
