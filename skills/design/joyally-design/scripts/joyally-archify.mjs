@@ -5,7 +5,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const skillRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const cli = join(skillRoot, 'vendor/archify/bin/archify.mjs');
+const cli = join(skillRoot, 'runtime/diagram/bin/archify.mjs');
 const args = process.argv.slice(2);
 
 if (args.length === 0) {

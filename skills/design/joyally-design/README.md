@@ -6,10 +6,10 @@
 npx skills add youngjunning/skills --skill joyally-design -g
 ```
 
-使用 `$joyally-design`，说明产品、目标平台和要完成的任务。入口与按需参考见 [SKILL.md](SKILL.md)。本机已安装 `oil-ui-pro` 时，Joyally Design 会按[完整能力集成](references/oil-ui-pro-integration.md)使用其方向探索、各类页面方法、存量改造、素材、动效、对比页、截图、评审和规范工具，同时保留[江南山水视觉语言](references/visual-language.md)。外部包由用户单独安装与维护，不随本仓库分发。
+使用 `$joyally-design`，说明产品、目标平台和要完成的任务。入口与按需参考见 [SKILL.md](SKILL.md)。Joyally Design 以[完整设计流程](DESIGN_PROCESS.md)与[融合方法](references/fused-method.md)把方向探索、各类页面方法、存量改造、素材、动效、对比页、截图、评审和规范工具落到同一套[江南山水视觉语言](references/visual-language.md)、语义变量、组件状态与验收契约。全部方法、工具和素材位于本目录，按[能力路由](references/capability-routing.md)读取。更新源包时运行 `python3 scripts/sync-upstream.py <压缩包> --check`，确认后用 `--apply` 导入；已有本地修改会报告冲突，不会被覆盖。
 
 ## 配色与使用
 
 报告、原生示例与图表遵循 [token 契约](references/token-contract.md)。Archify 四种 preset 共用语义颜色，保留构图、线条与动效特点。旧项目已复制的源码不自动重写；原生 CSS 统一使用 `joyally-` 前缀。
 
-默认本地交付，托管使用调用项目已授权的服务。公开包不依赖内部上传工具。MIT；第三方运行时的许可证与署名见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+默认本地交付，托管使用调用项目已授权的服务。公开包不依赖内部上传工具。Joyally Design 自身源码采用 [PolyForm Noncommercial 1.0.0](LICENSE)，允许非商业使用、修改和分发；商业使用需另行授权。第三方运行库依各自许可提供，详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。

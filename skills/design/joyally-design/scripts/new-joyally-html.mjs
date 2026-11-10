@@ -25,7 +25,7 @@ const subtitle = option('--subtitle', mode === 'report' ? '结论、依据与行
 const outputDir = resolve(process.cwd(), outputArg);
 const outputIndex = join(outputDir, 'index.html');
 
-const pakcoHome = join(skillRoot, 'vendor/pakco-html');
+const pakcoHome = join(skillRoot, 'runtime/html');
 
 const required = [
   'assets/base.css',

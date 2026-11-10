@@ -9,7 +9,7 @@ The bundled Pakco HTML subset supplies local layout and webpage primitives. Joya
 - Verified upstream commit: `8cefc6b6b68d85a1484e066c47ae571b75d0d4e1` on 2026-09-09
 - Bundled compatibility surface: `assets/base.css`, optional deck-only `assets/runtime.js` and `assets/animations/animations.css`, webpage primitives, semantic CSS tokens, `.deck`, `.slide`, `.notes`, and hash navigation
 
-The compatible upstream capability is bundled under `vendor/pakco-html/`; consumers do not need another Pakco installation, another Skill, or network access. For HTML reports, use the local webpage primitives documented here. Consult individual bundled references only when their specific implementation detail is needed:
+The compatible upstream capability is bundled under `runtime/html/`; consumers do not need another Pakco installation, another Skill, or network access. For HTML reports, use the local webpage primitives documented here. Consult individual bundled references only when their specific implementation detail is needed:
 
 - webpage mode for vertically scrolling reading artifacts;
 - layouts for complex report sections;
@@ -44,4 +44,4 @@ The generated report carries only the Pakco files it uses. It uses natural brows
 
 ## Updating upstream
 
-When the user explicitly requests a Pakco update, fetch the official repository into a temporary directory and refresh only `vendor/pakco-html/assets`, `templates`, `references`, `scripts/render.sh`, `LICENSE`, and `UPSTREAM_SKILL.md`. Record the resolved commit, regenerate temporary report and deck artifacts, run the validator, and visually compare representative pages. Update the verified commit in this reference only after compatibility is confirmed.
+When the user explicitly requests a Pakco update, fetch the official repository into a temporary directory and refresh only `runtime/html/assets`, `templates`, `references`, `scripts/render.sh`, `LICENSE`, and `UPSTREAM_SKILL.md`. Record the resolved commit, regenerate temporary report and deck artifacts, run the validator, and visually compare representative pages. Update the verified commit in this reference only after compatibility is confirmed.

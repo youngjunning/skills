@@ -28,7 +28,7 @@ wrapper 会设置 `ARCHIFY_UPDATE_CHECK_DISABLED=1`，保证报告生成离线�
 
 ## 集成边界（vendor + wrapper）
 
-Archify 的唯一运行时来源是 `vendor/archify/`。报告和 React 代码不应直接 import renderer、viewer template 或 Archify 的内部模块；统一通过 `scripts/joyally-archify.mjs` 调用本地 CLI。这个 wrapper 只负责三件事：解析技能包内的 vendored CLI、透传 Archify 命令参数、关闭联网更新检查。它不负责业务数据、页面路由或视觉主题。
+Archify 的唯一运行时来源是 `runtime/diagram/`。报告和 React 代码不应直接 import renderer、viewer template 或 Archify 的内部模块；统一通过 `scripts/joyally-archify.mjs` 调用本地 CLI。这个 wrapper 只负责三件事：解析技能包内的 vendored CLI、透传 Archify 命令参数、关闭联网更新检查。它不负责业务数据、页面路由或视觉主题。
 
 图表输入、产物和验证文件放在用户指定位置或系统临时目录，交付前保留最终结果：
 
@@ -95,4 +95,4 @@ Markdown 文档直接使用原生 HTML 块，前后留空行。独立打开链�
 
 ## 范围与来源
 
-bundled directory 是官方 Archify `archify/` core 的运行时子集，包含 CLI、schemas、renderers、viewer template、references 和 doctor 所需的最小示例。来源与 Apache-2.0 license、历史 MIT 声明记录在 `vendor/archify/UPSTREAM.json`、`vendor/archify/LICENSE`、`LICENSE-MIT`、`NOTICE` 和 `THIRD_PARTY_NOTICES.md`。
+bundled directory 是官方 Archify `archify/` core 的运行时子集，包含 CLI、schemas、renderers、viewer template、references 和 doctor 所需的最小示例。来源与 Apache-2.0 license、历史 MIT 声明记录在 `runtime/diagram/UPSTREAM.json`、`runtime/diagram/LICENSE`、`LICENSE-MIT`、`NOTICE` 和 `THIRD_PARTY_NOTICES.md`。
