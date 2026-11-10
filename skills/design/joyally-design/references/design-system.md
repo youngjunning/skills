@@ -1,6 +1,6 @@
 # Joyally Design: design system and bundled preset
 
-Joyally Design supplies a cross-platform method for hierarchy, semantic tokens, component behavior, and evidence-rich reports. Its own [Jiangnan landscape visual language](visual-language.md) gives mist, lake color, cypress, distant hills, seasonal light, and restrained material specific interface responsibilities. The bundled [tokens](../assets/joyally-design.tokens.json) and [Pakco theme](../assets/joyally-pakco-theme.css) implement that identity for Joyally-branded surfaces. Another brand may provide its own token values and theme while retaining the semantic roles and validation process below. Ant Design, Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI each contribute a bounded implementation strength.
+Joyally Design supplies a cross-platform method for hierarchy, semantic tokens, component behavior, and evidence-rich reports. Its own [Jiangnan landscape visual language](visual-language.md) gives mist, lake color, cypress, distant hills, seasonal light, and restrained material specific interface responsibilities. The bundled [tokens](../assets/joyally-design.tokens.json) and [HTML theme](../assets/joyally-html-theme.css) implement that identity for Joyally-branded surfaces. Another brand may provide its own token values and theme while retaining the semantic roles and validation process below. Ant Design, Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI each contribute a bounded implementation strength.
 
 ## Design character
 

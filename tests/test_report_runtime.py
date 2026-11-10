@@ -17,11 +17,12 @@ class ReportRuntimeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             for mode in ['report', 'deck']:
                 target = Path(directory) / mode
-                generator = str(ROOT / 'scripts/new-joyally-html.mjs')
+                generator = str(ROOT / 'scripts/design-engine.mjs')
                 self.run_command('node', generator, mode, str(target), '--title', 'Example <safe>')
                 report = json.loads(self.run_command('node', str(ROOT / 'scripts/validate-joyally-html.mjs'), str(target / 'index.html')).stdout)
                 self.assertEqual(report['errors'], [])
-                self.assertIn('Example &lt;safe&gt;', (target / 'index.html').read_text())
+                self.assertIn('<title>Example &lt;safe&gt; · Joyally Design</title>', (target / 'index.html').read_text())
+                self.assertTrue((target / 'joyally-design/LICENSE').is_file())
                 original = (target / 'index.html').read_bytes()
                 retry = subprocess.run(['node', generator, mode, str(target)], capture_output=True)
                 self.assertNotEqual(retry.returncode, 0)
@@ -30,9 +31,12 @@ class ReportRuntimeTests(unittest.TestCase):
     def test_diagram_runtime_delivers_from_bundled_assets(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / 'diagram.html'
-            result = self.run_command('node', str(ROOT / 'scripts/joyally-archify.mjs'), 'deliver', 'workflow', str(ROOT / 'examples/archify-minimal.workflow.json'), str(output), '--json')
+            result = self.run_command('node', str(ROOT / 'scripts/design-engine.mjs'), 'diagram', 'deliver', 'workflow', str(ROOT / 'examples/archify-minimal.workflow.json'), str(output), '--json')
             self.assertTrue(json.loads(result.stdout)['ok'])
-            self.assertIn('<svg', output.read_text())
+            html = output.read_text()
+            self.assertIn('<svg', html)
+            self.assertIn('<meta name="generator" content="Joyally Design">', html)
+            self.assertNotIn('<a class="diagram-guide-credit"', html)
             self.assertGreater(output.stat().st_size, 1000)
 
     def test_report_disclosure_clips_hover_fill_inside_rounded_border(self):
@@ -40,7 +44,7 @@ class ReportRuntimeTests(unittest.TestCase):
             target = Path(directory) / 'report'
             self.run_command('node', str(ROOT / 'scripts/new-joyally-html.mjs'), 'report', str(target))
             html = (target / 'index.html').read_text()
-            css = (target / 'pakco/joyally-theme.css').read_text()
+            css = (target / 'joyally-design/joyally-theme.css').read_text()
             self.assertIn('<details class="report-disclosure">', html)
             disclosure = css.split('.joyally-report .report-disclosure {', 1)[1].split('}', 1)[0]
             self.assertIn('overflow: hidden;', disclosure)

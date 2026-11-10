@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// Joyally Design presents the bundled diagram commands under its unified entry point.
 
 import { spawnSync } from 'node:child_process';
 import { createHash, randomUUID } from 'node:crypto';
@@ -2211,8 +2212,9 @@ const COMMAND_USAGE = {
 
 function usage() {
   const commands = Object.entries(COMMAND_USAGE).flatMap(([command, forms]) =>
-    (Array.isArray(forms) ? forms : [forms]).map(form => `  archify ${command}${form ? ` ${form}` : ''}`));
-  return `Usage:
+    (Array.isArray(forms) ? forms : [forms]).map(form => `  design-engine.mjs diagram ${command}${form ? ` ${form}` : ''}`));
+  return `Joyally Design diagrams
+Usage:
 ${commands.join('\n')}
   (finalize --out-dir relocates browser-check and default finalize receipts; HTML and its delivery receipt stay at the requested output path)
 
@@ -3709,7 +3711,7 @@ async function commandCompare(args) {
   try {
     deltaRuntime = await import(pathToFileURL(path.join(skillRoot, 'delta/architecture-delta.mjs')).href);
   } catch (error) {
-    reportCompareFailure({ json: options.json, stage: 'prepare', error: 'Architecture compare runtime is unavailable.', code: 'delta/runtime-missing', details: { reason: error.message, supportedFixes: ['install the complete Archify skill package'] } });
+    reportCompareFailure({ json: options.json, stage: 'prepare', error: 'Architecture compare runtime is unavailable.', code: 'delta/runtime-missing', details: { reason: error.message, supportedFixes: ['install the complete Joyally Design skill package'] } });
     return;
   }
   const {
@@ -4416,7 +4418,7 @@ async function commandDeliver(args) {
   const [type, input, requestedOutput] = positional;
   if (!type || !input || positional.length > 3) rejectCliArgument(usage(), {
     code: 'cli/usage',
-    supportedFixes: ['use: archify deliver <type> <input.json> [output.html] [options]'],
+    supportedFixes: ['use: design-engine.mjs diagram deliver <type> <input.json> [output.html] [options]'],
   });
   const renderer = rendererPath(type);
   const {
@@ -4888,7 +4890,7 @@ async function commandDeliver(args) {
     }
     if (render.stderr) process.stderr.write(render.stderr);
     const localeWarnings = [...await specificationLocaleDiagnostics(type, specification), ...(explainerBundle?.diagnostics.filter(entry => entry.severity === 'warning') || [])];
-    for (const warning of localeWarnings) process.stderr.write(`archify: ${warning.message}\n`);
+    for (const warning of localeWarnings) process.stderr.write(`Joyally Design: ${warning.message}\n`);
     try {
       const renderedCandidate = fs.readFileSync(candidatePath);
       if (preparedDeliveryTargets.artifact.mode !== null) {
@@ -5310,7 +5312,7 @@ async function commandPatch(rawArgs) {
   const positional = repoArgs.rest.filter(arg => arg !== '--json');
   const [type, artifact, panelId, replacement, output] = positional;
   if (type !== 'explainer' || !artifact || !panelId || !replacement || !output || positional.length !== 5 || positional.some(arg => arg.startsWith('--'))) {
-    rejectCliArgument('Use: archify patch explainer <artifact.html> <panel-id> <replacement-file> <output.html> [--json]', {
+    rejectCliArgument('Use: design-engine.mjs diagram patch explainer <artifact.html> <panel-id> <replacement-file> <output.html> [--json]', {
       code:'cli/usage',supportedFixes:['Provide an explainer artifact, stable panel id, replacement file and output HTML path.'],
     });
   }
@@ -5905,7 +5907,7 @@ async function commandFinalize(rawArgs) {
   const [type, input, output] = positional;
   if (!type || !input || !output || positional.length !== 3) rejectCliArgument(usage(), {
     code: 'cli/usage',
-    supportedFixes: ['use: archify finalize <type> <input.json> <output.html> [options]'],
+    supportedFixes: ['use: design-engine.mjs diagram finalize <type> <input.json> <output.html> [options]'],
   });
   rendererPath(type);
 
@@ -6169,7 +6171,7 @@ async function commandDoctor(args) {
   const missingExplainerRuntime = explainerRuntime.filter(file => !fs.existsSync(path.join(skillRoot, 'explainer', file))).length;
   checks.push({label:'Explainer runtime and reader assets',ok:missingExplainerRuntime===0,missing:missingExplainerRuntime});
 
-  console.log('Archify doctor\n');
+  console.log('Joyally Design diagrams\n');
   for (const check of checks) {
     console.log(`[${check.ok ? 'ok' : (check.failureLabel || 'missing')}] ${check.label}`);
   }
@@ -6178,7 +6180,7 @@ async function commandDoctor(args) {
   const missingFiles = checks.reduce((count, check) => count + check.missing, 0);
   const invalidRuntime = checks.reduce((count, check) => count + (check.invalid || 0), 0);
   if (nodeFailed === 0 && missingFiles === 0 && invalidRuntime === 0) {
-    console.log('\nArchify is ready.');
+    console.log('\nJoyally Design diagrams are ready.');
     return;
   }
 
@@ -6186,7 +6188,7 @@ async function commandDoctor(args) {
   if (nodeFailed) problems.push('Node.js 18 or newer is required');
   if (missingFiles) problems.push(`${missingFiles} required file${missingFiles === 1 ? '' : 's'} missing`);
   if (invalidRuntime) problems.push(`${invalidRuntime} runtime check${invalidRuntime === 1 ? '' : 's'} failed`);
-  console.error(`\nArchify is not ready: ${problems.join('; ')}.`);
+  console.error(`\nJoyally Design diagrams are not ready: ${problems.join('; ')}.`);
   process.exitCode = 1;
 }
 
@@ -6249,7 +6251,7 @@ async function commandBrands(args) {
   if (unknown.length) fail(`Unknown brands option "${unknown[0]}".`);
   const positional = args.filter((arg) => arg !== '--json');
   if (positional[0] === 'capture') {
-    if (positional.length !== 2) fail('Usage: archify brands capture <url> [--json]');
+    if (positional.length !== 2) fail('Usage: design-engine.mjs diagram brands capture <url> [--json]');
     const { captureBrandReference } = await import('../renderers/shared/brand-marks.mjs');
     let capture;
     try {
@@ -6283,12 +6285,12 @@ async function commandBrands(args) {
       query,
       count: marks.length,
       marks,
-      fallback: 'Run "archify brands capture <url> --json", then use the returned digest-pinned brand value.',
+      fallback: 'Run "design-engine.mjs diagram brands capture <url> --json", then use the returned digest-pinned brand value.',
     }, null, 2));
     return;
   }
   if (!marks.length) {
-    console.log(`No built-in brand matched "${query}". Run "archify brands capture <url> --json", then use the returned digest-pinned brand value.`);
+    console.log(`No built-in brand matched "${query}". Run "design-engine.mjs diagram brands capture <url> --json", then use the returned digest-pinned brand value.`);
     return;
   }
   const grouped = Map.groupBy
@@ -6319,7 +6321,7 @@ function commandDemo(args) {
 
   console.log(`\nDemo ready: ${output}`);
   console.log('Next: open the HTML in your browser, then render your own diagram:');
-  console.log('  archify render architecture <input.json> <output.html>');
+  console.log('  design-engine.mjs diagram render architecture <input.json> <output.html>');
 }
 
 function migrationPathDiagnostics(error, sourcePath, destinationPath) {
@@ -6451,7 +6453,7 @@ async function commandMigrate(args) {
     || options.positional.length !== 3
     || options.toSchema !== '2'
   ) {
-    fail('Usage: archify migrate workflow <old.json> <new.json> --to-schema 2 [--output portable.html] [--json] [--repo-root path]');
+    fail('Usage: design-engine.mjs diagram migrate workflow <old.json> <new.json> --to-schema 2 [--output portable.html] [--json] [--repo-root path]');
   }
 
   const sourcePath = path.resolve(sourceArgument);
@@ -6557,7 +6559,7 @@ async function commandMigrate(args) {
         code: 'migration/internal',
         message: 'Workflow migration failed unexpectedly.',
         evidence: { reason: error.message },
-        supportedFixes: ['report the source workflow and this diagnostic to the Archify maintainers'],
+        supportedFixes: ['report the source workflow and this diagnostic to the Joyally Design maintainers'],
       })],
     };
   }
@@ -6983,7 +6985,7 @@ async function commandValidate(args, invocation = {}) {
   const [type, input] = rest;
   if (!type || !input || rest.length !== 2) rejectCliArgument(usage(), {
     code: 'cli/usage',
-    supportedFixes: [`use: archify ${invokingCommand} <type> <input.json> [options]`],
+    supportedFixes: [`use: design-engine.mjs diagram ${invokingCommand} <type> <input.json> [options]`],
   });
   const renderer = rendererPath(type);
 
@@ -7093,7 +7095,7 @@ async function commandValidate(args, invocation = {}) {
     } else {
       if (render.stderr) process.stderr.write(render.stderr);
       const localeWarnings = [...await specificationLocaleDiagnostics(type, specification), ...(explainerBundle?.diagnostics.filter(entry => entry.severity === 'warning') || [])];
-      for (const warning of localeWarnings) process.stderr.write(`archify: ${warning.message}\n`);
+      for (const warning of localeWarnings) process.stderr.write(`Joyally Design: ${warning.message}\n`);
       const checkMaxBuffer = artifactCheckMaxBuffer();
       const check = runNode([path.join(skillRoot, 'scripts/check-render-output.mjs'), out], {
         stdio: 'pipe',

@@ -404,14 +404,15 @@ export function recommendScenario(query, options = {}) {
   };
 }
 
+// Joyally Design presents the built-in scenarios under the unified command.
 export function formatScenarioList(lang = 'en') {
   const isZh = lang === 'zh';
   const heading = isZh
-    ? `Archify 场景配方（${SCENARIO_RECIPES.length}）`
-    : `Archify scenario recipes (${SCENARIO_RECIPES.length})`;
+    ? `Joyally Design 图表场景（${SCENARIO_RECIPES.length}）`
+    : `Joyally Design diagram scenarios (${SCENARIO_RECIPES.length})`;
   const intro = isZh
-    ? '先选择你要回答的问题，再选择图表类型。可运行：archify guide "你的场景"'
-    : 'Choose the question before the diagram type. Run: archify guide "your scenario"';
+    ? '先选择你要回答的问题，再选择图表类型。可运行：design-engine.mjs diagram guide "你的场景"'
+    : 'Choose the question before the diagram type. Run: design-engine.mjs diagram guide "your scenario"';
   return [heading, '', intro, '', ...listScenarioRecipes(lang).flatMap((recipe) => [
     `${recipe.id}  [${recipe.type}]  ${recipe.title}`,
     `  ${recipe.question}`,

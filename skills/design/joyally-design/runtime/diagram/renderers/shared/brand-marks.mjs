@@ -22,6 +22,7 @@ const MAX_HTML_BYTES = 256 * 1024;
 const MAX_IMAGE_BYTES = 1024 * 1024;
 const MAX_CAPTURE_CONCURRENCY = 3;
 const DEFAULT_CAPTURE_TIMEOUT_MS = 8000;
+// Joyally Design adapts the user-facing command examples below.
 const USER_AGENT = 'Archify/2.15 brand-preview';
 
 function lookupForms(value) {
@@ -626,7 +627,7 @@ export async function prepareDiagramBrandMarks(diagramType, diagram) {
     }
     const url = asUrl(node.brand);
     if (url) {
-      unknown.push(`/${collection}/${index}/brand ${JSON.stringify(node.brand)} is an unpinned URL; capture it first with \`archify brands capture ${url.href} --json\``);
+      unknown.push(`/${collection}/${index}/brand ${JSON.stringify(node.brand)} is an unpinned URL; capture it first with \`design-engine.mjs diagram brands capture ${url.href} --json\``);
       return;
     }
     unknown.push(`/${collection}/${index}/brand ${JSON.stringify(node.brand)} is not a built-in brand; closest IDs: ${suggestions(node.brand).join(', ')}`);
@@ -641,8 +642,8 @@ export async function prepareDiagramBrandMarks(diagramType, diagram) {
       subject: { diagramType, collection },
       evidence: {},
       supportedFixes: message.includes('is an unpinned URL')
-        ? ['run `archify brands capture <url> --json` and author the returned digest-pinned brand object']
-        : ['choose an ID from `archify brands`', 'run `archify brands capture <url> --json` for an unknown official site'],
+        ? ['run `design-engine.mjs diagram brands capture <url> --json` and author the returned digest-pinned brand object']
+        : ['choose an ID from `design-engine.mjs diagram brands`', 'run `design-engine.mjs diagram brands capture <url> --json` for an unknown official site'],
     })));
   }
 }

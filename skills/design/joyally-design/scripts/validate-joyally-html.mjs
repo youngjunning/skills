@@ -23,12 +23,15 @@ const requireText = (pattern, message) => {
 const isDeck = /class=["'][^"']*joyally-deck/.test(html);
 const isReport = /class=["'][^"']*joyally-report/.test(html);
 if (!isDeck && !isReport) errors.push('body must use joyally-deck or joyally-report');
-requireText(/pakco\/joyally-theme\.css/, 'Joyally Design theme is not linked');
+const themeLink = html.match(/(?:href=["'](?:\.\/)?)(joyally-design|pakco)\/joyally-theme\.css["']/);
+const assetDir = themeLink?.[1] ?? 'joyally-design';
+if (!themeLink) errors.push('Joyally Design theme is not linked');
+const runtimeLinked = html.includes(`${assetDir}/runtime.js`);
 
 if (isDeck) {
   requireText(/class=["'][^"']*deck(?:\s|["'])/, 'deck root is missing');
   requireText(/class=["'][^"']*slide(?:\s|["'])/, 'at least one slide is required');
-  requireText(/pakco\/runtime\.js/, 'Pakco runtime is not linked');
+  if (!runtimeLinked) errors.push('Joyally Design presentation runtime is not linked');
 }
 
 if (isReport) {
@@ -47,18 +50,18 @@ const notesCount = (html.match(/<(?:aside|div)\b[^>]*class=["'][^"']*\bnotes\b/g
 if (notesCount < slideCount) warnings.push(`${slideCount - notesCount} slide(s) do not contain speaker notes`);
 
 const requiredFiles = [
-  'pakco/base.css',
-  'pakco/joyally-theme.css',
-  'pakco/LICENSE',
+  'base.css',
+  'joyally-theme.css',
+  'LICENSE',
 ];
 
-if (isDeck) requiredFiles.push('pakco/runtime.js', 'pakco/animations.css');
+if (isDeck) requiredFiles.push('runtime.js', 'animations.css');
 
 for (const relativePath of requiredFiles) {
   try {
-    await access(resolve(deckDir, relativePath), constants.R_OK);
+    await access(resolve(deckDir, assetDir, relativePath), constants.R_OK);
   } catch {
-    errors.push(`missing readable file: ${relativePath}`);
+    errors.push(`missing readable file: ${assetDir}/${relativePath}`);
   }
 }
 
@@ -68,8 +71,8 @@ if (/style=["'][^"']*(?:#[0-9a-f]{3,8}|rgb\()/i.test(html)) {
 
 if (/{{[A-Z_]+}}/.test(html)) errors.push('unresolved template placeholder found');
 
-if (isReport && /<script[^>]+pakco\/runtime\.js/.test(html)) {
-  warnings.push('reports should use native scrolling and normally do not need the Pakco slide runtime');
+if (isReport && runtimeLinked) {
+  warnings.push('reports should use native scrolling and normally do not need the presentation runtime');
 }
 
 const result = { indexPath, mode: isDeck ? 'deck' : isReport ? 'report' : 'unknown', slideCount, notesCount, errors, warnings };

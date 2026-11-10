@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Enable Archify intent trace on node hover in a clean embedded viewer."""
+"""Enable diagram intent trace on node hover in a clean embedded viewer."""
 
 import argparse
 from pathlib import Path
@@ -7,7 +7,7 @@ from pathlib import Path
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("source", type=Path, help="Verified Archify HTML")
+    parser.add_argument("source", type=Path, help="Verified Joyally Design diagram HTML")
     parser.add_argument("output", type=Path, help="Derived self-contained HTML")
     args = parser.parse_args()
     if args.source.resolve() == args.output.resolve():
@@ -21,7 +21,7 @@ def main() -> None:
         // Keep semantic node hover available in the clean embedded canvas.
         return html.getAttribute('data-guide-open') === 'true' ||"""
     if content.count(before) != 1:
-        parser.error("expected exactly one Archify intentTrace embed guard; inspect this viewer version")
+        parser.error("expected exactly one diagram intentTrace embed guard; inspect this viewer version")
     args.output.write_text(content.replace(before, after, 1), encoding="utf-8")
     print(args.output)
 

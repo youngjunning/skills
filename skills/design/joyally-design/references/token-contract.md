@@ -14,7 +14,7 @@
 
 ## 预设与平台适配
 
-- `assets/joyally-design.tokens.json` 与 `joyally-pakco-theme.css`：报告和 React 的完整分层、四季/材质契约，保留现有青瓷釉与季节预设。
+- `assets/joyally-design.tokens.json` 与 `joyally-html-theme.css`：报告和 React 的完整分层、四季/材质契约，保留现有青瓷釉与季节预设。
 - `assets/joyally-native.tokens.json`：默认湖色预设的语义值与对比度声明；`JoyallyPalette.swift`、`JoyallyTheme.kt`、`JoyallyTheme.ts`、`joyally-native.css` 是对应平台的起点。
 - 两份 JSON 是同一语义契约的不同预设，不要求色值相同。一次实现先选项目已有预设或明确一种预设，再映射全部相关角色；不要混用两份预设的前景/背景。
 - mode、season、material 是外观选择；style 和 mood 描述视觉语言与意境，不改变交互状态和语义角色。
@@ -24,4 +24,4 @@
 
 ## 图表配色
 
-`joyally-design.tokens.json` 的 `diagram.light` / `diagram.dark` 是 Archify 配色源。通用画布与文字引用已有 seed，七种图表类别保留可区分的独立色相。四种 preset 使用同一映射；打印以浅色类别配色加白色背景输出。运行 `validate-archify-theme.py` 检查模板映射及正文、节点和连线对比度。保留 `lakeTeal`、`lakeMist`、`deepLakeInk` 等湖色种子名称与景观映射；原生 CSS 使用 `joyally-` 技能前缀。
+`joyally-design.tokens.json` 的 `diagram.light` / `diagram.dark` 是交互图表的配色源。通用画布与文字引用已有 seed，七种图表类别保留可区分的独立色相。四种 preset 使用同一映射，打印以浅色类别配色加白色背景输出。运行 `validate-diagram-theme.py` 检查模板映射及正文、节点和连线对比度。湖色种子保留原有命名，原生 CSS 使用 `joyally-` 前缀。

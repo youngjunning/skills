@@ -55,7 +55,14 @@ const MANIFEST = loadManifest();
 
 export const SUPPORTED_LOCALES = Object.freeze([...MANIFEST.values()].map(({ locale }) => locale));
 
-const EN = Object.freeze(readLocaleData(MANIFEST.get(DEFAULT_LOCALE).file));
+// Joyally Design adapts bundled viewer labels while preserving user translations.
+function readViewerCatalog(file) {
+  return Object.fromEntries(Object.entries(readLocaleData(file)).map(([key, message]) => [
+    key, typeof message === 'string' ? message.replaceAll('Archify', 'Joyally Design') : message,
+  ]));
+}
+
+const EN = Object.freeze(readViewerCatalog(MANIFEST.get(DEFAULT_LOCALE).file));
 for (const [key, message] of Object.entries(EN)) {
   if (typeof message !== 'string' || message.length === 0) {
     throw new Error(`Archify source message ${JSON.stringify(key)} must be a non-empty string`);
@@ -139,7 +146,7 @@ const BUNDLED_CATALOGS = new Map([[DEFAULT_LOCALE, { usable: new Map(Object.entr
 
 function bundledCatalog(locale) {
   if (!BUNDLED_CATALOGS.has(locale)) {
-    const { usable } = classifyTranslations(readLocaleData(MANIFEST.get(locale.toLowerCase()).file));
+    const { usable } = classifyTranslations(readViewerCatalog(MANIFEST.get(locale.toLowerCase()).file));
     const messages = Object.freeze(Object.fromEntries(
       CANONICAL_KEYS.map((key) => [key, usable.get(key) ?? EN[key]]),
     ));
@@ -316,7 +323,8 @@ export function translateCount(locale, key, count, values = {}) {
 
 export function viewerCatalog(locale) {
   const messages = catalogFor(locale)?.messages || EN;
-  return Object.fromEntries(Object.entries(messages).filter(([key]) => key.startsWith('viewer.')));
+  return Object.fromEntries(Object.entries(messages).filter(([key]) =>
+    key.startsWith('viewer.') && key !== 'viewer.guide.credit' && key !== 'viewer.guide.star'));
 }
 
 export function localizeTemplate(template, locale) {

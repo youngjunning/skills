@@ -1,6 +1,6 @@
 # Joyally Design 专项质量检查
 
-设计任务的领域、方向、组件、状态、精修、截图、评审和规范都按 [完整设计方法](fused-method.md) 与 [能力路由](capability-routing.md) 执行。本文件只在出现下列问题时补充检查，不重复开启另一套方向或评审循环。来源和许可证见[第三方声明](../THIRD_PARTY_NOTICES.md)。
+设计任务的领域、方向、组件、状态、精修、截图、评审和规范按 [完整设计方法](fused-method.md) 与 [能力路由](capability-routing.md) 执行。出现下列问题时补充检查。
 
 ## 与主流程的关系
 

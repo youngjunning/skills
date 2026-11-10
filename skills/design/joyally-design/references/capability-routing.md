@@ -11,7 +11,7 @@ Joyally Design 的领域方法、专项参考、工具、素材与测试都在�
 1. 读取项目指令、当前页面与用户目标，选择本次交付物和改动范围。读取 `../DESIGN_PROCESS.md` 的任务路由，再按下表读取本次领域与专项文件；不把整个 `references/` 目录一次性装入上下文。
 2. Joyally 品牌界面先按[江南山水视觉语言](visual-language.md)、[token 契约](token-contract.md)与目标平台参考锁定色彩语义、空间层次和材质。方向方法用于构图、信息组织、交互和细节打磨；每轮必须明确留下与 Joyally 契约对应的结构、tokens、组件状态和验收证据，不能只交一张视觉稿。候选方向仍属于同一品牌。其他品牌沿用其现有设计系统。
 3. 用户本轮要求、项目现有约束和平台行为决定可改范围、确认点、构建与发布。阶段确认点只在确有必要时使用；用户已授权的工作继续完成。用户已授权直接实施时完成到验收；需要独立评审且当前环境允许时可按对应评审材料与派发方法执行。
-4. Web/HTML 的对比页、截图、素材与规范校验可使用本目录工具；macOS、iOS、Android、React Native 的画面与交互验收仍用对应平台工具。报告与图表继续用 Joyally 自带的 Pakco/Archify 路径。工具输出是证据，需亲自看画面并核对真实操作。
+4. Web/HTML 的对比页、截图、素材与规范校验可使用本目录工具；macOS、iOS、Android、React Native 的画面与交互验收仍用对应平台工具。报告与图表继续用 Joyally Design 的 `report`、`deck` 和 `diagram` 命令。工具输出是证据，需亲自看画面并核对真实操作。
 
 
 
@@ -53,6 +53,8 @@ Joyally Design 的领域方法、专项参考、工具、素材与测试都在�
 
 | 目的 | Joyally 命令 | 验收 |
 | --- | --- | --- |
+| 生成 HTML 报告或演示 | `report`、`deck` → [HTML 报告与演示](html-reports.md) | 核对离线打开、阅读或播放、打印 |
+| 生成自包含交互图表 | `diagram` → [交互图表](interactive-diagrams.md) | 校验输入、图表内容和关键交互 |
 | 把 HTML、图片或本机页面组装成同屏对比页 | `explore` → `scripts/build_explorer.py` | 看每个候选实际画面；选定方向后继续完整页面 |
 | 截图、交互状态、前后拼图、动效帧与可读性提示 | `shoot` → `scripts/shoot.mjs` | 桌面与窄屏、关键状态、真实点击路径；截图成功仍要亲自看 |
 | 查找并下载有来源说明的图片、纹理或参考 | `media` → `scripts/curate-media.mjs` | 核对原始来源、用途、许可、尺寸与实际画面 |
@@ -64,4 +66,4 @@ Joyally Design 的领域方法、专项参考、工具、素材与测试都在�
 
 例如 `node <joyally-dir>/scripts/design-engine.mjs explore <候选目录>` 生成对比页，`node <joyally-dir>/scripts/design-engine.mjs shoot <页面> --size desktop,mobile --out <截图目录>` 取得双端画面。`node <joyally-dir>/scripts/design-engine.mjs design-check <项目规范>` 检查项目设计规则。需要完整参数时在命令末尾加 `--help`。
 
-更新源包时使用 `scripts/sync-upstream.py`；检查冲突后再导入，并重新核对路由与脚本参数。第三方运行库许可见[声明](../THIRD_PARTY_NOTICES.md)。
+更新源包时使用 `scripts/sync-upstream.py`，检查冲突后再导入，并重新核对路由与脚本参数。

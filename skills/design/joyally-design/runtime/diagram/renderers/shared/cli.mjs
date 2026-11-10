@@ -1,3 +1,4 @@
+// Joyally Design identifies renderer diagnostics under the unified product name.
 import { softwareNoticesHtml } from './software-notices.mjs';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
@@ -37,7 +38,7 @@ function applyLocaleTranslations(diagramType, diagram) {
   for (const diagnostic of localeDiagnostics(diagramType, diagram.meta)) {
     recordDiagnostic(diagnostic);
     if (process.env.ARCHIFY_DIAGNOSTIC_FORMAT !== 'json') {
-      console.warn(`archify: ${diagnostic.message}`);
+      console.warn(`Joyally Design: ${diagnostic.message}`);
     }
   }
 }

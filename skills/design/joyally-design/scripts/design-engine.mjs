@@ -15,10 +15,17 @@ const commands = {
   'design-check': 'check_design_md.py',
   image: 'joyally-image.mjs',
   cards: 'build_cards.py',
+  report: 'new-joyally-html.mjs',
+  deck: 'new-joyally-html.mjs',
+  diagram: 'joyally-diagram.mjs',
 };
 const [command, ...args] = process.argv.slice(2);
 if (!command || command === '--help') {
-  process.stdout.write(`Usage: node <joyally-dir>/scripts/design-engine.mjs <${Object.keys(commands).join('|')}|path|run> [tool arguments]
+  process.stdout.write(`Joyally Design
+Usage: node <joyally-dir>/scripts/design-engine.mjs <${Object.keys(commands).join('|')}|path|run> [tool arguments]
+report <output-dir>: generate a scrolling HTML report
+deck <output-dir>: generate an HTML presentation
+diagram --help: list diagram commands and formats
 path <relative-file>: show a bundled reference, asset or script path
 run <script-name> [...arguments]: run a bundled script
 `);
@@ -52,7 +59,8 @@ if (!runtime) {
   process.stderr.write('Only bundled Python, JavaScript and shell scripts can be run.\n');
   process.exit(2);
 }
-const result = spawnSync(runtime, [target, ...scriptArgs], {
+const forwardedArgs = command === 'report' || command === 'deck' ? [command, ...scriptArgs] : scriptArgs;
+const result = spawnSync(runtime, [target, ...forwardedArgs], {
   cwd: process.cwd(), env: process.env, stdio: 'inherit',
 });
 if (result.error) {

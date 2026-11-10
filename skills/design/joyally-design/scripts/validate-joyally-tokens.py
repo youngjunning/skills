@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the self-contained Joyally Design tokens and bundled Pakco theme."""
+"""Validate the self-contained Joyally Design tokens and bundled HTML theme."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ from pathlib import Path
 
 SKILL_ROOT = Path(__file__).resolve().parents[1]
 TOKEN_FILE = SKILL_ROOT / "assets" / "joyally-design.tokens.json"
-THEME_FILE = SKILL_ROOT / "assets" / "joyally-pakco-theme.css"
+THEME_FILE = SKILL_ROOT / "assets" / "joyally-html-theme.css"
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
 REFERENCE = re.compile(r"^\{([a-zA-Z0-9_.]+)\}$")
 CSS_TOKEN = re.compile(r"(--[a-zA-Z0-9-]+)\s*:\s*(#[0-9A-Fa-f]{6})\s*;")
@@ -268,7 +268,7 @@ def main() -> int:
             errors.append(f"invalid contrast pair {index}: {error}")
 
     theme_passed = check_mapping(
-        parse_css_tokens(THEME_FILE), THEME_MAPPING, document, "Pakco theme", errors
+        parse_css_tokens(THEME_FILE), THEME_MAPPING, document, "HTML theme", errors
     )
     season_count, material_count = check_appearance_contract(document, errors)
 
@@ -279,7 +279,7 @@ def main() -> int:
 
     print(
         f"validated {len(document['color'])} colors, {len(document['semantic'])} semantic roles, "
-        f"{passed_pairs} contrast pairs, {theme_passed} Pakco theme mappings, "
+        f"{passed_pairs} contrast pairs, {theme_passed} HTML theme mappings, "
         f"{season_count} seasons, {material_count} material presets"
     )
     return 0

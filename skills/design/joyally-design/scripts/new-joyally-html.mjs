@@ -16,8 +16,10 @@ const option = (name, fallback) => {
 };
 
 if (!['deck', 'report'].includes(mode) || !outputArg || outputArg.startsWith('--')) {
-  console.error('Usage: new-joyally-html.mjs <deck|report> <output-dir> [--title <title>] [--subtitle <subtitle>]');
-  process.exit(1);
+  const help = mode === '--help' || outputArg === '--help';
+  const stream = help ? process.stdout : process.stderr;
+  stream.write('Joyally Design\nUsage: design-engine.mjs <report|deck> <output-dir> [--title <title>] [--subtitle <subtitle>]\n');
+  process.exit(help ? 0 : 1);
 }
 
 const title = option('--title', mode === 'report' ? 'Joyally Design HTML 报告' : 'Joyally Design HTML 演示');
@@ -25,7 +27,8 @@ const subtitle = option('--subtitle', mode === 'report' ? '结论、依据与行
 const outputDir = resolve(process.cwd(), outputArg);
 const outputIndex = join(outputDir, 'index.html');
 
-const pakcoHome = join(skillRoot, 'runtime/html');
+const runtimeDir = join(skillRoot, 'runtime/html');
+const artifactAssets = join(outputDir, 'joyally-design');
 
 const required = [
   'assets/base.css',
@@ -35,9 +38,9 @@ const required = [
 ];
 
 try {
-  await Promise.all(required.map((entry) => access(join(pakcoHome, entry), constants.R_OK)));
+  await Promise.all(required.map((entry) => access(join(runtimeDir, entry), constants.R_OK)));
 } catch {
-  console.error(`Bundled pakco-html is incomplete: ${pakcoHome}`);
+  console.error(`Joyally Design HTML runtime is incomplete: ${runtimeDir}`);
   process.exit(2);
 }
 
@@ -46,23 +49,23 @@ try {
   console.error(`Refusing to overwrite existing directory: ${outputDir}`);
   process.exit(3);
 } catch {
-  await mkdir(join(outputDir, 'pakco'), { recursive: true });
+  await mkdir(artifactAssets, { recursive: true });
 }
 
 const copies = [
-  ['assets/base.css', 'pakco/base.css'],
-  ['LICENSE', 'pakco/LICENSE'],
+  ['assets/base.css', 'base.css'],
+  ['LICENSE', 'LICENSE'],
 ];
 
 if (mode === 'deck') {
   copies.push(
-    ['assets/runtime.js', 'pakco/runtime.js'],
-    ['assets/animations/animations.css', 'pakco/animations.css'],
+    ['assets/runtime.js', 'runtime.js'],
+    ['assets/animations/animations.css', 'animations.css'],
   );
 }
 
-await Promise.all(copies.map(([source, target]) => cp(join(pakcoHome, source), join(outputDir, target))));
-await cp(join(skillRoot, 'assets/joyally-pakco-theme.css'), join(outputDir, 'pakco/joyally-theme.css'));
+await Promise.all(copies.map(([source, target]) => cp(join(runtimeDir, source), join(artifactAssets, target))));
+await cp(join(skillRoot, 'assets/joyally-html-theme.css'), join(artifactAssets, 'joyally-theme.css'));
 
 const templateName = mode === 'report' ? 'starter-report.html' : 'starter-deck.html';
 const template = await readFile(join(skillRoot, `assets/${templateName}`), 'utf8');

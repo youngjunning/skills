@@ -8,7 +8,8 @@
   "updatePolicy": "Update deliberately from the upstream repository; keep the vendored CLI offline by setting ARCHIFY_UPDATE_CHECK_DISABLED=1.",
   "localModifications": {
     "assets/template.html": "Joyally semantic palettes replace all four presets in light and dark mode. Source: ../../assets/joyally-design.tokens.json diagram. Geometry and export workflow preserved.",
-    "verification": "python3 scripts/validate-archify-theme.py from the Joyally skill directory",
+    "verification": "python3 scripts/validate-diagram-theme.py from the Joyally skill directory",
+    "presentation": "Joyally Design branding for viewer, explainers, comparison, preview, evidence and CLI. Preserve protocol keys, machine-readable receipts, schemas and distributed license text.",
     "explainer/reader.css": "All clean/editorial/product/swiss themes, system dark fallback and print share Joyally diagram colors via readerMapping."
   }
 }

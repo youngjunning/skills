@@ -29,7 +29,7 @@ Map existing selectors to these roles without renaming the DOM unless the existi
 | Navigation | `.report-nav` | Quiet sticky navigation only for long reports |
 | Supporting metadata | `--text-3` | Visible but below findings and evidence |
 
-If the framework already exposes its own tokens, add an adapter stylesheet that aliases them to Joyally Design/Pakco semantic tokens. Prefer this over replacing every literal selector:
+If the framework already exposes its own tokens, add an adapter stylesheet that aliases them to Joyally Design semantic tokens. Prefer this over replacing every literal selector:
 
 ```css
 .joyally-report {
