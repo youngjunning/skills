@@ -1,10 +1,10 @@
 # Joyally Design: design system and bundled preset
 
-Joyally Design supplies a cross-platform method for hierarchy, semantic tokens, component behavior, and evidence-rich reports. Start from the product's own identity and audience. Ant Design, Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI each contribute a bounded implementation strength. The bundled [tokens](../assets/joyally-design.tokens.json) and [Pakco theme](../assets/joyally-pakco-theme.css) implement one lake-landscape-inspired preset. They are authoritative when that preset is selected; another brand may provide its own token values and theme while retaining the semantic roles and validation process below.
+Joyally Design supplies a cross-platform method for hierarchy, semantic tokens, component behavior, and evidence-rich reports. Its own [Jiangnan landscape visual language](visual-language.md) gives mist, lake color, cypress, distant hills, seasonal light, and restrained material specific interface responsibilities. The bundled [tokens](../assets/joyally-design.tokens.json) and [Pakco theme](../assets/joyally-pakco-theme.css) implement that identity for Joyally-branded surfaces. Another brand may provide its own token values and theme while retaining the semantic roles and validation process below. Ant Design, Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI each contribute a bounded implementation strength.
 
 ## Design character
 
-Choose the report's visual character from the product brief, brand assets, and reading context. The following cues describe the bundled lake-landscape preset. Landscape cues are abstract responsibilities rather than literal scenery.
+Choose the report's visual character from the product brief, brand assets, and reading context. The following cues describe Joyally's own visual identity. Landscape cues are abstract responsibilities rather than literal scenery.
 
 | Visual cue | Report responsibility |
 | --- | --- |
@@ -60,7 +60,7 @@ Joyally Design uses a multi-reference approach. Each reference system contribute
 | shadcn/ui | Open component source, composition, predictable local APIs | Components stay editable in `components/ui` and use explicit variants |
 | Tailwind CSS | Theme variables and utility composition | Alias tokens exposed through `@theme`; utilities express layout |
 | Magic UI | Optional emphasis motion | Shine and shimmer remain progressive enhancement, never the base system |
-| Joyally Design | Product-specific brand character and cultural expression | Derive a visual preset from the product; the bundled lake-landscape preset is one example |
+| Joyally Design | Own visual identity and cultural expression | Use Jiangnan landscape for Joyally-branded surfaces; derive another product's visual values from its brand |
 
 This matrix is a division of responsibilities, not a request to install every library. The project should keep one semantic token vocabulary and one component contract while borrowing proven solutions where each reference is strongest.
 
