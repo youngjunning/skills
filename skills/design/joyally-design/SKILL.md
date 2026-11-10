@@ -29,6 +29,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 | React Native / Expo | [React Native](references/react-native.md) |
 | Web 工作台 | [工作台](references/web-dashboard.md) 与 [React](references/react-design-system.md) |
 | 营销页 | [Landing page](references/web-landing-page.md) |
+| Chrome 扩展图标 | [扩展图标](references/chrome-extension-icon.md) |
 
 移动端保留原生触控热区与字体缩放；桌面根据任务选择信息密度。先布局与层级，再语义颜色、表面、组件状态，最后加入品牌氛围与动效。原生示例和随包湖色预设见 [平台视觉参考](references/native-visual-system.md)。
 
@@ -41,6 +42,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 | 文章、PPT 或分享使用的静态架构图、知识图谱、流程图片 | `joyally-imagegen` |
 | 可点击、缩放、聚焦节点或探索路径的交互图表 | `joyally-design` |
 | 网页或工作台的新建与局部精修、报告整体设计、跨平台设计系统 | `joyally-design`；其中的静态插图交给 `joyally-imagegen` |
+| Chrome 扩展图标的设计、尺寸适配和真实工具栏验收 | `joyally-design` 主导小尺寸识别与使用情境；需要生成源图时调用 `joyally-imagegen` |
 
 仅说“画架构图”且现有交付上下文未要求交互时，默认按静态图片处理。Joyally Design 可提供配色、字体、层级与材质参考；采用这些视觉规范不改变主导 Skill，也不自动增加交互页面。生成工具、绘制方式与视觉风格分别确定；`joyally-imagegen` 的结构图仍按其知识图谱流程完成精确文字和箭头排版。
 
