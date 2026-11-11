@@ -29,6 +29,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 | React Native / Expo | [React Native](references/react-native.md) |
 | Web 工作台 | [工作台](references/web-dashboard.md) 与 [React](references/react-design-system.md) |
 | 营销页 | [Landing page](references/web-landing-page.md) |
+| Chrome 扩展界面 | [扩展界面](references/chrome-extension-ui.md)；默认使用 Web Awesome Core |
 | Chrome 扩展图标 | [扩展图标](references/chrome-extension-icon.md) |
 
 移动端保留原生触控热区与字体缩放；桌面根据任务选择信息密度。先布局与层级，再语义颜色、表面、组件状态，最后加入品牌氛围与动效。原生示例和随包湖色预设见 [平台视觉参考](references/native-visual-system.md)。
@@ -58,7 +59,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 内容和可读性先于氛围。正文、表格、日志与证据使用足够清晰的表面；品牌色、材质、字体与图像由具体项目确定。Joyally 品牌使用 [江南山水视觉语言](references/visual-language.md) 与现有四季、青瓷釉和玻璃预设；[平台视觉参考](references/native-visual-system.md)提供具体映射。其他项目从自身品牌素材派生视觉语言。图表与报告共用语义配色。避免嵌套玻璃卡片、持续装饰动画与颜色单独表示状态。
 
-语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn 提供开放组合方式，Tailwind 用于表达已有 tokens，Magic UI 动效只作为可降级增强；不要求安装全部参考库。
+语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn 提供开放组合方式；项目已用 Tailwind 时可用它表达已有 tokens，Magic UI 动效只作为可降级增强。这些参考不要求全部安装，React 参考中的 Tailwind/shadcn 实现约定只适用于采用该技术栈的项目。
 
 页面按任务组织上下文、局部工具、主要内容与支持信息。只保留一个稳定标题层；selected、focus、loading 不推动布局。组件覆盖 default、hover、pressed、selected、focus、disabled、loading、empty、error、success，以及窄屏、reduced motion 和打印状态。
 
