@@ -60,7 +60,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 内容和可读性先于氛围。正文、表格、日志与证据使用足够清晰的表面；品牌色、材质、字体与图像由具体项目确定。Joyally 品牌使用 [江南山水视觉语言](references/visual-language.md) 与现有四季、青瓷釉和玻璃预设；[平台视觉参考](references/native-visual-system.md)提供具体映射。其他项目从自身品牌素材派生视觉语言。图表与报告共用语义配色。避免嵌套玻璃卡片、持续装饰动画与颜色单独表示状态。
 
-语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn 提供开放组合方式；项目已用 Tailwind 时可用它表达已有 tokens，Magic UI 动效只作为可降级增强。这些参考不要求全部安装，React 参考中的 Tailwind/shadcn 实现约定只适用于采用该技术栈的项目。H5 与 Chrome 扩展采用 daisyUI 时按其版本要求建立 Tailwind CSS 构建链，不将该依赖扩展为其他平台的要求。
+语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn 提供开放组合方式；项目已用 Tailwind 时可用它表达已有 tokens，Magic UI 动效只作为可降级增强。这些参考不要求全部安装，React 参考中的 Tailwind/shadcn 实现约定只适用于采用该技术栈的项目。H5 与 Chrome 扩展使用 daisyUI 时，可按项目构建条件选择 Tailwind CSS 4 插件或本地打包独立 CSS；不因此要求其他平台使用 Tailwind。
 
 页面按任务组织上下文、局部工具、主要内容与支持信息。只保留一个稳定标题层；selected、focus、loading 不推动布局。组件覆盖 default、hover、pressed、selected、focus、disabled、loading、empty、error、success，以及窄屏、reduced motion 和打印状态。
 
