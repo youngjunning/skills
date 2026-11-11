@@ -1,8 +1,8 @@
 # Joyally Design React design system reference
 
-Joyally Design 在 React 项目中首先是一套可复用的设计系统约束，然后才是页面样式。目标是让 tokens、组件状态、布局节奏和页面组合拥有同一套语义，同时保留项目原有的业务术语、路由和交互合同。
+Joyally Design 在 React Web 项目中首先是一套可复用的设计系统约束，然后才是页面样式。新建界面默认从 [Magic UI registry](https://magicui.design/docs/installation) 选用组件；官方安装流程以 shadcn/ui 与 Tailwind 为基础。Magic UI 未提供的表单、数据与复杂交互控件由项目现有组件体系或 shadcn/ui、Radix 承载。目标是让 tokens、组件状态、布局节奏和页面组合拥有同一套语义，同时保留项目原有的业务术语、路由和交互合同。H5、Chrome 扩展和 React Native 按各自平台路径选择组件。
 
-Ant Design is one of several primary reference systems for Joyally Design's React contract, chiefly responsible for token derivation, component states, hierarchy, and density. Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI provide complementary implementation constraints. lake-landscape and contemporary Chinese visual cues are the brand layer; the Chinese cultural layer is not tied to one dynasty and excludes Qing-dynasty aesthetics and characteristic symbols. The rules below translate that matrix into Alias tokens, layout rhythm, and responsive behavior for internal web products.
+Ant Design informs token derivation, component states, hierarchy, and density. Material 3 informs semantic roles; Radix Primitives and shadcn/ui supply accessible base controls and open composition; Tailwind CSS implements theme utilities; Magic UI is the default React Web component source where its registry covers the task. Lake-landscape and contemporary Chinese visual cues are the brand layer; the Chinese cultural layer is not tied to one dynasty and excludes Qing-dynasty aesthetics and characteristic symbols. The rules below translate that matrix into Alias tokens, layout rhythm, and responsive behavior for internal web products.
 
 ## Reference architecture for the current stack
 
@@ -13,7 +13,7 @@ Ant Design is one of several primary reference systems for Joyally Design's Reac
 | Alias | `background`, `surface`, `text`, `primary`, `focus`, `success`, `warning`, `error` | CSS variables consumed by Tailwind `@theme`; stored as `semantic` for compatibility |
 | Component | Button, Input, Card, Table, Dialog, Sidebar, Empty, Toast and state variants | `components/ui`, `cva` variants and composable slots |
 
-The project composes a reference-system matrix: Ant Design informs token derivation and enterprise density, Material 3 informs semantic roles and state layers, Radix Primitives informs accessible behavior, shadcn/ui and Tailwind CSS 4 own open implementation, and Magic UI supplies optional emphasis motion. These roles must stay visible in source so an AI or engineer can change one layer without hunting through generated CSS.
+The project composes a reference-system matrix: Ant Design informs token derivation and enterprise density, Material 3 informs semantic roles and state layers, Radix Primitives informs accessible behavior, shadcn/ui and Tailwind CSS 4 own open implementation, and Magic UI supplies the default registry for available React Web components. Motion remains an optional part of those components. These roles must stay visible in source so an AI or engineer can change one layer without hunting through generated CSS.
 
 ## Design language and appearance axes
 
@@ -50,7 +50,7 @@ Style and mood are separate peer-level creative descriptors layered above these 
 | Keyboard, focus, overlay, and WAI-ARIA behavior | Radix Primitives | Preserve primitive behavior and accessible names before adding brand styling |
 | Source ownership and composition | shadcn/ui | Keep primitives open in `components/ui`; use `cn` and `cva` for variants |
 | Token-to-utility implementation | Tailwind CSS 4 | Use `@theme` namespaces and semantic utilities; document measured exceptions |
-| Expressive emphasis motion | Magic UI | Add only after static hierarchy is correct, with reduced-motion fallback |
+| Available React Web components and emphasis motion | Magic UI | Install only needed registry components; map tokens and provide reduced-motion fallback |
 | Brand and cultural expression | Joyally Design | Apply lake-landscape and contemporary Chinese cues through Alias tokens and bounded artwork |
 
 These references are complementary. Do not merge their APIs into a new abstraction layer or install a library only to imitate its look.
@@ -171,9 +171,9 @@ Use semantic HTML without allowing browser defaults to destabilize compact layou
 5. Arbitrary Tailwind values are reserved for measured one-off geometry, imported media, or a documented visual exception; repeated values graduate into tokens.
 6. Functional affordance icons must retain an accessible name and stable geometry. Branded, navigation, or illustrative icon artwork follows the project's joyally-imagegen workflow; do not replace that artwork with a generic utility icon.
 
-### Magic UI enhancement rules
+### Magic UI component rules
 
-1. Add a Magic UI effect only after hierarchy and state styling are correct without it.
+1. Select a Magic UI component when its structure and behavior fit the task; map its color, typography, spacing, states, and focus treatment to project tokens. Use the project's base controls when the registry does not cover the needed behavior.
 2. Restrict shine/beam/shimmer/aurora effects to primary emphasis or an intentional brand moment; never animate every card, table row, sidebar item, or status badge.
 3. Keep the effect outside the content reading surface so text and evidence remain opaque and stable.
 4. Provide `prefers-reduced-motion`, `prefers-reduced-transparency`, and low-power fallbacks. The component must still communicate its state when animation is removed.

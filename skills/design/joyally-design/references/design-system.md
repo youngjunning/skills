@@ -59,7 +59,7 @@ Joyally Design uses a multi-reference approach. Each reference system contribute
 | Radix Primitives | Keyboard behavior, focus management, WAI-ARIA patterns, overlay logic | Shared primitives must remain operable before styling is applied |
 | shadcn/ui | Open component source, composition, predictable local APIs | Components stay editable in `components/ui` and use explicit variants |
 | Tailwind CSS | Theme variables and utility composition | Alias tokens exposed through `@theme`; utilities express layout |
-| Magic UI | Optional emphasis motion | Shine and shimmer remain progressive enhancement, never the base system |
+| Magic UI | React Web 默认组件来源，提供可复用展示组件与部分交互 | 从 registry 按需安装并映射项目 tokens；动效保持可降级 |
 | Joyally Design | Own visual identity and cultural expression | Use Jiangnan landscape for Joyally-branded surfaces; derive another product's visual values from its brand |
 
 This matrix is a division of responsibilities, not a request to install every library. The project should keep one semantic token vocabulary and one component contract while borrowing proven solutions where each reference is strongest.

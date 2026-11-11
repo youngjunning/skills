@@ -25,13 +25,15 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 | --- | --- |
 | macOS / SwiftUI / AppKit | [macOS](references/macos.md) |
 | iPhone / iPad | [iOS](references/ios.md) |
-| Android / Compose | [Android](references/android.md) |
+| Android 原生 App / Compose | [Android](references/android.md)；使用 Jetpack Compose Material 3 |
 | React Native / Expo | [React Native](references/react-native.md) |
 | H5 页面 | [H5 界面](references/h5-ui.md)；默认使用 daisyUI |
-| Web 工作台 | [工作台](references/web-dashboard.md) 与 [React](references/react-design-system.md) |
+| React Web 页面与工作台 | [React](references/react-design-system.md)；工作台另读[工作台](references/web-dashboard.md)；默认使用 Magic UI |
 | 营销页 | [Landing page](references/web-landing-page.md) |
 | Chrome 扩展界面 | [扩展界面](references/chrome-extension-ui.md)；默认使用 daisyUI |
 | Chrome 扩展图标 | [扩展图标](references/chrome-extension-icon.md) |
+
+按交付场景选组件基础：React 实现的 H5 页面仍按 H5 使用 daisyUI，React 实现的 Chrome 扩展仍按扩展使用 daisyUI；React Native 使用原生移动端路径。项目已有组件体系先沿用并按获准范围升级。
 
 移动端保留原生触控热区与字体缩放；桌面根据任务选择信息密度。先布局与层级，再语义颜色、表面、组件状态，最后加入品牌氛围与动效。原生示例和随包湖色预设见 [平台视觉参考](references/native-visual-system.md)。
 
@@ -60,7 +62,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 内容和可读性先于氛围。正文、表格、日志与证据使用足够清晰的表面；品牌色、材质、字体与图像由具体项目确定。Joyally 品牌使用 [江南山水视觉语言](references/visual-language.md) 与现有四季、青瓷釉和玻璃预设；[平台视觉参考](references/native-visual-system.md)提供具体映射。其他项目从自身品牌素材派生视觉语言。图表与报告共用语义配色。避免嵌套玻璃卡片、持续装饰动画与颜色单独表示状态。
 
-语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn 提供开放组合方式；项目已用 Tailwind 时可用它表达已有 tokens，Magic UI 动效只作为可降级增强。这些参考不要求全部安装，React 参考中的 Tailwind/shadcn 实现约定只适用于采用该技术栈的项目。H5 与 Chrome 扩展使用 daisyUI 时，可按项目构建条件选择 Tailwind CSS 4 插件或本地打包独立 CSS；不因此要求其他平台使用 Tailwind。
+语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn/ui 提供开放组件基础。新建 React Web 界面以 Magic UI registry 作为默认组件来源，按其官方安装流程使用 shadcn/ui 与 Tailwind；Magic UI 未覆盖的基础控件与复杂交互由项目组件体系或 shadcn/ui、Radix 承载。动效按任务选择并提供可降级状态。H5 与 Chrome 扩展使用 daisyUI 时，可按项目构建条件选择 Tailwind CSS 4 插件或本地打包独立 CSS。
 
 页面按任务组织上下文、局部工具、主要内容与支持信息。只保留一个稳定标题层；selected、focus、loading 不推动布局。组件覆盖 default、hover、pressed、selected、focus、disabled、loading、empty、error、success，以及窄屏、reduced motion 和打印状态。
 
