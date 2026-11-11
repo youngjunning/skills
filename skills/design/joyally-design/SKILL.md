@@ -19,7 +19,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 ## 跨平台路径
 
-先盘点产品任务、既有 tokens、共享组件、输入方式和信息密度，保留平台原生导航。所有平台先读 [统一 token 契约](references/token-contract.md) 与 [验收](references/validation.md)，再选择对应参考：
+先盘点产品任务、既有 tokens、共享组件、输入方式和信息密度，保留平台原生导航。交付界面先确定组件来源：已有项目使用现行组件库和样式体系；没有组件基础时按目标平台选定并记录，不把逐页手写原生控件样式当作默认方案。Joyally Design 管理语义 tokens、共享组件变体、交互状态和页面组合，具体控件由所选平台组件基础承载。所有平台先读 [统一 token 契约](references/token-contract.md) 与 [验收](references/validation.md)，再选择对应参考：
 
 | 目标 | 参考 |
 | --- | --- |
@@ -27,9 +27,10 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 | iPhone / iPad | [iOS](references/ios.md) |
 | Android / Compose | [Android](references/android.md) |
 | React Native / Expo | [React Native](references/react-native.md) |
+| H5 页面 | [H5 界面](references/h5-ui.md)；默认使用 daisyUI |
 | Web 工作台 | [工作台](references/web-dashboard.md) 与 [React](references/react-design-system.md) |
 | 营销页 | [Landing page](references/web-landing-page.md) |
-| Chrome 扩展界面 | [扩展界面](references/chrome-extension-ui.md)；默认使用 Web Awesome Core |
+| Chrome 扩展界面 | [扩展界面](references/chrome-extension-ui.md)；默认使用 daisyUI |
 | Chrome 扩展图标 | [扩展图标](references/chrome-extension-icon.md) |
 
 移动端保留原生触控热区与字体缩放；桌面根据任务选择信息密度。先布局与层级，再语义颜色、表面、组件状态，最后加入品牌氛围与动效。原生示例和随包湖色预设见 [平台视觉参考](references/native-visual-system.md)。
@@ -59,7 +60,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 内容和可读性先于氛围。正文、表格、日志与证据使用足够清晰的表面；品牌色、材质、字体与图像由具体项目确定。Joyally 品牌使用 [江南山水视觉语言](references/visual-language.md) 与现有四季、青瓷釉和玻璃预设；[平台视觉参考](references/native-visual-system.md)提供具体映射。其他项目从自身品牌素材派生视觉语言。图表与报告共用语义配色。避免嵌套玻璃卡片、持续装饰动画与颜色单独表示状态。
 
-语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn 提供开放组合方式；项目已用 Tailwind 时可用它表达已有 tokens，Magic UI 动效只作为可降级增强。这些参考不要求全部安装，React 参考中的 Tailwind/shadcn 实现约定只适用于采用该技术栈的项目。
+语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn 提供开放组合方式；项目已用 Tailwind 时可用它表达已有 tokens，Magic UI 动效只作为可降级增强。这些参考不要求全部安装，React 参考中的 Tailwind/shadcn 实现约定只适用于采用该技术栈的项目。H5 与 Chrome 扩展采用 daisyUI 时按其版本要求建立 Tailwind CSS 构建链，不将该依赖扩展为其他平台的要求。
 
 页面按任务组织上下文、局部工具、主要内容与支持信息。只保留一个稳定标题层；selected、focus、loading 不推动布局。组件覆盖 default、hover、pressed、selected、focus、disabled、loading、empty、error、success，以及窄屏、reduced motion 和打印状态。
 
