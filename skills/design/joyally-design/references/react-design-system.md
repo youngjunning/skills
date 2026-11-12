@@ -23,7 +23,7 @@ Keep design language and runtime appearance independent:
 | --- | --- | --- |
 | Design language | `style` | Visual grammar and cultural references; baseline `contemporary-chinese-cues` |
 | Design language | `mood` | 意境：emotional atmosphere, spatial distance, temporal feeling, and pacing; baseline `quiet-youthful-distance` |
-| Appearance | `mode` | `light` / `dark`; controls luminance, contrast, and surface pairing |
+| Appearance | `mode`（明暗模式） | `light` / `dark`，界面称“浅色 / 深色”；控制亮度、对比度与表面配对，不是另一个主题 |
 | Appearance | `season` | `spring` / `summer` / `autumn` / `winter`; controls seasonal palette and atmosphere while preserving aliases and component states |
 | Implementation preset | `material` | `celadon-glaze` / `glass`; controls surface treatment such as translucency, border, highlight, and shadow |
 
