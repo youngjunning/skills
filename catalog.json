@@ -12,9 +12,9 @@
     "summary": "图像生成、编辑、漫画制作与素材校验"
   },
   {
-    "name": "product-demo-media",
+    "name": "joyally-product-demo",
     "category": "design",
-    "path": "skills/design/product-demo-media",
+    "path": "skills/design/joyally-product-demo",
     "summary": "真实产品截图、交互录屏与落地页演示，自动识别候选敏感区域并脱敏复核"
   },
   {

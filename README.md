@@ -38,7 +38,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | 判断产品方向、系统边界或 AI Agent 方案 | [top-architect](skills/engineering/top-architect/SKILL.md) |
 | 向人说明进展、交付、排障或评审结论 | [report-for-human](skills/engineering/report-for-human/SKILL.md) |
 | 生成图像、漫画或静态架构图片 | [Joyally imagegen](skills/design/joyally-imagegen/SKILL.md) |
-| 为文章或落地页制作真实产品截图、交互演示录屏并脱敏 | [product-demo-media](skills/design/product-demo-media/SKILL.md) |
+| 为文章或落地页制作真实产品截图、交互演示录屏并脱敏 | [joyally-product-demo](skills/design/joyally-product-demo/SKILL.md) |
 | 统一设计、制作报告或交互图表 | [Joyally Design](skills/design/joyally-design/SKILL.md) |
 | 写文章、绘本或建设内容站点 | [Joyally writting](skills/writing/joyally-writting/SKILL.md)、[fiction-site-builder](skills/writing/fiction-site-builder/SKILL.md)、[adsense-site-builder](skills/publishing/adsense-site-builder/SKILL.md) |
 | 整理或读取个人资料、维护项目方案 | [distill-me](skills/productivity/distill-me/SKILL.md) |
@@ -62,7 +62,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | 技能 | 用途 |
 | --- | --- |
 | [Joyally imagegen](skills/design/joyally-imagegen/SKILL.md) | 图像生成、编辑、漫画制作与素材校验 |
-| [product-demo-media](skills/design/product-demo-media/SKILL.md) | 真实产品截图、交互录屏和落地页演示；敏感区域扫描、马赛克与成品复核 |
+| [joyally-product-demo](skills/design/joyally-product-demo/SKILL.md) | 真实产品截图、交互录屏和落地页演示；敏感区域扫描、马赛克与成品复核 |
 | [Joyally Design](skills/design/joyally-design/SKILL.md) | 跨平台界面设计与精修、HTML 报告和可探索图表 |
 
 ### Writing
