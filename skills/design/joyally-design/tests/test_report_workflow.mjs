@@ -11,7 +11,7 @@ const engine = join(root, 'scripts/design-engine.mjs');
 const validator = join(root, 'scripts/validate-joyally-html.mjs');
 const run = (script, args) => spawnSync(process.execPath, [script, ...args], { encoding: 'utf8' });
 
-test('report packages only Joyally CSS and presentation commands are absent', async () => {
+test('report packages only Joyally report CSS and rejects deck overwrite', async () => {
   const dir = await mkdtemp(join(tmpdir(), 'joyally-report-test-'));
   const output = join(dir, 'report');
   const built = run(engine, ['report', output, '--title', '独立报告']);
@@ -23,5 +23,5 @@ test('report packages only Joyally CSS and presentation commands are absent', as
   const theme = await readFile(join(output, 'joyally-design/joyally-theme.css'), 'utf8');
   assert.doesNotMatch(theme, /joyally-deck|pakco|html-ppt/);
   assert.equal(run(validator, [join(output, 'index.html')]).status, 0);
-  assert.equal(run(engine, ['deck', join(dir, 'deck')]).status, 2);
+  assert.equal(run(engine, ['deck', output]).status, 3);
 });

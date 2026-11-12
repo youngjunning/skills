@@ -1,0 +1,16 @@
+{
+  "source": "https://github.com/pakco77/pakco-html",
+  "sourceCommit": "8cefc6b6b68d85a1484e066c47ae571b75d0d4e1",
+  "license": "MIT",
+  "included": [
+    "deck CSS foundation",
+    "keyboard and presenter runtime",
+    "27 CSS animations",
+    "20 Canvas FX modules"
+  ],
+  "adaptations": [
+    "removed webpage and scrolling preview modes",
+    "scoped output to Joyally Design presentation directories",
+    "replaced upstream themes with six Joyally Design theme mappings"
+  ]
+}

@@ -2,7 +2,7 @@
 
 按产品任务选择 Oil UI Pro 的设计与走查方法，按需使用 Joyally 的语义 tokens、跨平台状态、主题资产、报告与交互图表；主题和组件预设均不代替当前产品的品牌与既有设计。选择依据见[融合方法](references/fused-method.md)。
 
-统一的跨平台设计 Skill：从产品与品牌建立视觉语言，覆盖原生平台适配、React 组件契约、可移植 HTML 报告与交互图表。六套并列主题为「青山湖」「西湖」「苏州园林」「马尔代夫」「阿尔卑斯雪山」与[小香风](references/fashion-xiaoxiang.md)；青山湖正在补齐四季参考，其余五套各有 20 张可追溯的参考画面。前五套的[景观视觉规则](references/visual-language.md)从地点取景，小香风从服装廓形、细节与编辑式呈现取材；粗花呢只是材质线索。小香风另有[浅色与深色 token 样本](assets/xiaoxiang-theme.tokens.json)，现有平台 tokens 与四季预设是青山湖主题的实现样本。参考画面保存在[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[苏州园林](assets/references/suzhou-gardens/README.md)、[马尔代夫](assets/references/maldives/README.md)、[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)与[小香风](assets/references/xiaoxiang/README.md)目录；苏州园林也使用[留园照片](assets/references/lingering-garden/README.md)。
+统一的跨平台设计 Skill：从产品与品牌建立视觉语言，覆盖原生平台适配、React 组件契约、可移植 HTML 报告、HTML PPT 与交互图表。六套并列主题为「青山湖」「西湖」「苏州园林」「马尔代夫」「阿尔卑斯雪山」与[小香风](references/fashion-xiaoxiang.md)；青山湖正在补齐四季参考，其余五套各有 20 张可追溯的参考画面。前五套的[景观视觉规则](references/visual-language.md)从地点取景，小香风从服装廓形、细节与编辑式呈现取材；粗花呢只是材质线索。小香风另有[浅色与深色 token 样本](assets/xiaoxiang-theme.tokens.json)，现有平台 tokens 与四季预设是青山湖主题的实现样本。参考画面保存在[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[苏州园林](assets/references/suzhou-gardens/README.md)、[马尔代夫](assets/references/maldives/README.md)、[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)与[小香风](assets/references/xiaoxiang/README.md)目录；苏州园林也使用[留园照片](assets/references/lingering-garden/README.md)。
 
 ```bash
 npx skills add youngjunning/skills --skill joyally-design -g
@@ -24,6 +24,7 @@ npx skills add youngjunning/skills --skill joyally-design -g
 | 精修已有表单 | `$joyally-design 精修截图里的项目设置表单。保留字段、保存逻辑和组件库，核对校验失败、提交中和提交成功三种状态。` | 改动与前后对比 |
 | 实现中后台组件 | `$joyally-design 在现有 React 工作台实现任务列表。先检查组件来源，选用 Button、Input、Select、Table 与反馈组件；保留数据层，验证搜索、筛选、空状态、窄屏和键盘操作。` | 本地组件源码、可操作页面和验证结果 |
 | 生成 HTML 周报 | `$joyally-design 把附上的工单数据整理成可离线打开和打印的 HTML 周报，给运营同学看。先写响应时长的变化，再列数据和下一步。` | 报告 HTML 和资源目录 |
+| 制作 HTML PPT | `$joyally-design 把项目进展做成给团队评审的逐页 HTML 演示稿。按结论、证据和下一步组织，使用青山湖主题，每页附讲稿。` | 可离线播放的演示目录、逐页源稿及可选 PNG/PDF |
 | 绘制交互流程图 | `$joyally-design 把工具调用审批流程画成可缩放的交互图，区分审批通过与返回修改两条路径，交付 JSON 源文件和 HTML。` | 流程定义、交互 HTML 和校验结果 |
 
 也可以在 macOS 或 Linux 终端进入 Skill 目录，运行下面的示例。命令会打印可用浏览器打开的产物路径。
@@ -38,6 +39,12 @@ printf "%s\n" "$output_dir/joyally-report/index.html"
 
 ```bash
 output_dir=$(mktemp -d)
+node scripts/design-engine.mjs deck "$output_dir/joyally-deck" --scenario project-report --theme lake
+printf "%s\n" "$output_dir/joyally-deck/index.html"
+```
+
+```bash
+output_dir=$(mktemp -d)
 example="runtime/diagram/examples/agent-tool-call.workflow.json"
 node scripts/design-engine.mjs diagram validate workflow "$example" &&
   node scripts/design-engine.mjs diagram deliver workflow "$example" "$output_dir/agent-workflow.html" &&
@@ -48,4 +55,4 @@ node scripts/design-engine.mjs diagram validate workflow "$example" &&
 
 报告、原生示例与图表遵循 [token 契约](references/token-contract.md)。交互图表的四种样式 共用语义颜色，保留构图、线条与动效特点。旧项目已复制的源码不自动重写；原生 CSS 统一使用 `joyally-` 前缀。
 
-默认本地交付，托管使用调用项目已授权的服务。公开包不依赖内部上传工具。Joyally Design 自身源码采用 [PolyForm Noncommercial 1.0.0](LICENSE)，允许非商业使用、修改和分发；商业使用需另行授权。从 `node scripts/design-engine.mjs --help` 查看报告和图表命令。
+默认本地交付，托管使用调用项目已授权的服务。公开包不依赖内部上传工具。Joyally Design 自身源码采用 [PolyForm Noncommercial 1.0.0](LICENSE)，允许非商业使用、修改和分发；商业使用需另行授权。演示资源的 MIT 许可随产物打包。从 `node scripts/design-engine.mjs --help` 查看报告、演示和图表命令。
