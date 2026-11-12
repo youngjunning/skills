@@ -1,6 +1,6 @@
 # Joyally Design: design system and bundled preset
 
-Joyally Design supplies a cross-platform method for hierarchy, semantic tokens, component behavior, and evidence-rich reports. Its own [Jiangnan landscape visual language](visual-language.md) gives mist, lake color, cypress, distant hills, seasonal light, and restrained material specific interface responsibilities. The bundled [tokens](../assets/joyally-design.tokens.json) and [HTML theme](../assets/joyally-html-theme.css) implement that identity for Joyally-branded surfaces. Another brand may provide its own token values and theme while retaining the semantic roles and validation process below. Ant Design, Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI each contribute a bounded implementation strength.
+Joyally Design supplies a cross-platform method for hierarchy, semantic tokens, component behavior, and evidence-rich reports. Its own [Chinese aesthetic direction system](visual-language.md) includes Qingshan Lake Water Forest, West Lake, and Suzhou Gardens. The bundled [tokens](../assets/joyally-design.tokens.json) and [HTML theme](../assets/joyally-html-theme.css) currently implement Qingshan Lake as the default Joyally-branded direction. Another brand may provide its own token values and theme while retaining the semantic roles and validation process below. Ant Design, Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI each contribute a bounded implementation strength.
 
 ## Design character
 
@@ -60,7 +60,7 @@ Joyally Design uses a multi-reference approach. Each reference system contribute
 | shadcn/ui | Open component source, composition, predictable local APIs | Components stay editable in `components/ui` and use explicit variants |
 | Tailwind CSS | Theme variables and utility composition | Alias tokens exposed through `@theme`; utilities express layout |
 | Magic UI | React Web 默认组件来源，提供可复用展示组件与部分交互 | 从 registry 按需安装并映射项目 tokens；动效保持可降级 |
-| Joyally Design | Own visual identity and cultural expression | Use Jiangnan landscape for Joyally-branded surfaces; derive another product's visual values from its brand |
+| Joyally Design | Own visual identity and cultural expression | Choose a direction in the Chinese aesthetic system for Joyally-branded surfaces; derive another product's visual values from its brand |
 
 This matrix is a division of responsibilities, not a request to install every library. The project should keep one semantic token vocabulary and one component contract while borrowing proven solutions where each reference is strongest.
 
