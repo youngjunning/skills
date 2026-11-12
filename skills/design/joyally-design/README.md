@@ -1,6 +1,6 @@
 # Joyally Design
 
-统一的跨平台设计 Skill：从产品与品牌建立视觉语言，覆盖原生平台适配、React 组件契约、可移植 HTML 报告、演示与交互图表。自身的[中国风审美视觉体系](references/visual-language.md)先定义共同规则，再以「疏林静水」「长桥远望」「游廊框景」作为平等的视觉主题。青山湖水上森林、西湖和苏州园林分别是三个主题当前的取景地；取景地只是主题的来源属性，主题还包括构图、色彩、材质、节奏及语义映射。现有 tokens 与四季预设是取景于青山湖水上森林的「疏林静水」实现样本。[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)与[苏州园林](assets/references/suzhou-gardens/README.md)的参考画面保存在本地，供取色与空间研究。具体产品界面按品牌和任务决定主题与地名是否出现。
+统一的跨平台设计 Skill：从产品与品牌建立视觉语言，覆盖原生平台适配、React 组件契约、可移植 HTML 报告、演示与交互图表。自身的[中国风审美视觉体系](references/visual-language.md)以「青山湖水上森林」「西湖」「拙政园」三个景点命名主题。每个主题从同一景点的一组画面提炼，形成差异鲜明的构图、色彩、材质、节奏及语义映射，再提炼跨主题的共同规则。现有 tokens 与四季预设是青山湖水上森林主题的实现样本。[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)与[拙政园](assets/references/suzhou-gardens/README.md)的参考画面保存在本地，供成组视觉研究。
 
 ```bash
 npx skills add youngjunning/skills --skill joyally-design -g
