@@ -12,6 +12,8 @@ Use this reference for SwiftUI/AppKit windows, menu bar surfaces, settings, dash
 
 ## Joyally Design application
 
+The mist and lake tint below are Qingshan Lake preset choices. For another theme or product, use its own palette while preserving native behavior and material hierarchy.
+
 - Use native material where it expresses a real hierarchy boundary, then add a restrained mist or lake tint.
 - Treat material as semantic structure, not a color picker. Provide an opaque fallback for Reduced Transparency.
 - Keep sidebars quieter than content; make selection unmistakable with fill, label contrast, focus, and a non-color cue when requested.

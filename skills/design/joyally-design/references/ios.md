@@ -11,6 +11,8 @@ Use this reference for SwiftUI/UIKit mobile apps. Adapt the language to touch, s
 
 ## Joyally Design application
 
+The following palette is the Qingshan Lake preset. For another theme or product, derive the same semantic roles from its brand and content.
+
 - Use mist-white canvas and opaque readable content surfaces by default. Reserve glass for navigation, transient controls, media overlays, or visually rich backgrounds.
 - Keep lake teal as the interaction accent, but use the strong role for button fills carrying small white labels.
 - Use cypress success and clay error with icons or labels, never color alone.

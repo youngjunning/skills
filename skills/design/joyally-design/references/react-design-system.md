@@ -1,8 +1,10 @@
 # Joyally Design React design system reference
 
-Joyally Design 在 React Web 项目中首先是一套可复用的设计系统约束，然后才是页面样式。新建中后台以 [shadcn/ui 官方组件集](https://ui.shadcn.com/docs/components)为完整基础：使用 CLI 的 add --all 获取本地源码，统一接入 Joyally 语义 tokens、状态与页面组合。Data Table、Date Picker 等复合控件在基础组件上组合，不从零重写输入、弹窗和导航。Magic UI 用于适合的展示动效。目标是让 tokens、组件状态、布局节奏和页面组合拥有同一套语义，同时保留项目原有的业务术语、路由和交互合同。H5、Chrome 扩展和 React Native 按各自平台路径选择组件。
+Joyally Design 在 React Web 项目中提供可复用的语义与状态约束，页面视觉先由当前产品决定。沿用项目已有的组件基础；新建项目按本次界面实际需要选择组件。[shadcn/ui 官方组件集](https://ui.shadcn.com/docs/components)是一种开放基础，只有明确建设完整中后台组件库时才使用 CLI 的 `add --all`。Data Table、Date Picker 等复合控件可在选定基础上组合，不从零重写已有输入、弹窗和导航。Magic UI 用于适合的展示动效。保留项目原有的品牌、业务术语、路由和交互合同。H5、Chrome 扩展和 React Native 按各自平台路径选择组件。
 
-Ant Design informs token derivation, component states, hierarchy, and density. Material 3 informs semantic roles; Radix Primitives and shadcn/ui supply accessible base controls and open composition; Tailwind CSS implements theme utilities; Magic UI supplies optional display motion. Lake-landscape and contemporary Chinese visual cues are the brand layer; the Chinese cultural layer is not tied to one dynasty and excludes Qing-dynasty aesthetics and characteristic symbols. The rules below translate that matrix into Alias tokens, layout rhythm, and responsive behavior for internal web products.
+下文的湖景配色、青瓷釉、玻璃和固定尺寸是 Joyally 青山湖预设的实现样本。其他 Joyally 主题和外部产品复用语义层级、组件状态与验收方法，具体色彩、材质、布局和组件范围由目标项目决定。
+
+Ant Design informs token derivation, component states, hierarchy, and density. Material 3 informs semantic roles; Radix Primitives and shadcn/ui supply accessible base controls and open composition; Tailwind CSS implements theme utilities; Magic UI supplies optional display motion. In the Qingshan Lake preset, lake-landscape and contemporary Chinese visual cues form the brand layer. The rules below translate that preset into Alias tokens, layout rhythm, and responsive behavior; other brands derive their own visual layer.
 
 ## Reference architecture for the current stack
 
@@ -21,12 +23,12 @@ Keep design language and runtime appearance independent:
 
 | Layer | Axis | Contract |
 | --- | --- | --- |
-| Design language | `style` | Visual grammar and cultural references; baseline `contemporary-chinese-cues` |
-| Design language | `mood` | 意境：emotional atmosphere, spatial distance, temporal feeling, and pacing; baseline `quiet-youthful-distance` |
+| Design language | `style` | Visual grammar and cultural references; Qingshan Lake baseline `contemporary-chinese-cues` |
+| Design language | `mood` | 意境：emotional atmosphere, spatial distance, temporal feeling, and pacing; Qingshan Lake baseline `quiet-youthful-distance` |
 | Appearance | `mode`（明暗模式） | `light` / `dark`，界面称“浅色 / 深色”；控制亮度、对比度与表面配对，不是另一个主题 |
 | Implementation preset | `material` | `celadon-glaze` / `glass`; controls surface treatment such as translucency, border, highlight, and shadow |
 
-青山湖从四季画面提炼一套视觉主题，不提供季节外观切换。The default appearance is `light + celadon-glaze`; previously saved mode and material choices take precedence. Components keep one API and accessibility contract.
+青山湖从四季画面提炼一套视觉主题，不提供季节外观切换。For this preset, the default appearance is `light + celadon-glaze`; previously saved mode and material choices take precedence. Components keep one API and accessibility contract.
 
 The JSON `appearanceContract` is the implementation source for these axes. `themeTokens` resolves the 青山湖 palette into semantic aliases. A material adapter may change only surface alpha, border/highlight, blur, and shadow; it must not rewrite `primary`, `success`, `warning`, `error`, or focus semantics. `materialRules.transparentForbidden` is an explicit deny-list for readable content surfaces, and `materialRules.reducedTransparencyFallback` is required whenever `prefers-reduced-transparency`, forced colors, or unsupported backdrop filters apply. Validate the contract with `python3 .codex/skills/joyally-design/scripts/validate-joyally-tokens.py` before changing shared CSS.
 
@@ -51,13 +53,13 @@ Style and mood are separate peer-level creative descriptors layered above these 
 | Token-to-utility implementation | Tailwind CSS 4 | Use `@theme` namespaces and semantic utilities; document measured exceptions |
 | Middle/back office component baseline | shadcn/ui CLI | Install the full available component set, then validate inventory, token mapping and interaction states |
 | Display components and emphasis motion | Magic UI | Install only suitable registry components; map tokens and provide reduced-motion fallback |
-| Brand and cultural expression | Joyally Design | Apply lake-landscape and contemporary Chinese cues through Alias tokens and bounded artwork |
+| Brand and cultural expression | Joyally Design | For the Qingshan Lake preset, apply lake-landscape and contemporary Chinese cues through Alias tokens and bounded artwork; other themes use their own references |
 
 These references are complementary. Do not merge their APIs into a new abstraction layer or install a library only to imitate its look.
 
 ## Complete middle/back office component baseline
 
-For a new React admin system, initialize shadcn/ui for the project's existing React and Tailwind setup, then run its official CLI with add --all. Check the generated source inventory against the CLI result; do not describe a handful of styled examples as a complete library. Keep the installed components locally owned and updateable through the shadcn/ui registry.
+When the task explicitly calls for a complete React admin component library, initialize shadcn/ui for the project's existing React and Tailwind setup, then run its official CLI with `add --all`. Check the generated source inventory against the CLI result; do not describe a handful of styled examples as a complete library. Keep the installed components locally owned and updateable through the shadcn/ui registry.
 
 Map the whole baseline to Joyally semantic roles: background and surfaces, foreground and muted text, primary and secondary actions, destructive and status colors, input and border, ring, radius, chart series, and sidebar. Scope theme variables to the intended app root and include overlays portaled to the document body. A theme switch must reach Button, Input, Select, Dialog, Table, Sidebar, Toast and their focus, disabled and error states together.
 

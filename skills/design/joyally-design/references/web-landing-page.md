@@ -14,6 +14,8 @@ Do not turn the page into a sequence of interchangeable rounded feature cards.
 
 ## Joyally Design application
 
+The landscape imagery and lake colors below apply when the product selects the Qingshan Lake preset. Other brands choose imagery and color from their own evidence; the narrative, legibility, and performance checks still apply.
+
 - Let mist and lake atmosphere establish identity in the hero, then reduce decoration as information density rises.
 - Use scenic layers as gradients, restrained illustration, or low-density particles; do not use a literal tourism photo as the entire UI.
 - Keep hero copy on an opaque or controlled-contrast region. The atmosphere may surround the message but must not lower its legibility.

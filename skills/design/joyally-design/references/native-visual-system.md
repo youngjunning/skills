@@ -1,4 +1,6 @@
-# Visual system
+# Qingshan Lake visual system preset
+
+This file is a concrete theme sample for Joyally's Qingshan Lake identity. Other themes and products reuse the semantic token roles and validation approach with their own palette, material, and imagery.
 
 ## Character
 
