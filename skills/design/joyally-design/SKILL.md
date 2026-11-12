@@ -53,6 +53,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 1. 新建报告：明确读者、决策与证据结构，读取 [设计系统](references/design-system.md)、[报告语言](references/report-language.md)、[布局](references/layout.md) 与 [HTML 报告与演示](references/html-reports.md)。
 2. 改造已有 HTML：先读 [改造约定](references/adapting-existing-html.md)，保留 DOM、锚点、事件与导出功能，优先增加 scoped theme。
 3. React 设计系统：读 [React 约定](references/react-design-system.md)，依次核对 tokens、共享 primitives、组件状态和页面组合。
+   编码 Agent 需要选用、安装或组合中后台组件时，再读 [React 组件工作流](references/component-workflow.md)，从目标项目或 shadcn/ui 官方 CLI 取得真实源码，并逐项验收预览。
 4. 交互图表：读 [交互图表](references/interactive-diagrams.md)，使用统一入口 验证 typed JSON IR，再生成自包含 HTML。既有交互图表的静态导出沿用其源文件。
 5. 界面评审或精修：按[能力路由](references/capability-routing.md)读取评审、精修、回改或存量路径。技术审计再读[专项质量检查](references/design-quality.md)，结论需可复现条件与证据。
 

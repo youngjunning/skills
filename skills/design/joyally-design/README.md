@@ -16,10 +16,13 @@ npx skills add youngjunning/skills --skill joyally-design -g
 | --- | --- | --- |
 | 新建官网 | `$joyally-design 给团队设计系统做一个 React 官网。访客需要找到视觉规范、组件和安装方式。先实现首页，验证桌面、手机和键盘导航。` | 可运行页面与验收截图 |
 | 精修已有表单 | `$joyally-design 精修截图里的项目设置表单。保留字段、保存逻辑和组件库，核对校验失败、提交中和提交成功三种状态。` | 改动与前后对比 |
+| 实现中后台组件 | `$joyally-design 在现有 React 工作台实现任务列表。先检查组件来源，选用 Button、Input、Select、Table 与反馈组件；保留数据层，验证搜索、筛选、空状态、窄屏和键盘操作。` | 本地组件源码、可操作页面和验证结果 |
 | 生成 HTML 周报 | `$joyally-design 把附上的工单数据整理成可离线打开和打印的 HTML 周报，给运营同学看。先写响应时长的变化，再列数据和下一步。` | 报告 HTML 和资源目录 |
 | 绘制交互流程图 | `$joyally-design 把工具调用审批流程画成可缩放的交互图，区分审批通过与返回修改两条路径，交付 JSON 源文件和 HTML。` | 流程定义、交互 HTML 和校验结果 |
 
 也可以在 macOS 或 Linux 终端进入 Skill 目录，运行下面的示例。命令会打印可用浏览器打开的产物路径。
+
+编码 Agent 的组件选择、官方源码安装、Joyally tokens 映射和验收顺序见 [React 组件工作流](references/component-workflow.md)。跨项目实现按目标项目和官方 CLI 获取源码。
 
 ```bash
 output_dir=$(mktemp -d)
