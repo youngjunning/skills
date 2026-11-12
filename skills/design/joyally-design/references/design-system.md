@@ -1,6 +1,6 @@
 # Joyally Design: design system and bundled preset
 
-Joyally Design supplies a cross-platform method for hierarchy, semantic tokens, component behavior, and evidence-rich reports. Its own [Chinese aesthetic direction system](visual-language.md) includes Qingshan Lake Water Forest, West Lake, and Suzhou Gardens. The bundled [tokens](../assets/joyally-design.tokens.json) and [HTML theme](../assets/joyally-html-theme.css) currently implement Qingshan Lake as the default Joyally-branded direction. Another brand may provide its own token values and theme while retaining the semantic roles and validation process below. Ant Design, Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI each contribute a bounded implementation strength.
+Joyally Design supplies a cross-platform method for hierarchy, semantic tokens, component behavior, and evidence-rich reports. Its own [Chinese aesthetic direction system](visual-language.md) defines shared rules first, then treats Qingshan Lake Water Forest, West Lake, and Suzhou Gardens as equal scene directions. The bundled [tokens](../assets/joyally-design.tokens.json) and [HTML theme](../assets/joyally-html-theme.css) currently implement a Qingshan Lake-based preset; this is an implementation state, not a hierarchy among directions. Another brand may provide its own token values and theme while retaining the semantic roles and validation process below. Ant Design, Material 3, Radix Primitives, shadcn/ui, Tailwind CSS, and Magic UI each contribute a bounded implementation strength.
 
 ## Design character
 
