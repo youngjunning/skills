@@ -17,7 +17,7 @@
 - `assets/joyally-design.tokens.json` 与 `joyally-html-theme.css`：报告和 React 的完整分层、四季/材质契约，保留现有青瓷釉与季节预设。
 - `assets/joyally-native.tokens.json`：现有湖色预设的语义值与对比度声明；`JoyallyPalette.swift`、`JoyallyTheme.kt`、`JoyallyTheme.ts`、`joyally-native.css` 是对应平台的起点。
 - 两份 JSON 是同一语义契约的不同预设，不要求色值相同。一次实现先选项目已有预设或明确一种预设，再映射全部相关角色；不要混用两份预设的前景/背景。
-- direction、mode、season、material 是外观选择；style 和 mood 描述视觉语言与意境，不改变交互状态和语义角色。当前分发的 token 值仅完整实现青山湖水上森林方向；西湖、苏州园林的取景规则见[视觉体系](visual-language.md)，进入具体产品时需映射同一批语义角色并逐项校验。
+- 主题、mode、season、material 是外观选择；style 和 mood 描述视觉语言与意境，不改变交互状态和语义角色。当前分发的 token 值仅完整实现青山湖水上森林主题；西湖、苏州园林的主题规则见[视觉体系](visual-language.md)，进入具体产品时需映射同一批语义角色并逐项校验。
 - 平台尺寸与交互由平台参考决定：桌面紧凑控件与移动端触控热区共存，不把 Web 布局和 32px 控件直接搬到手机。
 
 变更预设时运行对应 token 校验器。交付产品还需核对运行时配色、字体缩放、键盘/触控、辅助技术与降低动态效果；静态 token 通过不代表设备验收。
