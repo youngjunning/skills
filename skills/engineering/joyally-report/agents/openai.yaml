@@ -1,0 +1,4 @@
+interface:
+  display_name: "Joyally Report"
+  short_description: "Clear, evidence-based progress, completion, and decision updates"
+  default_prompt: "Use $joyally-report to explain the result, evidence, delivery state, and next action to the reader. Keep a small update to a few sentences; use structured Markdown only when the decision needs it. Use terminal mode for redirected stdout, plain-text or CI output, or an explicit compatibility fallback; never put ANSI control codes in the report source."

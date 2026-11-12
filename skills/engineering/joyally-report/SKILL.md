@@ -1,9 +1,9 @@
 ---
-name: report-for-human
+name: joyally-report
 description: Turn completed or ongoing work into clear, evidence-based communication for a person. Use for progress and completion updates, engineering handoffs, bug diagnoses, reviews, incident summaries, release conclusions, and decision briefs, including brief updates after small changes or tests. Scale the response to the decision: a few sentences for a small update, structured sections for consequential work. Do not activate for unrelated factual Q&A or simple acknowledgments.
 ---
 
-# Report for Human
+# Joyally Report
 
 Turn verified work into a decision artifact. The report should let its reader understand the outcome, judge the evidence, see what remains uncertain, and take the next action without reconstructing the work from a tool diary.
 
@@ -52,7 +52,7 @@ Markdown reports begin with the result and use real Markdown structure instead o
 
 - Omit skill names, attribution lines, badges, and fixed opening text by default, in both output modes.
 - Disclose the skill name only when the user asks for tool provenance; this does not require turning a brief reply into a report.
-- Do not narrate the reporting process. Never open with “我会用 report-for-human……”, “下面进行影响评估”, a checklist of what will be inspected, or other tool-centric meta commentary. Lead with the result that matters to the reader.
+- Do not narrate the reporting process. Never open with “我会用 joyally-report……”, “下面进行影响评估”, a checklist of what will be inspected, or other tool-centric meta commentary. Lead with the result that matters to the reader.
 
 ## Reporting standard
 

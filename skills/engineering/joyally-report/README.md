@@ -1,4 +1,4 @@
-# Report for Human / 面向人的工程说明
+# Joyally Report / 面向人的工程说明
 
 A clear, evidence-first communication skill for coding agents. It turns engineering and project work into an update that helps the next reader judge the result, challenge the evidence, and take action.
 
@@ -44,7 +44,7 @@ Place this repository in your Codex skills directory, or install it through your
 ## Invoke / 调用
 
 ```text
-Use $report-for-human to explain this work to its reader:
+Use $joyally-report to explain this work to its reader:
 lead with the result versus target, connect verified impact to evidence,
 preserve the exact delivery state, and make any action or decision explicit.
 ```
@@ -52,13 +52,13 @@ preserve the exact delivery state, and make any action or decision explicit.
 中文示例：
 
 ```text
-使用 $report-for-human 说明这项工作：先给目标达成判断，再说明已验证的影响和证据，
+使用 $joyally-report 说明这项工作：先给目标达成判断，再说明已验证的影响和证据，
 明确当前交付状态，并把需要的决策、Owner、风险或阻塞直接写出来。
 ```
 
 Markdown reports begin with the actual result. Omit skill attribution and fixed banners unless the user requests tool provenance.
 
-The update itself never starts with “我会用 report-for-human……” or a checklist of what the agent plans to inspect. Tool narration is not a result.
+The update itself never starts with “我会用 joyally-report……” or a checklist of what the agent plans to inspect. Tool narration is not a result.
 
 ## Reporting model / 汇报模型
 
@@ -128,13 +128,13 @@ Templates and examples are in [`references/report-types.md`](references/report-t
 
 ## Output modes / 输出模式
 
-交互式 Codex CLI/TUI、Codex App/chat、IDE chat、PR、Issue 和文档默认使用 `markdown`。report-for-human 负责生成干净的 Markdown source，宿主 presentation layer 负责标题、列表、代码、颜色和列宽的最终显示。
+交互式 Codex CLI/TUI、Codex App/chat、IDE chat、PR、Issue 和文档默认使用 `markdown`。joyally-report 负责生成干净的 Markdown source，宿主 presentation layer 负责标题、列表、代码、颜色和列宽的最终显示。
 
 汇报正文禁止使用无序列表。多个事项使用阿拉伯数字、罗马数字、带圆圈数字、短标签段落或表格；嵌套事项使用 `1.1`、`1.2` 等编号。
 
 `codex exec` 或其他 redirected stdout、纯文本终端、CI 日志和复制的命令输出使用 `terminal`。也可以通过 `REPORT_FORMAT=terminal` 或 `REPORT_FORMAT=markdown` 显式选择。
 
-report-for-human 不能替宿主安装或调用 Markdown renderer。如果交互式 Codex 界面显示原始 Markdown 标记，应保留 Markdown source 并把它视为 client presentation-path 问题；不要让 Skill 静默降级。排障期间可以显式请求 terminal compatibility fallback。不能把 ANSI 控制字符写回报告正文；目标要求 ASCII-only 时，用不带方括号的 `PASS`、`WARN`、`BLOCKED`、`TODO` 或 `INFO` 替换 emoji。
+joyally-report 不能替宿主安装或调用 Markdown renderer。如果交互式 Codex 界面显示原始 Markdown 标记，应保留 Markdown source 并把它视为 client presentation-path 问题；不要让 Skill 静默降级。排障期间可以显式请求 terminal compatibility fallback。不能把 ANSI 控制字符写回报告正文；目标要求 ASCII-only 时，用不带方括号的 `PASS`、`WARN`、`BLOCKED`、`TODO` 或 `INFO` 替换 emoji。
 
 ### Markdown format / Markdown 格式
 

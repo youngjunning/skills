@@ -36,7 +36,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | 你要解决的问题 | 从这里开始 |
 | --- | --- |
 | 判断产品方向、系统边界或 AI Agent 方案 | [top-architect](skills/engineering/top-architect/SKILL.md) |
-| 向人说明进展、交付、排障或评审结论 | [report-for-human](skills/engineering/report-for-human/SKILL.md) |
+| 向人说明进展、交付、排障或评审结论 | [joyally-report](skills/engineering/joyally-report/SKILL.md) |
 | 生成图像、漫画或静态架构图片 | [Joyally imagegen](skills/design/joyally-imagegen/SKILL.md) |
 | 制作真实产品界面截图、交互录屏或演示视频并脱敏 | [Joyally Spotlight](skills/design/joyally-spotlight/SKILL.md) |
 | 统一设计、制作报告或交互图表 | [Joyally Design](skills/design/joyally-design/SKILL.md) |
@@ -50,7 +50,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | 技能 | 用途 |
 | --- | --- |
 | [top-architect](skills/engineering/top-architect/SKILL.md) | 业务产品判断、AI 架构与 Skill、Agent、数字员工交付 |
-| [report-for-human](skills/engineering/report-for-human/SKILL.md) | 向人解释进展、结果、证据与下一步 |
+| [joyally-report](skills/engineering/joyally-report/SKILL.md) | 向人解释进展、结果、证据与下一步 |
 | [tauri-skills](skills/engineering/tauri-skills/SKILL.md) | Tauri 2 安全边界与 Node.js sidecar |
 | [browser-performance-audit](skills/engineering/browser-performance-audit/SKILL.md) | 加载、资源与长会话性能审查 |
 | [qoderwork-cup](skills/engineering/qoderwork-cup/SKILL.md) | QoderWork Chat 的 Computer Use 验收 |
