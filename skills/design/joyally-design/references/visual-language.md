@@ -16,7 +16,7 @@ Joyally Design 以中国风审美组织界面。这里的“中国风”是留�
 | 长桥远望 | 西湖：开阔水面、桥的动线、远塔与岸线 | 桥引导视线，远塔作为安静的定位点，页面保留大块明净空间 | 深湖青操作、暖纸白阅读表面、少量石桥暖灰 | 已有页面展示；产品 token 尚需逐项映射和校验 |
 | 游廊框景 | 苏州园林：白墙、曲线屋檐、框景、游廊与植被 | 以框景组织模块，路径有收有放，内容层级清楚 | 黛青操作、粉墙纸白表面、少量瓦灰与竹绿 | 已有页面展示；产品 token 尚需逐项映射和校验 |
 
-青山湖的[参考截图](../assets/references/qingshan-lake/README.md)用于观察水杉、湖面和季节光影。原视频作者与授权不明，官网使用依据参考画面生成的视觉示意，没有直接发布这些截图。[西湖照片](https://commons.wikimedia.org/wiki/File:Leifeng_Pagoda_and_West_Lake,_Hangzhou_120529_2.jpg)由 Daniel Vorndran / DXR 拍摄，采用 CC BY-SA 3.0；[苏州园林照片](https://commons.wikimedia.org/wiki/File:Jardin_%C3%A0_Suzhou.JPG)由 Pascal3012 拍摄，采用 CC BY-SA 3.0。三张图片在官网按相同规格展示，来源和许可随页面呈现；图片不替代组件、token 或布局规则，也不包含在本 Skill 包内。
+三处取景地的画面分别保存在[青山湖参考目录](../assets/references/qingshan-lake/README.md)、[西湖参考目录](../assets/references/west-lake/README.md)和[苏州园林参考目录](../assets/references/suzhou-gardens/README.md)。青山湖的 14 张视频截图用于观察水杉、湖面和季节光影；原视频作者与授权未随截图提供，内站画册只将其作为设计研究资料展示，不作为可复用产品背景。西湖和苏州园林各有两张本地高清照片，作者、来源与许可见目录说明；内站另外保留各一张封面照片。画面用于取色和空间观察，不替代组件、token 或布局规则。
 
 三种主题共用 `Seed → Map → Alias → Component`、操作与状态的语义、可读性和组件状态。选主题先看产品任务与品牌，再借当前取景地的景观线索校准种子色和版式；明暗、四季与材质在主题内继续变化。不能把取景地照片的颜色直接写进业务组件，也不能声称尚未映射的主题已覆盖所有平台。
 
