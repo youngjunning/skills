@@ -205,12 +205,14 @@ body.joyally-report {
 
 .joyally-report .report-layout {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: 48px;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 32px;
   align-items: start;
 }
 
 .joyally-report .report-nav {
+  grid-column: 2;
+  grid-row: 1;
   position: sticky;
   top: 24px;
   display: grid;
@@ -236,6 +238,8 @@ body.joyally-report {
 }
 
 .joyally-report .report-content {
+  grid-column: 1;
+  grid-row: 1;
   min-width: 0;
 }
 
@@ -361,8 +365,15 @@ body.joyally-report {
   }
 
   .joyally-report .report-nav {
+    grid-column: 1;
+    grid-row: 1;
     position: static;
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .joyally-report .report-content {
+    grid-column: 1;
+    grid-row: 2;
   }
 }
 
