@@ -11,6 +11,7 @@ Use this reference for professional web apps, admin tools, data consoles, settin
 
 ## Joyally Design application
 
+- Build the complete operational component foundation on shadcn/ui; use Joyally semantic tokens and reusable compositions for the product's workflow. Magic UI motion is optional for presentation surfaces.
 - Build the page from low-noise canvas, readable surfaces, lake-teal interaction, cypress status, and gray-blue secondary hierarchy.
 - Use CSS `backdrop-filter` only when content remains legible without it. Supply an opaque fallback.
 - Keep tables and long-form content more opaque than navigation or transient overlays.

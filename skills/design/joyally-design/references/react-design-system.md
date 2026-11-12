@@ -1,8 +1,8 @@
 # Joyally Design React design system reference
 
-Joyally Design 在 React Web 项目中首先是一套可复用的设计系统约束，然后才是页面样式。新建界面默认从 [Magic UI registry](https://magicui.design/docs/installation) 选用组件；官方安装流程以 shadcn/ui 与 Tailwind 为基础。Magic UI 未提供的表单、数据与复杂交互控件由项目现有组件体系或 shadcn/ui、Radix 承载。目标是让 tokens、组件状态、布局节奏和页面组合拥有同一套语义，同时保留项目原有的业务术语、路由和交互合同。H5、Chrome 扩展和 React Native 按各自平台路径选择组件。
+Joyally Design 在 React Web 项目中首先是一套可复用的设计系统约束，然后才是页面样式。新建中后台以 [shadcn/ui 官方组件集](https://ui.shadcn.com/docs/components)为完整基础：使用 CLI 的 add --all 获取本地源码，统一接入 Joyally 语义 tokens、状态与页面组合。Data Table、Date Picker 等复合控件在基础组件上组合，不从零重写输入、弹窗和导航。Magic UI 用于适合的展示动效。目标是让 tokens、组件状态、布局节奏和页面组合拥有同一套语义，同时保留项目原有的业务术语、路由和交互合同。H5、Chrome 扩展和 React Native 按各自平台路径选择组件。
 
-Ant Design informs token derivation, component states, hierarchy, and density. Material 3 informs semantic roles; Radix Primitives and shadcn/ui supply accessible base controls and open composition; Tailwind CSS implements theme utilities; Magic UI is the default React Web component source where its registry covers the task. Lake-landscape and contemporary Chinese visual cues are the brand layer; the Chinese cultural layer is not tied to one dynasty and excludes Qing-dynasty aesthetics and characteristic symbols. The rules below translate that matrix into Alias tokens, layout rhythm, and responsive behavior for internal web products.
+Ant Design informs token derivation, component states, hierarchy, and density. Material 3 informs semantic roles; Radix Primitives and shadcn/ui supply accessible base controls and open composition; Tailwind CSS implements theme utilities; Magic UI supplies optional display motion. Lake-landscape and contemporary Chinese visual cues are the brand layer; the Chinese cultural layer is not tied to one dynasty and excludes Qing-dynasty aesthetics and characteristic symbols. The rules below translate that matrix into Alias tokens, layout rhythm, and responsive behavior for internal web products.
 
 ## Reference architecture for the current stack
 
@@ -13,7 +13,7 @@ Ant Design informs token derivation, component states, hierarchy, and density. M
 | Alias | `background`, `surface`, `text`, `primary`, `focus`, `success`, `warning`, `error` | CSS variables consumed by Tailwind `@theme`; stored as `semantic` for compatibility |
 | Component | Button, Input, Card, Table, Dialog, Sidebar, Empty, Toast and state variants | `components/ui`, `cva` variants and composable slots |
 
-The project composes a reference-system matrix: Ant Design informs token derivation and enterprise density, Material 3 informs semantic roles and state layers, Radix Primitives informs accessible behavior, shadcn/ui and Tailwind CSS 4 own open implementation, and Magic UI supplies the default registry for available React Web components. Motion remains an optional part of those components. These roles must stay visible in source so an AI or engineer can change one layer without hunting through generated CSS.
+The project composes a reference-system matrix: Ant Design informs token derivation and enterprise density, Material 3 informs semantic roles and state layers, Radix Primitives informs accessible behavior, shadcn/ui and Tailwind CSS 4 own open implementation, and Magic UI supplies optional motion for suitable display surfaces. These roles must stay visible in source so an AI or engineer can change one layer without hunting through generated CSS.
 
 ## Design language and appearance axes
 
@@ -50,10 +50,19 @@ Style and mood are separate peer-level creative descriptors layered above these 
 | Keyboard, focus, overlay, and WAI-ARIA behavior | Radix Primitives | Preserve primitive behavior and accessible names before adding brand styling |
 | Source ownership and composition | shadcn/ui | Keep primitives open in `components/ui`; use `cn` and `cva` for variants |
 | Token-to-utility implementation | Tailwind CSS 4 | Use `@theme` namespaces and semantic utilities; document measured exceptions |
-| Available React Web components and emphasis motion | Magic UI | Install only needed registry components; map tokens and provide reduced-motion fallback |
+| Middle/back office component baseline | shadcn/ui CLI | Install the full available component set, then validate inventory, token mapping and interaction states |
+| Display components and emphasis motion | Magic UI | Install only suitable registry components; map tokens and provide reduced-motion fallback |
 | Brand and cultural expression | Joyally Design | Apply lake-landscape and contemporary Chinese cues through Alias tokens and bounded artwork |
 
 These references are complementary. Do not merge their APIs into a new abstraction layer or install a library only to imitate its look.
+
+## Complete middle/back office component baseline
+
+For a new React admin system, initialize shadcn/ui for the project's existing React and Tailwind setup, then run its official CLI with add --all. Check the generated source inventory against the CLI result; do not describe a handful of styled examples as a complete library. Keep the installed components locally owned and updateable through the shadcn/ui registry.
+
+Map the whole baseline to Joyally semantic roles: background and surfaces, foreground and muted text, primary and secondary actions, destructive and status colors, input and border, ring, radius, chart series, and sidebar. Scope theme variables to the intended app root and include overlays portaled to the document body. A theme switch must reach Button, Input, Select, Dialog, Table, Sidebar, Toast and their focus, disabled and error states together.
+
+Build admin compositions from those components. Data Table adds search, filtering, sorting, selection, pagination and empty state to Table; Date Picker composes Calendar and Popover. A representative workbench combines Sidebar, context navigation, toolbar, metrics, data surface, form, confirmation, feedback and recovery. The component catalog should link each installed source file and make implemented compositions distinguishable from basic shadcn/ui files. Validate catalog coverage against the actual files, then verify a desktop width, narrow width, keyboard path and major interactive states.
 
 ## Language-neutral typography and layout
 
@@ -173,7 +182,7 @@ Use semantic HTML without allowing browser defaults to destabilize compact layou
 
 ### Magic UI component rules
 
-1. Select a Magic UI component when its structure and behavior fit the task; map its color, typography, spacing, states, and focus treatment to project tokens. Use the project's base controls when the registry does not cover the needed behavior.
+1. Use Magic UI for suitable presentation components and emphasis motion; map color, typography, spacing, states, and focus treatment to project tokens. Keep operational controls on the shadcn/ui baseline.
 2. Restrict shine/beam/shimmer/aurora effects to primary emphasis or an intentional brand moment; never animate every card, table row, sidebar item, or status badge.
 3. Keep the effect outside the content reading surface so text and evidence remain opaque and stable.
 4. Provide `prefers-reduced-motion`, `prefers-reduced-transparency`, and low-power fallbacks. The component must still communicate its state when animation is removed.
