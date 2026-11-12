@@ -11,7 +11,7 @@
 | 角色 | 稳定辨识特征 | 参考图 |
 | --- | --- | --- |
 | 小界 · xiaojie | 银蓝短波波头、青绿发梢、蓝瞳、蓝色星形发夹、深湖青中式刺绣服装；保持既有造型 | [肖像](../assets/comic-characters/xiaojie-portrait.webp)、[全身](../assets/comic-characters/xiaojie-fullbody.webp) |
-| 小南 · xiaonan，v2 | 深靛蓝侧高马尾、赭橙宽发带、琥珀金瞳、单侧耳麦及珊瑚红录制灯；暖米白与珊瑚橙服装、深墨蓝长裤 | [肖像](../assets/comic-characters/xiaonan-portrait.webp)、[全身](../assets/comic-characters/xiaonan-fullbody.webp) |
+| 小南 · xiaonan，v3 | 深靛蓝侧高马尾、青绿宽发带、琥珀金瞳与单侧耳麦；暖米白与深海青绿服装、深墨蓝长裤 | [肖像](../assets/comic-characters/xiaonan-portrait.webp)、[全身](../assets/comic-characters/xiaonan-fullbody.webp) |
 
 ## 场景中的角色使用
 

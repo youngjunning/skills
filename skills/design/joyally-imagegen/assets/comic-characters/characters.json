@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-11-02",
+  "updatedAt": "2026-11-12",
   "defaultCast": [
     "xiaojie",
     "xiaonan"
@@ -30,19 +30,20 @@
     {
       "id": "xiaonan",
       "name": "小南",
-      "identityVersion": 2,
+      "identityVersion": 3,
       "appearance": {
         "eyes": "琥珀金色虹膜、深色瞳孔",
         "hair": "深靛蓝头发，钴蓝高光，明显的侧高马尾；不使用小界的银蓝短发与青绿发梢",
-        "accessories": "赭橙色宽发带、单侧录制耳麦、珊瑚红录制灯；不使用星形发夹",
-        "outfit": "暖米白现代技术短外套，珊瑚橙大色块与陶橙色内搭，少量深石墨滚边和铜扣",
+        "accessories": "低饱和青绿色宽发带、单侧录制耳麦与小型录制灯；不使用星形发夹",
+        "outfit": "暖米白现代技术短外套，深海青绿袖片与内搭，青绿领口纹样、深石墨滚边和少量铜扣",
         "silhouette": "束袖短外套、高马尾和录制装备；全身形象搭配深墨蓝长裤",
         "rendering": "保持项目现有手绘动漫线条和赛璐璐明暗，不改变其他角色"
       },
       "palette": {
         "jacket": "#F2E6D2",
-        "coral": "#DF7955",
-        "terracotta": "#B9553C",
+        "ribbon": "#4B8588",
+        "sleeves": "#1E565A",
+        "inner": "#174B50",
         "iris": "#D89A35",
         "hair": "#29375C",
         "hairHighlight": "#566CB2",
@@ -53,7 +54,7 @@
         "fullbody": "xiaonan-fullbody.webp"
       },
       "invariants": [
-        "深靛高马尾、橙发带、金瞳、暖米白与珊瑚橙衣服、录制耳麦",
+        "深靛高马尾、青绿发带、金瞳、暖米白与深海青绿衣服、录制耳麦",
         "与小界保持明显的发型轮廓和服装配色差异",
         "姿势、表情和镜头按场景重新生成"
       ]
@@ -84,8 +85,8 @@
         1536,
         1536
       ],
-      "bytes": 158180,
-      "sha256": "f61fd698947ff378b6f58c97e3ee4e0285097c2fd81d828d10c5e7b8fbfacf41"
+      "bytes": 86978,
+      "sha256": "97cf73d529431eb61c12fb45b13909e1a2af074cb115d427508d08901907c1dd"
     },
     "xiaonan-fullbody.webp": {
       "file": "xiaonan-fullbody.webp",
@@ -93,8 +94,8 @@
         257,
         720
       ],
-      "bytes": 38632,
-      "sha256": "d08c1932d98c6ce2194723f6e99d8364afdf130f6be05d95e4c0d71cd0cd0386"
+      "bytes": 39718,
+      "sha256": "02fc8a9c5cb4a1eac7af68eecf2fb8ad74d2a19f42accb46837c8a782ae6aa15"
     },
     "comparison.webp": {
       "file": "comparison.webp",
@@ -102,9 +103,9 @@
         1000,
         660
       ],
-      "bytes": 64160,
-      "sha256": "856d53d07413d24f86b6c37abcfcb3bbaf3a9d3306e498ab6b944f4355ca7719"
+      "bytes": 48818,
+      "sha256": "6fef1e8a31a8f4cdc213fa49b83bce0f973710bc6dd6a253679d27dc032de0f5"
     }
   },
-  "provenance": "Existing approved character artwork, copied without image alteration for the user-authorized skill distribution. Private project paths and generation records are excluded."
+  "provenance": "The existing character artwork was edited for the 2026-11-12 clothing palette change. The reusable portrait, full-body art and comparison are distributed without private project configuration or credentials."
 }
