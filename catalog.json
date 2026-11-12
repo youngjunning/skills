@@ -24,6 +24,12 @@
     "summary": "向人说明进展、交付、排障与评审结论，按事情大小调整篇幅"
   },
   {
+    "name": "joyally-test-quality",
+    "category": "engineering",
+    "path": "skills/engineering/joyally-test-quality",
+    "summary": "审查测试能否阻止真实回归，治理 AI 生成测试与套件膨胀"
+  },
+  {
     "name": "joyally-writting",
     "category": "writing",
     "path": "skills/writing/joyally-writting",

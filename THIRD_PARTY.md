@@ -11,5 +11,6 @@
 | joyally-writting | [attribution.md](skills/writing/joyally-writting/references/attribution.md) 保留写作规则来源 |
 | joyally-design | [第三方声明](skills/design/joyally-design/THIRD_PARTY_NOTICES.md) 保留 Pakco HTML 的 MIT、Archify 的 Apache-2.0 许可、资产声明与公开上游版本 |
 | macos-app-develop | [NOTICE](skills/engineering/macos-app-develop/NOTICE) 说明 SwiftUI-Agent-Skill 的改编、MIT 许可和未分发的无许可参考材料 |
+| joyally-test-quality | 参考 [Marcello Curto 的 Test Quality Audit](https://github.com/marcellocurto/skills/tree/main/skills/test-quality-audit) 的审查目标，独立编写中文流程；所核上游版本的仓库根目录及该技能目录未见许可文件，未复制其原文或代码 |
 
 仓库管理方式参考 Matt Pocock 的 [skills](https://github.com/mattpocock/skills)。本仓库的管理脚本单独实现。
