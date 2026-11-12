@@ -1,0 +1,56 @@
+/* Joyally Design report foundation. No presentation runtime is used. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body.joyally-report {
+  margin: 0;
+  padding: 0;
+}
+
+body.joyally-report {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -.01em;
+  -webkit-font-smoothing: antialiased;
+}
+
+.joyally-report :is(img, svg, video) {
+  display: block;
+  max-width: 100%;
+}
+
+.joyally-report a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.joyally-report a:hover {
+  text-decoration: underline;
+}
+
+.joyally-report .kicker {
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.joyally-report .lede {
+  max-width: 62ch;
+  color: var(--text-2);
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.55;
+}
+
+.joyally-report h3 {
+  margin: 0 0 10px;
+  font-weight: 600;
+  line-height: 1.2;
+}

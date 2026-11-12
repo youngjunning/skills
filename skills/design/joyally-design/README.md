@@ -2,7 +2,7 @@
 
 按产品任务选择 Oil UI Pro 的设计与走查方法，按需使用 Joyally 的语义 tokens、跨平台状态、主题资产、报告与交互图表；主题和组件预设均不代替当前产品的品牌与既有设计。选择依据见[融合方法](references/fused-method.md)。
 
-统一的跨平台设计 Skill：从产品与品牌建立视觉语言，覆盖原生平台适配、React 组件契约、可移植 HTML 报告、演示与交互图表。六套并列主题为「青山湖」「西湖」「苏州园林」「马尔代夫」「阿尔卑斯雪山」与[小香风](references/fashion-xiaoxiang.md)；青山湖正在补齐四季参考，其余五套各有 20 张可追溯的参考画面。前五套的[景观视觉规则](references/visual-language.md)从地点取景，小香风从服装廓形、细节与编辑式呈现取材；粗花呢只是材质线索。小香风另有[浅色与深色 token 样本](assets/xiaoxiang-theme.tokens.json)，现有平台 tokens 与四季预设是青山湖主题的实现样本。参考画面保存在[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[苏州园林](assets/references/suzhou-gardens/README.md)、[马尔代夫](assets/references/maldives/README.md)、[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)与[小香风](assets/references/xiaoxiang/README.md)目录；苏州园林也使用[留园照片](assets/references/lingering-garden/README.md)。
+统一的跨平台设计 Skill：从产品与品牌建立视觉语言，覆盖原生平台适配、React 组件契约、可移植 HTML 报告与交互图表。六套并列主题为「青山湖」「西湖」「苏州园林」「马尔代夫」「阿尔卑斯雪山」与[小香风](references/fashion-xiaoxiang.md)；青山湖正在补齐四季参考，其余五套各有 20 张可追溯的参考画面。前五套的[景观视觉规则](references/visual-language.md)从地点取景，小香风从服装廓形、细节与编辑式呈现取材；粗花呢只是材质线索。小香风另有[浅色与深色 token 样本](assets/xiaoxiang-theme.tokens.json)，现有平台 tokens 与四季预设是青山湖主题的实现样本。参考画面保存在[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[苏州园林](assets/references/suzhou-gardens/README.md)、[马尔代夫](assets/references/maldives/README.md)、[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)与[小香风](assets/references/xiaoxiang/README.md)目录；苏州园林也使用[留园照片](assets/references/lingering-garden/README.md)。
 
 ```bash
 npx skills add youngjunning/skills --skill joyally-design -g
@@ -48,4 +48,4 @@ node scripts/design-engine.mjs diagram validate workflow "$example" &&
 
 报告、原生示例与图表遵循 [token 契约](references/token-contract.md)。交互图表的四种样式 共用语义颜色，保留构图、线条与动效特点。旧项目已复制的源码不自动重写；原生 CSS 统一使用 `joyally-` 前缀。
 
-默认本地交付，托管使用调用项目已授权的服务。公开包不依赖内部上传工具。Joyally Design 自身源码采用 [PolyForm Noncommercial 1.0.0](LICENSE)，允许非商业使用、修改和分发；商业使用需另行授权。从 `node scripts/design-engine.mjs --help` 查看报告、演示和图表命令。
+默认本地交付，托管使用调用项目已授权的服务。公开包不依赖内部上传工具。Joyally Design 自身源码采用 [PolyForm Noncommercial 1.0.0](LICENSE)，允许非商业使用、修改和分发；商业使用需另行授权。从 `node scripts/design-engine.mjs --help` 查看报告和图表命令。

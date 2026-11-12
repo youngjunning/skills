@@ -2,8 +2,7 @@
 
 The report theme, generators and integration guidance are maintained in this skill. Bundled libraries retain their original licenses and are not claimed as original skills.
 
-1. Pakco HTML: https://github.com/pakco77/pakco-html, MIT, copyright 2026 lewis. The bundled subset contains the base stylesheet, deck runtime, CSS animations and 20 Canvas FX modules, pinned to `8cefc6b6b68d85a1484e066c47ae571b75d0d4e1`. Joyally Design maintains its own deck layouts, scenario templates, six presentation theme mappings and export commands. The complete upstream license is `runtime/html/LICENSE`.
-2. Archify: https://github.com/tt-a1i/archify, Apache-2.0 (current upstream runtime; historical MIT portions retain `LICENSE-MIT`), copyright 2026 tt-a1i (Archify), copyright 2025 Cocoon AI. Runtime provenance, version, notices and additional asset terms are retained in `runtime/diagram/UPSTREAM.json`, `LICENSE`, `LICENSE-MIT`, `NOTICE` and `THIRD_PARTY_NOTICES.md`.
+1. Archify: https://github.com/tt-a1i/archify, Apache-2.0 (current upstream runtime; historical MIT portions retain `LICENSE-MIT`), copyright 2026 tt-a1i (Archify), copyright 2025 Cocoon AI. Runtime provenance, version, notices and additional asset terms are retained in `runtime/diagram/UPSTREAM.json`, `LICENSE`, `LICENSE-MIT`, `NOTICE` and `THIRD_PARTY_NOTICES.md`.
 
 Private product artwork, deployment adapters and historical installation or acceptance evidence are not distributed.
 

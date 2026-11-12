@@ -1,11 +1,10 @@
-# Joyally Design HTML reports and presentations
+# Joyally Design HTML reports
 
 Use the bundled layouts, CSS tokens, and local assets to create portable HTML:
 
-- webpage mode for vertically scrolling reading artifacts;
+- Joyally's own natural scrolling report layout;
 - layouts for complex report sections;
-- render guidance for visual proof;
-- deck runtime only when the user explicitly requests slides or a roadshow.
+- render guidance for visual proof.
 
 ## Generated artifacts
 
@@ -15,16 +14,13 @@ Use the bundled layouts, CSS tokens, and local assets to create portable HTML:
 <report>/
 ├── index.html
 └── joyally-design/
-    ├── LICENSE
-    ├── base.css
+    ├── report-base.css
     └── joyally-theme.css
 ```
 
-The generated report uses natural scrolling, print styles, and system font fallbacks. Adapt an existing report in place when it already has a stronger schema or renderer.
+The generated report uses Joyally's own CSS, natural scrolling, print styles, and system font fallbacks. Adapt an existing report in place when it already has a stronger schema or renderer.
 
-`assets/report-demo.html` is a worked example with explicitly fictional ticket data. It shows how to replace the starter placeholders with a conclusion-led opening, measured comparisons, and evidence without changing the report runtime.
-
-`node scripts/design-engine.mjs deck <output-dir>` adds local playback and animation assets for a three-slide starter. For a complete presentation, use a scenario or a JSON slide source as described in [演示文稿制作](presentations.md). Keep `.deck`, `.slide`, `.notes`, and hash navigation.
+`assets/report-demo.html` is a worked example with explicitly fictional ticket data. It shows how to replace the starter placeholders with a conclusion-led opening, measured comparisons, and evidence using only Joyally report styles.
 
 ## Authoring rules
 

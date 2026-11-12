@@ -41,7 +41,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | 开发或排障 Midway Web 服务 | [joyally-midway](skills/engineering/joyally-midway/SKILL.md) |
 | 生成图像、漫画或静态架构图片 | [Joyally imagegen](skills/design/joyally-imagegen/SKILL.md) |
 | 制作真实产品界面截图、交互录屏或演示视频并脱敏 | [Joyally Spotlight](skills/design/joyally-spotlight/SKILL.md) |
-| 统一设计、制作 HTML 报告、演示文稿或交互图表 | [Joyally Design](skills/design/joyally-design/SKILL.md) |
+| 统一设计、制作 HTML 报告或交互图表 | [Joyally Design](skills/design/joyally-design/SKILL.md) |
 | 写文章、绘本或建设内容站点 | [Joyally writting](skills/writing/joyally-writting/SKILL.md)、[fiction-site-builder](skills/writing/fiction-site-builder/SKILL.md)、[adsense-site-builder](skills/publishing/adsense-site-builder/SKILL.md) |
 | 整理或读取个人资料、维护项目方案 | [distill-me](skills/productivity/distill-me/SKILL.md) |
 
@@ -67,7 +67,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | --- | --- |
 | [Joyally imagegen](skills/design/joyally-imagegen/SKILL.md) | 图像生成、编辑、漫画制作与素材校验 |
 | [Joyally Spotlight](skills/design/joyally-spotlight/SKILL.md) | 真实产品界面截图、交互录屏和演示视频；敏感区域扫描、马赛克与成品复核 |
-| [Joyally Design](skills/design/joyally-design/SKILL.md) | 跨平台界面设计与精修、HTML 报告、演示文稿和可探索图表 |
+| [Joyally Design](skills/design/joyally-design/SKILL.md) | 跨平台界面设计与精修、HTML 报告和可探索图表 |
 
 ### Writing
 

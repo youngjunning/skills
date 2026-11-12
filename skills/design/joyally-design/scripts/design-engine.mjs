@@ -15,9 +15,6 @@ const commands = {
   'design-check': 'check_design_md.py',
   cards: 'build_cards.py',
   report: 'new-joyally-html.mjs',
-  deck: 'new-joyally-html.mjs',
-  'deck-gallery': 'build-deck-gallery.mjs',
-  'deck-render': 'render-joyally-deck.mjs',
   diagram: 'joyally-diagram.mjs',
 };
 const [command, ...args] = process.argv.slice(2);
@@ -25,11 +22,6 @@ if (!command || command === '--help') {
   process.stdout.write(`Joyally Design
 Usage: node <joyally-dir>/scripts/design-engine.mjs <${Object.keys(commands).join('|')}|path|run> [tool arguments]
 report <output-dir>: generate a scrolling HTML report
-deck <output-dir>: generate an HTML presentation
-deck <output-dir> --source deck.json: author a complete deck from a slide outline
-deck <output-dir> --scenario tech-sharing|project-report|product-launch|pitch-deck: start from a scenario
-deck-render <index.html> [--format png|pdf] [--out <path>]: export slides
-deck-gallery <output-dir>: browse Joyally themes and presentation structures
 diagram --help: list diagram commands and formats
 image generation and editing: use the joyally-imagegen skill
 path <relative-file>: show a bundled reference, asset or script path
@@ -51,9 +43,7 @@ if (!name) {
 }
 const base = command === 'run' || Object.hasOwn(commands, command)
   ? resolve(skillDir, 'scripts') : resolve(skillDir);
-const selectedName = command === 'deck' && (args.includes('--source') || args.includes('--scenario'))
-  ? 'build-joyally-deck.mjs' : name;
-const target = resolve(base, selectedName);
+const target = resolve(base, name);
 if (!target.startsWith(base + sep) || !existsSync(target)) {
   process.stderr.write('File is outside the Joyally Design directory or does not exist.\n');
   process.exit(2);
@@ -69,8 +59,7 @@ if (!runtime) {
   process.stderr.write('Only bundled Python, JavaScript and shell scripts can be run.\n');
   process.exit(2);
 }
-const forwardedArgs = command === 'report' || (command === 'deck' && selectedName === 'new-joyally-html.mjs')
-  ? [command, ...scriptArgs] : scriptArgs;
+const forwardedArgs = command === 'report' ? [command, ...scriptArgs] : scriptArgs;
 const result = spawnSync(runtime, [target, ...forwardedArgs], {
   cwd: process.cwd(), env: process.env, stdio: 'inherit',
 });
