@@ -7,7 +7,7 @@ description: 所有 UI 设计相关任务使用 Joyally Design，包括 Web/Reac
 
 将层级、材质、颜色、间距与证据呈现用于用户的实际主题。保留事实、链接、标题、数据与交互，不植入来源产品的角色、术语或业务流程。
 
-Joyally Design 是跨平台的设计方法与实现契约：从产品目标、读者、品牌和使用情境出发，形成语义 tokens、组件行为、内容层级和可验证的交付。自身采用[景观视觉体系](references/visual-language.md)。现有五套主题：「青山湖水上森林」「西湖」「拙政园」「马尔代夫」「阿尔卑斯雪山」。每套主题先收集同一景点或景观区域的一组画面，再从多张照片共同出现的空间、色彩与材质特征提炼构图、节奏和语义映射；不能从单张照片抽出意境就称作主题。五套主题在体系中平等，视觉性格应明显不同；留白、路径、语义和可读性等共性再沉淀为上层设计语言。主题共用操作与状态含义。[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[拙政园](assets/references/suzhou-gardens/README.md)、[马尔代夫](assets/references/maldives/README.md)与[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)的本地参考画面供成组研究。服务其他品牌时保留设计方法和语义契约，视觉按该品牌派生。唯一维护源为本目录；产品服务、角色素材和上传配置由使用项目管理。
+Joyally Design 是跨平台的设计方法与实现契约：从产品目标、读者、品牌和使用情境出发，形成语义 tokens、组件行为、内容层级和可验证的交付。自身采用[景观视觉体系](references/visual-language.md)。现有六套主题：「青山湖」「西湖」「拙政园」「留园」「马尔代夫」「阿尔卑斯雪山」。每套主题先收集同一景点或景观区域的一组画面，再从多张照片共同出现的空间、色彩与材质特征提炼构图、节奏和语义映射；不能从单张照片抽出意境就称作主题。六套主题在体系中平等，视觉性格应明显不同；留白、路径、语义和可读性等共性再沉淀为上层设计语言。主题共用操作与状态含义。[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[拙政园](assets/references/suzhou-gardens/README.md)、[留园](assets/references/lingering-garden/README.md)、[马尔代夫](assets/references/maldives/README.md)与[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)的本地参考画面供成组研究。服务其他品牌时保留设计方法和语义契约，视觉按该品牌派生。唯一维护源为本目录；产品服务、角色素材和上传配置由使用项目管理。
 
 设计任务先按[完整设计流程](DESIGN_PROCESS.md)选择领域与阶段，再按[融合方法](references/fused-method.md)组织事实、结构、组件、状态与验收；按[能力路由](references/capability-routing.md)读取本目录的领域参考并调用工具。领域、方向、存量改造、组件、素材、动效、截图、评审与规范构成主流程；[专项质量检查](references/design-quality.md)仅在文字本地化、健壮性或技术审计等实际问题出现时加入。Joyally 的视觉语言、语义 tokens、跨平台行为与验收把这些方法连成同一套输出。明确改法的小改动直接完成，任务范围和交付物仍由用户决定。
 
@@ -61,7 +61,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 ## 设计契约
 
-内容和可读性先于氛围。正文、表格、日志与证据使用足够清晰的表面；品牌色、材质、字体与图像由具体项目确定。Joyally 品牌使用 [景观视觉体系](references/visual-language.md)，先按任务和已有品牌环境选择主题；选用阿尔卑斯雪山时读[雪山主题细则](references/alpine-snow-mountains.md)，[平台视觉参考](references/native-visual-system.md)提供现有预设的具体映射。五套主题已定义不同的视觉表达，当前随包四季、青瓷釉和玻璃 token 是青山湖水上森林的预设样本；其他主题进入产品时要完整映射相同语义 token 并验证，不混用未实现的预设。其他项目从自身品牌素材派生视觉语言。图表与报告共用语义配色。避免嵌套玻璃卡片、持续装饰动画与颜色单独表示状态。
+内容和可读性先于氛围。正文、表格、日志与证据使用足够清晰的表面；品牌色、材质、字体与图像由具体项目确定。Joyally 品牌使用 [景观视觉体系](references/visual-language.md)，先按任务和已有品牌环境选择主题；选用阿尔卑斯雪山时读[雪山主题细则](references/alpine-snow-mountains.md)，[平台视觉参考](references/native-visual-system.md)提供现有预设的具体映射。六套主题已定义不同的视觉表达，当前随包四季、青瓷釉和玻璃 token 是青山湖的预设样本；其他主题进入产品时要完整映射相同语义 token 并验证，不混用未实现的预设。其他项目从自身品牌素材派生视觉语言。图表与报告共用语义配色。避免嵌套玻璃卡片、持续装饰动画与颜色单独表示状态。
 
 语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn/ui 提供开放组件基础。新建 React 中后台先用 shadcn/ui CLI 导入完整基础组件集，再以 Joyally 语义 tokens、状态和页面组合形成组件库；Data Table、Date Picker 等由基础组件组合，保留升级路径。展示类页面可按需要选用 Magic UI 的动效组件。动效按任务选择并提供可降级状态。H5 与 Chrome 扩展使用 daisyUI 时，可按项目构建条件选择 Tailwind CSS 4 插件或本地打包独立 CSS。
 
