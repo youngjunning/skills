@@ -1,111 +1,84 @@
 {
-  "version": 1,
-  "updatedAt": "2026-11-12",
-  "defaultCast": [
-    "xiaojie",
-    "xiaonan"
-  ],
+  "version": 2,
+  "updatedAt": "2026-11-13",
+  "defaultCast": ["xiaojie", "xiaonan"],
   "pathBase": "this manifest directory",
   "characters": [
     {
       "id": "xiaojie",
       "name": "小界",
-      "identityVersion": 1,
+      "identityVersion": 2,
       "appearance": {
         "hair": "银蓝短波波头、青绿发梢",
         "eyes": "蓝色虹膜",
-        "accessories": "蓝色星形发夹与既有金色发饰",
-        "outfit": "深湖青中式刺绣服装，沿用参考中的领口、纹样与配饰",
-        "rendering": "清晰手绘动漫线条、赛璐璐明暗；保持既有造型"
+        "accessories": "蓝色星形发夹与金色小饰带",
+        "outfit": "深湖青现代修身短西装，浅海绿细滚边，米白圆领内搭，深灰青直筒长裤",
+        "rendering": "清晰手绘动漫线条和柔和赛璐璐明暗"
       },
       "references": {
         "portrait": "xiaojie-portrait.webp",
-        "fullbody": "xiaojie-fullbody.webp"
+        "fullbody": "xiaojie-fullbody.webp",
+        "avatar": "xiaojie-avatar.webp"
       },
-      "invariants": [
-        "保持既有脸型、发型、瞳色、服装与配饰",
-        "姿势、表情和镜头按场景重新生成"
-      ]
+      "invariants": ["保持脸型、银蓝与青绿短发、蓝瞳和星形发夹", "服装为现代短西装，不回到中式刺绣长外套", "姿势、表情和镜头按场景重新生成"]
+    },
+    {
+      "id": "xiaomeng",
+      "name": "小萌",
+      "identityVersion": 2,
+      "appearance": {
+        "hair": "冷调烟灰紫及肩分层短发、低饱和薰衣草紫高光",
+        "eyes": "青绿色虹膜",
+        "accessories": "侧边玉色花饰与墨绿丝带",
+        "outfit": "现代牛仔蓝短款修身外套、薄荷绿细滚边、雾霾蓝高领内搭和灰蓝直筒长裤",
+        "rendering": "手绘动漫线条与柔和明暗"
+      },
+      "references": {
+        "portrait": "xiaomeng-portrait.webp",
+        "fullbody": "xiaomeng-fullbody.webp",
+        "avatar": "xiaomeng-avatar.webp"
+      },
+      "invariants": ["保持紫发、青绿眼睛、玉色发饰与牛仔蓝短外套", "与小界和小南保持明显的发型、瞳色与服装差异", "姿势、表情和镜头按场景重新生成"]
     },
     {
       "id": "xiaonan",
       "name": "小南",
-      "identityVersion": 3,
+      "identityVersion": 4,
       "appearance": {
-        "eyes": "琥珀金色虹膜、深色瞳孔",
-        "hair": "深靛蓝头发，钴蓝高光，明显的侧高马尾；不使用小界的银蓝短发与青绿发梢",
-        "accessories": "低饱和青绿色宽发带、单侧录制耳麦与小型录制灯；不使用星形发夹",
-        "outfit": "暖米白现代技术短外套，深海青绿袖片与内搭，青绿领口纹样、深石墨滚边和少量铜扣",
-        "silhouette": "束袖短外套、高马尾和录制装备；全身形象搭配深墨蓝长裤",
-        "rendering": "保持项目现有手绘动漫线条和赛璐璐明暗，不改变其他角色"
+        "skin": "自然暖白肤色，轻微玫瑰色调",
+        "eyes": "琥珀棕虹膜、深色瞳孔",
+        "hair": "深可可棕侧高马尾",
+        "accessories": "米白蝴蝶结、藏蓝细滚边与单侧录制耳麦",
+        "outfit": "米白粗花呢短外套、藏蓝织带滚边和口袋、珍珠铜色纽扣、浅蓝内搭、藏蓝直筒长裤",
+        "rendering": "手绘动漫线条和柔和赛璐璐明暗"
       },
       "palette": {
-        "jacket": "#F2E6D2",
-        "ribbon": "#4B8588",
-        "sleeves": "#1E565A",
-        "inner": "#174B50",
-        "iris": "#D89A35",
-        "hair": "#29375C",
-        "hairHighlight": "#566CB2",
-        "trim": "#34363F"
+        "jacket": "#F2EBE0",
+        "ribbon": "#F5F0E7",
+        "trousers": "#252D45",
+        "iris": "#9B6C3B",
+        "hair": "#4B302D",
+        "trim": "#26324B"
       },
       "references": {
         "portrait": "xiaonan-portrait.webp",
-        "fullbody": "xiaonan-fullbody.webp"
+        "fullbody": "xiaonan-fullbody.webp",
+        "avatar": "xiaonan-avatar.webp"
       },
-      "invariants": [
-        "深靛高马尾、青绿发带、金瞳、暖米白与深海青绿衣服、录制耳麦",
-        "与小界保持明显的发型轮廓和服装配色差异",
-        "姿势、表情和镜头按场景重新生成"
-      ]
+      "invariants": ["保持可可棕侧高马尾、米白蝴蝶结、琥珀棕眼、米白粗花呢外套和录制耳麦", "与小界、小萌保持明显的轮廓和服装配色差异", "姿势、表情和镜头按场景重新生成"]
     }
   ],
   "assets": {
-    "xiaojie-portrait.webp": {
-      "file": "xiaojie-portrait.webp",
-      "size": [
-        1254,
-        1254
-      ],
-      "bytes": 128142,
-      "sha256": "c794c1534b31233e3bcf23a83ee39176cf2a7522c612a4e7cfbbc10a03a3a389"
-    },
-    "xiaojie-fullbody.webp": {
-      "file": "xiaojie-fullbody.webp",
-      "size": [
-        255,
-        719
-      ],
-      "bytes": 25548,
-      "sha256": "3b88bdc2f6672088c2ff21ac37a6d5c2dc6c5b56ea93b879bf8e20ed0b8674da"
-    },
-    "xiaonan-portrait.webp": {
-      "file": "xiaonan-portrait.webp",
-      "size": [
-        1536,
-        1536
-      ],
-      "bytes": 86978,
-      "sha256": "97cf73d529431eb61c12fb45b13909e1a2af074cb115d427508d08901907c1dd"
-    },
-    "xiaonan-fullbody.webp": {
-      "file": "xiaonan-fullbody.webp",
-      "size": [
-        257,
-        720
-      ],
-      "bytes": 39718,
-      "sha256": "02fc8a9c5cb4a1eac7af68eecf2fb8ad74d2a19f42accb46837c8a782ae6aa15"
-    },
-    "comparison.webp": {
-      "file": "comparison.webp",
-      "size": [
-        1000,
-        660
-      ],
-      "bytes": 48818,
-      "sha256": "6fef1e8a31a8f4cdc213fa49b83bce0f973710bc6dd6a253679d27dc032de0f5"
-    }
+    "xiaojie-portrait.webp": {"file": "xiaojie-portrait.webp", "size": [1024, 1024], "bytes": 65960, "sha256": "2911e822ef96f8e6f1fa74faca9b1cb176ed4b8f1272c5a77870bda61709c393"},
+    "xiaojie-fullbody.webp": {"file": "xiaojie-fullbody.webp", "size": [1024, 1536], "bytes": 60340, "sha256": "3d4b193ddd9d922e7f1cd1fcedbb516eb23370368caff0f7793edc8d590e05f8"},
+    "xiaojie-avatar.webp": {"file": "xiaojie-avatar.webp", "size": [512, 512], "bytes": 42638, "sha256": "85109a51a4690f0a98f575c182a07103f54dcb3f260df330f9ad584fb34b80b4"},
+    "xiaomeng-portrait.webp": {"file": "xiaomeng-portrait.webp", "size": [1024, 1024], "bytes": 115112, "sha256": "54aa780f9d5e422f7df34165e30a136697d1fa98c07df943ae5a35cf1b8ef25b"},
+    "xiaomeng-fullbody.webp": {"file": "xiaomeng-fullbody.webp", "size": [1024, 1536], "bytes": 63912, "sha256": "bdfaeb1526ed137531d5749b2590f96c4f895aa2712e35dfd915021c8601742f"},
+    "xiaomeng-avatar.webp": {"file": "xiaomeng-avatar.webp", "size": [512, 512], "bytes": 46298, "sha256": "7994e6600e754a83e7f80f525f82e0afb67a71f73b4297ce14fcba7955b3bb1f"},
+    "xiaonan-portrait.webp": {"file": "xiaonan-portrait.webp", "size": [1024, 1024], "bytes": 90178, "sha256": "efb2e19a1aa69092bd7f1b82c49c56f7e4c71edfaa3f2a19adfe82bb6df9173f"},
+    "xiaonan-fullbody.webp": {"file": "xiaonan-fullbody.webp", "size": [1024, 1536], "bytes": 47090, "sha256": "a13c9ee6810c49ef630472bb9266017824c18c01c9a0bdf5d3d5ca5c3fa34bb9"},
+    "xiaonan-avatar.webp": {"file": "xiaonan-avatar.webp", "size": [512, 512], "bytes": 43028, "sha256": "c6ade29fbc2c03af6bb25d4da743ff61abae2431be20e073e7ac8a53b1faae93"},
+    "comparison.webp": {"file": "comparison.webp", "size": [1500, 620], "bytes": 62774, "sha256": "22ea40ba0e8d84e492a69187e140814bbbc064c08712eabfc215e0b2a970a281"}
   },
-  "provenance": "The existing character artwork was edited for the 2026-11-12 clothing palette change. The reusable portrait, full-body art and comparison are distributed without private project configuration or credentials."
+  "provenance": "Approved character references for three original digital employees. Xiaojie and Xiaonan revisions use GPT Image 2.6; Xiaomeng framing is derived without redesign from existing identity art. No private project configuration is distributed."
 }
