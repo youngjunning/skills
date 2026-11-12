@@ -76,7 +76,7 @@
 
 | 要解决的问题 | 参考 |
 | --- | --- |
-| 视觉层级、字体、色彩、空间、图标、风格统一或减法精修 | [视觉语言](references/visual-language.md)；细节精修见 [视觉自查与精修](references/visual-polish.md) |
+| 视觉层级、字体、色彩、空间、图标、风格统一或减法精修 | [通用视觉规则](references/visual-craft.md)；细节精修见 [视觉自查与精修](references/visual-polish.md)；选用景观主题时再读[景观视觉规则](references/visual-language.md) |
 | 功能特性、能力展示、业务证据或卡片 | [卡片](references/cards.md)，先判断品类与内容是否适合卡片 |
 | 多对象画廊、专题策展、打破平铺网格、空间折展与卡片内抽屉 | [空间容器](references/staging-containers.md) |
 | 用户流程、文案、动作、表单、选择、状态与失败恢复 | [交互与状态](references/interaction-and-state.md) |

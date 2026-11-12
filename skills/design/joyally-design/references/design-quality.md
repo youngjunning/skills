@@ -7,7 +7,7 @@
 | 专项主题 | 主路径 | 补充边界 |
 | --- | --- | --- |
 | 评价、精修、强化、收敛、动效 | `task-review.md`、`visual-polish.md`、`motion.md`、`iterate.md` | 已由主流程覆盖，不单独执行同义流程 |
-| 排版与文案 | `visual-language.md`、`visual-polish.md`、`interaction-and-state.md` | 补真实中文、本地化、长值与承诺准确性的检查 |
+| 排版与文案 | `visual-craft.md`、`visual-polish.md`、`interaction-and-state.md` | 补真实中文、本地化、长值与承诺准确性的检查 |
 | 响应式与状态 | `layout-and-viewport.md`、`interaction-and-state.md` | 补字体缩放、输入方式变化、权限受限、慢请求等健壮性边界 |
 | 技术审计、复用、优化 | 截图、设计规范与实现检查 | 补可复现的性能、资源、无障碍和实现一致性审计 |
 

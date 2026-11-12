@@ -43,7 +43,7 @@ Joyally Design 的领域方法、专项参考、工具、素材与测试都在�
 
 | 出现的问题 | 按需读取的专项参考 |
 | --- | --- |
-| 视觉层级、字体、色彩、表面或细节粗糙 | `visual-language.md`、`visual-polish.md`；Joyally 品牌值以本技能的[视觉语言](visual-language.md)为准 |
+| 视觉层级、字体、色彩、表面或细节粗糙 | [通用视觉规则](visual-craft.md)、`visual-polish.md`；选用景观主题时再读[景观视觉规则](visual-language.md) |
 | 状态、表单、列表、错误恢复或操作层级 | `interaction-and-state.md` |
 | 多栏、浮层、独立滚动、窄屏或截图比例 | `layout-surfaces.md`、`layout-and-viewport.md` |
 | 主视觉、真实素材、配图许可、成套图或 UI 生图 | `media.md`、`image-ideation.md` |

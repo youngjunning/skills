@@ -34,7 +34,7 @@ Joyally Design 使用六套并列视觉主题、语义 tokens、跨平台状态�
 
 1. **方向**：使用 `design-direction.md`；需要明确比较时再读 `task-explore.md`、`style-explorer.md`。固定事实、主任务和操作语义，比较审美方向、内容顺序、骨架、密度、图像职责与交互方式；并列或组合的候选须在当前品牌内成立。
 2. **代表页**：按 `implementation.md` 做一页或一条关键流程。先定 Seed → Map → Alias → Component 的取值路径，再让页面组件消费语义 token；映射主题、明暗和适用的季节或材质时，状态含义保持不变。
-3. **专项**：按选定主题读景观的 `visual-language.md` 或小香风的 `fashion-xiaoxiang.md` 与对应参考画面，再根据实际问题读 `visual-polish.md`、`layout-surfaces.md`、`layout-and-viewport.md`、`media.md`、`image-ideation.md`、`motion.md`、`scroll-narrative.md`、`ornament.md`。视觉判断以 Joyally 品牌不变量为准；需要素材时记录来源与许可；动效在减少动态效果下保持完整信息。
+3. **专项**：按选定主题读景观的 `visual-language.md` 或小香风的 `fashion-xiaoxiang.md` 与对应参考画面；遇到通用视觉问题读 `visual-craft.md`，再根据实际问题读 `visual-polish.md`、`layout-surfaces.md`、`layout-and-viewport.md`、`media.md`、`image-ideation.md`、`motion.md`、`scroll-narrative.md`、`ornament.md`。视觉判断以 Joyally 品牌不变量为准；需要素材时记录来源与许可；动效在减少动态效果下保持完整信息。
 4. **铺开**：多页使用 `rollout.md`，项目规范使用 `design-spec.md`。把确认过的色彩职责、组件状态、页面密度和样板页写进项目既有设计规范；不把单页临时尺寸变成全局规则。
 
 ## 双重验收
