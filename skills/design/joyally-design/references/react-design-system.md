@@ -24,20 +24,19 @@ Keep design language and runtime appearance independent:
 | Design language | `style` | Visual grammar and cultural references; baseline `contemporary-chinese-cues` |
 | Design language | `mood` | 意境：emotional atmosphere, spatial distance, temporal feeling, and pacing; baseline `quiet-youthful-distance` |
 | Appearance | `mode`（明暗模式） | `light` / `dark`，界面称“浅色 / 深色”；控制亮度、对比度与表面配对，不是另一个主题 |
-| Appearance | `season` | `spring` / `summer` / `autumn` / `winter`; controls seasonal palette and atmosphere while preserving aliases and component states |
 | Implementation preset | `material` | `celadon-glaze` / `glass`; controls surface treatment such as translucency, border, highlight, and shadow |
 
-Seasons share one component API and one accessibility contract. Do not duplicate dimensions, typography, density, or state tokens per season. The default appearance is `light + autumn + celadon-glaze`; previously saved choices take precedence. New seasonal values require palette evidence and contrast validation before entering the bundle.
+青山湖从四季画面提炼一套视觉主题，不提供季节外观切换。The default appearance is `light + celadon-glaze`; previously saved mode and material choices take precedence. Components keep one API and accessibility contract.
 
-The JSON `appearanceContract` is the implementation source for these axes. A season adapter must resolve every slot in `seasonTokens` into the existing semantic aliases before rendering. A material adapter may change only surface alpha, border/highlight, blur, and shadow; it must not rewrite `primary`, `success`, `warning`, `error`, or focus semantics. `materialRules.transparentForbidden` is an explicit deny-list for readable content surfaces, and `materialRules.reducedTransparencyFallback` is required whenever `prefers-reduced-transparency`, forced colors, or unsupported backdrop filters apply. Validate the contract with `python3 .codex/skills/joyally-design/scripts/validate-joyally-tokens.py` before changing shared CSS.
+The JSON `appearanceContract` is the implementation source for these axes. `themeTokens` resolves the 青山湖 palette into semantic aliases. A material adapter may change only surface alpha, border/highlight, blur, and shadow; it must not rewrite `primary`, `success`, `warning`, `error`, or focus semantics. `materialRules.transparentForbidden` is an explicit deny-list for readable content surfaces, and `materialRules.reducedTransparencyFallback` is required whenever `prefers-reduced-transparency`, forced colors, or unsupported backdrop filters apply. Validate the contract with `python3 .codex/skills/joyally-design/scripts/validate-joyally-tokens.py` before changing shared CSS.
 
-For application coverage, classify each rendered region using `materialRules.surfaceRoles` and the [element coverage matrix](design-system.md#element-coverage-and-material-boundaries). The shared material adapter must reach sidebar navigation tiles, page frames, card and dialog chrome, and Chat document headers/footers; keep tables, form inputs, editors, and document bodies opaque. Check page-specific CSS and inline styles for overrides before judging a material complete. Preview both materials under the same season and mode so the comparison isolates surface treatment.
+For application coverage, classify each rendered region using `materialRules.surfaceRoles` and the [element coverage matrix](design-system.md#element-coverage-and-material-boundaries). The shared material adapter must reach sidebar navigation tiles, page frames, card and dialog chrome, and Chat document headers/footers; keep tables, form inputs, editors, and document bodies opaque. Check page-specific CSS and inline styles for overrides before judging a material complete. Preview both materials under the same theme and mode so the comparison isolates surface treatment.
 
-Selected conversation rows, secondary navigation items, tabs, segmented controls, menu options, pagination pages, and primary/outline actions are material-bearing state surfaces. Their fill, edge, shadow, and blur must resolve from the material adapter. Primary action hue and label contrast remain seasonal; the glaze adds an opaque highlight and inset edge, while glass uses a quieter specular edge. Outline actions are opaque under glaze and may be translucent under glass, with an opaque reduced-transparency fallback. Keep selected-state meaning and text color in season tokens. Use warm mist-white paper for large canvases; summer green and autumn red/yellow cypress foliage provide the seasonal imagery. Lake color, water sparkle, duckweed, mist, morning light, and sunset light remain small accents outside reading areas.
+Selected conversation rows, secondary navigation items, tabs, segmented controls, menu options, pagination pages, and primary/outline actions are material-bearing state surfaces. Their fill, edge, shadow, and blur must resolve from the material adapter. Primary action hue and label contrast come from the theme; the glaze adds an opaque highlight and inset edge, while glass uses a quieter specular edge. Outline actions are opaque under glaze and may be translucent under glass, with an opaque reduced-transparency fallback. Keep selected-state meaning and text color in theme tokens. Use warm mist-white paper for large canvases; spring green, summer foliage, autumn copper and winter mist inform local imagery. Lake color, water sparkle, duckweed, morning light and sunset light remain small accents outside reading areas.
 
-Use user-provided images, when available, as references for summer cypress green, autumn foliage, lake water, and sunset light; private reference images are not bundled. Summer `primary` and interactive states use the saturated green of the summer cypress canopy rather than lake teal or olive matcha; the large canvas remains warm neutral. In autumn, matcha green carries primary actions, selected surfaces, and Chat interaction. Cypress red and yellow map to `error` and `warning` feedback across seasons: readable foregrounds `#A7472D` and `#96620F` sit on pale `#FBEAE2` and `#FFF2D9` fills, with visible `#D9A28E` and `#E5B663` borders. Each status needs an icon or label and stays off large interactive surfaces. Compact page headers use a face-readable portrait; full-body artwork belongs in a larger scene such as the loading view.
+Use licensed, location-verified images as references for cypress green, autumn foliage, lake water, winter mist and sunset light. The single `primary` and interactive states use a readable deep cypress green; the large canvas remains warm neutral. Cypress red and yellow map to `error` and `warning` feedback: readable foregrounds `#A7472D` and `#96620F` sit on pale `#FBEAE2` and `#FFF2D9` fills, with visible `#D9A28E` and `#E5B663` borders. Each status needs an icon or label and stays off large interactive surfaces. Compact page headers use a face-readable portrait; full-body artwork belongs in a larger scene such as the loading view.
 
-Keep seasonal CSS in `client/src/styles/seasons/`: `summer.css` owns summer seed values and `autumn.css` owns autumn palette and atmosphere overrides. `client/src/global.css` owns shared structure, component states, and layout contracts; it must not scatter season-specific overrides.
+Keep the 青山湖 theme palette in one theme stylesheet or token adapter. Shared structure, component states and layout remain in the project's global component layer. Use four-season references for the palette and supporting imagery without adding runtime season selectors.
 
 Style and mood are separate peer-level creative descriptors layered above these runtime axes. `style` describes visual form and behavior; `mood` is the implementation key for 意境: emotional atmosphere, spatial distance, temporal feeling, and narrative restraint. The current mood is quiet, youthful distance with restrained time-and-object cues. It may inform imagery and rhythm, but never changes semantic states or reduces content clarity.
 
@@ -83,7 +82,7 @@ The shell, context bar, and work surface form one hierarchy. If a page has a con
 
 On detail pages, the breadcrumb identifies the parent list and page type, while the summary card names the specific record and presents its metadata. Keep the record name in the summary so the two levels do not repeat the same title. When several related skills can be bound to one task, use a labeled skill filter alongside the other query controls; the default view shows all skills and the chosen filter applies when the user searches.
 
-同类详情摘要卡的底色从 `card` 轻微过渡到 `primary-bg`，局部光晕从 `primary` 派生；不要在组件内固定某个季节的色相。
+同类详情摘要卡的底色从 `card` 轻微过渡到 `primary-bg`，局部光晕从 `primary` 派生；不要在组件内固定取景照片的原始色值。
 
 When a detail page has two local views such as details and logs, place the view switch at the right of the record summary header. Keep the breadcrumb for parent navigation; on narrow screens the switch wraps below the record name within the same card.
 
@@ -155,10 +154,10 @@ Choose the mode at the surface or component boundary. Do not mix compact and pre
 4. Keep paper grain, brush edges, and landscape silhouettes outside opaque content surfaces. Under narrow, print, reduced-transparency, or low-power modes, remove atmosphere and preserve Ant Design hierarchy.
 5. Reject faux-ancient typography, palace-poster decoration, dense auspicious patterns, full red-and-gold palettes, and ornamental treatment that competes with evidence.
 
-### Seasonal color and scene motion
+### 青山湖 color and scene motion
 
-1. Summer interactions use the saturated pond-cypress canopy green from the lake-landscape summer reference (for example `#2e7731`), with a deeper green for pressed states. Autumn interactions use a visibly more yellow, muted matcha green (for example `#687644`); red and gold stay in foliage and semantic status accents. Compare both seasons at the same material setting so translucency does not hide the hue difference.
-2. Large application surfaces remain warm mist-white in both seasons. The loading scene uses an illustrated lake-landscape composition: distant mountains, clustered water-cypress groves, a calm lake and mist, with an open center for a compact loading subject and copy. Its summer and autumn plates share one layout; foliage changes with the season. Keep the painting stylized and the center readable, without binary streams, photographic scenery or large opaque shapes behind copy.
+1. Interactions use one readable deep cypress green with a darker pressed state. Red and gold stay in foliage and semantic status accents. Compare both materials under the same theme and mode so translucency does not hide the hue difference.
+2. Large application surfaces remain warm mist-white. The loading scene uses an illustrated lake-landscape composition: distant mountains, clustered water-cypress groves, a calm lake and mist, with an open center for a compact loading subject and copy. Keep the painting stylized and the center readable, without binary streams, photographic scenery or large opaque shapes behind copy.
 3. A character approach uses registered full-body walking frames with visible alternating leg steps and opposite arm swings, then holds a neutral final pose. Scale and depth travel use the same duration as the frame sequence; `prefers-reduced-motion` shows a still image. A walking decoration must synchronize step frames and horizontal travel on the same timeline, travel only in its facing direction, and keep its feet on the host surface baseline.
 4. A swimming flock uses a few side-facing cutouts at staggered depths and sizes, with all travel following the facing direction. Keep body bobbing within 2px and 1 degree, stagger each bird’s cadence, and attach low-contrast wakes to its waterline. Keep the flock compact below the stationary loading copy; it is the waiting indicator, with no simulated progress bar or completion percentage. Fade the loop boundary rather than visibly snapping backward. Under `prefers-reduced-motion`, center a still flock and remove wake and mist motion.
 5. Decorative branches belong at the perimeter and must never overlap labels or controls. Compact headers with action controls omit the foliage layer; do not rely on stacking buttons above decorative leaves. A chat thread title should not span the full document surface when the conversation rail already identifies the active thread.
@@ -227,7 +226,7 @@ Use semantic HTML without allowing browser defaults to destabilize compact layou
 8. 聊天输入区可比正文阅读列稍宽，桌面端以约 `52–56rem` 为上限；通过输入面的宽度、约 `16px` 内边距和足够的首行书写空间形成主操作层级，窄屏仍占满可用宽度，不用放大整页工具栏或文字。
 9. 侧栏与内容区之间保留一条可辨识的细分隔线；侧栏边缘不要叠加多层内阴影形成粗细不一的平行竖线。
 10. 聊天输入区的发送按钮仅在可发送时使用实心主色；停止生成用主色描边与白底区分语义，禁用发送保持中性表面和可识别图标，不对整颗主色按钮施加低透明度。
-11. 技能工作台的 Markdown 编辑器使用不透明阅读面、季节主色的浅色当前行和中性行号栏；浏览器未启动时用紧凑的季节色预览框与明确连接状态表达空状态，不使用灰蓝色通用骨架图或持续漂浮动画。
+11. 技能工作台的 Markdown 编辑器使用不透明阅读面、主题主色的浅色当前行和中性行号栏；浏览器未启动时用紧凑的主题色预览框与明确连接状态表达空状态，不使用灰蓝色通用骨架图或持续漂浮动画。
 
 ## Component contract
 
@@ -254,6 +253,6 @@ Use semantic HTML without allowing browser defaults to destabilize compact layou
 
 1. 对比迁移前后相同内容的 desktop、medium、390px 窄屏截图。
 2. 检查最长标题、长表格、空状态、错误恢复和键盘焦点。
-3. 检查新 token 是否被所有季节或 dark mode 正确解析。
+3. 检查新 token 是否被浅色与深色模式正确解析。
 4. 确认 React props、路由、事件、数据请求和业务文案没有被视觉迁移改坏。
 5. 只把源代码、组件测试、构建产物、真实浏览器检查分别作为独立证据，不用其中一项代替用户验收。

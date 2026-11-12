@@ -32,7 +32,7 @@ REQUIRED_SEMANTIC = {
     "darkBackground",
     "onDark",
 }
-REQUIRED_SEASON_ROLES = {
+REQUIRED_THEME_ROLES = {
     "background",
     "surface",
     "surfaceMuted",
@@ -141,37 +141,18 @@ def check_appearance_contract(document: dict, errors: list[str]) -> tuple[int, i
         errors.append("appearanceContract must be an object")
         return 0, 0
 
-    seasons = contract.get("seasonTokens")
-    architecture = document.get("architecture", {})
-    axes = architecture.get("appearanceAxes", {}) if isinstance(architecture, dict) else {}
-    current = architecture.get("currentAppearance", {}) if isinstance(architecture, dict) else {}
-    season_axis = axes.get("season") if isinstance(axes, dict) else None
-    current_season = current.get("season") if isinstance(current, dict) else None
-    if not isinstance(season_axis, list) or not season_axis or not all(isinstance(value, str) for value in season_axis):
-        errors.append("architecture.appearanceAxes.season must be a non-empty string list")
-    if not isinstance(current_season, str) or not isinstance(season_axis, list) or current_season not in season_axis:
-        errors.append("architecture.currentAppearance.season must be in appearanceAxes.season")
-    if not isinstance(seasons, dict) or not seasons:
-        errors.append("appearanceContract.seasonTokens must be a non-empty object")
-        season_count = 0
+    theme_tokens = contract.get("themeTokens")
+    if not isinstance(theme_tokens, dict) or not theme_tokens:
+        errors.append("appearanceContract.themeTokens must be a non-empty object")
     else:
-        season_count = len(seasons)
-        if isinstance(season_axis, list) and not set(seasons).issubset(season_axis):
-            errors.append("appearanceContract.seasonTokens contains a season outside appearanceAxes.season")
-        if current_season not in seasons:
-            errors.append("architecture.currentAppearance.season needs a seasonTokens entry")
-        for season_name, tokens in seasons.items():
-            if not isinstance(tokens, dict):
-                errors.append(f"season {season_name} must be an object")
-                continue
-            missing = sorted(REQUIRED_SEASON_ROLES - tokens.keys())
-            if missing:
-                errors.append(f"season {season_name} is missing roles: {', '.join(missing)}")
-            for role in tokens:
-                try:
-                    resolve_color(document, f"appearanceContract.seasonTokens.{season_name}.{role}")
-                except (KeyError, ValueError) as error:
-                    errors.append(str(error))
+        missing = sorted(REQUIRED_THEME_ROLES - theme_tokens.keys())
+        if missing:
+            errors.append(f"themeTokens is missing roles: {', '.join(missing)}")
+        for role in theme_tokens:
+            try:
+                resolve_color(document, f"appearanceContract.themeTokens.{role}")
+            except (KeyError, ValueError) as error:
+                errors.append(str(error))
 
     materials = contract.get("materialTokens")
     if not isinstance(materials, dict) or not materials:
@@ -223,7 +204,7 @@ def check_appearance_contract(document: dict, errors: list[str]) -> tuple[int, i
             if isinstance(chrome, list) and isinstance(reading, list) and set(chrome) & set(reading):
                 errors.append("appearanceContract.materialRules.surfaceRoles cannot assign an element to both roles")
 
-    return season_count, material_count
+    return len(theme_tokens) if isinstance(theme_tokens, dict) else 0, material_count
 
 
 def main() -> int:
@@ -270,7 +251,7 @@ def main() -> int:
     theme_passed = check_mapping(
         parse_css_tokens(THEME_FILE), THEME_MAPPING, document, "HTML theme", errors
     )
-    season_count, material_count = check_appearance_contract(document, errors)
+    theme_role_count, material_count = check_appearance_contract(document, errors)
 
     if errors:
         for error in errors:
@@ -280,7 +261,7 @@ def main() -> int:
     print(
         f"validated {len(document['color'])} colors, {len(document['semantic'])} semantic roles, "
         f"{passed_pairs} contrast pairs, {theme_passed} HTML theme mappings, "
-        f"{season_count} seasons, {material_count} material presets"
+        f"{theme_role_count} theme roles, {material_count} material presets"
     )
     return 0
 

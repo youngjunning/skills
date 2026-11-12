@@ -28,12 +28,6 @@
       "mode": [
         "light",
         "dark"
-      ],
-      "season": [
-        "spring",
-        "summer",
-        "autumn",
-        "winter"
       ]
     },
     "materialPresets": [
@@ -42,7 +36,6 @@
     ],
     "currentAppearance": {
       "mode": "light",
-      "season": "autumn",
       "material": "celadon-glaze"
     },
     "languageAxes": [
@@ -68,9 +61,8 @@
     "motionEnhancement": "magic-ui-progressive"
   },
   "appearanceContract": {
-    "seasonTokens": {
-      "summer": {
-        "background": "{color.canvas}",
+    "themeTokens": {
+      "background": "{color.canvas}",
         "surface": "{color.surface}",
         "surfaceMuted": "{color.surfaceMuted}",
         "primary": "{color.primary}",
@@ -84,23 +76,6 @@
         "warning": "{color.warningStrong}",
         "error": "{color.errorStrong}",
         "focus": "{color.primaryAction}"
-      },
-      "autumn": {
-        "background": "#F7F3EB",
-        "surface": "#FCFAF4",
-        "surfaceMuted": "#EBE8DC",
-        "primary": "#4E7159",
-        "primaryHover": "#40634C",
-        "primaryAction": "#52795A",
-        "accent": "#5D8061",
-        "text": "#3B4039",
-        "textSecondary": "#6D756B",
-        "border": "#C8D3BD",
-        "success": "#5D8A60",
-        "warning": "{color.warningStrong}",
-        "error": "{color.errorStrong}",
-        "focus": "#6B9572"
-      }
     },
     "materialTokens": {
       "celadon-glaze": {
@@ -110,8 +85,8 @@
         "borderAlpha": 0.92,
         "quietBorderAlpha": 0.58,
         "blur": "0px",
-        "selectedItemTreatment": "opaque-season-neutral-fill-with-inset-fired-edge",
-        "actionTreatment": "opaque-season-action-with-glaze-highlight-and-inset-fired-edge",
+        "selectedItemTreatment": "opaque-theme-neutral-fill-with-inset-fired-edge",
+        "actionTreatment": "opaque-theme-action-with-glaze-highlight-and-inset-fired-edge",
         "fallback": "opaque-surface",
         "atmosphere": "restrained"
       },
@@ -122,8 +97,8 @@
         "borderAlpha": 0.78,
         "quietBorderAlpha": 0.52,
         "blur": "22px",
-        "selectedItemTreatment": "translucent-season-neutral-fill-with-specular-edge-and-backdrop-blur",
-        "actionTreatment": "season-action-with-soft-specular-edge-and-translucent-secondary-control",
+        "selectedItemTreatment": "translucent-theme-neutral-fill-with-specular-edge-and-backdrop-blur",
+        "actionTreatment": "theme-action-with-soft-specular-edge-and-translucent-secondary-control",
         "fallback": "opaque-surface",
         "atmosphere": "peripheral-only"
       }

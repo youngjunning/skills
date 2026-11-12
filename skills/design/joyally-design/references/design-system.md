@@ -16,24 +16,24 @@ Choose the report's visual character from the product brief, brand assets, and r
 | Dawn gold and clay | Warning and error signals used sparingly |
 | Sparse particles or gradients | Peripheral identity around the header, never behind evidence |
 
-### Autumn / lake-landscape distillation
+### 青山湖四季参考与统一映射
 
-When the user provides landscape references, inspect those images before selecting a seasonal palette. The public package does not distribute private reference images.
+Inspect landscape references and their provenance before selecting the theme palette. 青山湖以春夏秋冬各 5 张授权实拍为收集目标；已核实与待补的数量见[参考目录](../assets/references/qingshan-lake/README.md)。
 
-Autumn takes its seasonal identity from red, rust, copper, ochre, and yellow cypress foliage in the user-provided lake-landscape references. Summer takes its identity from green cypress foliage. Keep the large application canvas a warm mist-white paper tone in both seasons; do not flood it with lake green, cyan, or autumn orange. Water, reflected sparkle, duckweed, cloud mist, morning light, and sunset light are local supporting details. Text, tables, and evidence stay on opaque reading surfaces.
+Use spring's new green, summer's fuller cypress canopy, autumn's copper foliage and winter's cool mist as cues within one theme. Keep the large application canvas warm mist-white; use lake color, reflected sparkle, duckweed, cloud mist and low sun as local supporting details. Text, tables and evidence stay on opaque reading surfaces.
 
-Empty work surfaces may use visible but soft neutral gray-white mist at their edges. Build it from overlapping, uneven patches with slow motion, keep it away from text and controls, and stop the motion for reduced-motion preferences. Mist must not recolor the seasonal canvas or appear as a repeated geometric band.
+Empty work surfaces may use visible but soft neutral gray-white mist at their edges. Build it from overlapping, uneven patches with slow motion, keep it away from text and controls, and stop the motion for reduced-motion preferences. Mist must not recolor the canvas or appear as a repeated geometric band.
 
 | Source cue | Token direction | UI use |
 | --- | --- | --- |
 | Shadowed cypress and matcha green | `#4E7159` / `#52795A` family | Primary actions, links, focus, navigation and Chat selection |
-| Red and yellow cypress foliage | `#C86848` / `#D89848` sampled highlights; `#A7472D` / `#96620F` readable status text | Seasonal foliage artwork, error and warning feedback |
+| Red and yellow cypress foliage | `#C86848` / `#D89848` sampled highlights; `#A7472D` / `#96620F` readable status text | Foliage artwork, error and warning feedback |
 | Low sun and water sparkle | Small localized highlights | Never a page-wide color wash |
 | Warm mist-white paper | `#F7F3EB` / `#FCFAF4` | Canvas, cards, readable content surfaces |
 
-Autumn primary actions use a deep matcha gradient; selected navigation, Chat rows, and other active controls use a quiet matcha fill with dark green text. Red cypress is reserved for error and destructive feedback, yellow cypress for warning, each paired with an icon or label. Keep these semantic colors off large interactive surfaces; success remains green and the rest of the interface stays quiet.
+Primary actions use the theme's deep cypress green; selected navigation, Chat rows and other active controls use a quiet green fill with dark text. Red cypress is reserved for error and destructive feedback, yellow cypress for warning, each paired with an icon or label. Keep these semantic colors off large interactive surfaces; success remains green and the rest of the interface stays quiet.
 
-Status colors keep the same meaning in every season: use cypress red `#A7472D` for error text and icons with `#FBEAE2` / `#D9A28E` for the light fill and border; use cypress yellow's darker readable tone `#96620F` for warning text and icons with `#FFF2D9` / `#E5B663` for the fill and border. The brighter sampled foliage colors are source hues, not small-text colors. Do not reuse autumn's matcha primary for either severity.
+Status colors keep the same meaning in every mode: use cypress red `#A7472D` for error text and icons with `#FBEAE2` / `#D9A28E` for the light fill and border; use cypress yellow's darker readable tone `#96620F` for warning text and icons with `#FFF2D9` / `#E5B663` for the fill and border. The brighter sampled foliage colors are source hues, not small-text colors.
 
 The result should remain recognizably Joyally Design without requiring a 产品专属 logo, character, product screenshot, literal lake image, or scenic poster composition.
 
@@ -87,48 +87,47 @@ Use the shared `Seed → Map → Alias → Component` mapping, informed by Ant D
 
 ### Design language and appearance layers
 
-Design language and runtime appearance are related but not interchangeable. Use a distinct season control for seasonal color and atmosphere:
+Design language and runtime appearance are related but not interchangeable. 青山湖从四季参考中提炼一套固定主题映射：
 
 | Layer | Axis | Values | Owns | Does not own |
 | --- | --- | --- | --- | --- |
-| Design language | `style` | `contemporary-chinese-cues` | Visual grammar: form, cultural references, typography, icon treatment, and motion restraint | Current luminance or season |
+| Design language | `style` | `contemporary-chinese-cues` | Visual grammar: form, cultural references, typography, icon treatment, and motion restraint | Current luminance |
 | Design language | `mood` | `quiet-youthful-distance` (baseline) | 意境：emotional atmosphere, spatial distance, temporal feeling, and narrative restraint | Semantic state meaning or task hierarchy |
-| Appearance | `mode` | `light` / `dark` | Luminance, contrast, foreground/background pairing, and elevated-surface behavior | Seasonal identity or surface texture |
-| Appearance | `season` | `spring` / `summer` / `autumn` / `winter` | Seasonal palette, atmosphere, and restrained cultural cues | Component geometry, accessibility states, or brand API |
+| Appearance | `mode` | `light` / `dark` | Luminance, contrast, foreground/background pairing, and elevated-surface behavior | Theme identity or surface texture |
 | Implementation preset | `material` | `celadon-glaze` / `glass` (extensible) | Surface treatment, translucency, border, highlight, and shadow expression | Semantic meaning, content hierarchy, or state color |
 
-The four seasons are separate token sets at the Seed/Map layer, but they resolve to the same Alias and Component contracts. Shared dimensions, typography, interaction states, accessibility, and density stay single-source. The default is `season=autumn`, `mode=light`, `material=celadon-glaze`; both bundled summer and autumn palettes have image references and contrast checks. Add further seasons only after their palette and reference material are extracted and checked for contrast.
+The four seasons are reference categories, not selectable token sets. Their observed colors and structures resolve into one Alias and Component contract. Shared dimensions, typography, interaction states, accessibility, and density stay single-source. The default is `mode=light`, `material=celadon-glaze`.
 
 The executable appearance contract lives in `joyally-design.tokens.json.appearanceContract`:
 
-- `seasonTokens` contains the semantic color slots each season must provide. A season may change palette and atmosphere, but it must not add a new component role or change geometry.
+- `themeTokens` contains the semantic color slots supplied by the 青山湖 theme.
 - `materialTokens` contains surface alpha, quiet-border alpha, blur and fallback behavior for each material. `celadon-glaze` is the more opaque, glaze-like surface; `glass` is more translucent and is restricted to perimeter/orientation surfaces.
 - `materialRules` is a hard boundary: `surfaceRoles` names material-bearing chrome and opaque reading areas; transparency is forbidden behind evidence/table/code/log/long text, and `semanticColorsUnaffected` must remain `true`.
 
-When adding a season or material, update the JSON first and run `python3 .codex/skills/joyally-design/scripts/validate-joyally-tokens.py`. Do not add a CSS selector or page-local variable without a corresponding contract entry. If a browser cannot support `backdrop-filter`, or the user requests reduced transparency, remove the effect and use the declared opaque fallback; do not lower text contrast to preserve the material.
+When changing theme tokens or material, update the JSON first and run `python3 .codex/skills/joyally-design/scripts/validate-joyally-tokens.py`. Do not add a CSS selector or page-local variable without a corresponding contract entry. If a browser cannot support `backdrop-filter`, or the user requests reduced transparency, remove the effect and use the declared opaque fallback; do not lower text contrast to preserve the material.
 
 ### Element coverage and material boundaries
 
-Material support is a coverage contract, not a single panel style. Season supplies the canvas, foliage palette, semantic colors, and selected-state meaning. Material changes only the optical treatment of surfaces: alpha, blur, border, highlight, and shadow. Both materials derive their subtle tint from the current season; switching material cannot swap summer and autumn colors or change success, warning, error, or focus colors. Every shared surface must choose one of the following roles before implementation:
+Material support is a coverage contract, not a single panel style. The theme supplies the canvas, foliage palette, semantic colors, and selected-state meaning. Material changes only the optical treatment of surfaces: alpha, blur, border, highlight, and shadow. Both materials derive their subtle tint from the theme; switching material preserves success, warning, error and focus colors. Every shared surface must choose one of the following roles before implementation:
 
 | Element group | 青瓷釉 (`celadon-glaze`) | 玻璃拟态 (`glass`) | Required fallback and checks |
 | --- | --- | --- | --- |
-| App shell and outer header | Opaque, lightly season-tinted glaze with a soft fired edge | Translucent perimeter with blur, bright edge, and lifted shadow | Page canvas keeps the same season color in both materials; keep labels readable |
-| Sidebar, navigation item, tab, selected conversation item, interactive skill card | Solid glaze and inset edge | Translucent tile or shell, visible specular edge and blur | Selected state keeps its season-derived tint and geometry in both materials; apply treatment to highlighted items even when inactive |
-| Page frame and supporting panel | Solid outer frame with a quiet glaze gradient | Translucent outer frame that reveals the seasonal canvas | The table or document inside stays opaque; audit page-specific CSS that may cover the shared frame rule |
+| App shell and outer header | Opaque, lightly theme-tinted glaze with a soft fired edge | Translucent perimeter with blur, bright edge, and lifted shadow | Page canvas keeps the same theme color in both materials; keep labels readable |
+| Sidebar, navigation item, tab, selected conversation item, interactive skill card | Solid glaze and inset edge | Translucent tile or shell, visible specular edge and blur | Selected state keeps its theme-derived tint and geometry in both materials; apply treatment to highlighted items even when inactive |
+| Page frame and supporting panel | Solid outer frame with a quiet glaze gradient | Translucent outer frame that reveals the theme canvas | The table or document inside stays opaque; audit page-specific CSS that may cover the shared frame rule |
 | Toolbar shell, filters, compact controls | Opaque or near-opaque glaze | Glass on surrounding chrome; editable controls stay opaque | Preserve 32–36px control height and visible focus, hover, pressed, disabled states |
-| Primary and outline actions | Keep the season's semantic action color, add a thin glazed highlight and inset fired edge; outline actions use an opaque tinted surface | Keep the same action meaning with a quieter specular edge; outline actions may use translucent chrome | Check default, hover, pressed, focus, disabled and reduced-transparency states; the material must not change success or danger semantics |
+| Primary and outline actions | Keep the theme's semantic action color, add a thin glazed highlight and inset fired edge; outline actions use an opaque tinted surface | Keep the same action meaning with a quieter specular edge; outline actions may use translucent chrome | Check default, hover, pressed, focus, disabled and reduced-transparency states; the material must not change success or danger semantics |
 | Card shell, Chat status tile, Chat document header and footer | One solid glazed shell with a single visible edge | One translucent shell with blur and specular edge | Keep the document body opaque; avoid nested preview rectangles or multiple competing material layers |
 | Dialogs, popovers, drawers | Solid readable surface | Glass may appear on the outer chrome; reading and form areas stay opaque | Keep overlay contrast, Escape/focus behavior, and an opaque fallback |
 | Tables, form fields, editors, composer input, Chat document body, logs, code, long text, screenshots, evidence | Always `surfaceStrong` and opaque | Always `surfaceStrong` and opaque | Local scrolling is preferred to shrinking text; semantic severity needs text/icon/shape |
 | Empty, loading, error, success states | Use the same surface role as the parent and explicit semantic colors | Glass can frame the state but cannot reduce message contrast | Keep final layout footprint during loading; provide recovery for errors |
 | Input, editor, composer | Opaque enough to distinguish editable area from its shell | Glass may surround but not replace the editable surface | Focus ring and placeholder contrast must remain visible in both materials |
 
-The migration order is shell → navigation and emphasis markers → page frames → controls → cards and overlays → opaque reading surfaces → state variants. Audit both materials on the same page, season, and mode at desktop and narrow widths, then repeat with `prefers-reduced-transparency` or an equivalent low-transparency setting. Include at least one selected navigation tile, a page frame with a table, and a Chat document card with header, body, and footer. Compare computed background alpha, blur, border, and shadow as well as screenshots; a changed border alone is not a perceptible material switch. A material is complete only when all groups have an explicit treatment, a fallback, and a contrast check; a page that styles only its hero or main card is incomplete.
+The migration order is shell → navigation and emphasis markers → page frames → controls → cards and overlays → opaque reading surfaces → state variants. Audit both materials on the same page and mode at desktop and narrow widths, then repeat with `prefers-reduced-transparency` or an equivalent low-transparency setting. Include at least one selected navigation tile, a page frame with a table, and a Chat document card with header, body, and footer. Compare computed background alpha, blur, border, and shadow as well as screenshots; a changed border alone is not a perceptible material switch. A material is complete only when all groups have an explicit treatment, a fallback, and a contrast check; a page that styles only its hero or main card is incomplete.
 
-For contrast checks, read the computed text color and its effective background in the rendered page, including the seasonal canvas beneath translucent chrome. Compare normal text and its background against the token contract's 4.5:1 minimum; run the bundled token validator for the declared semantic pairs. Repeat after reduced transparency removes blur and replaces translucent surfaces with opaque fills. Check focus and selected states for a visible shape, edge, or text cue in addition to color, and inspect long text, table cells, form fields, and evidence against their own opaque backgrounds.
+For contrast checks, read the computed text color and its effective background in the rendered page, including the theme canvas beneath translucent chrome. Compare normal text and its background against the token contract's 4.5:1 minimum; run the bundled token validator for the declared semantic pairs. Repeat after reduced transparency removes blur and replaces translucent surfaces with opaque fills. Check focus and selected states for a visible shape, edge, or text cue in addition to color, and inspect long text, table cells, form fields, and evidence against their own opaque backgrounds.
 
-In a material picker, show one swatch per material. Each swatch is one surface with its own season-derived color and optical treatment. A second inner rectangle reads as another layer or an unrelated preview and hides the actual difference.
+In a material picker, show one swatch per material. Each swatch is one surface with its own theme-derived color and optical treatment. A second inner rectangle reads as another layer or an unrelated preview and hides the actual difference.
 
 In product language, call `celadon-glaze` **青瓷釉** or a **surface material**, not a “celadon base.” “Texture” or “质感” describes the visual result; it is not the token axis.
 
@@ -143,7 +142,7 @@ In product language, call `celadon-glaze` **青瓷釉** or a **surface material*
 | Validated outcome | `success` | Complete or verified state |
 | Attention and risk | `warning`, `error` | Explicit severity with text/icon support |
 
-The bundled summer palette anchors are cypress green primary `#397A46`, primary action `#275A34`, summer leaf `#4F8D50`, text `#253C2D`, and warm mist-white background `#F7F5F0`. Lake mist `#85C7BA` remains a small atmospheric accent.
+The bundled 青山湖 palette anchors are cypress green primary `#397A46`, primary action `#275A34`, leaf green `#4F8D50`, text `#253C2D`, and warm mist-white background `#F7F5F0`. Copper foliage and cool mist remain local accents; lake mist `#85C7BA` can mark atmosphere without covering reading surfaces.
 
 ## Report hierarchy
 
@@ -202,7 +201,7 @@ Hierarchy comes from alignment, spacing, typography, opacity, and one clear emph
 
 ## Validation
 
-1. Run the bundled token validator after token or season changes.
+1. Run the bundled token validator after theme or material token changes.
 2. Render representative content at desktop and narrow widths.
 3. Exercise long titles, long findings, empty evidence, broken-media fallback, focus, error, retry, and success states present in the report.
 4. Follow internal anchors and evidence links.
