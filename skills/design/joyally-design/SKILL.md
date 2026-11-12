@@ -7,7 +7,7 @@ description: 所有 UI 设计相关任务使用 Joyally Design，包括 Web/Reac
 
 将层级、材质、颜色、间距与证据呈现用于用户的实际主题。保留事实、链接、标题、数据与交互，不植入来源产品的角色、术语或业务流程。
 
-先由用户任务、现有产品和品牌决定界面，再选领域设计方法、组件基础与视觉方向。Oil UI Pro 的任务路径、视觉构思、存量改造和真实画面走查用于形成与检验方案；Joyally Design 的语义 tokens、跨平台组件状态、主题资产、报告与交互图表能力按任务使用。两者都不是所有页面的默认外观或无条件流程：逐项说明采用什么、保留什么，以及依据。
+先由用户任务、现有产品和品牌决定界面，再选领域设计方法、组件基础与视觉方向。页面用途先区分中后台与落地页：中后台支持持续的查找、处理与确认，落地页向访客介绍价值并引导下一步。这是界面任务分类，不是前后端架构或部署边界；同一网站可以同时包含两者。Oil UI Pro 的任务路径、视觉构思、存量改造和真实画面走查用于形成与检验方案；Joyally Design 的语义 tokens、跨平台组件状态、主题资产、报告与交互图表能力按任务使用。两者都不是所有页面的默认外观或无条件流程：逐项说明采用什么、保留什么，以及依据。
 
 Joyally Design 是跨平台的设计方法与实现契约：从产品目标、读者、品牌和使用情境出发，形成语义 tokens、组件行为、内容层级和可验证的交付。当前六套并列主题为「青山湖」「西湖」「苏州园林」「马尔代夫」「阿尔卑斯雪山」与[小香风](references/fashion-xiaoxiang.md)。青山湖正在按四季各 5 张授权实拍重建参考画册，已核实数量和缺口见[参考目录](assets/references/qingshan-lake/README.md)；其余五套各有 20 张真实参考画面。前五套按[景观视觉规则](references/visual-language.md)观察地点，小香风观察服装造型、滚边、纽扣、织纹与编辑呈现；粗花呢是材质线索，不是主题身份。六套共用操作语义、组件状态与可读性契约。参考画面位于[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[苏州园林](assets/references/suzhou-gardens/README.md)、[马尔代夫](assets/references/maldives/README.md)、[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)与[小香风](assets/references/xiaoxiang/README.md)；苏州园林同时包含[留园画面](assets/references/lingering-garden/README.md)。服务其他品牌时保留设计方法和语义契约，视觉按该品牌派生。唯一维护源为本目录；产品服务、角色素材和上传配置由使用项目管理。
 
@@ -30,8 +30,8 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 | Android 原生 App / Compose | [Android](references/android.md)；使用 Jetpack Compose Material 3 |
 | React Native / Expo | [React Native](references/react-native.md) |
 | H5 页面 | [H5 界面](references/h5-ui.md)；Joyally 自有新界面使用 daisyUI，其他项目沿用现有组件基础 |
-| React Web 页面与工作台 | [React](references/react-design-system.md)；工作台另读[工作台](references/web-dashboard.md)；Joyally 自有中后台以完整 shadcn/ui 为基础，其他项目沿用现有组件，Magic UI 用于适合的展示动效 |
-| 营销页 | [Landing page](references/web-landing-page.md) |
+| 中后台／工作台（React Web） | [React](references/react-design-system.md) 与[工作台](references/web-dashboard.md)；Joyally 自有中后台以完整 shadcn/ui 为基础，其他项目沿用现有组件 |
+| 落地页（含官网首页、产品介绍页） | [Landing page](references/web-landing-page.md)；按实际平台选组件基础，展示动效需要时再考虑 Magic UI |
 | Chrome 扩展界面 | [扩展界面](references/chrome-extension-ui.md)；Joyally 自有新界面使用 daisyUI，其他项目沿用现有组件基础 |
 | Chrome 扩展图标 | [扩展图标](references/chrome-extension-icon.md) |
 
