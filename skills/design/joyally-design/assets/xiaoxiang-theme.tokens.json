@@ -1,0 +1,59 @@
+{
+  "name": "Joyally Design 小香风主题样本",
+  "direction": "fashion",
+  "theme": "xiaoxiang",
+  "version": "1.0.0",
+  "format": "semantic-value-sample",
+  "semantic": {
+    "light": {
+      "background": "#F8F5F1",
+      "surface": "#FFFEFA",
+      "surfaceStrong": "#FFFEFA",
+      "surfaceMuted": "#F3EDEA",
+      "text": "#28252A",
+      "textSecondary": "#625B61",
+      "textTertiary": "#6D6268",
+      "primary": "#6D354D",
+      "primaryHover": "#55283B",
+      "primaryAction": "#6D354D",
+      "onPrimaryAction": "#FFFFFF",
+      "primaryContainer": "#E8D8DC",
+      "onPrimaryContainer": "#4A2634",
+      "success": "#28684C",
+      "warning": "#87510D",
+      "error": "#A23842",
+      "info": "#305F80",
+      "border": "#C9BFC0",
+      "focus": "#6D354D"
+    },
+    "dark": {
+      "background": "#211D20",
+      "surface": "#2C2629",
+      "surfaceStrong": "#363034",
+      "surfaceMuted": "#393034",
+      "text": "#F8F3EF",
+      "textSecondary": "#D4C5CA",
+      "textTertiary": "#C5B5BB",
+      "primary": "#E8B0C2",
+      "primaryHover": "#F4C9D6",
+      "primaryAction": "#E8B0C2",
+      "onPrimaryAction": "#2A1720",
+      "primaryContainer": "#603B4D",
+      "onPrimaryContainer": "#F8EDF1",
+      "success": "#8ACCA8",
+      "warning": "#E8BC74",
+      "error": "#F1A4AA",
+      "info": "#9AC4E0",
+      "border": "#7A656E",
+      "focus": "#E8B0C2"
+    }
+  },
+  "component": {
+    "headingWeight": 700,
+    "bodyWeight": 400,
+    "outlineWidth": "1px",
+    "cornerRadius": "3px",
+    "focusWidth": "2px",
+    "texture": "low-contrast-crosshatch-on-display-surfaces-only"
+  }
+}
