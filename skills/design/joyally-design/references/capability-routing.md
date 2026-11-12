@@ -68,7 +68,6 @@ Joyally Design 的领域方法、专项参考、工具、素材与测试都在�
 | 测量参考图或固定画布 | `measure` → `scripts/measure_reference.py` | 用测量辅助布局，不把差异分数当设计质量 |
 | 检查项目设计规范的路径与变量 | `design-check` → `scripts/check_design_md.py` | 回读规范和代表性页面，确认与代码一致 |
 | 查阅卡片构型 | `../assets/cards/gallery.html` 与 `cards.md` | 打开现成画廊，按当前对象选择构型；常规设计不运行维护用的 `build_cards.py` |
-| 体验完整应用示例 | `../assets/apps/index.html` 与 `../assets/apps/README.md` | 从本地静态服务打开广场，核对实际页面与操作；它是案例，不替代当前项目的需求与品牌 |
 | 生成或编辑 UI 设计稿、主视觉和页面静态素材 | `joyally-imagegen`（按其生图流程调用） | 生成图需进入实际页面验证；布局、文字和控件仍由代码实现 |
 
 例如 `node <joyally-dir>/scripts/design-engine.mjs explore <候选目录>` 生成对比页，`node <joyally-dir>/scripts/design-engine.mjs shoot <页面> --size desktop,mobile --out <截图目录>` 取得双端画面。`node <joyally-dir>/scripts/design-engine.mjs design-check <项目规范>` 检查项目设计规则。需要完整参数时在命令末尾加 `--help`。

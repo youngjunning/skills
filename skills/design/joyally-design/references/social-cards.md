@@ -12,7 +12,7 @@ Create a 3:4 image card when the requested output is a social post cover, a caro
 
 These styles adapt editorial typography, grid discipline, and cover-to-insight pacing to Joyally's lake palette. They do not import a third-party theme, logo, sample copy, or runtime.
 
-Visual study: [pakco-html social-card previews](https://github.com/pakco77/pakco-html/blob/main/templates/style-picker.html). Joyally maintains the card CSS, generator, and export path independently.
+Joyally maintains the card CSS, generator, and export path. Third-party provenance and licenses are recorded in [the notices](../THIRD_PARTY_NOTICES.md).
 
 ## Generate and export
 
