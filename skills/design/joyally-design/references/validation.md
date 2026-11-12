@@ -20,6 +20,8 @@ Do not claim completion from source inspection or a successful build alone.
 
 - The screen expresses the product's own brand without relying on a literal scenic image.
 - Primary action, navigation, and status are immediately legible.
+- In Web pages, every new or changed interactive control uses the chosen component foundation and semantic tokens in its rendered default, hover, focus, disabled, and error states. Native HTML may provide semantics and behavior, but browser-default chrome is not a finished component. Verify the actual page visually and inspect computed styles; a class name or imported stylesheet alone is insufficient evidence.
+- Where the browser or operating system still draws a control surface, such as a native select menu or file picker, check it in the target browser. If its appearance breaks the intended interface, use an accessible component that owns that surface and preserves keyboard, focus, and form behavior.
 - Atmospheric effects never sit between users and dense content.
 - Color, imagery, and material choices follow the chosen brand and content.
 - Decorative patterns serve hierarchy and meaning rather than filling empty space.
