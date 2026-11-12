@@ -21,7 +21,7 @@ node <skill-dir>/scripts/design-engine.mjs deck-render <deck-dir>/index.html --f
 node <skill-dir>/scripts/design-engine.mjs deck-bundle <deck-dir>/index.html --out <deck-dir>/standalone.html
 ```
 
-`deck-gallery` 生成可点击的主题、场景和版式预览。场景结构有 `tech-sharing`、`project-report`、`product-launch`、`pitch-deck`；示例字段是占位内容，交付前须替换并核对事实。`deck <output-dir>` 默认生成项目汇报起始稿。`assets/presentation/examples/team-review.json` 是标明虚构数据的六页完整示例。生成器会把处理后的 `deck.json` 和本地图片留在输出目录，方便继续编辑；使用新的输出目录重新生成，不覆盖已有成果。`deck-bundle` 可把主题、播放脚本、许可证与本地图片合成单个 HTML，便于预览或发送。
+`deck-gallery` 生成可点击的主题、场景和版式预览。场景结构有 `tech-sharing`、`project-report`、`product-launch`、`pitch-deck`；示例字段是占位内容，交付前须替换并核对事实。`deck <output-dir>` 默认生成项目汇报起始稿。`assets/presentation/examples/team-review.json` 是与内站「填入示例」对应的六页虚构项目进展稿：结论、证据、风险、下一步和待确认范围均在源稿中，数字不代表真实业务。生成器会把处理后的 `deck.json` 和本地图片留在输出目录，方便继续编辑；使用新的输出目录重新生成，不覆盖已有成果。`deck-bundle` 可把主题、播放脚本、许可证与本地图片合成单个 HTML，便于预览或发送。
 
 ## 逐页源稿
 

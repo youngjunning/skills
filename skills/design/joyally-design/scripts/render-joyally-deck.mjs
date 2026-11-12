@@ -36,6 +36,9 @@ const run = (commandArgs) => {
   if (result.error || result.status !== 0) throw new Error(result.error?.message || result.stderr || `Chrome exited ${result.status}`);
 };
 try {
+  // The first fresh headless Chrome process can capture before the deck's
+  // runtime and font cache settle. Warm the same profile before exporting.
+  run([`--screenshot=${join(profile, 'warmup.png')}`, `${fileUrl}?preview=1`]);
   if (format === 'pdf') {
     run(['--no-pdf-header-footer', `--print-to-pdf=${out}`, fileUrl]);
   } else {
