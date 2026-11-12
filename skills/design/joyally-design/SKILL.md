@@ -65,7 +65,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 内容和可读性先于氛围。正文、表格、日志与证据使用足够清晰的表面；品牌色、材质、字体与图像由具体项目确定。Joyally 品牌先按任务和已有品牌环境选择视觉主题；选用前五套景观主题时读[景观视觉规则](references/visual-language.md)，选用小香风时读[小香风主题](references/fashion-xiaoxiang.md)和[参考画面](assets/references/xiaoxiang/README.md)。选用阿尔卑斯雪山时读[雪山主题细则](references/alpine-snow-mountains.md)，[平台视觉参考](references/native-visual-system.md)提供现有青山湖预设的具体映射。青山湖从四季画面提炼一套主题，不按季节切换；随包青瓷釉和玻璃 token 是该主题的材质样本。小香风提供独立的浅色与深色[语义 token 样本](assets/xiaoxiang-theme.tokens.json)。其他主题进入产品时要完整映射相同语义 token 并验证。其他项目从自身品牌素材派生视觉语言。图表与报告共用语义配色。避免嵌套玻璃卡片、持续装饰动画与颜色单独表示状态。
 
-审查**无语义侧边强调条**：卡片或分组边缘重复出现的醒目竖条，如果不能对应明确且一致的状态、类别、当前位置或操作范围，就只是额外一层装饰。此时用标题、间距或已有边界完成分组，移除侧条；确有语义时保留，并让文字或图标也能传达该含义。判断依据是竖条承担的职责，与颜色无关。
+新建或精修界面交付前，按[反模板感检查](references/anti-ai-taste.md)核对任务焦点、内容顺序、容器职责、装饰语义、示例数据与状态反馈。把“AI 味”当作需要定位的可观察问题，不用颜色、圆角或渐变推断界面来源；具体问题和改法对照同一内容与视口验证。
 
 语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn/ui 提供开放组件基础。Joyally 自有新建 React 中后台以完整 shadcn/ui 基础组件集建立组件库；其他项目先沿用现有组件并按任务补齐。Data Table、Date Picker 等可由基础组件组合，保留升级路径。展示类页面可按需要选用 Magic UI 的动效组件。动效按任务选择并提供可降级状态。H5 与 Chrome 扩展使用 daisyUI 时，可按项目构建条件选择 Tailwind CSS 4 插件或本地打包独立 CSS。
 

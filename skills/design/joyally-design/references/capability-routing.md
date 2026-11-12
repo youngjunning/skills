@@ -32,6 +32,7 @@ Joyally Design 的领域方法、专项参考、工具、素材与测试都在�
 | Chrome 扩展页面或独立窗口 | `chrome-extension-ui.md`；工作区界面再读 `direction-workspace.md` | 以 daisyUI 作为默认组件基础，按扩展打包与实际入口验收 |
 | 新界面方向未定 | 适用领域入口；领域未覆盖时 `design-direction.md` | 用真实产品事实与参考形成可落地方向；默认深化一个 |
 | 用户要求多方向或版式比较 | `task-explore.md`、`style-explorer.md` | 固定内容、主任务与 Joyally 品牌语义，比较结构、图像、密度或获准的变量 |
+| 去 AI 味、去模板感或检查生成界面 | `anti-ai-taste.md`；按页面领域继续读对应入口 | 从实际任务和画面定位问题，保留有语义的视觉表达 |
 | 已有页面局部精修、回改 | `existing-polish.md`、`iterate.md` | 看现状与前后画面，保留已确认的身份和行为；明确改法的小改动直接完成 |
 | 存量产品升级、改流程或加功能 | `existing-project.md`；流程变更读 `existing-project-workflow.md` | 先走实际任务，定位共享变量、组件或流程根因，再改源头 |
 | 重设计或按图还原 | `task-redesign.md` 或 `layout-and-viewport.md` | 先锁定保留项；按图还原时参考图决定可见版式，原生平台仍服从系统交互 |

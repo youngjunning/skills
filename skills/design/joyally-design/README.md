@@ -10,6 +10,10 @@ npx skills add youngjunning/skills --skill joyally-design -g
 
 使用 `$joyally-design`，说明产品、目标平台和要完成的任务。入口与按需参考见 [SKILL.md](SKILL.md)。Joyally Design 以[完整设计流程](DESIGN_PROCESS.md)与[融合方法](references/fused-method.md)把方向探索、各类页面方法、存量改造、素材、动效、对比页、截图、评审和规范工具落到共享的语义变量、组件状态与验收契约；按任务选用[景观视觉主题](references/visual-language.md)或[小香风主题](references/fashion-xiaoxiang.md)。全部方法、工具和素材位于本目录，按[能力路由](references/capability-routing.md)读取。更新源包时运行 `python3 scripts/sync-upstream.py <压缩包> --check`，确认后用 `--apply` 导入；已有本地修改会报告冲突，不会被覆盖。
 
+## 去 AI 味
+
+这里的“AI 味”指任务和画面脱节的模板感，不能用来判断制作来源。Joyally Design 的[反模板感检查](references/anti-ai-taste.md)覆盖六类问题：任务焦点错位、重复容器、无语义侧边强调条、通用样式误套场景、空泛文案与整齐假数据、装饰代替反馈。例如，普通分组边缘反复出现的竖条若不表示状态或位置，就用标题和间距分组；若它表示当前步骤，则保留并配上可见文字。检查依据来自[一手设计研究与规范](references/ai-taste-research.md)，颜色、圆角和渐变本身不作为缺陷。
+
 ## 快速上手
 
 安装后，在支持 Skills 的对话里输入 `$joyally-design`，接着写任务、使用者、要保留的约束和预期交付。
