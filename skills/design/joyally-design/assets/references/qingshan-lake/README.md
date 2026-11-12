@@ -2,6 +2,8 @@
 
 青山湖主题同时吸收春、夏、秋、冬的树列、湖面、光线与雾色，形成一套固定的语义色和界面结构，不按季节切换皮肤。目标是每季 5 张有授权、能确认拍摄季节的实拍照片。当前共 7 张：春 2 张、冬 1 张有拍摄日期；春 1 张、夏 2 张按画面推定；另有 1 张无法可靠区分季节。视觉推定只用于整理参考，不等同于拍摄日期证据；空缺保留，不用旧视频截帧充数。
 
+2026-11-13 复核四张 vista pan 照片的 Unsplash 原始页面和原尺寸下载文件：页面均标注 2025-09-17 **发布日期**、临安青山湖地点和 Unsplash License；四张下载文件均无 `DateTimeOriginal`、`CreateDate`、`ModifyDate` 或 GPS EXIF。故不能把发布日期作为拍摄月份。#04–#06 的春夏标签仅为画面推定；#07 的树冠与栈道跨春末、夏季和初秋均可能，维持“季节无法核实”。
+
 | 季节 | 日期核实 | 画面推定 | 目标 | 观察线索 |
 | --- | ---: | ---: | ---: | --- |
 | 春 | 2 | 1 | 5 | 新绿、柔光、树列与开阔湖面 |
@@ -25,7 +27,7 @@
 | `research-05.jpg` | 春 | 枝叶新绿透光；也可能是初夏 | [vista pan](https://unsplash.com/photos/wwTk1QUydC0) | [Unsplash License](https://unsplash.com/license) |
 | `research-06.jpg` | 夏 | 浮萍满铺、游客轻装泛舟；晚春与初秋也不能完全排除 | [vista pan](https://unsplash.com/photos/MJPkoM5qS0Y) | [Unsplash License](https://unsplash.com/license) |
 
-## 拍摄季节待核实
+## 拍摄季节无法核实
 
 | 文件 | 画面与边界 | 作者与来源 | 许可 |
 | --- | --- | --- | --- |
