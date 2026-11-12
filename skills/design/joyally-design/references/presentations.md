@@ -7,7 +7,7 @@
 1. 确定听众、目标决定、时长、语言、证据和交付格式。按论点组织页面；每页只承载一个可讲清的观点。事实和数字保留来源、时间范围及未知项。
 2. 从场景模板起稿，或写逐页 JSON 源稿。每页选择能表达该内容的版式，再填入真实内容、讲稿和引用。长表、代码和多张图片拆页，避免靠缩小字体塞满。
 3. 选择 Joyally Design 的视觉方向。青山湖和小香风沿用已维护的语义种子；西湖、苏州园林、马尔代夫、阿尔卑斯雪山目前为演示稿专用浅色映射，不代表对应平台主题已完成映射。
-4. 在浏览器逐页检查标题、层级、图文、来源、讲稿、窄屏与动效；按 `S` 验证演讲者窗口，按 `O` 看总览，按 `T` 比较六种主题。导出后抽查 PNG 或 PDF，尤其检查裁切、字体和来源。
+4. 在浏览器逐页检查标题、层级、图文、来源、讲稿、窄屏与动效；按 `S` 验证演讲者窗口，按 `O` 看总览，按 `T` 比较演示生成器内置的七种主题。导出后抽查 PNG 或 PDF，尤其检查裁切、字体和来源。
 
 ## 命令
 
@@ -73,7 +73,7 @@ node <skill-dir>/scripts/design-engine.mjs deck-bundle <deck-dir>/index.html --o
 | `image` | `image`、`alt`、`caption` | 截图或图像证据 |
 | `quote` | `quote`、`attribution` | 有出处的引述 |
 
-`animation` 使用随包的 27 种 CSS 动效名，默认 `fade-up`。`fx` 可选 20 种 Canvas 效果名，资源位于 `assets/presentation/fx/`；只在效果有助于讲述时启用，选用后检查与主题配色、对比度和图文可读性。系统要求减少动态效果时，Canvas 效果停用。六种主题名称为 `lake`、`west-lake`、`suzhou`、`maldives`、`alpine`、`xiaoxiang`。所有演示资源由 Joyally Design 单独打包；报告生成器只使用 `assets/report-base.css` 和 `assets/joyally-report-theme.css`。
+`animation` 使用随包的 27 种 CSS 动效名，默认 `fade-up`。`fx` 可选 20 种 Canvas 效果名，资源位于 `assets/presentation/fx/`；只在效果有助于讲述时启用，选用后检查与主题配色、对比度和图文可读性。系统要求减少动态效果时，Canvas 效果停用。演示生成器内置七种主题：`lake`、`west-lake`、`suzhou`、`maldives`、`alpine`、`xiaoxiang`、`space`。所有演示资源由 Joyally Design 单独打包；报告生成器只使用 `assets/report-base.css` 和 `assets/joyally-report-theme.css`。
 
 ## 验收边界
 

@@ -9,7 +9,7 @@ description: 所有 UI 设计相关任务使用 Joyally Design，包括 Web/Reac
 
 先由用户任务、现有产品和品牌决定界面，再选领域设计方法、组件基础与视觉方向。页面用途先区分中后台与落地页：中后台支持持续的查找、处理与确认，落地页向访客介绍价值并引导下一步。这是界面任务分类，不是前后端架构或部署边界；同一网站可以同时包含两者。Oil UI Pro 的任务路径、视觉构思、存量改造和真实画面走查用于形成与检验方案；Joyally Design 的语义 tokens、跨平台组件状态、主题资产、报告与交互图表能力按任务使用。两者都不是所有页面的默认外观或无条件流程：逐项说明采用什么、保留什么，以及依据。
 
-Joyally Design 是跨平台的设计方法与实现契约：从产品目标、读者、品牌和使用情境出发，形成语义 tokens、组件行为、内容层级和可验证的交付。当前六套并列主题为「青山湖」「西湖」「苏州园林」「马尔代夫」「阿尔卑斯雪山」与[小香风](references/fashion-xiaoxiang.md)。青山湖正在按四季各 5 张授权实拍重建参考画册，已核实数量和缺口见[参考目录](assets/references/qingshan-lake/README.md)；其余五套各有 20 张真实参考画面。前五套按[景观视觉规则](references/visual-language.md)观察地点，小香风观察服装造型、滚边、纽扣、织纹与编辑呈现；粗花呢是材质线索，不是主题身份。六套共用操作语义、组件状态与可读性契约。参考画面位于[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[苏州园林](assets/references/suzhou-gardens/README.md)、[马尔代夫](assets/references/maldives/README.md)、[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)与[小香风](assets/references/xiaoxiang/README.md)；苏州园林同时包含[留园画面](assets/references/lingering-garden/README.md)。服务其他品牌时保留设计方法和语义契约，视觉按该品牌派生。唯一维护源为本目录；产品服务、角色素材和上传配置由使用项目管理。
+Joyally Design 是跨平台的设计方法与实现契约：从产品目标、读者、品牌和使用情境出发，形成语义 tokens、组件行为、内容层级和可验证的交付。当前七套并列主题为「青山湖」「西湖」「苏州园林」「马尔代夫」「阿尔卑斯雪山」、[小香风](references/fashion-xiaoxiang.md)与[太空](references/space.md)。青山湖正在按四季各 5 张授权实拍重建参考画册，已核实数量和缺口见[参考目录](assets/references/qingshan-lake/README.md)；其余五套既有主题各有 20 张真实参考画面。前五套按[景观视觉规则](references/visual-language.md)观察地点，小香风观察服装造型与编辑呈现；太空主题从轨道、行星地平线和观测界面的空间关系建立视觉方向，本站展示的是原创概念画面，不冒充天文照片。七套共用操作语义、组件状态与可读性契约。既有参考画面位于[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[苏州园林](assets/references/suzhou-gardens/README.md)、[马尔代夫](assets/references/maldives/README.md)、[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)与[小香风](assets/references/xiaoxiang/README.md)；苏州园林同时包含[留园画面](assets/references/lingering-garden/README.md)。服务其他品牌时保留设计方法和语义契约，视觉按该品牌派生。唯一维护源为本目录；产品服务、角色素材和上传配置由使用项目管理。
 
 设计任务先按[完整设计流程](DESIGN_PROCESS.md)选择领域与阶段，再按[融合方法](references/fused-method.md)组织事实、结构、组件、状态与验收；按[能力路由](references/capability-routing.md)读取本目录的领域参考并调用工具。领域、方向、存量改造、组件、素材、动效、截图、评审与规范构成主流程；[专项质量检查](references/design-quality.md)仅在文字本地化、健壮性或技术审计等实际问题出现时加入。Joyally 的视觉语言、语义 tokens、跨平台行为与验收把这些方法连成同一套输出。明确改法的小改动直接完成，任务范围和交付物仍由用户决定。
 
@@ -65,7 +65,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 ## 设计契约
 
-内容和可读性先于氛围。正文、表格、日志与证据使用足够清晰的表面；品牌色、材质、字体与图像由具体项目确定。Joyally 品牌先按任务和已有品牌环境选择视觉主题；选用前五套景观主题时读[景观视觉规则](references/visual-language.md)，选用小香风时读[小香风主题](references/fashion-xiaoxiang.md)和[参考画面](assets/references/xiaoxiang/README.md)。选用阿尔卑斯雪山时读[雪山主题细则](references/alpine-snow-mountains.md)，[平台视觉参考](references/native-visual-system.md)提供现有青山湖预设的具体映射。青山湖从四季画面提炼一套主题，不按季节切换；随包青瓷釉和玻璃 token 是该主题的材质样本。小香风提供独立的浅色与深色[语义 token 样本](assets/xiaoxiang-theme.tokens.json)。其他主题进入产品时要完整映射相同语义 token 并验证。其他项目从自身品牌素材派生视觉语言。图表与报告共用语义配色。避免嵌套玻璃卡片、持续装饰动画与颜色单独表示状态。
+内容和可读性先于氛围。正文、表格、日志与证据使用足够清晰的表面；品牌色、材质、字体与图像由具体项目确定。Joyally 品牌先按任务和已有品牌环境选择视觉主题；选用前五套景观主题时读[景观视觉规则](references/visual-language.md)，选用小香风时读[小香风主题](references/fashion-xiaoxiang.md)和[参考画面](assets/references/xiaoxiang/README.md)，选用太空时读[太空主题](references/space.md)。选用阿尔卑斯雪山时读[雪山主题细则](references/alpine-snow-mountains.md)，[平台视觉参考](references/native-visual-system.md)提供现有青山湖预设的具体映射。青山湖从四季画面提炼一套主题，不按季节切换；随包青瓷釉和玻璃 token 是该主题的材质样本。小香风与太空分别提供独立的浅色与深色[语义 token 样本](assets/xiaoxiang-theme.tokens.json)和[语义 token 样本](assets/space-theme.tokens.json)。其他主题进入产品时要完整映射相同语义 token 并验证。其他项目从自身品牌素材派生视觉语言。图表与报告共用语义配色。避免嵌套玻璃卡片、持续装饰动画与颜色单独表示状态。
 
 新建或精修界面交付前，按[反模板感检查](references/anti-ai-taste.md)核对任务焦点、内容顺序、容器职责、装饰语义、示例数据与状态反馈。把“AI 味”当作需要定位的可观察问题，不用颜色、圆角或渐变推断界面来源；具体问题和改法对照同一内容与视口验证。
 
@@ -82,6 +82,7 @@ node <skill-dir>/scripts/design-engine.mjs report <output-dir> --title "报告�
 node <skill-dir>/scripts/design-engine.mjs social-card <output-dir> --style poster --title "卡片标题" --subtitle "内容说明" --credit "作者或来源"
 node <skill-dir>/scripts/design-engine.mjs social-render <output-dir>/index.html --out <output-dir>/card.png
 node <skill-dir>/scripts/design-engine.mjs deck <output-dir> --scenario project-report --theme lake
+node <skill-dir>/scripts/design-engine.mjs deck <output-dir> --scenario tech-sharing --theme space
 node <skill-dir>/scripts/design-engine.mjs deck-gallery <output-dir>
 node <skill-dir>/scripts/design-engine.mjs deck-render <output-dir>/index.html --format pdf
 node <skill-dir>/scripts/design-engine.mjs deck-bundle <output-dir>/index.html --out <output-dir>/standalone.html

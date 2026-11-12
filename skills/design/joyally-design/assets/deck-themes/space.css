@@ -1,0 +1,5 @@
+:root { --bg:#f2f5fa; --bg-soft:#e9eff6; --surface:#ffffff; --surface-2:#e9eff6; --border:#bac9da; --border-strong:#819bb5; --text-1:#15243b; --text-2:#4b5f78; --text-3:#53667e; --accent:#285c87; --accent-2:#527c9b; --accent-3:#a2cbe3; --good:#286b53; --warn:#85540e; --bad:#a63849; --grad:linear-gradient(90deg,#285c87,#527c9b,#9bcfe8); --grad-soft:radial-gradient(circle at 81% 55%,#d4e8f6 0,transparent 36%),linear-gradient(125deg,#fbfdff,#e7eff8 72%,#d7e8f4); --radius:8px; --radius-sm:6px; --radius-lg:12px; --font-display:var(--font-sans); }
+.joyally-deck .slide:has(.deck-hero)::after{content:"";position:absolute;right:-10vw;top:11vh;width:56vw;height:56vw;max-height:80vh;border:2px solid #6ba7cd;border-radius:50%;box-shadow:0 0 0 55px #c8deee55,0 0 0 120px #b7d2e544;transform:rotate(-23deg);opacity:.42;pointer-events:none}
+.joyally-deck .slide:has(.deck-hero) .deck-safe{max-width:1160px}
+@media(max-width:760px){.joyally-deck .slide:has(.deck-hero)::after{width:72vw;height:72vw;right:-37vw;top:10vh;opacity:.24}}
+@media print{.joyally-deck .slide:has(.deck-hero)::after{display:none}}

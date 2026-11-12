@@ -17,7 +17,7 @@ await mkdir(output, { recursive: true });
 const builder = join(dirname(fileURLToPath(import.meta.url)), 'build-joyally-deck.mjs');
 const themes = [
   ['lake', '青山湖'], ['west-lake', '西湖'], ['suzhou', '苏州园林'],
-  ['maldives', '马尔代夫'], ['alpine', '阿尔卑斯雪山'], ['xiaoxiang', '小香风'],
+  ['maldives', '马尔代夫'], ['alpine', '阿尔卑斯雪山'], ['xiaoxiang', '小香风'], ['space', '太空'],
 ];
 const scenarios = [
   ['tech-sharing', '技术分享'], ['project-report', '项目汇报'],

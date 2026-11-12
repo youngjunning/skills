@@ -6,7 +6,7 @@ import { dirname, extname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const skillRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const themes = ['lake', 'west-lake', 'suzhou', 'maldives', 'alpine', 'xiaoxiang'];
+const themes = ['lake', 'west-lake', 'suzhou', 'maldives', 'alpine', 'xiaoxiang', 'space'];
 const types = ['cover', 'agenda', 'section', 'statement', 'cards', 'columns', 'metrics', 'comparison', 'timeline', 'chart', 'code', 'image', 'quote', 'closing'];
 const fxTypes = ['particle-burst', 'confetti-cannon', 'firework', 'starfield', 'matrix-rain', 'knowledge-graph', 'neural-net', 'constellation', 'orbit-ring', 'galaxy-swirl', 'word-cascade', 'letter-explode', 'chain-react', 'magnetic-field', 'data-stream', 'gradient-blob', 'sparkle-trail', 'shockwave', 'typewriter-multi', 'counter-explosion'];
 const animations = ['fade-up', 'fade-down', 'fade-left', 'fade-right', 'rise-in', 'drop-in', 'zoom-pop', 'blur-in', 'glitch-in', 'typewriter', 'neon-glow', 'shimmer-sweep', 'gradient-flow', 'stagger-list', 'counter-up', 'path-draw', 'parallax-tilt', 'card-flip-3d', 'cube-rotate-3d', 'page-turn-3d', 'perspective-zoom', 'marquee-scroll', 'kenburns', 'confetti-burst', 'spotlight', 'morph-shape', 'ripple-reveal'];

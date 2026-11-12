@@ -1,0 +1,59 @@
+{
+  "name": "Joyally Design 太空主题样本",
+  "direction": "space",
+  "theme": "orbital-horizon",
+  "version": "1.0.0",
+  "format": "semantic-value-sample",
+  "semantic": {
+    "light": {
+      "background": "#F2F5FA",
+      "surface": "#FFFFFF",
+      "surfaceStrong": "#FFFFFF",
+      "surfaceMuted": "#E9EFF6",
+      "text": "#15243B",
+      "textSecondary": "#4B5F78",
+      "textTertiary": "#53667E",
+      "primary": "#285C87",
+      "primaryHover": "#1E4668",
+      "primaryAction": "#285C87",
+      "onPrimaryAction": "#FFFFFF",
+      "primaryContainer": "#DCE9F5",
+      "onPrimaryContainer": "#193B58",
+      "success": "#286B53",
+      "warning": "#85540E",
+      "error": "#A63849",
+      "info": "#285C87",
+      "border": "#BAC9DA",
+      "focus": "#285C87"
+    },
+    "dark": {
+      "background": "#0B1222",
+      "surface": "#17233A",
+      "surfaceStrong": "#20314C",
+      "surfaceMuted": "#24344E",
+      "text": "#F3F7FF",
+      "textSecondary": "#C0CDE0",
+      "textTertiary": "#AEBDD3",
+      "primary": "#9BD3F5",
+      "primaryHover": "#C4E6FA",
+      "primaryAction": "#9BD3F5",
+      "onPrimaryAction": "#0B2238",
+      "primaryContainer": "#294661",
+      "onPrimaryContainer": "#E8F5FF",
+      "success": "#8BD7B7",
+      "warning": "#F1C27A",
+      "error": "#F1A0AD",
+      "info": "#9BD3F5",
+      "border": "#58708E",
+      "focus": "#9BD3F5"
+    }
+  },
+  "component": {
+    "headingWeight": 650,
+    "bodyWeight": 400,
+    "outlineWidth": "1px",
+    "cornerRadius": "8px",
+    "focusWidth": "2px",
+    "texture": "sparse-stars-on-display-surfaces-only"
+  }
+}

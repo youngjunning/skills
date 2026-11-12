@@ -9,7 +9,7 @@ Joyally Design 的领域方法、专项参考、工具、素材与测试都在�
 改法已完全明确且没有新的设计判断时，直接按项目规则实施和验收；以下路径用于需要设计判断的任务。
 
 1. 读取项目指令、当前页面与用户目标，选择本次交付物和改动范围。读取 `../DESIGN_PROCESS.md` 的任务路由，再按下表读取本次领域与专项文件；不把整个 `references/` 目录一次性装入上下文。
-2. 先按[融合方法](fused-method.md#选择依据)从产品事实决定方向和组件基础，再按[token 契约](token-contract.md)与目标平台参考固定语义、状态和可读性。Joyally 品牌的六套主题是可选资产；选用景观主题时读[景观视觉规则](visual-language.md)，选用雪山时再读[雪山主题细则](alpine-snow-mountains.md)；选用小香风时读[小香风主题](fashion-xiaoxiang.md)及[20 张参考图](../assets/references/xiaoxiang/README.md)。随包平台 token 完整实现青山湖预设，小香风另有浅色与深色语义样本；进入具体产品仍须映射组件并检查对比度。每轮留下结构、tokens、组件状态和验收证据。其他品牌沿用其现有设计系统。
+2. 先按[融合方法](fused-method.md#选择依据)从产品事实决定方向和组件基础，再按[token 契约](token-contract.md)与目标平台参考固定语义、状态和可读性。Joyally 品牌的七套主题是可选资产；选用景观主题时读[景观视觉规则](visual-language.md)，选用雪山时再读[雪山主题细则](alpine-snow-mountains.md)；选用小香风时读[小香风主题](fashion-xiaoxiang.md)及[20 张参考图](../assets/references/xiaoxiang/README.md)；选用太空时读[太空主题](space.md)。随包平台 token 完整实现青山湖预设，小香风与太空另有浅色和深色语义样本；进入具体产品仍须映射组件并检查对比度。每轮留下结构、tokens、组件状态和验收证据。其他品牌沿用其现有设计系统。
 3. 用户本轮要求、项目现有约束和平台行为决定可改范围、确认点、构建与发布。阶段确认点只在确有必要时使用；用户已授权的工作继续完成。用户已授权直接实施时完成到验收；需要独立评审且当前环境允许时可按对应评审材料与派发方法执行。
 4. Web/HTML 的对比页、截图、素材与规范校验可使用本目录工具；macOS、iOS、Android、React Native 的画面与交互验收仍用对应平台工具。报告、HTML PPT 与图表分别用 Joyally Design 的 `report`、`deck` 和 `diagram` 命令。工具输出是证据，需亲自看画面并核对真实操作。
 
