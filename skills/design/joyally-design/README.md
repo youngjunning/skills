@@ -1,6 +1,6 @@
 # Joyally Design
 
-统一的跨平台设计 Skill：从产品与品牌建立视觉语言，覆盖原生平台适配、React 组件契约、可移植 HTML 报告、演示与交互图表。保留湖色命名、湖景层次与季节光影要求，预设不使用具体景区名称。
+统一的跨平台设计 Skill：从产品与品牌建立视觉语言，覆盖原生平台适配、React 组件契约、可移植 HTML 报告、演示与交互图表。临安青山湖是设计体系来源之一；[参考照片](assets/references/qingshan-lake/README.md)用于观察湖色、湖景层次与季节光影。具体产品界面仍按品牌和任务决定是否呈现地名。
 
 ```bash
 npx skills add youngjunning/skills --skill joyally-design -g

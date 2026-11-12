@@ -7,6 +7,8 @@ The report theme, generators and integration guidance are maintained in this ski
 
 Private product artwork, deployment adapters and historical installation or acceptance evidence are not distributed.
 
+The reference screenshots in `assets/references/qingshan-lake/` were supplied by the user from videos. They retain subtitles and player edges, are provided for design observation only, and are excluded from Joyally Design's PolyForm license. The repository does not claim ownership of the original footage.
+
 Local Archify modification: `assets/template.html` and `explainer/reader.css` use Joyally semantic colors for all viewer and reader styles, both themes, chrome and print. Palette mappings are maintained in Joyally's `assets/joyally-design.tokens.json`; the upstream renderer geometry and licenses are retained. See `runtime/diagram/UPSTREAM.json` for provenance and validation.
 
 ## Design quality guidance
