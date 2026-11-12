@@ -4,6 +4,7 @@
 import argparse
 import json
 from pathlib import Path
+import re
 import shutil
 import subprocess
 import sys
@@ -11,6 +12,8 @@ import sys
 
 IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".webp"}
 VIDEO_SUFFIXES = {".mp4", ".mov", ".m4v"}
+DEFAULT_COVER = "#E9EDF1"
+OPAQUE_COLOR = re.compile(r"^#[0-9a-fA-F]{6}$")
 
 
 def dimensions(path: Path, video: bool) -> tuple[int, int, float | None]:
@@ -56,8 +59,11 @@ def load_regions(path: Path, width: int, height: int, duration: float | None, vi
         if x + w > width or y + h > height:
             raise ValueError(f"Region {index} exceeds {width}x{height} bounds")
         mode = region.get("mode", "solid")
-        if mode not in {"solid", "mosaic"}:
-            raise ValueError(f"Region {index} has invalid mode")
+        if mode != "solid":
+            raise ValueError(f"Region {index} must use an opaque solid cover")
+        color = region.get("color", DEFAULT_COVER)
+        if not isinstance(color, str) or not OPAQUE_COLOR.fullmatch(color):
+            raise ValueError(f"Region {index} color must be opaque #RRGGBB")
         start, end = region.get("start", 0), region.get("end", duration)
         if video:
             if not isinstance(start, (int, float)) or start < 0:
@@ -67,6 +73,7 @@ def load_regions(path: Path, width: int, height: int, duration: float | None, vi
         elif "start" in region or "end" in region:
             raise ValueError(f"Region {index} has times on a still image")
         validated.append({"x": x, "y": y, "width": w, "height": h, "mode": mode,
+                          "color": color.upper(),
                           "start": float(start), "end": float(end) if end is not None else None})
     return validated
 
@@ -78,12 +85,7 @@ def redact_image(source: Path, output: Path, regions: list[dict]) -> None:
         image = opened.convert("RGB")
     for region in regions:
         x, y, w, h = (region[key] for key in ("x", "y", "width", "height"))
-        if region["mode"] == "solid":
-            ImageDraw.Draw(image).rectangle((x, y, x + w - 1, y + h - 1), fill=(0, 0, 0))
-        else:
-            crop = image.crop((x, y, x + w, y + h))
-            small = crop.resize((max(1, w // 16), max(1, h // 16)), Image.Resampling.BOX)
-            image.paste(small.resize((w, h), Image.Resampling.NEAREST), (x, y))
+        ImageDraw.Draw(image).rectangle((x, y, x + w - 1, y + h - 1), fill=region["color"])
     image.save(output)
 
 
@@ -95,21 +97,11 @@ def redact_video(source: Path, output: Path, regions: list[dict]) -> None:
         end = region["end"]
         condition = f"between(t,{region['start']},{end})" if end is not None else f"gte(t,{region['start']})"
         next_label = f"v{index}"
-        if region["mode"] == "solid":
-            filters.append(
-                f"[{current}]drawbox=x={x}:y={y}:w={w}:h={h}:color=black:t=fill:"
-                f"enable='{condition}'[{next_label}]"
-            )
-        else:
-            base, sample, pixel = f"b{index}", f"s{index}", f"p{index}"
-            filters.append(f"[{current}]split=2[{base}][{sample}]")
-            filters.append(
-                f"[{sample}]crop={w}:{h}:{x}:{y},scale={max(1, w // 16)}:{max(1, h // 16)},"
-                f"scale={w}:{h}:flags=neighbor[{pixel}]"
-            )
-            filters.append(
-                f"[{base}][{pixel}]overlay=x={x}:y={y}:enable='{condition}'[{next_label}]"
-            )
+        color = region["color"].replace("#", "0x")
+        filters.append(
+            f"[{current}]drawbox=x={x}:y={y}:w={w}:h={h}:color={color}:t=fill:"
+            f"enable='{condition}'[{next_label}]"
+        )
         current = next_label
     subprocess.run(
         ["ffmpeg", "-hide_banner", "-loglevel", "error", "-nostdin", "-i", str(source),
