@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-12
+
+1. 新增 product-demo-media：从真实产品操作制作文章截图和落地页演示录屏，提供 OCR 候选扫描、确定性遮盖与马赛克渲染，并要求逐帧覆盖和发布前复核。
+
 ## 2026-11-11
 
 1. Joyally Design、Joyally imagegen 和 Joyally writting 统一使用 `joyally-design`、`joyally-imagegen` 和 `joyally-writting` 作为安装及调用名。原 `better-imagegen` 和 `writting-skill` 的目录、项目引用和 CI 路径已迁移。

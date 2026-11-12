@@ -12,6 +12,12 @@
     "summary": "图像生成、编辑、漫画制作与素材校验"
   },
   {
+    "name": "product-demo-media",
+    "category": "design",
+    "path": "skills/design/product-demo-media",
+    "summary": "真实产品截图、交互录屏与落地页演示，自动识别候选敏感区域并脱敏复核"
+  },
+  {
     "name": "report-for-human",
     "category": "engineering",
     "path": "skills/engineering/report-for-human",
