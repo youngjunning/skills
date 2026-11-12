@@ -1,6 +1,6 @@
 # Joyally Design
 
-统一的跨平台设计 Skill：从产品与品牌建立视觉语言，覆盖原生平台适配、React 组件契约、可移植 HTML 报告、演示与交互图表。中国风、景观、时尚潮流等审美方向可以并列或结合；[景观方向](references/visual-language.md)包含「青山湖」「西湖」「苏州园林」「马尔代夫」「阿尔卑斯雪山」五个主题，时尚方向提供[小香风主题](references/fashion-xiaoxiang.md)及[浅色与深色 token 样本](assets/xiaoxiang-theme.tokens.json)。现有平台 tokens 与四季预设是青山湖主题的实现样本。景观参考画面保存在[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[苏州园林](assets/references/suzhou-gardens/README.md)、[马尔代夫](assets/references/maldives/README.md)与[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)目录；苏州园林也使用[留园照片](assets/references/lingering-garden/README.md)。
+统一的跨平台设计 Skill：从产品与品牌建立视觉语言，覆盖原生平台适配、React 组件契约、可移植 HTML 报告、演示与交互图表。六套并列主题为「青山湖」「西湖」「苏州园林」「马尔代夫」「阿尔卑斯雪山」与[小香风](references/fashion-xiaoxiang.md)，每套都有 20 张可追溯的参考画面。前五套的[景观视觉规则](references/visual-language.md)从地点取景，小香风从服装廓形、细节与编辑式呈现取材；粗花呢只是材质线索。小香风另有[浅色与深色 token 样本](assets/xiaoxiang-theme.tokens.json)，现有平台 tokens 与四季预设是青山湖主题的实现样本。参考画面保存在[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[苏州园林](assets/references/suzhou-gardens/README.md)、[马尔代夫](assets/references/maldives/README.md)、[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)与[小香风](assets/references/xiaoxiang/README.md)目录；苏州园林也使用[留园照片](assets/references/lingering-garden/README.md)。
 
 ```bash
 npx skills add youngjunning/skills --skill joyally-design -g
