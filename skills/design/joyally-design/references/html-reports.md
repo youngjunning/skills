@@ -22,11 +22,14 @@ Use the bundled layouts, CSS tokens, and local assets to create portable HTML:
 
 The generated report uses natural scrolling, print styles, and system font fallbacks. Adapt an existing report in place when it already has a stronger schema or renderer.
 
+`assets/report-demo.html` is a worked example with explicitly fictional ticket data. It shows how to replace the starter placeholders with a conclusion-led opening, measured comparisons, and evidence without changing the report runtime.
+
 `node scripts/design-engine.mjs deck <output-dir>` adds local playback and animation assets for a three-slide starter. For a complete presentation, use a scenario or a JSON slide source as described in [演示文稿制作](presentations.md). Keep `.deck`, `.slide`, `.notes`, and hash navigation.
 
 ## Authoring rules
 
 - Start from the Joyally Design report shell and its local layout primitives.
+- Put the report's actual takeaway and its most important measured value in the first screen. Use a short metric strip only when each figure has a clear unit, comparison baseline, and source; use a simple visual comparison when it helps readers see a real change.
 - Use semantic tokens in report content. Add a new Joyally Design token only when existing roles cannot express the meaning.
 - Keep report-specific styles in `joyally-theme.css` or a scoped report-local stylesheet loaded after it.
 - Preserve natural scrolling, headings, landmarks, anchors, evidence links, and print behavior.

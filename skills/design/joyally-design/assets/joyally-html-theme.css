@@ -174,17 +174,113 @@ body.joyally-report {
 
 .joyally-report .report-summary {
   display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.5fr);
-  gap: 24px;
-  margin: 32px 0 52px;
-  padding: 28px 30px;
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius);
-  background: rgba(251, 252, 250, 0.92);
-  box-shadow: var(--shadow);
+  grid-template-columns: minmax(0, 1.5fr) minmax(220px, 0.5fr);
+  gap: clamp(28px, 5vw, 72px);
+  align-items: end;
+  margin: 32px 0 16px;
+  padding: clamp(30px, 5vw, 64px);
+  border-radius: 6px 54px 6px 6px;
+  color: #f2f6ed;
+  background:
+    radial-gradient(circle at 85% 8%, rgba(169, 212, 180, .2), transparent 28%),
+    linear-gradient(125deg, #183c35, #244d3c 62%, #28513d);
+  box-shadow: 0 22px 48px rgba(19, 57, 42, .16);
 }
 
-.joyally-report .report-summary h2,
+.joyally-report .report-summary .kicker {
+  margin: 0 0 24px;
+  color: #aed9b9;
+}
+
+.joyally-report .report-summary h2 {
+  max-width: 18ch;
+  margin: 0 0 18px;
+  color: inherit;
+  font-size: clamp(30px, 3.1vw, 45px);
+  line-height: 1.2;
+  letter-spacing: -.035em;
+}
+
+.joyally-report .report-summary p {
+  max-width: 56ch;
+  margin: 0;
+  color: #dce9df;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.joyally-report .report-summary-metric {
+  padding: 0 0 2px 24px;
+  border-left: 1px solid rgba(220, 233, 223, .36);
+}
+
+.joyally-report .report-summary-metric > span:first-child {
+  color: #bdd8c5;
+  font-size: 13px;
+}
+
+.joyally-report .report-summary-metric strong {
+  display: block;
+  margin: 4px 0 0;
+  color: #f8f8ec;
+  font-size: clamp(64px, 7vw, 102px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -.075em;
+  font-variant-numeric: tabular-nums;
+}
+
+.joyally-report .report-summary-metric strong small {
+  margin-left: 8px;
+  font-size: .25em;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.joyally-report .report-summary-metric p {
+  margin-top: 18px;
+  color: #dce9df;
+  font-size: 14px;
+}
+
+.joyally-report .report-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0 0 58px;
+  border: 1px solid var(--border);
+  background: var(--border);
+}
+
+.joyally-report .report-metric {
+  min-width: 0;
+  padding: 24px 28px 26px;
+  background: var(--surface);
+}
+
+.joyally-report .report-metric > span {
+  display: block;
+  color: var(--text-2);
+  font-size: 13px;
+}
+
+.joyally-report .report-metric strong {
+  display: block;
+  margin: 8px 0 4px;
+  color: var(--text-1);
+  font-size: clamp(30px, 3vw, 43px);
+  font-weight: 600;
+  line-height: 1.16;
+  letter-spacing: -.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.joyally-report .report-metric p {
+  margin: 0;
+  color: var(--text-2);
+  font-size: 13px;
+}
+
 .joyally-report .report-section h2 {
   margin: 0 0 12px;
   font-size: 28px;
@@ -192,15 +288,9 @@ body.joyally-report {
   letter-spacing: -0.025em;
 }
 
-.joyally-report .report-summary p,
 .joyally-report .report-section p,
 .joyally-report .report-finding li {
   color: var(--text-2);
-}
-
-.joyally-report .report-summary strong {
-  color: var(--accent);
-  font-size: 34px;
 }
 
 .joyally-report .report-layout {
@@ -272,6 +362,46 @@ body.joyally-report {
 
 .joyally-report .report-finding[data-severity="low"] {
   border-left-color: var(--good);
+}
+
+.joyally-report .report-comparison {
+  display: grid;
+  gap: 18px;
+  margin: 22px 0 8px;
+  padding: 22px 24px;
+  background: var(--surface-2);
+}
+
+.joyally-report .report-comparison-row {
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr) 58px;
+  gap: 14px;
+  align-items: center;
+  color: var(--text-2);
+  font-size: 13px;
+}
+
+.joyally-report .report-comparison-row strong {
+  color: var(--text-1);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+
+.joyally-report .report-comparison-track {
+  height: 13px;
+  background: #d9e5d9;
+}
+
+.joyally-report .report-comparison-track::before {
+  display: block;
+  width: var(--measure);
+  height: 100%;
+  background: #8aa997;
+  content: "";
+}
+
+.joyally-report .report-comparison-row.is-current .report-comparison-track::before {
+  background: #285f47;
 }
 
 .joyally-report .report-evidence {
@@ -359,6 +489,22 @@ body.joyally-report {
     grid-template-columns: 1fr;
   }
 
+  .joyally-report .report-summary {
+    gap: 28px;
+    border-radius: 6px 34px 6px 6px;
+  }
+
+  .joyally-report .report-summary-metric {
+    padding: 20px 0 0;
+    border-left: 0;
+    border-top: 1px solid rgba(220, 233, 223, .36);
+  }
+
+  .joyally-report .report-metrics {
+    grid-template-columns: 1fr;
+    margin-bottom: 40px;
+  }
+
   .joyally-report .report-header,
   .joyally-report .report-layout {
     gap: 28px;
@@ -378,7 +524,6 @@ body.joyally-report {
 }
 
 @media (prefers-contrast: more), (forced-colors: active), (prefers-reduced-transparency: reduce) {
-  .joyally-report .report-summary,
   .joyally-report .report-nav {
     background: var(--surface);
     backdrop-filter: none;
@@ -412,9 +557,19 @@ body.joyally-report {
   }
 
   .joyally-report .report-summary {
+    border: 1px solid #4b7057;
+    color: #253c2d;
     background: #fff;
     box-shadow: none;
     backdrop-filter: none;
+  }
+
+  .joyally-report .report-summary :is(.kicker, p, .report-summary-metric > span:first-child, .report-summary-metric strong) {
+    color: #253c2d;
+  }
+
+  .joyally-report .report-summary-metric {
+    border-color: #b7c8b9;
   }
 
   .joyally-report .report-section > .kicker,

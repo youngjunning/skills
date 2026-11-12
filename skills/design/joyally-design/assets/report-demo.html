@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="lake">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Joyally Design">
+  <title>工单响应周报 · Joyally Design</title>
+  <link rel="stylesheet" href="../runtime/html/assets/base.css">
+  <link rel="stylesheet" href="./joyally-html-theme.css">
+</head>
+<body class="webpage joyally-report">
+  <div class="report-shell">
+    <header class="report-header">
+      <div>
+        <p class="kicker">Joyally Design · HTML Report</p>
+        <h1>工单响应周报</h1>
+        <p class="lede">演示数据 · 运营协作</p>
+      </div>
+      <dl class="report-meta">
+        <div><dt>主题</dt><dd>客服首次响应</dd></div>
+        <div><dt>读者</dt><dd>运营与值班团队</dd></div>
+        <div><dt>数据</dt><dd>虚构的相邻两周</dd></div>
+      </dl>
+    </header>
+
+    <section class="report-summary" aria-labelledby="summary-title">
+      <div>
+        <p class="kicker">本期结论 / THE TAKEAWAY</p>
+        <h2 id="summary-title">整体响应更快，夜间等待仍需追踪</h2>
+        <p>首次响应中位数从 52 分钟降至 39 分钟。本周超过 60 分钟的 22 件工单中，有 12 件来自夜间。下一轮先试用交接清单，再看等待是否缩短。</p>
+      </div>
+      <div class="report-summary-metric">
+        <span>本周首次响应中位数</span>
+        <strong>39<small>分钟</small></strong>
+        <p>上周 52 分钟 · 缩短 25%</p>
+      </div>
+    </section>
+
+    <div class="report-metrics" aria-label="关键指标">
+      <div class="report-metric"><span>首次响应中位数变化</span><strong>−13 分钟</strong><p>52 分钟 → 39 分钟</p></div>
+      <div class="report-metric"><span>60 分钟内响应率变化</span><strong>+7.8 个百分点</strong><p>75.0% → 82.8%</p></div>
+      <div class="report-metric"><span>本周夜间超时</span><strong>12 / 22 件</strong><p>占全部超时工单 54.5%</p></div>
+    </div>
+
+    <div class="report-layout">
+      <nav class="report-nav" aria-label="报告目录">
+        <a href="#overview">背景与范围</a>
+        <a href="#findings">分析与发现</a>
+        <a href="#recommendations">建议与下一步</a>
+      </nav>
+
+      <main class="report-content">
+        <section class="report-section" id="overview">
+          <p class="kicker">01 / OVERVIEW</p>
+          <h2>背景与范围</h2>
+          <p>样本包含虚构的客服工单，上周 120 件，本周 128 件。首次响应时长从创建到首次人工回复计算，机器人自动确认不计入。中位数和 60 分钟内响应率都使用各周全部样本。</p>
+        </section>
+
+        <section class="report-section" id="findings">
+          <p class="kicker">02 / FINDINGS</p>
+          <h2>分析与发现</h2>
+          <article class="report-finding" data-severity="low">
+            <p class="kicker">发现 01 · 响应变快</p>
+            <h3>中位数缩短 13 分钟</h3>
+            <p>样本量增加 8 件，60 分钟内响应率从 75.0% 提升到 82.8%。下图与表格按相同口径展示两周数据。</p>
+            <div class="report-comparison" role="img" aria-label="60 分钟内响应率：上周 75.0%，本周 82.8%">
+              <div class="report-comparison-row"><span>上周</span><div class="report-comparison-track" style="--measure:75%"></div><strong>75.0%</strong></div>
+              <div class="report-comparison-row is-current"><span>本周</span><div class="report-comparison-track" style="--measure:82.8%"></div><strong>82.8%</strong></div>
+            </div>
+            <div class="report-evidence">
+              <table>
+                <thead><tr><th scope="col">指标</th><th scope="col">上周</th><th scope="col">本周</th></tr></thead>
+                <tbody><tr><th scope="row">样本量</th><td>120 件</td><td>128 件</td></tr><tr><th scope="row">首次响应中位数</th><td>52 分钟</td><td>39 分钟</td></tr><tr><th scope="row">60 分钟内响应率</th><td>90/120（75.0%）</td><td>106/128（82.8%）</td></tr></tbody>
+              </table>
+            </div>
+          </article>
+          <article class="report-finding" data-severity="medium">
+            <p class="kicker">发现 02 · 夜间等待</p>
+            <h3>夜间占本周超时工单过半</h3>
+            <p>夜间共 34 件工单，占本周样本 26.6%。其中 12 件超过 60 分钟，占全部 22 件超时工单的 54.5%。</p>
+          </article>
+          <details class="report-disclosure">
+            <summary>展开统计口径</summary>
+            <div>夜间定义为本地时间 22:00 至次日 08:00。两周数据仅用于演示报表表达，不能据此判断夜班交接是超时原因。表中的响应率按件数计算，四舍五入到一位小数。</div>
+          </details>
+        </section>
+
+        <section class="report-section" id="recommendations">
+          <p class="kicker">03 / RECOMMENDATIONS</p>
+          <h2>建议与下一步</h2>
+          <p>值班协调在下一轮试用交接清单，标出待回复工单和下一位负责人。运营在下一次周报同时回看夜间超时件数、夜间总工单量和首次响应中位数，再决定是否继续。</p>
+        </section>
+      </main>
+    </div>
+
+    <footer class="report-footer">Joyally Design · 虚构数据，仅供版式演示</footer>
+  </div>
+</body>
+</html>
