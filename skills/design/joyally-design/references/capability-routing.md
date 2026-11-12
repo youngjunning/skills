@@ -55,7 +55,7 @@ Joyally Design 的领域方法、专项参考、工具、素材与测试都在�
 
 使用前读 `tools.md` 和相应脚本的 `--help`。调用 `node <joyally-dir>/scripts/design-engine.mjs <命令> [工具参数]`；它直接运行本目录脚本，保留工具的输出和退出码。常用命令如下；`path <相对文件>` 可定位本目录的任一参考、素材或脚本，`run <脚本名> [参数]` 可运行 本目录脚本，保持完整能力可达。输出放在项目约定或临时任务目录，不写入技能安装目录。
 
-| 目的 | Joyally 命令 | 验收 |
+| 目的 | 能力入口 | 验收 |
 | --- | --- | --- |
 | 生成 HTML 报告或演示 | `report`、`deck` → [HTML 报告与演示](html-reports.md) | 核对离线打开、阅读或播放、打印 |
 | 生成自包含交互图表 | `diagram` → [交互图表](interactive-diagrams.md) | 校验输入、图表内容和关键交互 |
@@ -66,7 +66,7 @@ Joyally Design 的领域方法、专项参考、工具、素材与测试都在�
 | 测量参考图或固定画布 | `measure` → `scripts/measure_reference.py` | 用测量辅助布局，不把差异分数当设计质量 |
 | 检查项目设计规范的路径与变量 | `design-check` → `scripts/check_design_md.py` | 回读规范和代表性页面，确认与代码一致 |
 | 查阅卡片构型 | `../assets/cards/gallery.html` 与 `cards.md` | 打开现成画廊，按当前对象选择构型；常规设计不运行维护用的 `build_cards.py` |
-| 探索图像方向 | `image` → `scripts/joyally-image.mjs` | 仅在任务需要且有使用权限时调用；生成图需进入实际页面验证 |
+| 生成或编辑 UI 设计稿、主视觉和页面静态素材 | `joyally-imagegen`（按其生图流程调用） | 生成图需进入实际页面验证；布局、文字和控件仍由代码实现 |
 
 例如 `node <joyally-dir>/scripts/design-engine.mjs explore <候选目录>` 生成对比页，`node <joyally-dir>/scripts/design-engine.mjs shoot <页面> --size desktop,mobile --out <截图目录>` 取得双端画面。`node <joyally-dir>/scripts/design-engine.mjs design-check <项目规范>` 检查项目设计规则。需要完整参数时在命令末尾加 `--help`。
 
