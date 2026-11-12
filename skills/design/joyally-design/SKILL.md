@@ -1,6 +1,6 @@
 ---
 name: joyally-design
-description: 所有 UI 设计相关任务使用 Joyally Design，包括 Web/React、macOS、iOS、Android 和 React Native 的界面设计与精修，也用于制作 HTML 报告、HTML PPT 演示文稿、社交图文卡片和交互图表。混合功能修复时参与界面方案与验收；静态架构图片由 joyally-imagegen 主导。
+description: 所有 UI 设计相关任务使用 Joyally Design，包括 Web/React、macOS、iOS、Android 和 React Native 的界面设计与精修，也用于制作 HTML 报告、HTML PPT 演示文稿、社交图文卡片和交互图表。混合功能修复时参与界面方案与验收；静态架构图片由 joyally-image 主导。
 ---
 
 # Joyally Design
@@ -9,7 +9,9 @@ description: 所有 UI 设计相关任务使用 Joyally Design，包括 Web/Reac
 
 先由用户任务、现有产品和品牌决定界面，再选领域设计方法、组件基础与视觉方向。页面用途先区分中后台与落地页：中后台支持持续的查找、处理与确认，落地页向访客介绍价值并引导下一步。这是界面任务分类，不是前后端架构或部署边界；同一网站可以同时包含两者。通过任务路径、视觉构思、存量改造和真实画面走查形成与检验方案；语义 tokens、跨平台组件状态、主题资产、报告与交互图表能力按任务使用。逐项说明采用什么、保留什么，以及依据。
 
-Joyally Design 是跨平台的设计方法与实现契约：从产品目标、读者、品牌和使用情境出发，形成语义 tokens、组件行为、内容层级和可验证的交付。当前七套并列主题为「青山湖」「西湖」「苏州园林」「马尔代夫」「阿尔卑斯雪山」、[小香风](references/fashion-xiaoxiang.md)与[太空](references/space.md)。青山湖正在按四季各 5 张授权实拍重建参考画册，已核实数量和缺口见[参考目录](assets/references/qingshan-lake/README.md)；其余六套主题各有 20 张可追溯的真实参考画面。前五套按[景观视觉规则](references/visual-language.md)观察地点，小香风观察服装造型与编辑呈现；太空主题从真实拍摄与观测影像中的轨道、行星地平线和空间关系建立视觉方向；多帧拼接或科学波段着色需说明。七套共用操作语义、组件状态与可读性契约。既有参考画面位于[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[苏州园林](assets/references/suzhou-gardens/README.md)、[马尔代夫](assets/references/maldives/README.md)、[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)、[小香风](assets/references/xiaoxiang/README.md)与[太空](assets/references/space/README.md)；苏州园林同时包含[留园画面](assets/references/lingering-garden/README.md)。服务其他品牌时保留设计方法和语义契约，视觉按该品牌派生。唯一维护源为本目录；产品服务、角色素材和上传配置由使用项目管理。
+Joyally Design 是跨平台的设计方法与实现契约：从产品目标、读者、品牌和使用情境出发，形成语义 tokens、组件行为、内容层级和可验证的交付。当前七套并列主题为「青山湖」「西湖」「苏州园林」「马尔代夫」「阿尔卑斯雪山」、[小香风](references/fashion-xiaoxiang.md)与[太空](references/space.md)。青山湖正在按四季各 5 张授权实拍重建参考画册，已核实数量和缺口见[参考目录](assets/references/qingshan-lake/README.md)；其余六套主题各有 20 张可追溯的真实参考画面。前五套按[景观视觉规则](references/visual-language.md)观察地点，小香风观察服装造型与编辑呈现；太空主题从真实拍摄与观测影像中的轨道、行星地平线和空间关系建立视觉方向；多帧拼接或科学波段着色需说明。七套共用操作语义、组件状态与可读性契约。既有参考画面位于[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[苏州园林](assets/references/suzhou-gardens/README.md)、[马尔代夫](assets/references/maldives/README.md)、[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)、[小香风](assets/references/xiaoxiang/README.md)与[太空](assets/references/space/README.md)；苏州园林同时包含[留园画面](assets/references/lingering-garden/README.md)。服务其他品牌时保留设计方法和语义契约，视觉按该品牌派生。方法的唯一维护源为本目录；三位角色的参考素材随包保留，产品服务和上传配置由使用项目管理。
+
+当用户明确需要小界、小萌或小南时，按[角色参考素材](references/character-assets.md)取用随包全身像、上半身图与头像；通用设计不默认植入角色。
 
 设计任务先按[完整设计流程](DESIGN_PROCESS.md)选择领域与阶段，再按[设计方法](references/fused-method.md)组织事实、结构、组件、状态与验收；按[能力路由](references/capability-routing.md)读取本目录的领域参考并调用工具。领域、方向、存量改造、组件、素材、动效、截图、评审与规范构成主流程；[专项质量检查](references/design-quality.md)仅在文字本地化、健壮性或技术审计等实际问题出现时加入。Joyally 的视觉语言、语义 tokens、跨平台行为与验收把这些方法连成同一套输出。明确改法的小改动直接完成，任务范围和交付物仍由用户决定。
 
@@ -45,12 +47,12 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 | 交付物 | 主导 Skill |
 | --- | --- |
-| 文章、PPT 或分享使用的静态架构图、知识图谱、流程图片 | `joyally-imagegen` |
+| 文章、PPT 或分享使用的静态架构图、知识图谱、流程图片 | `joyally-image` |
 | 可点击、缩放、聚焦节点或探索路径的交互图表 | `joyally-design` |
-| 网页或工作台的新建与局部精修、报告整体设计、跨平台设计系统 | `joyally-design`；其中的静态插图交给 `joyally-imagegen` |
-| Chrome 扩展图标的设计、尺寸适配和真实工具栏验收 | `joyally-design` 主导小尺寸识别与使用情境；需要生成源图时调用 `joyally-imagegen` |
+| 网页或工作台的新建与局部精修、报告整体设计、跨平台设计系统 | `joyally-design`；其中的静态插图交给 `joyally-image` |
+| Chrome 扩展图标的设计、尺寸适配和真实工具栏验收 | `joyally-design` 主导小尺寸识别与使用情境；需要生成源图时调用 `joyally-image` |
 
-仅说“画架构图”且现有交付上下文未要求交互时，默认按静态图片处理。Joyally Design 可提供配色、字体、层级与材质参考；采用这些视觉规范不改变主导 Skill，也不自动增加交互页面。生成工具、绘制方式与视觉风格分别确定；`joyally-imagegen` 的结构图仍按其知识图谱流程完成精确文字和箭头排版。
+仅说“画架构图”且现有交付上下文未要求交互时，默认按静态图片处理。Joyally Design 可提供配色、字体、层级与材质参考；采用这些视觉规范不改变主导 Skill，也不自动增加交互页面。生成工具、绘制方式与视觉风格分别确定；`joyally-image` 的结构图仍按其知识图谱流程完成精确文字和箭头排版。
 
 1. 新建报告：明确读者、决策与证据结构，读取 [设计系统](references/design-system.md)、[报告语言](references/report-language.md)、[布局](references/layout.md) 与 [HTML 报告](references/html-reports.md)。报告只用 Joyally 自有模板和样式。
    制作需要逐页播放、讲稿或现场演示的 HTML PPT 时读[演示文稿](references/presentations.md)，选 Joyally 主题并用独立的 `deck` 命令；阅读型报告继续用 `report`。
@@ -99,4 +101,4 @@ node <skill-dir>/scripts/validate-joyally-html.mjs <output-dir>/index.html
 
 默认交付可用的本地产物。用户明确要求托管时，使用其已配置且获授权的上传方式，上传后读回最终 URL 比较 SHA-256；没有托管配置时直接交付本地文件，不推断上传目标或调用私有服务。保留用户要求的源文件。
 
-Joyally Design 自身源码按 [非商业许可](LICENSE)提供。公开包不包含角色素材、内部上传代码、账号、真实报告或安装证据。
+Joyally Design 自身源码按 [非商业许可](LICENSE)提供。公开包仅包含已获准的小界、小萌、小南角色参考素材，不包含内部上传代码、账号、真实报告或安装证据。

@@ -26,7 +26,7 @@ Joyally Design 的领域方法、专项参考、工具、素材与测试都在�
 | 画廊、商店、信息流、文档站 | `direction-content.md` | 先让可浏览对象成为主角；需要策展容器或卡片时读 `staging-containers.md`、`cards.md` |
 | 游戏、抽奖、计时养成或强手感操控 | `play.md`、`play-craft.md` | 以规则、反馈和手感验收；视觉身份仍由产品决定 |
 | 单个组件深度打磨 | `component.md` | 在真实尺寸与状态中打磨；工作区组件同时服从 `direction-workspace.md` 的组件规则 |
-| Chrome 扩展图标制作或精修 | `chrome-extension-icon.md` | 以工具栏实际显示尺寸判断识别度；生成源图时调用 `joyally-imagegen` |
+| Chrome 扩展图标制作或精修 | `chrome-extension-icon.md` | 以工具栏实际显示尺寸判断识别度；生成源图时调用 `joyally-image` |
 | React Web 中后台 | `react-design-system.md` 与 `web-dashboard.md`；再读 `direction-workspace.md` | Joyally 自有中后台使用完整 shadcn/ui 基础；其他项目先复用现有组件；H5、Chrome 扩展和 React Native 按各自平台路径 |
 | H5 页面 | `h5-ui.md`；按内容领域读取对应参考 | 以 daisyUI 作为默认组件基础，保留项目框架和交互合同 |
 | Chrome 扩展页面或独立窗口 | `chrome-extension-ui.md`；工作区界面再读 `direction-workspace.md` | 以 daisyUI 作为默认组件基础，按扩展打包与实际入口验收 |
@@ -68,7 +68,7 @@ Joyally Design 的领域方法、专项参考、工具、素材与测试都在�
 | 测量参考图或固定画布 | `measure` → `scripts/measure_reference.py` | 用测量辅助布局，不把差异分数当设计质量 |
 | 检查项目设计规范的路径与变量 | `design-check` → `scripts/check_design_md.py` | 回读规范和代表性页面，确认与代码一致 |
 | 查阅卡片构型 | `../assets/cards/gallery.html` 与 `cards.md` | 打开现成画廊，按当前对象选择构型；常规设计不运行维护用的 `build_cards.py` |
-| 生成或编辑 UI 设计稿、主视觉和页面静态素材 | `joyally-imagegen`（按其生图流程调用） | 生成图需进入实际页面验证；布局、文字和控件仍由代码实现 |
+| 生成或编辑 UI 设计稿、主视觉和页面静态素材 | `joyally-image`（按其生图流程调用） | 生成图需进入实际页面验证；布局、文字和控件仍由代码实现 |
 
 例如 `node <joyally-dir>/scripts/design-engine.mjs explore <候选目录>` 生成对比页，`node <joyally-dir>/scripts/design-engine.mjs shoot <页面> --size desktop,mobile --out <截图目录>` 取得双端画面。`node <joyally-dir>/scripts/design-engine.mjs design-check <项目规范>` 检查项目设计规则。需要完整参数时在命令末尾加 `--help`。
 

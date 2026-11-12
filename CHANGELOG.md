@@ -2,6 +2,7 @@
 
 ## 2026-11-13
 
+2. 将 `joyally-imagegen` 更名为 `joyally-image`，同步目录、安装名和技能间引用；Joyally Image 与 Joyally Design 各自保留小界、小萌、小南的全身、上半身与头像参考素材。
 1. 新增 `joyally-midway`：面向常驻 Midway Web 应用的开发与排障，整理依赖注入作用域、Middleware、配置、生命周期和完整 HTTP 链路验收；明确排除 FaaS。
 
 ## 2026-11-12

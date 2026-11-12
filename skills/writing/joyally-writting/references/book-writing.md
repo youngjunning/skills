@@ -8,7 +8,7 @@ Before using third-party material or calling a manuscript publish-ready, also re
 
 | Type | Primary contract | Main failure mode |
 | --- | --- | --- |
-| Picture book / 绘本 | Page-level story, exact copy, illustration briefs, cover-inclusive count and print geometry; follow [picture-book.md](picture-book.md), using `joyally-imagegen` for images | Repeated scenes, lost learning outcomes, tiny text, clipped important objects, incorrect page totals |
+| Picture book / 绘本 | Page-level story, exact copy, illustration briefs, cover-inclusive count and print geometry; follow [picture-book.md](picture-book.md), using `joyally-image` for images | Repeated scenes, lost learning outcomes, tiny text, clipped important objects, incorrect page totals |
 | Nonfiction or technical | Reader problem, thesis, evidence map, chapter promise, usable outcome | Repetition, unsupported authority, chapter-as-article fragmentation |
 | Fiction | Story promise, character desire, causality, viewpoint, world rules, reveal boundaries | Continuity drift, inert chapters, implausible knowledge or agency |
 | Memoir or narrative nonfiction | Lived truth, memory limits, privacy boundaries, documentary support, narrative arc | Invented certainty, composite people presented as literal, privacy harm |

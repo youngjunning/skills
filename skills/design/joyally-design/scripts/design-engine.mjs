@@ -35,7 +35,7 @@ deck-gallery <output-dir>: preview Joyally presentation themes and layouts
 deck-render <index.html> --format png|pdf: export slides
 deck-bundle <index.html> --out <standalone.html>: bundle a deck into one HTML file
 diagram --help: list diagram commands and formats
-image generation and editing: use the joyally-imagegen skill
+image generation and editing: use the joyally-image skill
 path <relative-file>: show a bundled reference, asset or script path
 run <script-name> [...arguments]: run a bundled script
 `);
@@ -43,7 +43,7 @@ run <script-name> [...arguments]: run a bundled script
 }
 if (!Object.hasOwn(commands, command) && command !== 'path' && command !== 'run') {
   process.stderr.write(command === 'image'
-    ? 'Image generation and editing now use joyally-imagegen.\n'
+    ? 'Image generation and editing now use joyally-image.\n'
     : `Unknown tool: ${command}. Run --help for available tools.\n`);
   process.exit(2);
 }

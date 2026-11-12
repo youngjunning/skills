@@ -6,9 +6,9 @@
     "summary": "业务产品判断、AI 架构与 Skill、Agent、数字员工交付"
   },
   {
-    "name": "joyally-imagegen",
+    "name": "joyally-image",
     "category": "design",
-    "path": "skills/design/joyally-imagegen",
+    "path": "skills/design/joyally-image",
     "summary": "图像生成、编辑、漫画制作与素材校验"
   },
   {

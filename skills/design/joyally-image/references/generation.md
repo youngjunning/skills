@@ -22,7 +22,7 @@ metadata, transparency, and sprite validation. Never run global `pip`/`pip3`; in
 spending an API call:
 
 ```bash
-SKILL_DIR="/path/to/joyally-imagegen"
+SKILL_DIR="/path/to/joyally-image"
 eval "$("$SKILL_DIR/scripts/ensure_venv.sh")"
 "$BETTER_IMAGEGEN_PYTHON" -c 'from PIL import Image; print("Pillow ready")'
 ```

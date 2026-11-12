@@ -6,11 +6,11 @@ It activates when the user asks for a writing deliverable, continuation, rewrite
 
 **Blog mode** covers blog posts, technical articles, ATA, tutorials, product or project introductions, and opinion essays. It owns single-article structure, current-product evidence, and publication checks.
 
-Its **Comic article** shape owns prose, fact checks, sources, and page integration. `joyally-imagegen` owns the comic production, including storyboard, cast, scene art, lettering, layout, and visual review. Its [小界 and 小南 roster](../../design/joyally-imagegen/references/comic-characters.md) includes portable portrait and full-body references. See [Comic articles](references/comic-articles.md).
+Its **Comic article** shape owns prose, fact checks, sources, and page integration. `joyally-image` owns the comic production, including storyboard, cast, scene art, lettering, layout, and visual review. Its [小界 and 小南 roster](../../design/joyally-image/references/comic-characters.md) includes portable portrait and full-body references. See [Comic articles](references/comic-articles.md).
 
 **Book mode** covers books, ebooks, handbooks, manuscripts, chapter planning, and cross-chapter revision. It keeps a durable book contract, chapter map, evidence or story state, and cross-chapter review cadence. Its AI technical-book profile adds minimally qualified reader design, executable examples, reproducible experiments, version snapshots, and operational boundaries.
 
-Its [Picture book](references/picture-book.md) workflow owns the story, exact copy, page count including requested covers, typography, print templates, validation and separate-image delivery. `joyally-imagegen` is the designated illustration and image-edit provider. Cover and interior templates are recorded independently; changing the page count also updates visible folios and packaged filenames.
+Its [Picture book](references/picture-book.md) workflow owns the story, exact copy, page count including requested covers, typography, print templates, validation and separate-image delivery. `joyally-image` is the designated illustration and image-edit provider. Cover and interior templates are recorded independently; changing the page count also updates visible folios and packaged filenames.
 
 Proposals, reports, technical documentation, product copy, speeches, and short copy continue to use the shared writing workflow; they are utility deliverables rather than a third publishing mode. All paths start from audience, purpose, evidence, and structure, test reasoning when needed, apply an optional named voice profile, and review clarity and natural wording.
 
@@ -51,7 +51,7 @@ For a comic article, stay in Blog mode:
 
 ```text
 使用 $joyally-writting 写一篇漫画拆解文章。先核验原理并完成正文，
-将漫画的分镜、人物、对白、排版与验收交给 joyally-imagegen，最后把成品放回文章对应位置。
+将漫画的分镜、人物、对白、排版与验收交给 joyally-image，最后把成品放回文章对应位置。
 ```
 
 ## Use Book mode

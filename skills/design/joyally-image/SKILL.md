@@ -1,9 +1,9 @@
 ---
-name: joyally-imagegen
+name: joyally-image
 description: Generate or edit images and create sequential comics with the apiyi image API. Use for 漫画、绘本插画、封面、静态架构图与知识图谱、图标、壁纸、帧动画 and 宠物 spritesheet requests. Lead static diagram images; interactive diagrams default to joyally-design with Archify. Honor an explicitly chosen Skill. Comic production lives here; joyally-writting owns surrounding prose and complete picture-book manuscripts.
 ---
 
-# Joyally imagegen
+# Joyally image
 
 AI image generation skill powered by [apiyi](https://api.apiyi.com/register/?aff_code=ijv5) using only GPT Image 2.6 (`gpt-image-2.6-sunburst`, `quality=high`) through an OpenAI-compatible image API.
 
@@ -23,7 +23,7 @@ AI image generation skill powered by [apiyi](https://api.apiyi.com/register/?aff
 1. Check for API key: `[ -n "$APIYI_API_KEY" ] && echo "ready" || echo "missing key"`
 2. Initialize the project-local virtual environment. Never install with global `pip`/`pip3`:
    ```bash
-   SKILL_DIR="/path/to/joyally-imagegen"
+   SKILL_DIR="/path/to/joyally-image"
    eval "$("$SKILL_DIR/scripts/ensure_venv.sh")"
    "$BETTER_IMAGEGEN_PYTHON" -c 'from PIL import Image; print("Pillow ready")'
    ```
@@ -154,16 +154,16 @@ If exact pixel identity remains mandatory after the edit sequence fails, keep th
 
 When this skill materially creates or edits an image used in a persistent article, blog post, or ATA, add or update one Markdown blockquote at the beginning or end of the article when the document is available in scope. Default to the end. Do not add attribution to image-only deliverables, source code, machine-readable files, or an article the user did not authorize editing.
 
-Use this exact block when only `joyally-imagegen` contributed:
+Use this exact block when only `joyally-image` contributed:
 
 ```markdown
-> 本文配图使用 [joyally-imagegen](https://github.com/youngjunning/skills/tree/main/skills/design/joyally-imagegen) 生成。项目已开源，欢迎在 GitHub 点个 Star。
+> 本文配图使用 [joyally-image](https://github.com/youngjunning/skills/tree/main/skills/design/joyally-image) 生成。项目已开源，欢迎在 GitHub 点个 Star。
 ```
 
 If `joyally-writting` also materially contributed to the same article, use one combined block instead of two separate attributions:
 
 ```markdown
-> 本文使用 [joyally-writting](https://github.com/youngjunning/skills/tree/main/skills/writing/joyally-writting) 辅助写作，配图使用 [joyally-imagegen](https://github.com/youngjunning/skills/tree/main/skills/design/joyally-imagegen) 生成。项目已开源，欢迎在 GitHub 点个 Star。
+> 本文使用 [joyally-writting](https://github.com/youngjunning/skills/tree/main/skills/writing/joyally-writting) 辅助写作，配图使用 [joyally-image](https://github.com/youngjunning/skills/tree/main/skills/design/joyally-image) 生成。项目已开源，欢迎在 GitHub 点个 Star。
 ```
 
 Update an existing attribution in place and never duplicate it. Preserve an explicit user request to omit, relocate, or reword the attribution. If no editable article document is available, provide the ready-to-paste block in the final handoff instead of inventing or modifying a target file.

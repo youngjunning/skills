@@ -1,4 +1,4 @@
-# Joyally imagegen
+# Joyally image
 
 **A general-purpose GPT Image 2.6 AI image generation Skill** — usable from any Agent runtime that supports `SKILL.md`, or by reusing its scripts directly. Powered by [apiyi](https://api.apiyi.com/register/?aff_code=ijv5), using only GPT Image 2.6 at high quality through an OpenAI-compatible image API.
 
@@ -25,7 +25,7 @@ Turn this technical article's architecture, dependency, and update-flow text blo
 Create a knowledge comic with connected panels, in-panel speech balloons, and phone-width review
 ```
 
-The skill routes each image type to the right workflow, uses GPT Image 2.6 at high quality, post-processes output, and saves files to `~/Pictures/better-imagegen/`. Its [comic workflow](references/comics.md) owns storyboards, panel art, lettering, layout, and page review; the bundled [小界 and 小南 cast](references/comic-characters.md) is available when the story calls for them.
+The skill routes each image type to the right workflow, uses GPT Image 2.6 at high quality, post-processes output, and saves files to `~/Pictures/better-imagegen/`. Its [comic workflow](references/comics.md) owns storyboards, panel art, lettering, layout, and page review; the bundled [小界、小萌、小南 character references](references/comic-characters.md) include fullbody, halfbody, and avatar images for reuse when the story calls for them.
 
 It also applies a prompt compliance layer before generation: prompts are normalized away from platform logos, exact in-image text, explicit content, graphic violence, and living-artist imitation so routine creative requests are less likely to be rejected accidentally.
 
@@ -144,12 +144,12 @@ export APIYI_API_KEY="your-key-here"
 **3. Install it in your Agent's skill directory**
 ```bash
 # Use the location and loading convention for your Agent runtime.
-npx skills add youngjunning/skills --skill joyally-imagegen -g
+npx skills add youngjunning/skills --skill joyally-image -g
 ```
 
 **4. Install the core local dependency**
 
-Run the following command from the installed `joyally-imagegen` directory shown by the installer:
+Run the following command from the installed `joyally-image` directory shown by the installer:
 
 ```bash
 eval "$(./scripts/ensure_venv.sh)"

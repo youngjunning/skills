@@ -140,7 +140,7 @@ Choose the mode at the surface or component boundary. Do not mix compact and pre
 ## Iconography and imagery contract
 
 1. Functional icons prioritize accessible names, stable geometry, and predictable alignment; their state must not depend on decorative artwork.
-2. Branded or illustrative icons use culturally grounded subjects only when the subject explains the object or action; use the joyally-imagegen workflow for new artwork.
+2. Branded or illustrative icons use culturally grounded subjects only when the subject explains the object or action; use the joyally-image workflow for new artwork.
 3. Do not use generated artwork to replace a standard affordance such as close, search, menu, chevron, play, or retry.
 4. Artwork has a bounded size budget and must not push title, label, or evidence content out of alignment.
 5. Application menu items use object illustrations rather than character portraits. Keep generated object artwork in a stable 30px slot aligned with the existing illustrative menu family; utility glyph fallbacks remain 16–18px inside the same slot. Default and active assets share the same slot and optical scale, but the active drawing must change the object’s structure, pose, or meaningful components (closed/open book, sprout/branched leaves, folded/unfolded scroll); color changes and animation alone do not satisfy the selected-state contract. Selection may trigger one short object-specific motion (at most 1.2 seconds) before holding still; never animate every navigation item continuously. Reduced Motion keeps the active asset and selected surface but disables motion and crossfades. Retain the icon and accessible label in collapsed navigation. Character portraits remain available for page headers and conversation identity.
@@ -152,7 +152,7 @@ Choose the mode at the surface or component boundary. Do not mix compact and pre
 
 1. Treat traditional references as selective brand cues inside a modern product grammar, without locking the system to one dynasty and while excluding Qing-dynasty aesthetics and characteristic symbols: quiet hierarchy, deliberate留白, ink-like text, celadon/lake actions, and rare cinnabar emphasis. Modern clarity and a youthful feel come first.
 2. Keep modern sans-serif for body copy, controls, tables, and operational labels. Use a restrained Song-style serif only for display titles, report covers, or a small kicker.
-3. Use seal, inkstone, bamboo, scroll, bronze mirror, or mountain-water motifs only when they explain the object or state. Functional icons retain stable geometry and accessibility; branded or illustrative artwork follows the joyally-imagegen workflow.
+3. Use seal, inkstone, bamboo, scroll, bronze mirror, or mountain-water motifs only when they explain the object or state. Functional icons retain stable geometry and accessibility; branded or illustrative artwork follows the joyally-image workflow.
 4. Keep paper grain, brush edges, and landscape silhouettes outside opaque content surfaces. Under narrow, print, reduced-transparency, or low-power modes, remove atmosphere and preserve Ant Design hierarchy.
 5. Reject faux-ancient typography, palace-poster decoration, dense auspicious patterns, full red-and-gold palettes, and ornamental treatment that competes with evidence.
 
@@ -179,7 +179,7 @@ Use semantic HTML without allowing browser defaults to destabilize compact layou
 3. A component may accept `className` and slots, but its default state, focus ring, disabled state, and size must remain correct without page-specific overrides.
 4. Use component tokens for local density or geometry changes. Do not fork a global semantic token to fix one page.
 5. Arbitrary Tailwind values are reserved for measured one-off geometry, imported media, or a documented visual exception; repeated values graduate into tokens.
-6. Functional affordance icons must retain an accessible name and stable geometry. Branded, navigation, or illustrative icon artwork follows the project's joyally-imagegen workflow; do not replace that artwork with a generic utility icon.
+6. Functional affordance icons must retain an accessible name and stable geometry. Branded, navigation, or illustrative icon artwork follows the project's joyally-image workflow; do not replace that artwork with a generic utility icon.
 
 ### Magic UI component rules
 

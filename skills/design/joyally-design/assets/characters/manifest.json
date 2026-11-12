@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "updatedAt": "2026-11-13",
+  "pathBase": "this manifest directory",
+  "characters": {
+    "xiaojie": {
+      "name": "小界",
+      "identityVersion": 2,
+      "appearance": "银蓝短发、青绿发梢、蓝眼与星形发饰；深湖青现代短西装",
+      "fullbody": "xiaojie-fullbody.webp",
+      "halfbody": "xiaojie-halfbody.webp",
+      "avatar": "xiaojie-avatar.webp"
+    },
+    "xiaomeng": {
+      "name": "小萌",
+      "identityVersion": 2,
+      "appearance": "烟灰紫及肩短发、青绿眼、玉色发饰；牛仔蓝短外套",
+      "fullbody": "xiaomeng-fullbody.webp",
+      "halfbody": "xiaomeng-halfbody.webp",
+      "avatar": "xiaomeng-avatar.webp"
+    },
+    "xiaonan": {
+      "name": "小南",
+      "identityVersion": 4,
+      "appearance": "可可棕侧高马尾、琥珀棕眼、录制耳麦；米白粗花呢短外套",
+      "fullbody": "xiaonan-fullbody.webp",
+      "halfbody": "xiaonan-halfbody.webp",
+      "avatar": "xiaonan-avatar.webp"
+    }
+  },
+  "assets": {
+    "xiaojie-avatar.webp": {"size": [512, 512], "bytes": 42638, "sha256": "85109a51a4690f0a98f575c182a07103f54dcb3f260df330f9ad584fb34b80b4"},
+    "xiaojie-fullbody.webp": {"size": [1024, 1536], "bytes": 60340, "sha256": "3d4b193ddd9d922e7f1cd1fcedbb516eb23370368caff0f7793edc8d590e05f8"},
+    "xiaojie-halfbody.webp": {"size": [1024, 1024], "bytes": 65960, "sha256": "2911e822ef96f8e6f1fa74faca9b1cb176ed4b8f1272c5a77870bda61709c393"},
+    "xiaomeng-avatar.webp": {"size": [512, 512], "bytes": 46298, "sha256": "7994e6600e754a83e7f80f525f82e0afb67a71f73b4297ce14fcba7955b3bb1f"},
+    "xiaomeng-fullbody.webp": {"size": [1024, 1536], "bytes": 63912, "sha256": "bdfaeb1526ed137531d5749b2590f96c4f895aa2712e35dfd915021c8601742f"},
+    "xiaomeng-halfbody.webp": {"size": [1024, 1024], "bytes": 115112, "sha256": "54aa780f9d5e422f7df34165e30a136697d1fa98c07df943ae5a35cf1b8ef25b"},
+    "xiaonan-avatar.webp": {"size": [512, 512], "bytes": 43028, "sha256": "c6ade29fbc2c03af6bb25d4da743ff61abae2431be20e073e7ac8a53b1faae93"},
+    "xiaonan-fullbody.webp": {"size": [1024, 1536], "bytes": 47090, "sha256": "a13c9ee6810c49ef630472bb9266017824c18c01c9a0bdf5d3d5ca5c3fa34bb9"},
+    "xiaonan-halfbody.webp": {"size": [1024, 1024], "bytes": 90178, "sha256": "efb2e19a1aa69092bd7f1b82c49c56f7e4c71edfaa3f2a19adfe82bb6df9173f"}
+  }
+}
