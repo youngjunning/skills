@@ -27,7 +27,7 @@ Joyally Design 的领域方法、专项参考、工具、素材与测试都在�
 | 游戏、抽奖、计时养成或强手感操控 | `play.md`、`play-craft.md` | 以规则、反馈和手感验收；视觉身份仍由产品决定 |
 | 单个组件深度打磨 | `component.md` | 在真实尺寸与状态中打磨；工作区组件同时服从 `direction-workspace.md` 的组件规则 |
 | Chrome 扩展图标制作或精修 | `chrome-extension-icon.md` | 以工具栏实际显示尺寸判断识别度；生成源图时调用 `joyally-image` |
-| React Web 中后台 | `react-design-system.md` 与 `web-dashboard.md`；再读 `direction-workspace.md` | Joyally 自有中后台使用完整 shadcn/ui 基础；其他项目先复用现有组件；H5、Chrome 扩展和 React Native 按各自平台路径 |
+| React Web 中后台 | `react-design-system.md` 与 `web-dashboard.md`；再读 `direction-workspace.md` | 新建项目使用 Next.js App Router；Joyally 自有中后台使用完整 shadcn/ui 基础；存量项目沿用现有架构和组件；H5、Chrome 扩展和 React Native 按各自平台路径 |
 | H5 页面 | `h5-ui.md`；按内容领域读取对应参考 | 以 daisyUI 作为默认组件基础，保留项目框架和交互合同 |
 | Chrome 扩展页面或独立窗口 | `chrome-extension-ui.md`；工作区界面再读 `direction-workspace.md` | 以 daisyUI 作为默认组件基础，按扩展打包与实际入口验收 |
 | 新界面方向未定 | 适用领域入口；领域未覆盖时 `design-direction.md` | 用真实产品事实与参考形成可落地方向；默认深化一个 |

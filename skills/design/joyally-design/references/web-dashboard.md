@@ -2,6 +2,8 @@
 
 Use this reference for professional web apps, admin tools, data consoles, settings, and Agent workspaces.
 
+For a new admin or workspace project using Joyally Design, use Next.js App Router. Keep the actual product's existing framework for refinements; treat a framework migration as a separate engineering task. Follow the [official Next.js installation and App Router guide](https://nextjs.org/docs/app/getting-started/installation) for current setup requirements.
+
 ## Information architecture
 
 - Start from the real workflow: navigation, context, controls, feedback, result, and next action.
