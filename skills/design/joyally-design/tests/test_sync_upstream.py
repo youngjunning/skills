@@ -59,11 +59,14 @@ class SyncUpstreamTests(unittest.TestCase):
         with ZipFile(self.archive, "a") as bundle:
             bundle.writestr("source-design-kit/adapters/dsh/adapter.json", "{}")
             bundle.writestr("source-design-kit/adapters/dsh/new-rule.json", "{}")
+            bundle.writestr("source-design-kit/scripts/oiloil-image.mjs", "legacy image service")
+            bundle.writestr("source-design-kit/tests/test_oiloil_image.py", "legacy image service test")
 
         applied = self.run_sync("--apply")
         self.assertEqual(applied.returncode, 0, applied.stderr)
         self.assertEqual(self.target.read_text(encoding="utf-8"), "上游更新\n")
         self.assertFalse((self.root / "adapters/dsh").exists())
+        self.assertFalse((self.root / "scripts/oiloil-image.mjs").exists())
         manifest = json.loads((self.root / "UPSTREAM_SYNC.json").read_text(encoding="utf-8"))
         self.assertEqual(set(manifest["files"]), {"references/example.md"})
 

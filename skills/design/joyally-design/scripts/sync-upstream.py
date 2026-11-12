@@ -20,7 +20,8 @@ MANUAL = {"DESIGN_PROCESS.md", "assets/style-explorer.html",
 MANUAL_PREFIXES = ("assets/cards/", "scripts/", "tests/")
 SKIPPED = {"README.md", "README.en.md", ".gitignore",
            "scripts/check_update.py", "scripts/check_update.sh",
-           "tests/test_check_update.py"}
+           "tests/test_check_update.py", "scripts/oiloil-image.mjs",
+           "tests/test_oiloil_image.py"}
 
 
 def digest(data: bytes) -> str:
@@ -34,12 +35,6 @@ def destination(relative: str) -> str | None:
         return "DESIGN_PROCESS.md"
     if relative == "references/visual-language.md":
         return "references/visual-craft.md"
-    if (relative.startswith("scripts/") and relative.endswith("-image.mjs")
-            and not relative.endswith("prep-image.mjs")):
-        return "scripts/joyally-image.mjs"
-    if (relative.startswith("tests/test_") and relative.endswith("_image.py")
-            and not relative.endswith("test_prep_image.py")):
-        return "tests/test_joyally_image.py"
     if relative.startswith(("references/", "scripts/", "assets/", "tests/", "adapters/")):
         return relative
     return None

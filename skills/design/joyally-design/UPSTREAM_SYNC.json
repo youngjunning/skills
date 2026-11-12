@@ -533,10 +533,6 @@
       "source_sha256": "2bc60a4bd761b7082ac17d0d3e2d4bc1d4630cf763138e9f3bd291d6ceb3bdf4",
       "local_sha256": "461da2afa8319663575c390d8bd9292f220aaf08fcc7ae2233f3f67abecc5dcf"
     },
-    "scripts/joyally-image.mjs": {
-      "source_sha256": "9def8ef07485436207db85a97f4a8b2a5b8ccd7b3d381547834cfcb7ed6d0164",
-      "local_sha256": "6646db702eec9ac3c9f076071d7c255d6f721594ec1bb76718df7c812edab174"
-    },
     "scripts/measure_reference.py": {
       "source_sha256": "7a10a0f87c2b1434d5047dea1903e7b0ec324ba539c68a448c0808c3a2aac536",
       "local_sha256": "4522c3d831e3dc69b3e6800db24fbb982890b14f4e944bf593693be5a6751497"
@@ -564,10 +560,6 @@
     "tests/test_curate_media.py": {
       "source_sha256": "20244105f024df559569c56caae0977af50d15c4eeee2fc9571e66000fd1981d",
       "local_sha256": "86a18c20de74e54d77f481b119937464d409f1f79df7811bc61aeb63bb4ba585"
-    },
-    "tests/test_joyally_image.py": {
-      "source_sha256": "a59a0e0cb66bcff4c81472c18e220cf5c07efea5b94ab78cb1115eda672c7c15",
-      "local_sha256": "77ff47d793015951c1afcff3f27a4d3ea130bb4e47dd8201fc6604253e899b34"
     },
     "tests/test_measure_reference.py": {
       "source_sha256": "a16ebe5ea0b4321d22267f61e5cbea92e30fc79513a626bac7678ec36333b9ce",

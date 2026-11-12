@@ -844,7 +844,7 @@ body.focus-only {
       <section class="signature-grid" aria-label="主视觉卡片">
         <figure data-template="particle-ring" data-family="visual"><article class="card portrait particle-ring" data-card="particle-ring" data-motion="auto">
   <h2 class="card-heading" data-text="title">从一句想法，<br>到一件心仪好物</h2>
-  
+
   <div class="card-stage">
     <div class="ring-mist"></div><canvas class="ring-canvas" aria-hidden="true"></canvas>
     <div class="shop-conversation">
@@ -861,7 +861,7 @@ body.focus-only {
 <figcaption><span>01 / particle-ring</span><span>光场与内容</span></figcaption></figure>
         <figure data-template="flow-object" data-family="visual"><article class="card portrait flow-object" data-card="flow-object" data-motion="auto">
   <h2 class="card-heading" data-text="title">让数字身份，<br>拥有可以触碰的形态</h2>
-  
+
   <div class="card-stage">
     <div class="flow-aura" aria-hidden="true"></div>
     <div class="physical-card">
@@ -883,14 +883,14 @@ body.focus-only {
 <figcaption><span>02 / flow-object</span><span class="renderer-options" aria-label="实体通证形态"><button data-flow-variant="token" aria-pressed="true">实体铭牌</button><button data-flow-variant="card" aria-pressed="false">流光卡片</button></span></figcaption></figure>
         <figure data-template="dot-globe" data-family="data"><article class="card portrait dot-globe" data-card="dot-globe" data-motion="auto" data-arcs="2">
   <h2 class="card-heading" data-text="title">让每一份连接，<br>跨越山海</h2>
-  
+
   <div class="card-stage"><canvas class="globe-wash" aria-hidden="true"></canvas><canvas class="globe-points" aria-hidden="true"></canvas><canvas class="globe-arcs" aria-hidden="true"></canvas><span class="globe-label" data-text="label">节点 · 已连接</span></div>
 </article>
 <figcaption><span>03 / dot-globe</span><span class="renderer-options" aria-label="空间拓扑形态"><button data-globe-mode="globe" aria-pressed="true">点阵地球</button><button data-globe-mode="mesh" aria-pressed="false">星座拓扑</button></span></figcaption></figure>
       </section>
       <figure id="line-ribbons" class="ribbons-figure" data-template="line-ribbons" data-family="visual"><article class="card banner line-ribbons" data-card="line-ribbons" data-motion="auto">
   <h2 class="card-heading" data-text="title">各自精彩，<br>也能一起向前</h2>
-  
+
   <div class="card-stage"><div class="ribbon-mist"></div><svg class="ribbon-art" viewBox="0 0 1280 474" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg></div>
   <p class="ribbon-note" data-text="description">让灵感汇合，让协作发生。</p>
 </article>
@@ -909,7 +909,7 @@ body.focus-only {
       <section id="explorations" class="exploration-grid" data-template="explorations" aria-label="更多产品表达">
         <figure data-template="vector-space" data-family="data"><article class="card vector-space" data-card="vector-space" data-motion="auto">
   <h2 class="card-heading" data-text="title">从海量信息中，<br>找到彼此的关联</h2>
-  
+
   <div class="card-stage">
     <div class="vector-query"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5"/><path d="m12 12 5 5"/></svg><span data-text="query">自然的灵感</span></div>
     <svg class="vector-fallback" viewBox="0 0 400 300" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width=".8" opacity=".3"><path d="m200 55 107 58v122l-107 58-107-58V113Z M93 113l107 58 107-58 M200 171v122 M200 55v116"/></g><g fill="var(--card-accent)"><circle cx="195" cy="179" r="5"/><circle cx="228" cy="161" r="5"/><circle cx="212" cy="197" r="5"/><circle cx="250" cy="185" r="5"/></g></svg>
@@ -920,13 +920,13 @@ body.focus-only {
 <figcaption><span>12 / vector-space</span><span>语义空间</span></figcaption></figure>
         <figure data-template="file-mosaic" data-family="product"><article class="card file-mosaic" data-card="file-mosaic" data-motion="auto">
   <h2 class="card-heading" data-text="title">每一份素材，<br>都有合适的位置</h2>
-  
+
   <div class="card-stage"><div class="file-collection"><span data-text="collection">品牌素材</span><span><span data-text="status">所有文件已同步</span> <i>✓</i></span></div><div class="file-viewport"><div class="file-grid" aria-hidden="true"></div></div></div>
 </article>
 <figcaption><span>13 / file-mosaic</span><span>资源阵列</span></figcaption></figure>
         <figure data-template="stream-window" data-family="product"><article class="card stream-window" data-card="stream-window" data-motion="auto">
   <h2 class="card-heading" data-text="title">不必等待全部，<br>先让重要的出现</h2>
-  
+
   <div class="card-stage">
     <div class="stream-status"><i></i><span>内容陆续就绪</span><span class="stream-count">3 / 3</span></div>
     <div class="stream-viewport"><div class="stream-browser"><div class="stream-toolbar"><span></span><span></span><span></span><i data-text="path">studio / overview</i></div>
@@ -1014,7 +1014,7 @@ function createPaletteEditor({query, onChange}) {
     slots.forEach((slot,i)=>{slot.hidden=i>=modes[state.mode];slot.querySelector('input[type=color]').value=state.colors[i];const text=slot.querySelector('.palette-hex');text.value=state.colors[i].toUpperCase();text.removeAttribute('aria-invalid');});
     feedback.textContent='';
   };
-
+  const refresh=()=>{save();if(!frame)frame=requestAnimationFrame(()=>{frame=0;onChange();});};
   const showErrors=()=>{
     const invalid=slots.some((slot,i)=>i<modes[state.mode]&&slot.querySelector('.palette-hex').getAttribute('aria-invalid')==='true');
     feedback.textContent=invalid?'请输入 3 或 6 位 HEX 色值。':'';
@@ -1031,7 +1031,7 @@ function createPaletteEditor({query, onChange}) {
   render();
   return {
     get colors(){const [a,b,c]=state.colors;return state.mode==='single'?[a,a,a]:state.mode==='duo'?[a,b,b]:[a,b,c];},
-
+    destroy(){controller.abort();cancelAnimationFrame(frame);}
   };
 }
 
@@ -1053,14 +1053,14 @@ function createCatalog(query) {
   function select(family){
     document.querySelector('main').dataset.category=family;
     items.forEach(item=>{item.hidden=family!=='all'&&item.dataset.family!==family;});
-
+    groups.forEach(group=>{group.hidden=![...group.querySelectorAll('[data-family]')].some(item=>!item.hidden);});
     document.querySelector('.peer-intro').hidden=document.querySelector('.peer-grid').hidden;
     document.querySelector('.showcase-intro').hidden=document.querySelector('.showcase-section').hidden;
     buttons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.familyFilter===family)));
     summary.textContent=descriptions[family];summary.hidden=!summary.textContent;
   }
   buttons.forEach(button=>button.addEventListener('click',()=>select(button.dataset.familyFilter),{signal:controller.signal}));
-
+  const requested=query.get('category');select(!query.has('focus')&&Object.hasOwn(descriptions,requested)?requested:'all');
   return {destroy(){controller.abort();}};
 }
 
@@ -1079,7 +1079,7 @@ function url(value, image=false) {
   } catch {}
   return null;
 }
-
+function applyContent(element, content={}) {
   if(!content || typeof content!=='object')return;
   for(const node of element.querySelectorAll('[data-text]')) {
     const value=contentValue(content,node.dataset.text);
@@ -1090,13 +1090,13 @@ function url(value, image=false) {
     const value=contentValue(content,node.dataset.href);
     if(value===undefined)continue;
     const href=url(value);if(href)node.setAttribute('href',href);else node.removeAttribute('href');
-
+  }
   for(const node of element.querySelectorAll('[data-image]')) {
     const value=contentValue(content,node.dataset.image);
     if(!value)continue;
     const src=url(typeof value==='string'?value:value.src,true);
     if(src){node.src=src;if(typeof value==='object' && value.alt!==undefined)node.alt=String(value.alt);}
-
+  }
 }
 
 return {contentValue, applyContent};

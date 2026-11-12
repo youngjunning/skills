@@ -13,7 +13,6 @@ const commands = {
   'prep-image': 'prep-image.mjs',
   measure: 'measure_reference.py',
   'design-check': 'check_design_md.py',
-  image: 'joyally-image.mjs',
   cards: 'build_cards.py',
   report: 'new-joyally-html.mjs',
   deck: 'new-joyally-html.mjs',
@@ -26,13 +25,16 @@ Usage: node <joyally-dir>/scripts/design-engine.mjs <${Object.keys(commands).joi
 report <output-dir>: generate a scrolling HTML report
 deck <output-dir>: generate an HTML presentation
 diagram --help: list diagram commands and formats
+image generation and editing: use the joyally-imagegen skill
 path <relative-file>: show a bundled reference, asset or script path
 run <script-name> [...arguments]: run a bundled script
 `);
   process.exit(command ? 0 : 2);
 }
 if (!Object.hasOwn(commands, command) && command !== 'path' && command !== 'run') {
-  process.stderr.write(`Unknown tool: ${command}. Run --help for available tools.\n`);
+  process.stderr.write(command === 'image'
+    ? 'Image generation and editing now use joyally-imagegen.\n'
+    : `Unknown tool: ${command}. Run --help for available tools.\n`);
   process.exit(2);
 }
 const [name, ...scriptArgs] = command === 'path' || command === 'run'
