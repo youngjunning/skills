@@ -22,7 +22,7 @@ Use the bundled layouts, CSS tokens, and local assets to create portable HTML:
 
 The generated report uses natural scrolling, print styles, and system font fallbacks. Adapt an existing report in place when it already has a stronger schema or renderer.
 
-`node scripts/design-engine.mjs deck <output-dir>` adds local playback and animation assets for presentations. Keep `.deck`, `.slide`, `.notes`, and hash navigation.
+`node scripts/design-engine.mjs deck <output-dir>` adds local playback and animation assets for a three-slide starter. For a complete presentation, use a scenario or a JSON slide source as described in [演示文稿制作](presentations.md). Keep `.deck`, `.slide`, `.notes`, and hash navigation.
 
 ## Authoring rules
 

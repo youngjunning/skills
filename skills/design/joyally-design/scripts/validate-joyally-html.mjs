@@ -48,6 +48,7 @@ if (isReport) {
 const slideCount = (html.match(/<section\b[^>]*class=["'][^"']*\bslide\b/g) || []).length;
 const notesCount = (html.match(/<(?:aside|div)\b[^>]*class=["'][^"']*\bnotes\b/g) || []).length;
 if (notesCount < slideCount) warnings.push(`${slideCount - notesCount} slide(s) do not contain speaker notes`);
+if (isDeck && html.includes('补充本页讲述要点和过渡句')) warnings.push('speaker notes still contain starter placeholders');
 
 const requiredFiles = [
   'base.css',
@@ -56,6 +57,15 @@ const requiredFiles = [
 ];
 
 if (isDeck) requiredFiles.push('runtime.js', 'animations.css');
+if (isDeck && html.includes(`${assetDir}/deck.css`)) requiredFiles.push('deck.css');
+if (isDeck && html.includes(`${assetDir}/fx-runtime.js`)) requiredFiles.push('fx-runtime.js', 'fx/_util.js');
+if (isDeck && html.includes('data-theme-base=')) {
+  const themeNames = html.match(/data-themes=["']([^"']+)["']/)?.[1]?.split(',') || [];
+  for (const name of themeNames) {
+    if (!/^[a-z][a-z-]*$/.test(name)) errors.push(`invalid theme name: ${name}`);
+    else requiredFiles.push(`themes/${name}.css`);
+  }
+}
 
 for (const relativePath of requiredFiles) {
   try {

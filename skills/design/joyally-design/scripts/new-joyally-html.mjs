@@ -66,6 +66,12 @@ if (mode === 'deck') {
 
 await Promise.all(copies.map(([source, target]) => cp(join(runtimeDir, source), join(artifactAssets, target))));
 await cp(join(skillRoot, 'assets/joyally-html-theme.css'), join(artifactAssets, 'joyally-theme.css'));
+if (mode === 'deck') {
+  await cp(join(skillRoot, 'assets/deck.css'), join(artifactAssets, 'deck.css'));
+  await cp(join(skillRoot, 'assets/deck-themes'), join(artifactAssets, 'themes'), { recursive: true });
+  await cp(join(runtimeDir, 'assets/animations/fx-runtime.js'), join(artifactAssets, 'fx-runtime.js'));
+  await cp(join(runtimeDir, 'assets/animations/fx'), join(artifactAssets, 'fx'), { recursive: true });
+}
 
 const templateName = mode === 'report' ? 'starter-report.html' : 'starter-deck.html';
 const template = await readFile(join(skillRoot, `assets/${templateName}`), 'utf8');
