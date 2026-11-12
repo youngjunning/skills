@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-13
+
+1. 新增 `joyally-midway`：面向常驻 Midway Web 应用的开发与排障，整理依赖注入作用域、Middleware、配置、生命周期和完整 HTTP 链路验收；明确排除 FaaS。
+
 ## 2026-11-12
 
 3. 新增 `joyally-test-quality`：按真实回归与维护成本审查测试，支持判断 AI 生成测试是否值得保留；记录上游启发来源，不复制无许可文本。

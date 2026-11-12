@@ -30,6 +30,12 @@
     "summary": "审查测试能否阻止真实回归，治理 AI 生成测试与套件膨胀"
   },
   {
+    "name": "joyally-midway",
+    "category": "engineering",
+    "path": "skills/engineering/joyally-midway",
+    "summary": "Midway 常驻 Web 服务开发、排障与 HTTP 链路验证，不含 FaaS"
+  },
+  {
     "name": "joyally-writting",
     "category": "writing",
     "path": "skills/writing/joyally-writting",
