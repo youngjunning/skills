@@ -15,6 +15,8 @@ const commands = {
   'design-check': 'check_design_md.py',
   cards: 'build_cards.py',
   report: 'new-joyally-html.mjs',
+  'social-card': 'build-social-card.mjs',
+  'social-render': 'render-social-card.mjs',
   deck: 'build-joyally-deck.mjs',
   'deck-gallery': 'build-deck-gallery.mjs',
   'deck-render': 'render-joyally-deck.mjs',
@@ -26,6 +28,8 @@ if (!command || command === '--help') {
   process.stdout.write(`Joyally Design
 Usage: node <joyally-dir>/scripts/design-engine.mjs <${Object.keys(commands).join('|')}|path|run> [tool arguments]
 report <output-dir>: generate a scrolling HTML report
+social-card <output-dir> --title <text> --subtitle <text> --credit <source>: generate a 3:4 social card
+social-render <index.html> [--out <image.png>]: export a social card as PNG
 deck <output-dir> [--scenario <name>|--source <deck.json>]: generate a Joyally presentation
 deck-gallery <output-dir>: preview Joyally presentation themes and layouts
 deck-render <index.html> --format png|pdf: export slides

@@ -22,6 +22,8 @@ The generated report uses Joyally's own CSS, natural scrolling, print styles, an
 
 `assets/report-demo.html` is a worked example with explicitly fictional ticket data. It shows how to replace the starter placeholders with a conclusion-led opening, measured comparisons, and evidence using only Joyally report styles.
 
+The lake report uses an editorial hierarchy: a Song-style display title, a decisive conclusion surface, large measured values, crisp section rules, and quiet evidence tables. Keep the typographic contrast and section rhythm when adapting it; use the report's own content to choose which number or finding deserves emphasis. This is a Joyally report treatment, not a deck or a generic landing page.
+
 ## Authoring rules
 
 - Start from the Joyally Design report shell and its local layout primitives.

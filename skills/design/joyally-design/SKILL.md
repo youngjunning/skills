@@ -1,6 +1,6 @@
 ---
 name: joyally-design
-description: 所有 UI 设计相关任务使用 Joyally Design，包括 Web/React、macOS、iOS、Android 和 React Native 的界面设计与精修，也用于制作 HTML 报告、HTML PPT 演示文稿和交互图表。混合功能修复时参与界面方案与验收；静态架构图片由 joyally-imagegen 主导。
+description: 所有 UI 设计相关任务使用 Joyally Design，包括 Web/React、macOS、iOS、Android 和 React Native 的界面设计与精修，也用于制作 HTML 报告、HTML PPT 演示文稿、社交图文卡片和交互图表。混合功能修复时参与界面方案与验收；静态架构图片由 joyally-imagegen 主导。
 ---
 
 # Joyally Design
@@ -54,6 +54,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 1. 新建报告：明确读者、决策与证据结构，读取 [设计系统](references/design-system.md)、[报告语言](references/report-language.md)、[布局](references/layout.md) 与 [HTML 报告](references/html-reports.md)。报告只用 Joyally 自有模板和样式。
    制作需要逐页播放、讲稿或现场演示的 HTML PPT 时读[演示文稿](references/presentations.md)，选 Joyally 主题并用独立的 `deck` 命令；阅读型报告继续用 `report`。
+   制作社交平台封面、轮播内页或可分享图文时读[社交卡片](references/social-cards.md)，按内容选 `editorial`、`swiss` 或 `poster`，生成单张 HTML 并导出 PNG；这一路径与阅读型报告、演示文稿分别交付。
 2. 改造已有 HTML：先读 [改造约定](references/adapting-existing-html.md)，保留 DOM、锚点、事件与导出功能，优先增加 scoped theme。
 3. React 设计系统：读 [React 约定](references/react-design-system.md)，依次核对 tokens、共享 primitives、组件状态和页面组合。
    编码 Agent 需要选用、安装或组合中后台组件时，再读 [React 组件工作流](references/component-workflow.md)，从目标项目或 shadcn/ui 官方 CLI 取得真实源码，并逐项验收预览。
@@ -78,6 +79,8 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 ```bash
 node <skill-dir>/scripts/design-engine.mjs report <output-dir> --title "报告标题" --subtitle "证据与下一步"
+node <skill-dir>/scripts/design-engine.mjs social-card <output-dir> --style poster --title "卡片标题" --subtitle "内容说明" --credit "作者或来源"
+node <skill-dir>/scripts/design-engine.mjs social-render <output-dir>/index.html --out <output-dir>/card.png
 node <skill-dir>/scripts/design-engine.mjs deck <output-dir> --scenario project-report --theme lake
 node <skill-dir>/scripts/design-engine.mjs deck-gallery <output-dir>
 node <skill-dir>/scripts/design-engine.mjs deck-render <output-dir>/index.html --format pdf

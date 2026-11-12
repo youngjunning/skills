@@ -1,0 +1,181 @@
+/* Joyally Design social cards: editorial rhythm and a precise grid in the lake palette. */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; width: 1080px; min-height: 1440px; }
+body { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif; }
+
+.social-card {
+  --paper: #f7f3eb;
+  --ink: #253c2d;
+  --muted: #526a56;
+  --accent: #275a34;
+  --line: rgba(37, 60, 45, .52);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 1080px;
+  height: 1440px;
+  overflow: hidden;
+  padding: 76px 80px 68px;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.social-card__top,
+.social-card__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  font-size: 22px;
+  font-weight: 650;
+  letter-spacing: .11em;
+}
+
+.social-card__top {
+  padding-top: 20px;
+  border-top: 3px solid var(--ink);
+}
+
+.social-card__bottom {
+  padding-top: 22px;
+  border-top: 2px solid var(--line);
+  color: var(--muted);
+  font-size: 19px;
+}
+
+.social-card__main {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 38px 0 48px;
+}
+
+.social-card__eyebrow {
+  margin: 0 0 30px;
+  color: var(--accent);
+  font-size: 24px;
+  font-weight: 750;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.social-card__title {
+  max-width: 8em;
+  margin: 0;
+  font-size: 108px;
+  font-weight: 700;
+  line-height: 1.14;
+  letter-spacing: -.055em;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+  white-space: pre-line;
+}
+
+.social-card__rule {
+  width: 150px;
+  height: 7px;
+  margin: 42px 0 36px;
+  background: var(--accent);
+}
+
+.social-card__subtitle {
+  max-width: 21em;
+  margin: 0;
+  color: var(--muted);
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.55;
+  white-space: pre-line;
+}
+
+.social-card__highlight {
+  margin-top: 44px;
+  padding: 16px 24px;
+  color: #fff;
+  background: var(--accent);
+  font-size: 34px;
+  font-weight: 700;
+}
+
+.social-card--editorial .social-card__title {
+  font-family: "Songti SC", "Noto Serif CJK SC", "Noto Serif SC", Georgia, serif;
+}
+
+.social-card--editorial::before {
+  position: absolute;
+  top: 168px;
+  right: 80px;
+  width: 160px;
+  height: 1px;
+  background: var(--line);
+  content: "";
+}
+
+.social-card--swiss { background: #fcfaf4; }
+.social-card--swiss .social-card__top { border-top-color: var(--accent); }
+.social-card--swiss .social-card__main { justify-content: flex-end; padding-bottom: 88px; }
+.social-card--swiss .social-card__title {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 116px;
+  font-weight: 850;
+  line-height: 1.06;
+  letter-spacing: -.065em;
+}
+.social-card--swiss .social-card__rule { width: 100%; height: 4px; margin: 48px 0 30px; }
+.social-card--swiss .social-card__subtitle { max-width: 25em; }
+.social-card--swiss .social-card__highlight { align-self: flex-start; }
+
+.social-card--poster {
+  --paper: #e7eee6;
+  --ink: #183c35;
+  --muted: #315e4a;
+  --accent: #397a46;
+  --line: rgba(24, 60, 53, .5);
+  background: var(--paper);
+}
+.social-card--poster .social-card__top { border-top-width: 7px; }
+.social-card--poster .social-card__main { justify-content: center; }
+.social-card--poster .social-card__title {
+  max-width: 7.5em;
+  font-size: 140px;
+  font-weight: 900;
+  line-height: 1.02;
+  letter-spacing: -.075em;
+}
+.social-card--poster .social-card__eyebrow { padding: 8px 16px; color: #fff; background: var(--ink); }
+.social-card--poster .social-card__rule { width: 100%; height: 12px; margin: 54px 0 34px; }
+.social-card--poster .social-card__subtitle { font-size: 38px; font-weight: 600; }
+.social-card--poster .social-card__bottom {
+  margin: 0 -80px -68px;
+  padding: 30px 80px;
+  border: 0;
+  color: #f4f6ef;
+  background: var(--ink);
+}
+.social-card--poster.social-card--insight {
+  --paper: #183c35;
+  --ink: #f4f6ef;
+  --muted: #c7dccd;
+  --accent: #85c7ba;
+  --line: rgba(244, 246, 239, .54);
+}
+.social-card--poster.social-card--insight .social-card__main { justify-content: flex-start; }
+.social-card--poster.social-card--insight .social-card__title { font-size: 108px; }
+.social-card--poster.social-card--insight .social-card__eyebrow,
+.social-card--poster.social-card--insight .social-card__highlight { color: #183c35; background: #85c7ba; }
+.social-card--poster.social-card--insight .social-card__bottom { color: #183c35; background: #85c7ba; }
+
+.social-card--insight .social-card__main { justify-content: flex-start; padding-top: 116px; }
+.social-card--insight .social-card__title { font-size: 90px; line-height: 1.16; }
+.social-card--insight.social-card--swiss .social-card__title { font-size: 100px; }
+.social-card--insight .social-card__subtitle { font-size: 38px; }
+.social-card--insight .social-card__highlight { margin-top: auto; }
+
+@media print {
+  @page { size: 1080px 1440px; margin: 0; }
+  html, body { width: 1080px; height: 1440px; }
+  .social-card { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+}
