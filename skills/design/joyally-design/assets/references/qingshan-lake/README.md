@@ -1,13 +1,13 @@
 # 临安青山湖视觉参考
 
-青山湖主题同时吸收春、夏、秋、冬的树列、湖面、光线与雾色，形成一套固定的语义色和界面结构，不按季节切换皮肤。目标是每季 5 张经核实拍摄地点、时间与许可的实拍照片。当前春 2 张、夏 0 张、秋 0 张、冬 1 张；另有 3 张已记录来源但拍摄季节未核实的照片。空缺保留，不用旧视频截帧充数。
+青山湖主题同时吸收春、夏、秋、冬的树列、湖面、光线与雾色，形成一套固定的语义色和界面结构，不按季节切换皮肤。目标是每季 5 张有授权、能确认拍摄季节的实拍照片。当前共 7 张：春 2 张、冬 1 张有拍摄日期；春 1 张、夏 2 张按画面推定；另有 1 张无法可靠区分季节。视觉推定只用于整理参考，不等同于拍摄日期证据；空缺保留，不用旧视频截帧充数。
 
-| 季节 | 已核实 | 目标 | 观察线索 |
-| --- | ---: | ---: | --- |
-| 春 | 2 | 5 | 新绿、柔光、树列与开阔湖面 |
-| 夏 | 0 | 5 | 浓绿树冠、水面浮萍与阴影 |
-| 秋 | 0 | 5 | 渐变杉叶与暖色倒影 |
-| 冬 | 1 | 5 | 清冷晨光、疏朗树列与雾 |
+| 季节 | 日期核实 | 画面推定 | 目标 | 观察线索 |
+| --- | ---: | ---: | ---: | --- |
+| 春 | 2 | 1 | 5 | 新绿、柔光、树列与开阔湖面 |
+| 夏 | 0 | 2 | 5 | 浓绿树冠、水面浮萍与阴影 |
+| 秋 | 0 | 0 | 5 | 渐变杉叶与暖色倒影 |
+| 冬 | 1 | 0 | 5 | 清冷晨光、疏朗树列与雾 |
 
 ## 已核实拍摄季节
 
@@ -17,12 +17,18 @@
 | `research-03.jpg`（春） | 2025-04-03，原图 EXIF | [Yumeto](https://commons.wikimedia.org/wiki/File:Qingshanhu_Guojia_Senlin_Gongyuan.jpg) | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 | `research-02.jpg`（冬） | 2026-01-08，原图 EXIF | [User:CatOnMars](https://commons.wikimedia.org/wiki/File:DSC_-_Qinshan_Lake.jpg) | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
 
+## 画面推定季节
+
+| 文件 | 推定 | 画面依据与边界 | 作者与来源 | 许可 |
+| --- | --- | --- | --- | --- |
+| `research-04.jpg` | 夏 | 水面浮萍浓绿；晚春与初秋也不能完全排除 | [vista pan](https://unsplash.com/photos/Zu975A84GjU) | [Unsplash License](https://unsplash.com/license) |
+| `research-05.jpg` | 春 | 枝叶新绿透光；也可能是初夏 | [vista pan](https://unsplash.com/photos/wwTk1QUydC0) | [Unsplash License](https://unsplash.com/license) |
+| `research-06.jpg` | 夏 | 浮萍满铺、游客轻装泛舟；晚春与初秋也不能完全排除 | [vista pan](https://unsplash.com/photos/MJPkoM5qS0Y) | [Unsplash License](https://unsplash.com/license) |
+
 ## 拍摄季节待核实
 
-| 文件 | 作者与来源 | 许可 |
-| --- | --- | --- |
-| `research-04.jpg` | [vista pan](https://unsplash.com/photos/Zu975A84GjU) | [Unsplash License](https://unsplash.com/license) |
-| `research-05.jpg` | [vista pan](https://unsplash.com/photos/wwTk1QUydC0) | [Unsplash License](https://unsplash.com/license) |
-| `research-06.jpg` | [vista pan](https://unsplash.com/photos/MJPkoM5qS0Y) | [Unsplash License](https://unsplash.com/license) |
+| 文件 | 画面与边界 | 作者与来源 | 许可 |
+| --- | --- | --- | --- |
+| `research-07.jpg` | 林间绿冠与栈道，春末、夏季和初秋均有可能；原图按最长边 1920px 缩放，Unsplash 的 2025-09-17 发布日期不是拍摄日期 | [vista pan](https://unsplash.com/photos/sunlight-filters-through-a-dense-bamboo-forest-eujJBI0Bmy0) | [Unsplash License](https://unsplash.com/license) |
 
-照片作为取色与构图研究依据；复用时遵守各自许可。页面画册只展示这些照片，并标明拍摄季节的证据边界。先前用户提供的 14 张视频截帧不进入新版画册；原视频作者与授权信息未随截帧提供。
+照片作为取色与构图研究依据；复用时遵守各自许可。页面画册只展示这些照片，并区分日期核实与画面推定。先前用户提供的 14 张视频截帧不进入新版画册；原视频作者与授权信息未随截帧提供。
