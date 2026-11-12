@@ -30,8 +30,8 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 | Android 原生 App / Compose | [Android](references/android.md)；使用 Jetpack Compose Material 3 |
 | React Native / Expo | [React Native](references/react-native.md) |
 | H5 页面 | [H5 界面](references/h5-ui.md)；Joyally 自有新界面使用 daisyUI，其他项目沿用现有组件基础 |
-| 中后台／工作台（React Web） | [React](references/react-design-system.md) 与[工作台](references/web-dashboard.md)；Joyally 自有中后台以完整 shadcn/ui 为基础，其他项目沿用现有组件 |
-| 落地页（含官网首页、产品介绍页） | [Landing page](references/web-landing-page.md)；按实际平台选组件基础，展示动效需要时再考虑 Magic UI |
+| 中后台／工作台（React Web） | [React](references/react-design-system.md) 与[工作台](references/web-dashboard.md)；Joyally 自有中后台以完整 shadcn/ui 为基础，可按任务加入 Magic UI 或 React Bits 组件；其他项目沿用现有组件 |
+| 落地页（含官网首页、产品介绍页） | [Landing page](references/web-landing-page.md)；按实际平台选组件基础，需要展示或交互动效时再考虑 Magic UI、React Bits |
 | Chrome 扩展界面 | [扩展界面](references/chrome-extension-ui.md)；Joyally 自有新界面使用 daisyUI，其他项目沿用现有组件基础 |
 | Chrome 扩展图标 | [扩展图标](references/chrome-extension-icon.md) |
 
@@ -57,7 +57,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
    制作社交平台封面、轮播内页或可分享图文时读[社交卡片](references/social-cards.md)，按内容选 `editorial`、`swiss` 或 `poster`，生成单张 HTML 并导出 PNG；这一路径与阅读型报告、演示文稿分别交付。
 2. 改造已有 HTML：先读 [改造约定](references/adapting-existing-html.md)，保留 DOM、锚点、事件与导出功能，优先增加 scoped theme。
 3. React 设计系统：读 [React 约定](references/react-design-system.md)，依次核对 tokens、共享 primitives、组件状态和页面组合。
-   编码 Agent 需要选用、安装或组合中后台组件时，再读 [React 组件工作流](references/component-workflow.md)，从目标项目或 shadcn/ui 官方 CLI 取得真实源码，并逐项验收预览。
+   编码 Agent 需要为 React Web 选用、安装或组合组件时，再读 [React 组件工作流](references/component-workflow.md)，从目标项目或选定来源取得真实源码，并逐项验收预览。
 4. 交互图表：读 [交互图表](references/interactive-diagrams.md)，使用统一入口 验证 typed JSON IR，再生成自包含 HTML。既有交互图表的静态导出沿用其源文件。
 5. 界面评审或精修：按[能力路由](references/capability-routing.md)读取评审、精修、回改或存量路径。技术审计再读[专项质量检查](references/design-quality.md)，结论需可复现条件与证据。
 
@@ -69,7 +69,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 新建或精修界面交付前，按[反模板感检查](references/anti-ai-taste.md)核对任务焦点、内容顺序、容器职责、装饰语义、示例数据与状态反馈。把“AI 味”当作需要定位的可观察问题，不用颜色、圆角或渐变推断界面来源；具体问题和改法对照同一内容与视口验证。
 
-语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn/ui 提供开放组件基础。Joyally 自有新建 React 中后台以完整 shadcn/ui 基础组件集建立组件库；其他项目先沿用现有组件并按任务补齐。Data Table、Date Picker 等可由基础组件组合，保留升级路径。展示类页面可按需要选用 Magic UI 的动效组件。动效按任务选择并提供可降级状态。H5 与 Chrome 扩展使用 daisyUI 时，可按项目构建条件选择 Tailwind CSS 4 插件或本地打包独立 CSS。
+语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn/ui 提供开放组件基础。Joyally 自有新建 React 中后台以完整 shadcn/ui 基础组件集建立组件库；其他项目先沿用现有组件并按任务补齐。Data Table、Date Picker 等可由基础组件组合，保留升级路径。Magic UI 借鉴 shadcn/ui，React Bits 提供可定制动画与微交互；两者都可通过 shadcn CLI 按组件接入 React 项目，官网与中后台均按任务选用。安装、许可、操作状态和动效验收见 [React 组件工作流](references/component-workflow.md)。H5 与 Chrome 扩展使用 daisyUI 时，可按项目构建条件选择 Tailwind CSS 4 插件或本地打包独立 CSS。
 
 页面按任务组织上下文、局部工具、主要内容与支持信息。只保留一个稳定标题层；selected、focus、loading 不推动布局。组件覆盖 default、hover、pressed、selected、focus、disabled、loading、empty、error、success，以及窄屏、reduced motion 和打印状态。
 
