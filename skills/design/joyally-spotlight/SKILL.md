@@ -1,9 +1,9 @@
 ---
-name: joyally-product-demo
+name: joyally-spotlight
 description: Capture real product screenshots and UI recordings for articles, documentation, landing pages, and short interaction demos. Plan the shown task, redact private UI data with reproducible masks, and verify the exported image or video before publication.
 ---
 
-# Joyally Product Demo
+# Joyally Spotlight
 
 Turn an actual product flow into a screenshot or short interaction recording that lets a viewer understand what the product does. Use this skill for product evidence and explanation. Interface implementation belongs to the product's design and engineering workflow; prose belongs to the writing workflow.
 

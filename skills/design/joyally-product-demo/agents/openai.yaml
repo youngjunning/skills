@@ -1,4 +1,0 @@
-interface:
-  display_name: "Joyally Product Demo"
-  short_description: "制作并脱敏产品截图与交互演示录屏"
-  default_prompt: "Use $joyally-product-demo to capture the real product flow, redact sensitive UI data, and verify the screenshot or demo video before publication."
