@@ -1,4 +1,4 @@
 interface:
   display_name: "Joyally Spotlight"
   short_description: "制作并脱敏产品截图与交互演示录屏"
-  default_prompt: "Use $joyally-spotlight to capture the real product flow, redact sensitive UI data, and verify the screenshot or demo video before publication."
+  default_prompt: "Use $joyally-spotlight to capture a real product screenshot or interaction demo, redact sensitive UI data, and verify the export before sharing."
