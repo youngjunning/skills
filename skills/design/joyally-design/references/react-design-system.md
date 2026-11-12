@@ -1,6 +1,6 @@
 # Joyally Design React design system reference
 
-Joyally Design 在 React Web 项目中提供可复用的语义与状态约束，页面视觉先由当前产品决定。沿用项目已有的组件基础；新建项目按本次界面实际需要选择组件。[shadcn/ui 官方组件集](https://ui.shadcn.com/docs/components)是一种开放基础，只有明确建设完整中后台组件库时才使用 CLI 的 `add --all`。Data Table、Date Picker 等复合控件可在选定基础上组合，不从零重写已有输入、弹窗和导航。Magic UI 用于适合的展示动效。保留项目原有的品牌、业务术语、路由和交互合同。H5、Chrome 扩展和 React Native 按各自平台路径选择组件。
+Joyally Design 在 React Web 项目中提供可复用的语义与状态约束，页面视觉先由当前产品决定。Joyally 自有新建中后台以完整的 [shadcn/ui 官方组件集](https://ui.shadcn.com/docs/components)为基础，使用 CLI 的 `add --all` 获取本地源码，再接入自身语义 tokens、状态与页面组合。其他项目先沿用已有组件，仅按任务补齐；不因使用 Joyally 方法而迁移整套组件。Data Table、Date Picker 等复合控件可在选定基础上组合，不从零重写已有输入、弹窗和导航。Magic UI 用于适合的展示动效。保留项目原有的品牌、业务术语、路由和交互合同。H5、Chrome 扩展和 React Native 按各自平台路径选择组件。
 
 下文的湖景配色、青瓷釉、玻璃和固定尺寸是 Joyally 青山湖预设的实现样本。其他 Joyally 主题和外部产品复用语义层级、组件状态与验收方法，具体色彩、材质、布局和组件范围由目标项目决定。
 
@@ -59,7 +59,7 @@ These references are complementary. Do not merge their APIs into a new abstracti
 
 ## Complete middle/back office component baseline
 
-When the task explicitly calls for a complete React admin component library, initialize shadcn/ui for the project's existing React and Tailwind setup, then run its official CLI with `add --all`. Check the generated source inventory against the CLI result; do not describe a handful of styled examples as a complete library. Keep the installed components locally owned and updateable through the shadcn/ui registry.
+For a new Joyally-owned React admin system, initialize shadcn/ui for the project's existing React and Tailwind setup, then run its official CLI with `add --all`. Check the generated source inventory against the CLI result; do not describe a handful of styled examples as a complete library. Keep the installed components locally owned and updateable through the shadcn/ui registry. For other products, start with their existing component foundation and install only what the task requires.
 
 Map the whole baseline to Joyally semantic roles: background and surfaces, foreground and muted text, primary and secondary actions, destructive and status colors, input and border, ring, radius, chart series, and sidebar. Scope theme variables to the intended app root and include overlays portaled to the document body. A theme switch must reach Button, Input, Select, Dialog, Table, Sidebar, Toast and their focus, disabled and error states together.
 

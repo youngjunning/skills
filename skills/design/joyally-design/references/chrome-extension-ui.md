@@ -4,7 +4,7 @@
 
 ## 组件基础
 
-已有 Chrome 扩展沿用现用组件和 React、Vue 或原生 HTML/JavaScript 结构，先核对交互合同；只有现有基础无法满足本次需求且已确认迁移范围时才换组件。新建且没有组件基础时，可评估 [daisyUI](https://daisyui.com/docs/intro/) 作为样式基础；可通过 Tailwind CSS 4 插件构建，也可按官方独立 CSS 用法将所需样式打入扩展包。主题从项目语义 tokens 派生，选择组件时说明它如何适合本次窗口。
+Joyally 自有 Chrome 扩展新界面使用 [daisyUI](https://daisyui.com/docs/intro/) 作为组件样式基础，可通过 Tailwind CSS 4 插件构建，也可按官方独立 CSS 用法将所需样式打入扩展包。服务其他产品或改造已有扩展时，先沿用现用组件和 React、Vue 或原生 HTML/JavaScript 结构并核对交互合同；只有现有基础无法满足本次需求且已确认迁移范围时才换组件。主题从项目语义 tokens 派生。
 
 扩展页面中的生成 CSS、脚本、字体和图标随 Manifest V3 安装包本地提供，不在运行时从 CDN 加载代码。构建产物只包含本扩展实际使用的样式与资源；核对打包清单、CSP 和相对路径。
 

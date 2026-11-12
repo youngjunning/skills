@@ -11,7 +11,7 @@ Use this reference for professional web apps, admin tools, data consoles, settin
 
 ## Joyally Design application
 
-- Reuse the project's component foundation and select any new components for the actual workflow. Use semantic tokens and reusable compositions; build a complete shadcn/ui library only when the task requires one. Magic UI motion is optional for presentation surfaces.
+- For a new Joyally-owned admin system, build the complete operational foundation on shadcn/ui. For other products, reuse their component foundation and select additions for the actual workflow. Keep semantic tokens and reusable compositions; Magic UI motion is optional for presentation surfaces.
 - Build the page from a clear canvas and readable surfaces. For a Joyally landscape theme, map its lake and cypress colors to semantic roles; other brands use their own palette.
 - Use CSS `backdrop-filter` only when content remains legible without it. Supply an opaque fallback.
 - Keep tables and long-form content more opaque than navigation or transient overlays.

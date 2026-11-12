@@ -29,13 +29,13 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 | iPhone / iPad | [iOS](references/ios.md) |
 | Android 原生 App / Compose | [Android](references/android.md)；使用 Jetpack Compose Material 3 |
 | React Native / Expo | [React Native](references/react-native.md) |
-| H5 页面 | [H5 界面](references/h5-ui.md)；已有项目沿用组件基础，新建且无基础时评估 daisyUI |
-| React Web 页面与工作台 | [React](references/react-design-system.md)；工作台另读[工作台](references/web-dashboard.md)；沿用项目现有组件，新增组件按任务选择，Magic UI 仅用于适合的展示动效 |
+| H5 页面 | [H5 界面](references/h5-ui.md)；Joyally 自有新界面使用 daisyUI，其他项目沿用现有组件基础 |
+| React Web 页面与工作台 | [React](references/react-design-system.md)；工作台另读[工作台](references/web-dashboard.md)；Joyally 自有中后台以完整 shadcn/ui 为基础，其他项目沿用现有组件，Magic UI 用于适合的展示动效 |
 | 营销页 | [Landing page](references/web-landing-page.md) |
-| Chrome 扩展界面 | [扩展界面](references/chrome-extension-ui.md)；已有项目沿用组件基础，新建且无基础时评估 daisyUI |
+| Chrome 扩展界面 | [扩展界面](references/chrome-extension-ui.md)；Joyally 自有新界面使用 daisyUI，其他项目沿用现有组件基础 |
 | Chrome 扩展图标 | [扩展图标](references/chrome-extension-icon.md) |
 
-按交付场景选组件基础：React 实现的 H5 页面仍按 H5 路径选择，React 实现的 Chrome 扩展仍按扩展路径选择；React Native 使用原生移动端路径。项目已有组件体系先沿用并按获准范围升级。
+按交付场景选组件基础：React 实现的 H5 页面仍按 H5 路径使用 daisyUI，React 实现的 Chrome 扩展仍按扩展路径使用 daisyUI；React Native 使用原生移动端路径。其他项目已有组件体系先沿用并按获准范围升级。
 
 移动端保留原生触控热区与字体缩放；桌面根据任务选择信息密度。先布局与层级，再语义颜色、表面、组件状态，最后加入品牌氛围与动效。原生示例和随包湖色预设见 [平台视觉参考](references/native-visual-system.md)。
 
@@ -65,7 +65,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 内容和可读性先于氛围。正文、表格、日志与证据使用足够清晰的表面；品牌色、材质、字体与图像由具体项目确定。Joyally 品牌先按任务和已有品牌环境选择视觉主题；选用前五套景观主题时读[景观视觉规则](references/visual-language.md)，选用小香风时读[小香风主题](references/fashion-xiaoxiang.md)和[参考画面](assets/references/xiaoxiang/README.md)。选用阿尔卑斯雪山时读[雪山主题细则](references/alpine-snow-mountains.md)，[平台视觉参考](references/native-visual-system.md)提供现有青山湖预设的具体映射。青山湖从四季画面提炼一套主题，不按季节切换；随包青瓷釉和玻璃 token 是该主题的材质样本。小香风提供独立的浅色与深色[语义 token 样本](assets/xiaoxiang-theme.tokens.json)。其他主题进入产品时要完整映射相同语义 token 并验证。其他项目从自身品牌素材派生视觉语言。图表与报告共用语义配色。避免嵌套玻璃卡片、持续装饰动画与颜色单独表示状态。
 
-语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn/ui 提供可选的开放组件基础。新建 React 中后台按实际页面需要选用组件；只有任务明确要求建设完整组件库时才导入完整基础组件集。Data Table、Date Picker 等可由基础组件组合，保留升级路径。展示类页面可按需要选用 Magic UI 的动效组件。动效按任务选择并提供可降级状态。H5 与 Chrome 扩展使用 daisyUI 时，可按项目构建条件选择 Tailwind CSS 4 插件或本地打包独立 CSS。
+语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn/ui 提供开放组件基础。Joyally 自有新建 React 中后台以完整 shadcn/ui 基础组件集建立组件库；其他项目先沿用现有组件并按任务补齐。Data Table、Date Picker 等可由基础组件组合，保留升级路径。展示类页面可按需要选用 Magic UI 的动效组件。动效按任务选择并提供可降级状态。H5 与 Chrome 扩展使用 daisyUI 时，可按项目构建条件选择 Tailwind CSS 4 插件或本地打包独立 CSS。
 
 页面按任务组织上下文、局部工具、主要内容与支持信息。只保留一个稳定标题层；selected、focus、loading 不推动布局。组件覆盖 default、hover、pressed、selected、focus、disabled、loading、empty、error、success，以及窄屏、reduced motion 和打印状态。
 
