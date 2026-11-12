@@ -1,6 +1,6 @@
 # Joyally Design
 
-统一的跨平台设计 Skill：从产品与品牌建立视觉语言，覆盖原生平台适配、React 组件契约、可移植 HTML 报告、演示与交互图表。[景观视觉体系](references/visual-language.md)包含「青山湖水上森林」「西湖」「拙政园」与「阿尔卑斯雪山」四个主题。每个主题从同一景点或景观区域的一组画面提炼，形成差异鲜明的构图、色彩、材质、节奏及语义映射，再提炼跨主题的共同规则。现有 tokens 与四季预设是青山湖水上森林主题的实现样本。[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[拙政园](assets/references/suzhou-gardens/README.md)与[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)的参考画面保存在本地，供成组视觉研究。
+统一的跨平台设计 Skill：从产品与品牌建立视觉语言，覆盖原生平台适配、React 组件契约、可移植 HTML 报告、演示与交互图表。[景观视觉体系](references/visual-language.md)包含「青山湖水上森林」「西湖」「拙政园」「马尔代夫」与「阿尔卑斯雪山」五个主题。每个主题从同一景点或景观区域的一组画面提炼，形成差异鲜明的构图、色彩、材质、节奏及语义映射，再提炼跨主题的共同规则。现有 tokens 与四季预设是青山湖水上森林主题的实现样本。[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[拙政园](assets/references/suzhou-gardens/README.md)、[马尔代夫](assets/references/maldives/README.md)与[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)的参考画面保存在本地，供成组视觉研究。
 
 ```bash
 npx skills add youngjunning/skills --skill joyally-design -g
