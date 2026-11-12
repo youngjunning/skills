@@ -4,96 +4,75 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Joyally Design">
-  <title>工单响应周报 · Joyally Design</title>
+  <title>客服响应复盘 · Joyally Design</title>
   <link rel="stylesheet" href="./report-base.css">
   <link rel="stylesheet" href="./joyally-report-theme.css">
+  <style>
+    .joyally-report .report-header h1 { max-width: none; }
+    .joyally-report .report-insight { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 24px; align-items: center; margin: 24px 0; padding: 28px; background: var(--surface-2); border-left: 4px solid var(--accent-2); }
+    .joyally-report .report-insight h3 { margin: 5px 0 8px; font-family: var(--font-display); font-size: 27px; }
+    .joyally-report .report-insight p { margin: 0; }
+    .joyally-report .report-insight strong { display: block; color: var(--accent); font-size: 48px; line-height: 1; font-variant-numeric: tabular-nums; }
+    .joyally-report .report-insight aside { padding-left: 24px; border-left: 1px solid var(--border-strong); }
+    .joyally-report .report-insight aside span { display: block; margin-top: 8px; color: var(--text-2); font-size: 13px; }
+    .joyally-report .report-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 22px; }
+    .joyally-report .report-action { padding: 20px; border: 1px solid var(--border-strong); background: var(--surface); }
+    .joyally-report .report-action span { color: var(--accent-2); font-size: 12px; font-weight: 700; letter-spacing: .08em; }
+    .joyally-report .report-action h3 { margin: 8px 0; font-size: 18px; }
+    .joyally-report .report-action p { margin: 0; font-size: 14px; }
+    @media (max-width: 620px) { .joyally-report .report-insight, .joyally-report .report-actions { grid-template-columns: 1fr; } .joyally-report .report-insight aside { padding: 16px 0 0; border-left: 0; border-top: 1px solid var(--border-strong); } }
+    @media print { .joyally-report .report-insight, .joyally-report .report-action { break-inside: avoid; background: #fff; } }
+  </style>
 </head>
 <body class="joyally-report">
   <div class="report-shell">
     <header class="report-header">
-      <div>
-        <p class="kicker">Joyally Design · HTML Report</p>
-        <h1>工单响应周报</h1>
-        <p class="lede">演示数据 · 运营协作</p>
-      </div>
+      <div><p class="kicker">JOYALLY DESIGN / HTML REPORT</p><h1>客服响应复盘</h1><p class="lede">从回复速度到夜班交接 · 双周对照示例</p></div>
       <dl class="report-meta">
-        <div><dt>主题</dt><dd>客服首次响应</dd></div>
-        <div><dt>读者</dt><dd>运营与值班团队</dd></div>
-        <div><dt>数据</dt><dd>虚构的相邻两周</dd></div>
+        <div><dt>读者</dt><dd>运营与值班负责人</dd></div>
+        <div><dt>范围</dt><dd>连续两周人工首响</dd></div>
+        <div><dt>说明</dt><dd>全部数据均为虚构</dd></div>
       </dl>
     </header>
-
     <section class="report-summary" aria-labelledby="summary-title">
-      <div>
-        <p class="kicker">本期结论 / THE TAKEAWAY</p>
-        <h2 id="summary-title">整体响应更快，夜间等待仍需追踪</h2>
-        <p>首次响应中位数从 52 分钟降至 39 分钟。本周超过 60 分钟的 22 件工单中，有 12 件来自夜间。下一轮先试用交接清单，再看等待是否缩短。</p>
-      </div>
-      <div class="report-summary-metric">
-        <span>本周首次响应中位数</span>
-        <strong>39<small>分钟</small></strong>
-        <p>上周 52 分钟 · 缩短 25%</p>
-      </div>
+      <div><p class="kicker">本期结论 / THE TAKEAWAY</p><h2 id="summary-title">回复快了 12 分钟，夜班仍有积压</h2><p>本周 112 件工单的人工首次响应中位数为 34 分钟，较上周缩短 12 分钟；60 分钟内响应率升至 87.5%。不过，14 件超时工单中有 8 件发生在夜间。下周优先检查夜班交接，不把本周变化归因于尚未验证的措施。</p></div>
+      <div class="report-summary-metric"><span>本周人工首响中位数</span><strong>34<small>分钟</small></strong><p>上周 46 分钟 · 缩短 26.1%</p></div>
     </section>
-
-    <div class="report-metrics" aria-label="关键指标">
-      <div class="report-metric"><span>首次响应中位数变化</span><strong>−13 分钟</strong><p>52 分钟 → 39 分钟</p></div>
-      <div class="report-metric"><span>60 分钟内响应率变化</span><strong>+7.8 个百分点</strong><p>75.0% → 82.8%</p></div>
-      <div class="report-metric"><span>本周夜间超时</span><strong>12 / 22 件</strong><p>占全部超时工单 54.5%</p></div>
+    <div class="report-metrics" aria-label="本周关键指标">
+      <div class="report-metric"><span>60 分钟内响应率</span><strong>87.5%</strong><p>98 / 112 件 · 上周 81.3%</p></div>
+      <div class="report-metric"><span>人工首响中位数</span><strong>−12 分钟</strong><p>46 → 34 分钟</p></div>
+      <div class="report-metric"><span>夜间超时</span><strong>8 / 14 件</strong><p>占本周全部超时工单 57.1%</p></div>
     </div>
-
     <div class="report-layout">
-      <nav class="report-nav" aria-label="报告目录">
-        <a href="#overview">背景与范围</a>
-        <a href="#findings">分析与发现</a>
-        <a href="#recommendations">建议与下一步</a>
-      </nav>
-
+      <nav class="report-nav" aria-label="报告目录"><a href="#scope">口径与范围</a><a href="#evidence">数据与发现</a><a href="#actions">下周行动</a></nav>
       <main class="report-content">
-        <section class="report-section" id="overview">
-          <p class="kicker">01 / OVERVIEW</p>
-          <h2>背景与范围</h2>
-          <p>样本包含虚构的客服工单，上周 120 件，本周 128 件。首次响应时长从创建到首次人工回复计算，机器人自动确认不计入。中位数和 60 分钟内响应率都使用各周全部样本。</p>
-        </section>
-
-        <section class="report-section" id="findings">
-          <p class="kicker">02 / FINDINGS</p>
-          <h2>分析与发现</h2>
+        <section class="report-section" id="scope"><p class="kicker">01 / SCOPE</p><h2>口径与范围</h2><p>示例取连续两周的客服工单：上周 96 件，本周 112 件。人工首响从工单创建到首次人工回复计时；机器人确认消息不计入。两周的中位数和 60 分钟内响应率均以该周全部工单为分母。夜间指本地时间 22:00 至次日 08:00。</p></section>
+        <section class="report-section" id="evidence">
+          <p class="kicker">02 / EVIDENCE</p><h2>速度改善，超时集中在夜间</h2>
           <article class="report-finding" data-severity="low">
-            <p class="kicker">发现 01 · 响应变快</p>
-            <h3>中位数缩短 13 分钟</h3>
-            <p>样本量增加 8 件，60 分钟内响应率从 75.0% 提升到 82.8%。下图与表格按相同口径展示两周数据。</p>
-            <div class="report-comparison" role="img" aria-label="60 分钟内响应率：上周 75.0%，本周 82.8%">
-              <div class="report-comparison-row"><span>上周</span><div class="report-comparison-track" style="--measure:75%"></div><strong>75.0%</strong></div>
-              <div class="report-comparison-row is-current"><span>本周</span><div class="report-comparison-track" style="--measure:82.8%"></div><strong>82.8%</strong></div>
+            <p class="kicker">发现 01 · 整体响应</p><h3>中位数下降，及时回复占比上升</h3><p>本周工单多 16 件，人工首响中位数仍从 46 分钟降至 34 分钟。60 分钟内回复 98 件，占 87.5%；上周为 78 件，占 81.3%，提高 6.2 个百分点。</p>
+            <div class="report-comparison" role="img" aria-label="60 分钟内响应率：上周 78/96，81.3%；本周 98/112，87.5%">
+              <div class="report-comparison-row"><span>上周</span><div class="report-comparison-track" style="--measure:81.3%"></div><strong>81.3%</strong></div>
+              <div class="report-comparison-row is-current"><span>本周</span><div class="report-comparison-track" style="--measure:87.5%"></div><strong>87.5%</strong></div>
             </div>
-            <div class="report-evidence">
-              <table>
-                <thead><tr><th scope="col">指标</th><th scope="col">上周</th><th scope="col">本周</th></tr></thead>
-                <tbody><tr><th scope="row">样本量</th><td>120 件</td><td>128 件</td></tr><tr><th scope="row">首次响应中位数</th><td>52 分钟</td><td>39 分钟</td></tr><tr><th scope="row">60 分钟内响应率</th><td>90/120（75.0%）</td><td>106/128（82.8%）</td></tr></tbody>
-              </table>
-            </div>
+            <div class="report-evidence"><table><thead><tr><th scope="col">指标</th><th scope="col">上周</th><th scope="col">本周</th></tr></thead><tbody>
+              <tr><th scope="row">全部工单</th><td>96 件</td><td>112 件</td></tr>
+              <tr><th scope="row">人工首响中位数</th><td>46 分钟</td><td>34 分钟</td></tr>
+              <tr><th scope="row">60 分钟内响应</th><td>78 件（81.3%）</td><td>98 件（87.5%）</td></tr>
+              <tr><th scope="row">超过 60 分钟</th><td>18 件</td><td>14 件</td></tr>
+            </tbody></table></div>
           </article>
-          <article class="report-finding" data-severity="medium">
-            <p class="kicker">发现 02 · 夜间等待</p>
-            <h3>夜间占本周超时工单过半</h3>
-            <p>夜间共 34 件工单，占本周样本 26.6%。其中 12 件超过 60 分钟，占全部 22 件超时工单的 54.5%。</p>
-          </article>
-          <details class="report-disclosure">
-            <summary>展开统计口径</summary>
-            <div>夜间定义为本地时间 22:00 至次日 08:00。两周数据仅用于演示报表表达，不能据此判断夜班交接是超时原因。表中的响应率按件数计算，四舍五入到一位小数。</div>
-          </details>
+          <article class="report-finding" data-severity="medium"><p class="kicker">发现 02 · 夜间等待</p><h3>夜间 31 件中，8 件超过一小时</h3><p>夜间占本周工单 27.7%，却占超时工单 57.1%。夜间超时率为 25.8%（8/31），日间为 7.4%（6/81）。这提示下周要优先检查夜班交接和首响分配，不能仅凭两周数据断定原因。</p></article>
+          <div class="report-insight"><div><p class="kicker">待验证的风险</p><h3>夜班的超时比例更高</h3><p>先核对排班、交接时间和工单进入队列的时点，再判断该改哪一步。</p></div><aside><strong>3.5×</strong><span>夜间超时率约为日间的 3.5 倍；按原始件数计算。</span></aside></div>
+          <details class="report-disclosure"><summary>展开计算与限制</summary><div>百分比按件数计算并四舍五入至一位小数：78/96=81.25%，98/112=87.5%，8/31≈25.8%，6/81≈7.4%。本周夜间 31 件、日间 81 件，合计 112 件；夜间超时 8 件、日间 6 件，合计 14 件。夜间与日间超时率之比约为 3.48。样本为虚构数据，不用于评价真实团队或推断因果。</div></details>
         </section>
-
-        <section class="report-section" id="recommendations">
-          <p class="kicker">03 / RECOMMENDATIONS</p>
-          <h2>建议与下一步</h2>
-          <p>值班协调在下一轮试用交接清单，标出待回复工单和下一位负责人。运营在下一次周报同时回看夜间超时件数、夜间总工单量和首次响应中位数，再决定是否继续。</p>
-        </section>
+        <section class="report-section" id="actions"><p class="kicker">03 / NEXT WEEK</p><h2>下周先做两件事</h2><div class="report-actions">
+          <div class="report-action"><span>01 / 值班负责人</span><h3>补齐夜班交接记录</h3><p>在交接表中记录待首响工单、接手人和进入队列的时间，连续试行一周。</p></div>
+          <div class="report-action"><span>02 / 运营分析</span><h3>同口径复测</h3><p>下次周报同时查看夜间工单量、夜间超时率与首响中位数；若夜间超时未下降，再检查排班和分配规则。</p></div>
+        </div></section>
       </main>
     </div>
-
-    <footer class="report-footer">Joyally Design · 虚构数据，仅供版式演示</footer>
+    <footer class="report-footer">Joyally Design · 虚构数据与情境，仅供 HTML 报告制作示例</footer>
   </div>
 </body>
 </html>
