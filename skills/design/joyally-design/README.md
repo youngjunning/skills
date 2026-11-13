@@ -2,13 +2,13 @@
 
 按产品任务选择设计与走查方法，按需使用语义 tokens、跨平台状态、主题资产、报告与交互图表；主题和组件预设均不代替当前产品的品牌与既有设计。选择依据见[完整设计方法](references/fused-method.md)。
 
-统一的跨平台设计 Skill：从产品与品牌建立视觉语言，覆盖原生平台适配、React 组件契约、可移植 HTML 报告、HTML PPT 与交互图表。七套并列主题为「青山湖」「西湖」「苏州园林」「马尔代夫」「阿尔卑斯雪山」、[小香风](references/fashion-xiaoxiang.md)与[太空](references/space.md)；青山湖正在补齐四季参考，其余六套主题各有 20 张可追溯的参考画面。前五套的[景观视觉规则](references/visual-language.md)从地点取景，小香风从服装廓形、细节与编辑式呈现取材，太空主题从真实观测影像研究轨道与行星地平线。小香风与太空分别有[浅色与深色 token 样本](assets/xiaoxiang-theme.tokens.json)和[浅色与深色 token 样本](assets/space-theme.tokens.json)；现有平台 tokens 与四季预设是青山湖主题的实现样本。真实参考画面保存在[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[苏州园林](assets/references/suzhou-gardens/README.md)、[马尔代夫](assets/references/maldives/README.md)、[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)、[小香风](assets/references/xiaoxiang/README.md)与[太空](assets/references/space/README.md)目录；苏州园林也使用[留园照片](assets/references/lingering-garden/README.md)。
+统一的跨平台设计 Skill：从产品与品牌建立视觉语言，覆盖原生平台适配、React 组件契约、可移植 HTML 报告、HTML PPT 与交互图表。七套并列主题为「青山湖」「西湖」「苏州园林」「马尔代夫」「阿尔卑斯雪山」、[香奈儿风](references/fashion-xiaoxiang.md)与[太空](references/space.md)；青山湖正在补齐四季参考，其余六套主题各有 20 张可追溯的参考画面。前五套的[景观视觉规则](references/visual-language.md)从地点取景，香奈儿风从包袋、山茶花、巴黎夜景、时装细节与编辑式呈现取材，太空主题从真实观测影像研究轨道与行星地平线。香奈儿风与太空分别有[浅色与深色 token 样本](assets/xiaoxiang-theme.tokens.json)和[浅色与深色 token 样本](assets/space-theme.tokens.json)；现有平台 tokens 与四季预设是青山湖主题的实现样本。真实参考画面保存在[青山湖](assets/references/qingshan-lake/README.md)、[西湖](assets/references/west-lake/README.md)、[苏州园林](assets/references/suzhou-gardens/README.md)、[马尔代夫](assets/references/maldives/README.md)、[阿尔卑斯雪山](assets/references/alpine-snow-mountains/README.md)、[香奈儿风](assets/references/xiaoxiang/README.md)与[太空](assets/references/space/README.md)目录；苏州园林也使用[留园照片](assets/references/lingering-garden/README.md)。
 
 ```bash
 npx skills add youngjunning/skills --skill joyally-design -g
 ```
 
-使用 `$joyally-design`，说明产品、目标平台和要完成的任务。入口与按需参考见 [SKILL.md](SKILL.md)。Joyally Design 以[完整设计流程](DESIGN_PROCESS.md)与[设计方法](references/fused-method.md)把方向探索、各类页面方法、存量改造、素材、动效、对比页、截图、评审和规范工具落到共享的语义变量、组件状态与验收契约；按任务选用[景观视觉主题](references/visual-language.md)或[小香风主题](references/fashion-xiaoxiang.md)。全部方法、工具和素材位于本目录，按[能力路由](references/capability-routing.md)读取。更新源包时运行 `python3 scripts/sync-upstream.py <压缩包> --check`，确认后用 `--apply` 导入；已有本地修改会报告冲突，不会被覆盖。
+使用 `$joyally-design`，说明产品、目标平台和要完成的任务。入口与按需参考见 [SKILL.md](SKILL.md)。Joyally Design 以[完整设计流程](DESIGN_PROCESS.md)与[设计方法](references/fused-method.md)把方向探索、各类页面方法、存量改造、素材、动效、对比页、截图、评审和规范工具落到共享的语义变量、组件状态与验收契约；按任务选用[景观视觉主题](references/visual-language.md)或[香奈儿风主题](references/fashion-xiaoxiang.md)。全部方法、工具和素材位于本目录，按[能力路由](references/capability-routing.md)读取。更新源包时运行 `python3 scripts/sync-upstream.py <压缩包> --check`，确认后用 `--apply` 导入；已有本地修改会报告冲突，不会被覆盖。
 
 ## 去 AI 味
 

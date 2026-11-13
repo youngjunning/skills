@@ -1,6 +1,6 @@
 # Joyally Design 完整设计方法
 
-Joyally Design 按任务明确范围与页面领域，再完成方向、实现、截图和走查。语义 tokens、跨平台状态、主题资产、报告与交互图表能力按实际需要使用；七套主题只在适合当前品牌与任务时使用。景观主题按[景观视觉规则](visual-language.md)取材，小香风按[服装与编辑呈现参考](fashion-xiaoxiang.md)取材，太空主题按[轨道与地平线规则](space.md)取材。
+Joyally Design 按任务明确范围与页面领域，再完成方向、实现、截图和走查。语义 tokens、跨平台状态、主题资产、报告与交互图表能力按实际需要使用；七套主题只在适合当前品牌与任务时使用。景观主题按[景观视觉规则](visual-language.md)取材，香奈儿风按[包袋、巴黎夜景与编辑呈现参考](fashion-xiaoxiang.md)取材，太空主题按[轨道与地平线规则](space.md)取材。
 
 本文件写设计方法的选择规则。具体做法按 [能力路由](capability-routing.md)读取本机安装目录中的参考与工具。用户当前任务与项目规则决定范围、许可和发布。
 
@@ -45,7 +45,7 @@ Joyally Design 按任务明确范围与页面领域，再完成方向、实现�
 
 1. **方向**：使用 `design-direction.md`；需要明确比较时再读 `task-explore.md`、`style-explorer.md`。固定事实、主任务和操作语义，比较审美方向、内容顺序、骨架、密度、图像职责与交互方式；候选由产品事实支持，Joyally 主题与其他方向按相同标准判断。
 2. **代表页**：按 `implementation.md` 做一页或一条关键流程。先定 Seed → Map → Alias → Component 的取值路径，再让页面组件消费语义 token；映射主题、明暗和适用的季节或材质时，状态含义保持不变。
-3. **专项**：按选定主题读景观的 `visual-language.md` 或小香风的 `fashion-xiaoxiang.md` 与对应参考画面；遇到通用视觉问题读 `visual-craft.md`，再根据实际问题读 `visual-polish.md`、`layout-surfaces.md`、`layout-and-viewport.md`、`media.md`、`image-ideation.md`、`motion.md`、`scroll-narrative.md`、`ornament.md`。视觉判断以 Joyally 品牌不变量为准；需要素材时记录来源与许可；动效在减少动态效果下保持完整信息。
+3. **专项**：按选定主题读景观的 `visual-language.md` 或香奈儿风的 `fashion-xiaoxiang.md` 与对应参考画面；遇到通用视觉问题读 `visual-craft.md`，再根据实际问题读 `visual-polish.md`、`layout-surfaces.md`、`layout-and-viewport.md`、`media.md`、`image-ideation.md`、`motion.md`、`scroll-narrative.md`、`ornament.md`。视觉判断以 Joyally 品牌不变量为准；需要素材时记录来源与许可；动效在减少动态效果下保持完整信息。
 4. **铺开**：多页使用 `rollout.md`，项目规范使用 `design-spec.md`。把确认过的色彩职责、组件状态、页面密度和样板页写进项目既有设计规范；不把单页临时尺寸变成全局规则。
 
 ## 双重验收
