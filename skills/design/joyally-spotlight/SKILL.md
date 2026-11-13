@@ -1,6 +1,6 @@
 ---
 name: joyally-spotlight
-description: Capture real product screenshots and demos; irreversibly cover private UI data with opaque, visually quiet masks and verify exports before sharing.
+description: During UI automation, archive key real screenshots privately for later writing; find, redact, and verify product screenshots or demos before sharing.
 ---
 
 # Joyally Spotlight
@@ -15,10 +15,25 @@ Turn an actual product flow into a screenshot or recording that lets a viewer un
 
 Record the product version or environment, capture date, demonstrated task, and the observed result. Mark simulated data and edited demonstrations. A polished reconstruction must be labeled as such; do not present generated UI as a live screenshot.
 
+## Archive key automation screenshots
+
+During browser or app automation, save a screenshot when a meaningful state is visible: the initial state needed to explain the task, a consequential choice or approval screen, the result after the action, or a failure that explains a change of course. Capture each distinct key state once; ordinary clicks, loading spinners, and repeated unchanged pages do not need copies. Use the automation tool's supported screenshot export and save the actual observed pixels. If the tool cannot export a local image, report that gap rather than describing a screenshot as archived.
+
+Before saving, frame the relevant UI and avoid credential entry, access keys, tokens, personal messages, or unrelated desktop content. The archive is **private source material**, not a publication-ready asset. Save it under `~/.joyally/spotlight` with the project, task, step, environment, and observed outcome. The helper keeps the original image bytes, a SHA-256 hash, and searchable metadata in date folders; directories are owner-only and files are owner-readable. It does not upload, commit, or automatically declare the image safe to share.
+
+```bash
+python3 scripts/archive.py save --input /path/to/capture.png --project "project" --task "task" --step "visible result" --environment pre --outcome success
+python3 scripts/archive.py find --project "project" --query "result" --verify
+```
+
+Use `--outcome before|success|failure|pending` to describe only what the screenshot proves. Add `--url` only when the URL has no credential or sensitive query string. When writing later, search the archive by project, task, keyword, or `--since YYYY-MM-DD`; `--json` returns metadata for scripts. Open the retrieved image and apply the privacy gate below before placing it in an article. Do not treat an earlier screenshot as proof of the current live state.
+
+When importing an older screenshot, pass its known original date with `--captured-at YYYY-MM-DD`; otherwise the helper uses the current time as both capture and archive time. The metadata keeps `captured_at` and `archived_at` separate.
+
 ## Capture and privacy gate
 
 1. Prefer a demo account or fixture data that contains no real customer, employee, account, or credential values. Inspect the entire capture surface, including browser chrome, tabs, notifications, menus, hover states, autocomplete, URLs, cursor tooltips, and the surrounding desktop.
-2. Capture locally into a private staging directory. Do not upload or commit raw captures. Review the source against what the result is meant to show; choose a crop or shot list that keeps the flow understandable.
+2. Capture locally into a private staging directory or the private archive above. Do not upload or commit raw captures. Review the source against what the result is meant to show; choose a crop or shot list that keeps the flow understandable.
 3. Automatically scan every still and recording frame with available OCR or vision. For a short recording, extract all frames (for example, `ffmpeg -i demo.mp4 -vsync 0 private-frames/%06d.png`) and scan each; sampling is useful for planning but does not pass the privacy gate. On macOS, `swift scripts/scan_macos.swift <image>` emits candidate mask rectangles without printing recognized text. Add masks for sensitive fields OCR misses: names, faces, avatars, account IDs, internal URLs, tokens, secrets, cookies, messages, personal data, and any source-specific restrictions. For moving UI, cover the full time interval and every position where the data appears.
 4. Save reviewed mask coordinates in a local JSON manifest and apply them with [`scripts/redact_media.py`](scripts/redact_media.py). Cover every sensitive pixel with a **constant, fully opaque RGB color**. The default is quiet gray `#E9EDF1`; choose another fixed color that suits the surrounding interface when needed. A mask replaces its entire rectangular area, including the corners. Crop first and cover only the necessary fields, with enough padding for antialiasing and nearby text; avoid large blocks across labels or controls. Keep the screenshot caption clear that private information was covered. The helper rejects mosaic and alpha colors because blur, pixels, transparency, and generated repairs do not guarantee removal.
 5. Inspect the exported image at original resolution. Check every mask edge, any repeated value elsewhere in the frame, browser chrome, and the surrounding desktop. For video, inspect all frames or intervals containing sensitive regions plus the beginning, end, transitions, and hover/menu states. Run OCR again on the output and verify that no unmasked values remain. If coverage is uncertain, widen the mask, replace the source with safe demo data, or withhold sharing. Never label an unchecked export “automatically sanitized.”
