@@ -37,7 +37,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 | React Native / Expo | [React Native](references/react-native.md) |
 | H5 页面 | [H5 界面](references/h5-ui.md)；Joyally 自有新界面使用 daisyUI，其他项目沿用现有组件基础 |
 | 中后台／工作台（React Web） | 新建中后台使用 Next.js App Router，按[官方安装文档](https://nextjs.org/docs/app/getting-started/installation)建立项目；读 [React](references/react-design-system.md) 与[工作台](references/web-dashboard.md)。Joyally 自有中后台以完整 shadcn/ui 为基础，可按任务加入 Magic UI 或 React Bits 组件；存量项目沿用现有架构和组件，框架迁移单独评估 |
-| 落地页（含官网首页、产品介绍页） | [Landing page](references/web-landing-page.md)；按实际平台选组件基础，需要展示或交互动效时再考虑 Magic UI、React Bits |
+| 落地页（含官网首页、产品介绍页） | [Landing page](references/web-landing-page.md)；按实际平台选组件基础，需要展示或交互动效时再考虑 Magic UI、React Bits；制作产品界面演示、Banner 或 Bento 展示素材时读 [StageShow 接入](references/stageshow.md) |
 | Chrome 扩展界面 | [扩展界面](references/chrome-extension-ui.md)；Joyally 自有新界面使用 daisyUI，其他项目沿用现有组件基础 |
 | Chrome 扩展图标 | [扩展图标](references/chrome-extension-icon.md) |
 
