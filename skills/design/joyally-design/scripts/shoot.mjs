@@ -40,6 +40,9 @@ const HELP = `常用命令：
   --motion              探测首次进入、动作反馈、首屏滚动和从头滚到底的动效；单屏跳过滚动
   --evidence            一次取齐状态截图、并排图和遮字并排图、首状态 2 倍图、动效探测、
                         首次出场录屏和每组动作录屏；显式 --zoom 按倍数截每个状态；一项失败仍继续
+  --gates               启用 Joyally 三级门禁；未解释的 Floor 或 Reflex 使命令返回 1，Finish 只提示
+  --before <文件>       把当前页面的链接、表单、字段、ID、测试钩子、标题与媒体写成存量基线 JSON
+  --kept <文件>         对照 --before 基线；链接、表单、字段、ID 或测试钩子缺失时返回 1
   --compare <参考图>    截图与 png/jpg/webp 参考图出四格对比和九宫格差异报告
   --wait <毫秒>         页面加载后等待时间，默认 400；截图另等有限动画，最多 2 秒
   --timeout-scale <倍数> 整体放宽协议、启动和编码超时，例如 --timeout-scale 2；默认 1
@@ -264,7 +267,7 @@ if (!args.length || args.includes("--help") || args.includes("-h")) { console.lo
 const opt = { out: "shots", size: "390x844", param: "state", zoom: "1", hold: "1200", wait: "400" };
 const options = [...HELP.matchAll(/^  (--\S+)/gm)].map((m) => m[1]);
 options.push("--label", "--columns", "--frames");
-const booleanOptions = new Set(["full", "thumb", "mask", "sheet", "record", "motion", "entry", "evidence", "dry-run", "force", "no-sheet"]);
+const booleanOptions = new Set(["full", "thumb", "mask", "sheet", "record", "motion", "entry", "evidence", "gates", "dry-run", "force", "no-sheet"]);
 const flags = new Set(), stepsInputs = [], positional = [], suppliedOptions = new Set(), stitchInputs = [];
 let lastFlag = null;
 for (let i = 0; i < args.length; i++) {
@@ -447,6 +450,19 @@ const refImage = opt.compare ? resolve(opt.compare) : null;
 if (refImage && !existsSync(refImage)) fail(`找不到参考图：${opt.compare}`);
 if (refImage && !/\.(png|jpe?g|webp)$/i.test(refImage)) fail("--compare 只接受 png、jpg 或 webp");
 if (refImage && (captureMotion || flags.has("evidence"))) fail("--compare 用在截图上，不和 --record、--frames 或 --evidence 一起用；例如 --compare ref.png");
+if (opt.before && opt.kept) fail("--before 与 --kept 不能同时使用；先生成基线，再在修改后单独运行 --kept");
+if ((opt.before || opt.kept) && (stitching || flags.has("thumb") || selector || captureMotion || flags.has("motion"))) {
+  fail("--before / --kept 用于完整静态页面，不与拼图、缩略图、局部截图、录屏或动效探测同用");
+}
+const beforeContractPath = opt.before ? resolve(opt.before) : null;
+const keptContractPath = opt.kept ? resolve(opt.kept) : null;
+let keptContract = null;
+if (keptContractPath) {
+  if (!existsSync(keptContractPath)) fail(`找不到存量基线：${opt.kept}`);
+  try { keptContract = JSON.parse(readFileSync(keptContractPath, "utf8")); }
+  catch (error) { fail(`无法读取存量基线 ${opt.kept}：${error.message}`); }
+  if (keptContract?.version !== 1 || !Array.isArray(keptContract.pages)) fail(`存量基线格式不受支持：${opt.kept}`);
+}
 if (flags.has("dry-run")) {
   console.log(JSON.stringify({ target, ...(targets.length > 1 ? { targets: targets.map((t) => t.target) } : {}), selector, options: opt, flags: [...flags], sizes, zooms, states, groups, marks, notices, ...(stitching ? { stitch: stitchInputs } : {}) }, null, 2));
   process.exit(0);
@@ -760,13 +776,24 @@ async function check() {
   return [...problems, ...found];
 }
 
-// ---------- 可读性与渲染提示：对比度、过小字号、过紧行高、停在透明 ----------
+// ---------- 三级质量门禁：基础故障、默认风险与交付回答 ----------
 // 在页面里运行，不能引用外层变量。
 function lintPage() {
-  const LABELS = {
-    contrastLow: "文字对比度不达标（正文低于 3:1，大字低于 2.5:1）",
-    smallText: "正文小于 11px", tightLeading: "多行正文行高过紧",
-    stuck: "首屏有内容停在透明状态（出场动画没触发？）",
+  const RULES = {
+    contrastLow: { tier: "floor", label: "文字对比度不达标（正文低于 3:1，大字低于 2.5:1）" },
+    stuck: { tier: "floor", label: "首屏有内容停在透明状态（出场动画没触发？）" },
+    smallText: { tier: "reflex", label: "正文小于 11px" },
+    tightLeading: { tier: "reflex", label: "多行正文行高过紧" },
+    eyebrow: { tier: "reflex", label: "标题前有重复说明标题的短标签" },
+    trackedCaps: { tier: "reflex", label: "小字号标签使用大写与宽字距" },
+    gradientText: { tier: "reflex", label: "文字使用渐变填充" },
+    nestedCards: { tier: "reflex", label: "同职责内容出现卡片套卡片" },
+    sideStripe: { tier: "reflex", label: "无已知状态语义的粗侧边强调条" },
+    emojiIcon: { tier: "reflex", label: "Emoji 被当作功能图标" },
+    accentWord: { tier: "reflex", label: "标题中的单个词被单独着色或改字重" },
+    arrowSuffix: { tier: "reflex", label: "链接或按钮把箭头字符粘在文字末尾" },
+    headingSkip: { tier: "finish", label: "标题层级发生跳级" },
+    missingMeta: { tier: "finish", label: "页面缺少语言、标题或摘要元数据" },
   };
   const found = new Map();
   const describe = (el) => {
@@ -774,11 +801,30 @@ function lintPage() {
     const text = (el.innerText || el.textContent || "").trim().replace(/\s+/g, " ").slice(0, 24);
     return el.tagName.toLowerCase() + (el.id ? "#" + el.id : "") + cls + (text ? "「" + text + "」" : "");
   };
+  const directive = (el, attribute, rule) => {
+    for (let node = el; node && node.nodeType === 1; node = node.parentElement) {
+      const value = node.getAttribute?.(attribute);
+      if (!value) continue;
+      for (const item of value.split(";")) {
+        const split = item.indexOf(":");
+        if (split < 0 || item.slice(0, split).trim() !== rule) continue;
+        const reason = item.slice(split + 1).trim();
+        return reason.length >= 4 ? reason : null;
+      }
+    }
+    return undefined;
+  };
   const add = (rule, el, note) => {
-    let r = found.get(rule);
-    if (!r) found.set(rule, r = { rule, label: LABELS[rule], count: 0, examples: [] });
+    const spec = RULES[rule];
+    const attribute = spec.tier === "reflex" ? "data-joyally-waive" : spec.tier === "finish" ? "data-joyally-answer" : null;
+    const reason = attribute ? directive(el, attribute, rule) : undefined;
+    const status = reason ? (spec.tier === "reflex" ? "waived" : "answered") : "open";
+    const key = `${rule}:${status}`;
+    let r = found.get(key);
+    if (!r) found.set(key, r = { rule, tier: spec.tier, status, label: spec.label, count: 0, examples: [], ...(reason ? { reasons: [] } : {}) });
     r.count++;
-    if (r.examples.length < 3) r.examples.push(describe(el) + (note ? "（" + note + "）" : ""));
+    if (r.examples.length < 3) r.examples.push(describe(el) + (note || reason === null ? "（" + (note || "例外缺少至少 4 个字的理由") + "）" : ""));
+    if (reason && !r.reasons.includes(reason)) r.reasons.push(reason);
   };
   const css = (el, pseudo) => getComputedStyle(el, pseudo);
   const shown = (el) => {
@@ -894,6 +940,71 @@ function lintPage() {
     if (lh / size < (zh ? 1.4 : 1.3)) add("tightLeading", el, (lh / size).toFixed(2));
   }
 
+  const headings = all.filter((el) => /^H[1-6]$/.test(el.tagName) && shown(el));
+  for (const heading of headings) {
+    const label = heading.previousElementSibling;
+    if (label && shown(label) && !/^(TIME|LABEL|LEGEND|FIGCAPTION)$/.test(label.tagName)) {
+      const text = (label.innerText || label.textContent || "").trim().replace(/\s+/g, " ");
+      const style = css(label);
+      if (text && text.length <= 48 && parseFloat(style.fontSize) <= 15 && !label.matches("a,[role='status'],[aria-live]")) add("eyebrow", label);
+    }
+    for (const child of heading.querySelectorAll("span,em,strong,b,i")) {
+      if (!shown(child) || !(child.textContent || "").trim()) continue;
+      const hs = css(heading), cs = css(child);
+      if (cs.color !== hs.color || cs.fontWeight !== hs.fontWeight || cs.fontStyle !== hs.fontStyle) add("accentWord", child);
+    }
+  }
+
+  for (const el of texts) {
+    const text = ownText(el).replace(/\s+/g, " ").trim();
+    const style = css(el), size = parseFloat(style.fontSize), spacing = parseFloat(style.letterSpacing);
+    const latin = text.match(/[A-Za-z]/g) || [], upper = text.match(/[A-Z]/g) || [];
+    if (size <= 15 && latin.length >= 4 && upper.length / latin.length >= 0.8 && (spacing > size * 0.03 || style.textTransform === "uppercase")
+      && !el.closest("code,pre,kbd,[data-joyally-wordmark]") && !/wordmark|brand/i.test(String(el.className))) add("trackedCaps", el);
+    const fill = style.webkitTextFillColor || style.getPropertyValue("-webkit-text-fill-color");
+    if (style.backgroundImage !== "none" && (fill === "transparent" || rgba(style.color).a < 0.1)) add("gradientText", el);
+  }
+
+  for (const el of all.filter((node) => shown(node) && node.matches("a,button,[role='button']"))) {
+    const text = (el.innerText || el.textContent || "").trim();
+    if (/[→↗↘↑↓]$/.test(text)) add("arrowSuffix", el);
+  }
+
+  const cardLike = (el) => {
+    if (!shown(el) || el.matches("form,fieldset,details,dialog,blockquote,nav,aside,[role='dialog'],[role='menu'],[role='listbox'],[role='tooltip'],[popover]")) return false;
+    const style = css(el), rect = el.getBoundingClientRect();
+    if (/absolute|fixed/.test(style.position) || rect.width < 100 || rect.height < 30) return false;
+    if (!(el.textContent || "").trim() && !el.querySelector("img,svg,canvas,video,audio,input,select,textarea,button,a[href]")) return false;
+    const border = [style.borderTopWidth, style.borderRightWidth, style.borderBottomWidth, style.borderLeftWidth].some((v) => parseFloat(v) > 0);
+    return parseFloat(style.borderRadius) >= 6 && (border || rgba(style.backgroundColor).a > 0.2);
+  };
+  for (const outer of all.filter(cardLike)) {
+    const inner = [...outer.children].find(cardLike);
+    if (inner) add("nestedCards", inner);
+  }
+
+  for (const el of all.filter(shown)) {
+    const style = css(el), rect = el.getBoundingClientRect();
+    if (el.tagName !== "BLOCKQUOTE" && !el.closest("nav") && rect.width > 60 && rect.height > 24
+      && parseFloat(style.borderLeftWidth) >= 3 && style.borderLeftStyle !== "none") add("sideStripe", el);
+    const text = ownText(el).trim();
+    if (text && /^\p{Extended_Pictographic}(?:\uFE0F|\u200D\p{Extended_Pictographic})*$/u.test(text)
+      && el.closest("a,button,li,[role='button']") && !el.hasAttribute("aria-hidden")) add("emojiIcon", el);
+  }
+
+  let previousLevel = 0;
+  for (const heading of headings) {
+    const level = Number(heading.tagName.slice(1));
+    if (previousLevel && level > previousLevel + 1) add("headingSkip", heading, `从 h${previousLevel} 跳到 h${level}`);
+    previousLevel = level;
+  }
+  const missing = [];
+  if (!document.documentElement.lang) missing.push("lang");
+  if (!document.title.trim()) missing.push("title");
+  if (!document.querySelector('meta[name="description"][content]')) missing.push("description");
+  const hasMetadataSurface = document.documentElement.hasAttribute("lang") || document.title.trim() || document.querySelector('meta[name="description"]');
+  if (hasMetadataSurface && missing.length) add("missingMeta", document.documentElement, `缺少 ${missing.join("、")}`);
+
   // 首屏里停在透明的内容：出场动画没触发时截图会缺一块
   for (const el of all) {
     const r = el.getBoundingClientRect();
@@ -919,10 +1030,42 @@ async function lint() {
   try {
     return await evaluate(`(${lintPage.toString()})()`);
   } catch (error) {
-    return [{ rule: "lintError", label: "可读性检查没跑完", count: 1, examples: [error.message.slice(0, 160)] }];
+    return [{ rule: "lintError", tier: "floor", status: "open", label: "可读性检查没跑完", count: 1, examples: [error.message.slice(0, 160)] }];
   }
 }
-const lintLine = (items) => items.map((i) => `${i.label} ${i.count} 处（${i.examples.join("，")}）`).join("；");
+const lintLine = (items) => items.map((i) => `${i.tier === "floor" ? "Floor" : i.tier === "reflex" ? "Reflex" : "Finish"}${i.status === "waived" || i.status === "answered" ? " 已解释" : ""}：${i.label} ${i.count} 处（${i.examples.join("，")}）`).join("；");
+
+// ---------- 存量能力保真：记录可交互接线与内容骨架，不比较像素 ----------
+// 在页面里运行，不能引用外层变量。
+function pageContract() {
+  const clean = (value) => String(value || "").trim().replace(/\s+/g, " ").slice(0, 160);
+  const shown = (el) => {
+    const style = getComputedStyle(el), rect = el.getBoundingClientRect();
+    return style.display !== "none" && style.visibility !== "hidden" && rect.width > 0 && rect.height > 0;
+  };
+  const unique = (values) => [...new Set(values.filter(Boolean))].sort();
+  const pick = (selector, map, visible = false) => unique([...document.querySelectorAll(selector)]
+    .filter((el) => !visible || shown(el)).map(map));
+  return {
+    link: pick("a[href]", (el) => JSON.stringify({ id: el.id || null, href: el.getAttribute("href"), text: clean(el.textContent) }), true),
+    form: pick("form", (el) => JSON.stringify({ id: el.id || null, name: el.getAttribute("name"), action: el.getAttribute("action") || "", method: (el.getAttribute("method") || "get").toLowerCase() })),
+    field: pick("input,select,textarea,button", (el) => JSON.stringify({ tag: el.tagName.toLowerCase(), id: el.id || null, name: el.getAttribute("name"), type: el.getAttribute("type") || null, aria: el.getAttribute("aria-label"), text: clean(el.textContent) }), true),
+    id: pick("[id]", (el) => el.id),
+    testHook: unique([...document.querySelectorAll("[data-testid],[data-test],[data-cy]")].flatMap((el) => ["data-testid", "data-test", "data-cy"].map((name) => el.hasAttribute(name) ? `${name}=${el.getAttribute(name)}` : null))),
+    heading: pick("h1,h2,h3,h4,h5,h6", (el) => JSON.stringify({ level: Number(el.tagName.slice(1)), id: el.id || null, text: clean(el.textContent) }), true),
+    media: pick("img,video,audio,source", (el) => JSON.stringify({ tag: el.tagName.toLowerCase(), id: el.id || null, src: el.getAttribute("src") || el.getAttribute("srcset") || "", alt: el.getAttribute("alt") }), true),
+  };
+}
+async function readPageContract() { return evaluate(`(${pageContract.toString()})()`); }
+const contractTiers = { link: "floor", form: "floor", field: "floor", id: "floor", testHook: "floor", heading: "reflex", media: "reflex" };
+function comparePageContract(before, current) {
+  const missing = [];
+  for (const [kind, tier] of Object.entries(contractTiers)) {
+    const now = new Set(current?.[kind] || []);
+    for (const value of before?.[kind] || []) if (!now.has(value)) missing.push({ kind, tier, value });
+  }
+  return { missing, blocking: missing.some((item) => item.tier === "floor") };
+}
 
 async function settleAnimations(limit) {
   if (limit <= 0) return 0;
@@ -1852,6 +1995,9 @@ const withState = (s) => {
   return u.toString();
 };
 const report = [], lines = [];
+const beforePages = new Map();
+const keptPages = new Map((keptContract?.pages || []).map((page) => [page.key, page]));
+const contractKey = (meta) => JSON.stringify({ target: activeTarget.target, state: meta.state ?? null, group: meta.group || "" });
 const usedFiles = new Set();
 const targetShots = [];
 const autoSheet = targets.length > 1 && !flags.has("no-sheet") && (!captureMotion || flags.has("evidence"));
@@ -1932,8 +2078,24 @@ async function captureBatch(selectedStates, selectedZooms, selectedGroups, useMa
         const animationWaitMs = await prepare();
         await screenshot(file, flags.has("full"), selector ? await selectorClip() : thumb ? { x: 0, y: 0, width: w, height: h, scale: 0.5 } : null);
         const issues = await check(), hints = thumb ? [] : await lint();
-        entry = { file: basename(file), ...meta, ...(thumb ? { thumb: true } : {}), animationWaitMs, issues, lint: hints };
-        lines.push(`${basename(file)}${issues.length ? "  ⚠ " + issues.join("；") : ""}${hints.length ? "  ◇ 可读性提示：" + lintLine(hints) : ""}`);
+        const openGates = hints.filter((hint) => hint.status === "open" && (hint.tier === "floor" || hint.tier === "reflex"));
+        let preservation;
+        if (beforeContractPath || keptContractPath) {
+          const key = contractKey(meta), contract = await readPageContract();
+          if (beforeContractPath) beforePages.set(key, { key, ...meta, target: activeTarget.target, contract });
+          if (keptContractPath) {
+            const baseline = keptPages.get(key);
+            preservation = baseline ? comparePageContract(baseline.contract, contract) : {
+              missing: [{ kind: "page", tier: "floor", value: key }], blocking: true,
+            };
+            if (preservation.blocking) process.exitCode = 1;
+          }
+        }
+        entry = { file: basename(file), ...meta, ...(thumb ? { thumb: true } : {}), animationWaitMs, issues, lint: hints,
+          ...(flags.has("gates") ? { gates: { open: openGates.length, passed: openGates.length === 0 } } : {}), ...(preservation ? { preservation } : {}) };
+        if (flags.has("gates") && openGates.length) process.exitCode = 1;
+        lines.push(`${basename(file)}${issues.length ? "  ⚠ " + issues.join("；") : ""}${hints.length ? "  ◇ 质量门禁：" + lintLine(hints) : ""}` +
+          (preservation?.missing.length ? `  ⚠ 存量契约缺失 ${preservation.missing.length} 项` : preservation ? "  ✓ 存量契约保持" : ""));
         report.push(entry); shots.push({ path: file, label: state || "page" });
         if (batchMode) targetShots.push({ path: file, label: [meta.name, state, suffix].filter(Boolean).join(" · ") });
       });
@@ -2052,6 +2214,11 @@ try {
     }
   }
 } catch (error) { if (!transportFailure) console.error(`shoot：${error.message}`); process.exitCode = 1; }
+if (beforeContractPath) {
+  mkdirSync(dirname(beforeContractPath), { recursive: true });
+  writeFileSync(beforeContractPath, JSON.stringify({ version: 1, generatedAt: new Date().toISOString(), pages: [...beforePages.values()] }, null, 2) + "\n");
+  console.log(`存量基线：${beforeContractPath}`);
+}
 writeFileSync(join(out, "report.json"), JSON.stringify(report, null, 2));
 console.log(`输出目录：${out}`);
 for (const notice of notices) console.log(`- ${notice}`);
@@ -2059,7 +2226,7 @@ for (const l of lines) console.log(`- ${l}`);
 const total = report.reduce((n, r) => n + r.issues.length, 0);
 if (report.length) console.log(total ? `发现 ${total} 个问题，详见 report.json` : `检查通过：没有控制台错误、横向溢出或加载失败的图片${flags.has("motion") ? "，三段动效都检测到了" : ""}`);
 const hinted = [...new Set(report.flatMap((r) => (r.lint || []).map((i) => i.label)))];
-if (hinted.length) console.log(`可读性与渲染提示 ${hinted.length} 类：${hinted.join("、")}。详见 report.json 的 lint`);
+if (hinted.length) console.log(`质量门禁提示 ${hinted.length} 类：${hinted.join("、")}。详见 report.json 的 lint`);
 const reviewerManual = resolve(dirname(process.argv[1]), "../references/reviewer-manual.md");
 if (evidence && existsSync(reviewerManual)) console.log(`评审交接：将 ${reviewerManual} 与证据目录 ${out} 传给独立评审子 Agent`);
 finishing = true;

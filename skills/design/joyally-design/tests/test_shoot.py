@@ -1173,13 +1173,13 @@ h1{font-size:48px;margin:0 0 24px;background:linear-gradient(90deg,#7c3aed,#06b6
 .num{font-size:12px;margin:0}h2{font-size:28px;margin:4px 0 24px}
 .card{border:1px solid #ddd;border-radius:16px;padding:24px;margin:16px 0}
 .quote{border-left:4px solid #e11d48;padding:12px 16px}.low{color:#c8c8c8}
-.dense{font-size:10px;line-height:1.2;width:600px}.ghost{opacity:0}
+.dense{font-size:10px;line-height:1.2;width:600px}.ghost{opacity:0}.caps{font-size:12px;letter-spacing:.1em}
 </style></head><body><p class="eyebrow">Smart Ledger</p><h1>让记账更简单</h1>
 <p class="num">01 / 账户</p><h2>所有账户一目了然</h2>
 <div class="card">外层<div class="card">里层卡片里有一些文字</div></div>
 <div class="quote">好的工具让人忘记它的存在。</div><p class="low">很淡的说明文字，颜色几乎看不见。</p>
 <p class="dense">这是一段很长的正文，用了很小的字号和很紧的行高，一行特别长，读的时候眼睛要跑很远才能换行，这是一段很长的正文，用了很小的字号和很紧的行高，一行特别长，读的时候眼睛要跑很远才能换行。</p>
-<ul><li><span>🚀</span> 快</li><li><span>💰</span> 省</li></ul><div><span>WORKSPACE OVERVIEW</span> <span>CONTENT OBJECT</span></div>
+<ul><li><span>🚀</span> 快</li><li><span>💰</span> 省</li></ul><div><span class="caps">WORKSPACE OVERVIEW</span> <span>CONTENT OBJECT</span></div>
 <p class="ghost">这一段一直停在透明状态</p>
 <p>这一页的中文足够多，用来判断这是中文界面。这一页的中文足够多，用来判断这是中文界面。这一页的中文足够多，用来判断这是中文界面。</p>
 </body></html>''', encoding="utf-8")
@@ -1188,12 +1188,69 @@ h1{font-size:48px;margin:0 0 24px;background:linear-gradient(90deg,#7c3aed,#06b6
         entry = json.loads((output / "report.json").read_text(encoding="utf-8"))[0]
         self.assertEqual(entry["issues"], [])
         rules = {item["rule"] for item in entry["lint"]}
-        for rule in ("contrastLow", "smallText", "tightLeading", "stuck"):
+        for rule in ("contrastLow", "smallText", "tightLeading", "stuck", "eyebrow", "trackedCaps",
+                     "gradientText", "nestedCards", "sideStripe", "emojiIcon", "missingMeta"):
             self.assertIn(rule, rules)
-        for removed in ("eyebrow", "numbered", "gradientText", "sideStripe", "emojiIcon",
-                        "englishLabel", "grayOnColor", "longMeasure", "headingSpacing", "sourceSplit"):
+        tiers = {item["rule"]: item["tier"] for item in entry["lint"]}
+        self.assertEqual(tiers["contrastLow"], "floor")
+        self.assertEqual(tiers["eyebrow"], "reflex")
+        self.assertEqual(tiers["missingMeta"], "finish")
+        for removed in ("numbered", "englishLabel", "grayOnColor", "longMeasure", "headingSpacing", "sourceSplit"):
             self.assertNotIn(removed, rules)
-        self.assertIn("可读性与渲染提示", result.stdout)
+        self.assertIn("质量门禁提示", result.stdout)
+
+    def test_quality_gates_require_reflex_waivers_and_accept_explained_ones(self):
+        self.page.write_text('''<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>门禁</title>
+<meta name="description" content="门禁测试"><link rel="icon" href="data:,"><style>
+body{margin:0;padding:40px;font:16px/1.6 sans-serif;color:#222;background:#fff}
+.label{font-size:12px;letter-spacing:.12em;text-transform:uppercase}.ok{margin-top:40px}
+</style></head><body><div><span class="label">DEFAULT INTRO</span><h1>默认标题</h1></div></body></html>''', encoding='utf-8')
+        output = self.folder / 'gate-open'
+        result = subprocess.run([NODE, str(SCRIPT), str(self.page), '--out', str(output), '--size', 'desktop', '--gates'],
+                                cwd=ROOT, env=self.env, capture_output=True, text=True, timeout=90, encoding='utf-8')
+        self.assertNotEqual(result.returncode, 0)
+        lint = json.loads((output / 'report.json').read_text(encoding='utf-8'))[0]['lint']
+        self.assertTrue(any(item['rule'] == 'eyebrow' and item['status'] == 'open' for item in lint))
+
+        self.page.write_text(self.page.read_text(encoding='utf-8').replace(
+            '<div><span class="label">',
+            '<div data-joyally-waive="eyebrow:品牌章节索引;trackedCaps:品牌章节索引"><span class="label">'),
+            encoding='utf-8')
+        accepted = self.folder / 'gate-waived'
+        result = self.shoot(accepted, '--size', 'desktop', '--gates')
+        lint = json.loads((accepted / 'report.json').read_text(encoding='utf-8'))[0]['lint']
+        self.assertTrue(any(item['rule'] == 'eyebrow' and item['status'] == 'waived' for item in lint))
+        self.assertIn('已解释', result.stdout)
+
+    def test_before_kept_contract_blocks_removed_wiring(self):
+        self.page.write_text('''<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>存量页面</title>
+<meta name="description" content="存量页面"><link rel="icon" href="data:," /></head><body>
+<main id="main"><h1 id="title">账号设置</h1><a id="docs" href="/docs">查看说明</a>
+<form id="settings" action="/save" method="post"><label>名称<input id="name" name="name"></label>
+<button type="submit" data-testid="save">保存</button></form><img src="data:," alt="账号头像"></main></body></html>''', encoding='utf-8')
+        contract = self.folder / 'before.json'
+        before_out = self.folder / 'before'
+        self.shoot(before_out, '--size', 'desktop', '--before', str(contract))
+        saved = json.loads(contract.read_text(encoding='utf-8'))
+        self.assertEqual(saved['version'], 1)
+        self.assertTrue(saved['pages'])
+
+        kept_out = self.folder / 'kept-ok'
+        self.shoot(kept_out, '--size', 'desktop', '--kept', str(contract))
+        kept = json.loads((kept_out / 'report.json').read_text(encoding='utf-8'))[0]['preservation']
+        self.assertEqual(kept['missing'], [])
+
+        self.page.write_text(self.page.read_text(encoding='utf-8').replace(
+            '<a id="docs" href="/docs">查看说明</a>', '').replace(' name="name"', ''), encoding='utf-8')
+        broken_out = self.folder / 'kept-broken'
+        result = subprocess.run([NODE, str(SCRIPT), str(self.page), '--out', str(broken_out), '--size', 'desktop',
+                                 '--kept', str(contract)], cwd=ROOT, env=self.env, capture_output=True, text=True,
+                                timeout=90, encoding='utf-8')
+        self.assertNotEqual(result.returncode, 0)
+        preservation = json.loads((broken_out / 'report.json').read_text(encoding='utf-8'))[0]['preservation']
+        kinds = {item['kind'] for item in preservation['missing']}
+        self.assertIn('link', kinds)
+        self.assertIn('field', kinds)
 
     def test_lint_spares_interaction_boundaries_attachments_and_empty_slots(self):
         self.page.write_text('''<!doctype html><link rel="icon" href="data:,"><style>

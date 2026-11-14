@@ -1,0 +1,9 @@
+{
+  "name": "Hallmark",
+  "repository": "https://github.com/nutlope/hallmark",
+  "commit": "04977e15f3dfd6ee4b74c887dac3eb52665d6c92",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 Hallmark contributors",
+  "importedAt": "2026-11-14",
+  "scope": "Adapted review tiers, selected default-pattern concepts, and before/kept preservation mechanics. Browser implementation and documentation are independently maintained by Joyally Design; no Hallmark themes or page assets are bundled."
+}

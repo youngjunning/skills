@@ -37,6 +37,8 @@ node <skill>/scripts/shoot.mjs index.html --size desktop,mobile --out shots
 | 操作几步再截 | `--steps "click .open; wait 300"` |
 | 需要核对长页滚动动效 | `--frames 8 --steps "scroll 600; scroll 600; scroll 600"`，按页面长度多写几步；录屏条件见上文 |
 | 给用户指出问题：在元素上画框、标编号 | `--mark "1=.page-head .btn; 2=.toggle-row"` |
+| 交付时启用三级质量门禁 | `--gates`；未解释的 Floor 或 Reflex 返回 1，规则与例外格式见[三级质量门禁](quality-gates.md) |
+| 重设计前记录并核对存量接线 | 修改前 `--before .joyally-design/page-before.json`，修改后 `--kept .joyally-design/page-before.json --gates` |
 | 看清一段过渡 | `--frames 8 --steps "click .open"`，只出带时间的序列图；录屏条件见上文 |
 | 把几张图拼成一张对比图，不需要页面 | `--stitch a.png --label 修改前 --stitch b.png --label 修改后` |
 | 按共有元素统一比例并裁同一区域 | `--stitch a.png --match-width 240 --stitch b.png --match-width 300 --crop "0,0,800,600"`；以首图元素宽为准，裁切坐标在统一比例后；已知倍数时各图改用 `--scale`，完整写法见 `--help` |
@@ -70,7 +72,7 @@ node <skill>/scripts/curate-media.mjs fetch T2 --maps all --resolution 1k --dir 
 
 截图和取证优先用这里的截图工具。确实要自己写浏览器脚本（例如 Puppeteer 或 Playwright）时，启动参数加 `--use-mock-keychain --password-store=basic`，并用临时的用户数据目录；否则在 macOS 上会反复弹出钥匙串授权窗口，打断用户。
 
-每张截图还会查 4 项可读性与渲染硬问题（文字对比度不达标、正文小于 11px、多行正文行高过紧、首屏里停在透明状态的内容），命令输出里以“默认做法提示”列出并写进 `report.json` 的 `lint`。提示清零之后，仍要自己看截图。检查报出接口 401、404 这类和画面无关的错误时，在交付说明里记一行，不为了让检查通过去改登录、接口这类业务代码。
+每张截图都会运行[三级质量门禁](quality-gates.md)的可观察规则，结果写进 `report.json` 的 `lint`；默认只提示，显式 `--gates` 才改变返回码。启发式提示清零之后仍要自己看截图。检查报出接口 401、404 这类和画面无关的错误时，在交付说明里记一行，不为了让检查通过去改登录、接口这类业务代码。
 
 ## 写可操作的小样
 

@@ -16,3 +16,7 @@ Local Archify modification: `assets/template.html` and `explainer/reader.css` us
 `references/design-quality.md` includes adapted guidance under Apache-2.0. The pinned source commit and adaptation details are recorded in `legal/quality-guidance/UPSTREAM.json`; the required upstream license and notice remain in `legal/quality-guidance/LICENSE` and `legal/quality-guidance/NOTICE.md`.
 
 Modified for Joyally Design: condensed and translated the review, audit, refinement and task-selection methods; made aesthetic rules conditional on the product and platform; replaced CLI, hooks, detector, snapshot storage and agent orchestration requirements with Joyally's existing validation workflow. The upstream notice is preserved as required by its license; its iOS and Android derivative reference files are not included.
+
+## Hallmark
+
+The tier names, selected default-pattern checks and before/kept preservation concept in `references/quality-gates.md` were inspired by Hallmark, https://github.com/nutlope/hallmark, MIT, copyright 2026 Hallmark contributors. Joyally Design independently implements the browser rules, explainable exception format and DOM contract comparison; it does not bundle Hallmark themes or page assets. The pinned source commit and scope are recorded in `legal/hallmark/UPSTREAM.json`, with the upstream license and adaptation notice alongside it.
