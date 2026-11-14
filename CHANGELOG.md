@@ -1,5 +1,9 @@
 # Changelog
 
+## 2026-11-14
+
+1. 新增 `joyally-theme-creation`，以同内容对比检验主题的结构差异；要求组件具备主题自己的层级、细节和完整状态，不能只给 shadcn/ui 基础控件换色。Joyally Design 增加主题制作入口。
+
 ## 2026-11-13
 
 2. 将 `joyally-imagegen` 更名为 `joyally-image`，同步目录、安装名和技能间引用；Joyally Image 与 Joyally Design 各自保留小界、小萌、小南的全身、上半身与头像参考素材。

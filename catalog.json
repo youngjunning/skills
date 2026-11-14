@@ -90,6 +90,12 @@
     "path": "skills/design/joyally-design"
   },
   {
+    "name": "joyally-theme-creation",
+    "category": "design",
+    "summary": "从参考素材制作有结构差异的主题，完成语义 token、自有组件与同内容验收",
+    "path": "skills/design/joyally-theme-creation"
+  },
+  {
     "name": "macos-app-develop",
     "category": "engineering",
     "path": "skills/engineering/macos-app-develop",

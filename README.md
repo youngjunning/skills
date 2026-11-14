@@ -42,6 +42,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | 生成图像、漫画或静态架构图片 | [Joyally image](skills/design/joyally-image/SKILL.md) |
 | 自动留存关键操作截图、找回写作素材或制作脱敏演示 | [Joyally Spotlight](skills/design/joyally-spotlight/SKILL.md) |
 | 统一设计、制作 HTML 报告、HTML PPT 或交互图表 | [Joyally Design](skills/design/joyally-design/SKILL.md) |
+| 为产品制作或重做整套主题，避免只换配色 | [Joyally 主题制作](skills/design/joyally-theme-creation/SKILL.md) |
 | 写文章、绘本或建设内容站点 | [Joyally writting](skills/writing/joyally-writting/SKILL.md)、[fiction-site-builder](skills/writing/fiction-site-builder/SKILL.md)、[adsense-site-builder](skills/publishing/adsense-site-builder/SKILL.md) |
 | 整理或读取个人资料、维护项目方案 | [distill-me](skills/productivity/distill-me/SKILL.md) |
 
@@ -68,6 +69,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | [Joyally image](skills/design/joyally-image/SKILL.md) | 图像生成、编辑、漫画制作与素材校验 |
 | [Joyally Spotlight](skills/design/joyally-spotlight/SKILL.md) | 关键操作截图私有归档与检索；真实演示素材扫描、遮盖与成品复核 |
 | [Joyally Design](skills/design/joyally-design/SKILL.md) | 跨平台界面设计与精修、HTML 报告、HTML PPT 和可探索图表 |
+| [Joyally 主题制作](skills/design/joyally-theme-creation/SKILL.md) | 从参考素材提炼构图与交互，设计有区分度的布局、自有组件和语义 token |
 
 ### Writing
 
@@ -88,7 +90,7 @@ python3 scripts/link-skills.py --dest ~/.codex/skills
 | --- | --- |
 | [distill-me](skills/productivity/distill-me/SKILL.md) | 按证据蒸馏个人记录与资料，并参与项目方案管理 |
 
-Joyally Design、Joyally image 和 Joyally writting 的安装与调用标识分别为 `joyally-design`、`joyally-image` 和 `joyally-writting`。机器可读目录见 [catalog.json](catalog.json)。
+Joyally Design、Joyally 主题制作、Joyally image 和 Joyally writting 的安装与调用标识分别为 `joyally-design`、`joyally-theme-creation`、`joyally-image` 和 `joyally-writting`。机器可读目录见 [catalog.json](catalog.json)。
 
 ## 使用与维护
 

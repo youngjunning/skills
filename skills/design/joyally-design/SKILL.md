@@ -13,7 +13,11 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 当用户明确需要小界、小萌或小南时，按[角色参考素材](references/character-assets.md)取用随包全身像、上半身图与头像；通用设计不默认植入角色。
 
-设计任务先按[完整设计流程](DESIGN_PROCESS.md)选择领域与阶段，再按[设计方法](references/fused-method.md)组织事实、结构、组件、状态与验收；按[能力路由](references/capability-routing.md)读取本目录的领域参考并调用工具。领域、方向、存量改造、组件、素材、动效、截图、评审与规范构成主流程；[专项质量检查](references/design-quality.md)仅在文字本地化、健壮性或技术审计等实际问题出现时加入。Joyally 的视觉语言、语义 tokens、跨平台行为与验收把这些方法连成同一套输出。明确改法的小改动直接完成，任务范围和交付物仍由用户决定。
+设计任务先按[完整设计流程](DESIGN_PROCESS.md)选择领域与阶段，再按[设计方法](references/fused-method.md)组织事实、结构、组件、状态与验收；按[能力路由](references/capability-routing.md)读取本目录的领域参考并调用工具。
+
+创建、重做或扩展整套视觉主题时，同时按[主题制作](../joyally-theme-creation/SKILL.md)检查空间结构、组件细节、同内容差异与真实状态；单点配色微调沿用当前小改动路径。
+
+领域、方向、存量改造、组件、素材、动效、截图、评审与规范构成主流程；[专项质量检查](references/design-quality.md)仅在文字本地化、健壮性或技术审计等实际问题出现时加入。Joyally 的视觉语言、语义 tokens、跨平台行为与验收把这些方法连成同一套输出。明确改法的小改动直接完成，任务范围和交付物仍由用户决定。
 
 ## 现有界面精修
 
