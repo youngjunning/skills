@@ -61,6 +61,8 @@ Joyally Design 的领域方法、专项参考、工具、素材与测试都在�
 | 生成 HTML 报告 | `report` → [HTML 报告](html-reports.md) | 核对离线打开、阅读与打印 |
 | 制作 HTML PPT | `deck`、`deck-gallery`、`deck-render`、`deck-bundle` → [演示文稿](presentations.md) | 核对逐页播放、讲稿、主题、PNG/PDF 和离线资源 |
 | 生成自包含交互图表 | `diagram` → [交互图表](interactive-diagrams.md) | 校验输入、图表内容和关键交互 |
+| 制作可编辑思维导图 | [思维导图](mindmaps.md) → Markmap Markdown；可运行时再渲染 HTML | 核对主题层级、折叠缩放、桌面与窄屏可读性 |
+| 制作分层架构图 | [分层架构图](layered-architecture.md) → 可编辑 HTML 与静态导出 | 核对职责层、横向平台、状态标签、桌面与窄屏可读性 |
 | 把 HTML、图片或本机页面组装成同屏对比页 | `explore` → `scripts/build_explorer.py` | 看每个候选实际画面；选定方向后继续完整页面 |
 | 截图、交互状态、前后拼图、动效帧与可读性提示 | `shoot` → `scripts/shoot.mjs` | 桌面与窄屏、关键状态、真实点击路径；截图成功仍要亲自看 |
 | 查找并下载有来源说明的图片、纹理或参考 | `media` → `scripts/curate-media.mjs` | 核对原始来源、用途、许可、尺寸与实际画面 |

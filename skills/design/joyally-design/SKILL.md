@@ -49,6 +49,8 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 | --- | --- |
 | 文章、PPT 或分享使用的静态架构图、知识图谱、流程图片 | `joyally-image` |
 | 可点击、缩放、聚焦节点或探索路径的交互图表 | `joyally-design` |
+| 可折叠、缩放、持续编辑的思维导图 | `joyally-design`；读 [思维导图](references/mindmaps.md)，保留 Markmap 源文件 |
+| 可编辑、按职责组织的分层架构图 | `joyally-design`；读 [分层架构图](references/layered-architecture.md)，保留 HTML 源文件 |
 | 网页或工作台的新建与局部精修、报告整体设计、跨平台设计系统 | `joyally-design`；其中的静态插图交给 `joyally-image` |
 | Chrome 扩展图标的设计、尺寸适配和真实工具栏验收 | `joyally-design` 主导小尺寸识别与使用情境；需要生成源图时调用 `joyally-image` |
 
@@ -60,8 +62,10 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 2. 改造已有 HTML：先读 [改造约定](references/adapting-existing-html.md)，保留 DOM、锚点、事件与导出功能，优先增加 scoped theme。
 3. React 设计系统：读 [React 约定](references/react-design-system.md)，依次核对 tokens、共享 primitives、组件状态和页面组合。
    编码 Agent 需要为 React Web 选用、安装或组合组件时，再读 [React 组件工作流](references/component-workflow.md)，从目标项目或选定来源取得真实源码，并逐项验收预览。
-4. 交互图表：读 [交互图表](references/interactive-diagrams.md)，使用统一入口 验证 typed JSON IR，再生成自包含 HTML。既有交互图表的静态导出沿用其源文件。
-5. 界面评审或精修：按[能力路由](references/capability-routing.md)读取评审、精修、回改或存量路径。技术审计再读[专项质量检查](references/design-quality.md)，结论需可复现条件与证据。
+4. 交互图表：读 [交互图表](references/interactive-diagrams.md)；需要表达系统、服务、资源之间的调用和依赖时再读 [系统架构关系图](references/system-architecture-relationships.md)。使用统一入口验证 typed JSON IR，再生成自包含 HTML。既有交互图表的静态导出沿用其源文件。
+5. 思维导图：读 [思维导图](references/mindmaps.md)，交付可编辑的 Markmap Markdown 与可阅读的交互视图。它表达主题归属与层级；需要说明调用、数据流或依赖时转用系统架构关系图。
+6. 分层架构图：读 [分层架构图](references/layered-architecture.md)，交付可编辑的 HTML 与可阅读的分层视图。它表达职责和技术位置；具体调用与依赖使用系统架构关系图。
+7. 界面评审或精修：按[能力路由](references/capability-routing.md)读取评审、精修、回改或存量路径。技术审计再读[专项质量检查](references/design-quality.md)，结论需可复现条件与证据。
 
 新建界面先区分阅读、操作与展示场景，再落实到上述平台路径。按[能力路由](references/capability-routing.md)选择任务与领域参考，处理方向比较、代表性页面、多页扩展、回改和项目设计规范。已有品牌和设计系统是依据，默认配色与第三方审美建议均不覆盖它们。
 
