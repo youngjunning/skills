@@ -69,7 +69,7 @@ Joyally Design 是跨平台的设计方法与实现契约：从产品目标、�
 
 内容和可读性先于氛围。正文、表格、日志与证据使用足够清晰的表面；品牌色、材质、字体与图像由具体项目确定。Joyally 品牌先按任务和已有品牌环境选择视觉主题；选用前五套景观主题时读[景观视觉规则](references/visual-language.md)，选用香奈儿风时读[香奈儿风主题](references/fashion-xiaoxiang.md)和[参考画面](assets/references/xiaoxiang/README.md)，选用太空时读[太空主题](references/space.md)。选用阿尔卑斯雪山时读[雪山主题细则](references/alpine-snow-mountains.md)，[平台视觉参考](references/native-visual-system.md)提供现有青山湖预设的具体映射。青山湖从四季画面提炼一套主题，不按季节切换；随包青瓷釉和玻璃 token 是该主题的材质样本。香奈儿风与太空分别提供独立的浅色与深色[语义 token 样本](assets/xiaoxiang-theme.tokens.json)和[语义 token 样本](assets/space-theme.tokens.json)。其他主题进入产品时要完整映射相同语义 token 并验证。其他项目从自身品牌素材派生视觉语言。图表与报告共用语义配色。避免嵌套玻璃卡片、持续装饰动画与颜色单独表示状态。
 
-新建或精修界面交付前，按[反模板感检查](references/anti-ai-taste.md)核对任务焦点、内容顺序、容器职责、装饰语义、示例数据与状态反馈。把“AI 味”当作需要定位的可观察问题，不用颜色、圆角或渐变推断界面来源；具体问题和改法对照同一内容与视口验证。
+新建界面在写 UI 或生成效果图前，先按[反模板感检查](references/anti-ai-taste.md)的“生成前约束”锁定产品对象、首屏主角与动作、视觉方向和要避免的无职责模板元素；将这些约束与界面需求一起交给生成工具。精修时先从实际画面定位问题，不凭风格标签重起方向。交付前再按同一检查核对任务焦点、内容顺序、容器职责、装饰语义、示例数据与状态反馈。把“AI 味”当作需要定位的可观察问题，不用颜色、圆角或渐变推断界面来源；具体问题和改法对照同一内容与视口验证。
 
 语义 tokens 分为 seed、map、alias、component。Ant Design 提供分层与密度参考，Material 3 提供语义状态角色，Radix 提供无障碍行为，shadcn/ui 提供开放组件基础。Joyally 自有新建 React 中后台以完整 shadcn/ui 基础组件集建立组件库；其他项目先沿用现有组件并按任务补齐。Data Table、Date Picker 等可由基础组件组合，保留升级路径。Magic UI 借鉴 shadcn/ui，React Bits 提供可定制动画与微交互；两者都可通过 shadcn CLI 按组件接入 React 项目，官网与中后台均按任务选用。安装、许可、操作状态和动效验收见 [React 组件工作流](references/component-workflow.md)。H5 与 Chrome 扩展使用 daisyUI 时，可按项目构建条件选择 Tailwind CSS 4 插件或本地打包独立 CSS。
 
