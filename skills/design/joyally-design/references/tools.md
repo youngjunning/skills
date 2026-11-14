@@ -39,6 +39,7 @@ node <skill>/scripts/shoot.mjs index.html --size desktop,mobile --out shots
 | 给用户指出问题：在元素上画框、标编号 | `--mark "1=.page-head .btn; 2=.toggle-row"` |
 | 交付时启用三级质量门禁 | `--gates`；未解释的 Floor 或 Reflex 返回 1，规则与例外格式见[三级质量门禁](quality-gates.md) |
 | 重设计前记录并核对存量接线 | 修改前 `--before .joyally-design/page-before.json`，修改后 `--kept .joyally-design/page-before.json --gates` |
+| 核对真实素材来源、许可、用途与页面接线 | `--materials materials.json --gates`；HTML 用 `data-joyally-material` 关联稳定 ID，格式见[真实素材清单](quality-gates.md#第二期真实素材清单) |
 | 看清一段过渡 | `--frames 8 --steps "click .open"`，只出带时间的序列图；录屏条件见上文 |
 | 把几张图拼成一张对比图，不需要页面 | `--stitch a.png --label 修改前 --stitch b.png --label 修改后` |
 | 按共有元素统一比例并裁同一区域 | `--stitch a.png --match-width 240 --stitch b.png --match-width 300 --crop "0,0,800,600"`；以首图元素宽为准，裁切坐标在统一比例后；已知倍数时各图改用 `--scale`，完整写法见 `--help` |

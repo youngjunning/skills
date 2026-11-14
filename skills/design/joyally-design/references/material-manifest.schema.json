@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://youngjunning.com/joyally-design/material-manifest.schema.json",
+  "title": "Joyally Design material manifest",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["version", "assets"],
+  "properties": {
+    "version": { "const": 1 },
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": true,
+        "required": ["id", "expected", "purpose", "source", "license"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "expected": { "type": "string", "minLength": 1 },
+          "purpose": { "type": "string", "minLength": 4 },
+          "source": {
+            "type": "object",
+            "additionalProperties": true,
+            "required": ["kind", "reference"],
+            "properties": {
+              "kind": { "type": "string", "minLength": 1 },
+              "reference": { "type": "string", "minLength": 1 }
+            }
+          },
+          "license": { "type": "string", "minLength": 1 },
+          "required": { "type": "boolean", "default": true }
+        }
+      }
+    }
+  }
+}

@@ -1252,6 +1252,78 @@ body{margin:0;padding:40px;font:16px/1.6 sans-serif;color:#222;background:#fff}
         self.assertIn('link', kinds)
         self.assertIn('field', kinds)
 
+    def test_before_kept_structure_fingerprint_requires_explained_relationship_changes(self):
+        self.page.write_text('''<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>结构</title>
+<meta name="description" content="结构指纹"><link rel="icon" href="data:,"></head><body>
+<header><nav aria-label="主导航"><a href="/tasks">任务</a><a href="/reports">报告</a></nav></header>
+<main><h1>任务台账</h1><form id="filters"><label>状态<select name="status"><option>待处理</option></select></label>
+<button type="submit" aria-controls="results">筛选</button></form>
+<table id="results"><caption>任务</caption><thead><tr><th>名称</th><th>状态</th></tr></thead><tbody><tr><td>示例</td><td>待处理</td></tr></tbody></table></main>
+</body></html>''', encoding='utf-8')
+        contract = self.folder / 'structure-before.json'
+        self.shoot(self.folder / 'structure-before', '--size', 'desktop', '--before', str(contract))
+
+        changed = self.page.read_text(encoding='utf-8').replace(
+            '<a href="/tasks">任务</a><a href="/reports">报告</a>',
+            '<a href="/reports">报告</a><a href="/tasks">任务</a>').replace(
+            '<th>名称</th><th>状态</th>', '<th>状态</th><th>名称</th>')
+        self.page.write_text(changed, encoding='utf-8')
+        output = self.folder / 'structure-open'
+        result = subprocess.run([NODE, str(SCRIPT), str(self.page), '--out', str(output), '--size', 'desktop',
+                                 '--kept', str(contract), '--gates'], cwd=ROOT, env=self.env, capture_output=True,
+                                text=True, timeout=90, encoding='utf-8')
+        self.assertNotEqual(result.returncode, 0)
+        preservation = json.loads((output / 'report.json').read_text(encoding='utf-8'))[0]['preservation']
+        kinds = {item['kind'] for item in preservation['missing'] if item['status'] == 'open'}
+        self.assertIn('navigation', kinds)
+        self.assertIn('tableStructure', kinds)
+
+        self.page.write_text(changed.replace('<body>', '<body data-joyally-waive="structure:信息架构有意重组">'), encoding='utf-8')
+        accepted = self.folder / 'structure-waived'
+        self.shoot(accepted, '--size', 'desktop', '--kept', str(contract), '--gates')
+        preservation = json.loads((accepted / 'report.json').read_text(encoding='utf-8'))[0]['preservation']
+        self.assertTrue(any(item['kind'] == 'navigation' and item['status'] == 'waived' for item in preservation['missing']))
+
+    def test_material_manifest_uses_existing_gate_and_explanation_contract(self):
+        manifest = self.folder / 'materials.json'
+        manifest.write_text(json.dumps({
+            'version': 1,
+            'assets': [{
+                'id': 'hero', 'expected': 'hero.png', 'purpose': '展示真实产品主体',
+                'source': {'kind': 'owned', 'reference': '产品团队原始摄影'}, 'license': '项目自有'
+            }]
+        }, ensure_ascii=False), encoding='utf-8')
+        self.page.write_text('''<!doctype html><html lang="zh"><head><meta charset="utf-8"><title>素材</title>
+<meta name="description" content="素材清单"><link rel="icon" href="data:,"><style>
+img{width:320px;height:200px;object-fit:cover}</style></head><body><h1>真实素材</h1>
+<img data-joyally-material="hero" src="hero.png" alt="真实产品主体"></body></html>''', encoding='utf-8')
+        write_solid_png(self.folder / 'hero.png', 320, 200, (20, 80, 120))
+        output = self.folder / 'materials-ok'
+        self.shoot(output, '--size', 'desktop', '--materials', str(manifest), '--gates')
+        material = json.loads((output / 'report.json').read_text(encoding='utf-8'))[0]['materials']
+        self.assertEqual(material['findings'], [])
+
+        self.page.write_text(self.page.read_text(encoding='utf-8').replace('hero.png', 'placeholder.png'), encoding='utf-8')
+        write_solid_png(self.folder / 'placeholder.png', 320, 200, (180, 180, 180))
+        broken = self.folder / 'materials-open'
+        result = subprocess.run([NODE, str(SCRIPT), str(self.page), '--out', str(broken), '--size', 'desktop',
+                                 '--materials', str(manifest), '--gates'], cwd=ROOT, env=self.env, capture_output=True,
+                                text=True, timeout=90, encoding='utf-8')
+        self.assertNotEqual(result.returncode, 0)
+        findings = json.loads((broken / 'report.json').read_text(encoding='utf-8'))[0]['materials']['findings']
+        self.assertTrue(any(item['rule'] == 'materialMismatch' and item['status'] == 'open' for item in findings))
+
+        data = json.loads(manifest.read_text(encoding='utf-8'))
+        data['assets'][0]['expected'] = 'placeholder.png'
+        manifest.write_text(json.dumps(data, ensure_ascii=False), encoding='utf-8')
+        self.page.write_text(self.page.read_text(encoding='utf-8').replace(
+            'data-joyally-material="hero"',
+            'data-joyally-material="hero" data-joyally-waive="materialPlaceholder:灰盒评审阶段的临时素材"'), encoding='utf-8')
+        waived = self.folder / 'materials-waived'
+        self.shoot(waived, '--size', 'desktop', '--materials', str(manifest), '--gates')
+        findings = json.loads((waived / 'report.json').read_text(encoding='utf-8'))[0]['materials']['findings']
+        self.assertTrue(any(item['rule'] == 'materialPlaceholder' and item['status'] == 'waived' for item in findings))
+
     def test_lint_spares_interaction_boundaries_attachments_and_empty_slots(self):
         self.page.write_text('''<!doctype html><link rel="icon" href="data:,"><style>
 body{margin:0}.outer{border-radius:12px;background:#eee;padding:12px;width:340px}

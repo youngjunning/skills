@@ -43,6 +43,7 @@ const HELP = `常用命令：
   --gates               启用 Joyally 三级门禁；未解释的 Floor 或 Reflex 使命令返回 1，Finish 只提示
   --before <文件>       把当前页面的链接、表单、字段、ID、测试钩子、标题与媒体写成存量基线 JSON
   --kept <文件>         对照 --before 基线；链接、表单、字段、ID 或测试钩子缺失时返回 1
+  --materials <文件>    核对真实素材清单与页面 data-joyally-material 接线；配 --gates 执行门禁
   --compare <参考图>    截图与 png/jpg/webp 参考图出四格对比和九宫格差异报告
   --wait <毫秒>         页面加载后等待时间，默认 400；截图另等有限动画，最多 2 秒
   --timeout-scale <倍数> 整体放宽协议、启动和编码超时，例如 --timeout-scale 2；默认 1
@@ -456,12 +457,37 @@ if ((opt.before || opt.kept) && (stitching || flags.has("thumb") || selector || 
 }
 const beforeContractPath = opt.before ? resolve(opt.before) : null;
 const keptContractPath = opt.kept ? resolve(opt.kept) : null;
+const materialManifestPath = opt.materials ? resolve(opt.materials) : null;
 let keptContract = null;
 if (keptContractPath) {
   if (!existsSync(keptContractPath)) fail(`找不到存量基线：${opt.kept}`);
   try { keptContract = JSON.parse(readFileSync(keptContractPath, "utf8")); }
   catch (error) { fail(`无法读取存量基线 ${opt.kept}：${error.message}`); }
   if (keptContract?.version !== 1 || !Array.isArray(keptContract.pages)) fail(`存量基线格式不受支持：${opt.kept}`);
+}
+let materialManifest = null;
+if (materialManifestPath) {
+  if (!existsSync(materialManifestPath)) fail(`找不到素材清单：${opt.materials}`);
+  try { materialManifest = JSON.parse(readFileSync(materialManifestPath, "utf8")); }
+  catch (error) { fail(`无法读取素材清单 ${opt.materials}：${error.message}`); }
+  if (materialManifest?.version !== 1 || !Array.isArray(materialManifest.assets)) fail(`素材清单格式不受支持：${opt.materials}`);
+  const ids = new Set();
+  for (const [index, asset] of materialManifest.assets.entries()) {
+    const at = `素材清单 assets[${index}]`;
+    if (!asset || typeof asset !== "object" || Array.isArray(asset)) fail(`${at} 必须是对象`);
+    if (typeof asset.id !== "string" || !asset.id.trim()) fail(`${at}.id 必须是非空字符串`);
+    if (ids.has(asset.id)) fail(`素材清单 id 重复：${asset.id}`); ids.add(asset.id);
+    if (typeof asset.expected !== "string" || !asset.expected.trim()) fail(`${at}.expected 必须写页面实际素材路径或 data URL 前缀`);
+    if (typeof asset.purpose !== "string" || asset.purpose.trim().length < 4) fail(`${at}.purpose 至少写 4 个字说明页面职责`);
+    if (typeof asset.license !== "string" || !asset.license.trim()) fail(`${at}.license 必须记录许可或项目使用边界`);
+    if (!asset.source || typeof asset.source.kind !== "string" || !asset.source.kind.trim()
+      || typeof asset.source.reference !== "string" || !asset.source.reference.trim()) {
+      fail(`${at}.source 必须包含非空 kind 和 reference`);
+    }
+  }
+}
+if (materialManifestPath && (stitching || flags.has("thumb") || selector || captureMotion || flags.has("motion"))) {
+  fail("--materials 用于完整静态页面，不与拼图、缩略图、局部截图、录屏或动效探测同用");
 }
 if (flags.has("dry-run")) {
   console.log(JSON.stringify({ target, ...(targets.length > 1 ? { targets: targets.map((t) => t.target) } : {}), selector, options: opt, flags: [...flags], sizes, zooms, states, groups, marks, notices, ...(stitching ? { stitch: stitchInputs } : {}) }, null, 2));
@@ -1044,8 +1070,14 @@ function pageContract() {
     return style.display !== "none" && style.visibility !== "hidden" && rect.width > 0 && rect.height > 0;
   };
   const unique = (values) => [...new Set(values.filter(Boolean))].sort();
+  const ordered = (values) => [...new Set(values.filter(Boolean))];
   const pick = (selector, map, visible = false) => unique([...document.querySelectorAll(selector)]
     .filter((el) => !visible || shown(el)).map(map));
+  const label = (el) => clean(el.getAttribute("aria-label") || el.getAttribute("aria-labelledby") || el.id || "");
+  const field = (el) => ({ tag: el.tagName.toLowerCase(), id: el.id || null, name: el.getAttribute("name"), type: el.getAttribute("type") || null, aria: el.getAttribute("aria-label") });
+  const waivers = Object.fromEntries([...document.querySelectorAll("[data-joyally-waive]")].flatMap((el) => el.getAttribute("data-joyally-waive").split(";"))
+    .map((item) => { const split = item.indexOf(":"); return split < 0 ? null : [item.slice(0, split).trim(), item.slice(split + 1).trim()]; })
+    .filter((item) => item?.[0].startsWith("structure") && item[1].length >= 4));
   return {
     link: pick("a[href]", (el) => JSON.stringify({ id: el.id || null, href: el.getAttribute("href"), text: clean(el.textContent) }), true),
     form: pick("form", (el) => JSON.stringify({ id: el.id || null, name: el.getAttribute("name"), action: el.getAttribute("action") || "", method: (el.getAttribute("method") || "get").toLowerCase() })),
@@ -1054,17 +1086,92 @@ function pageContract() {
     testHook: unique([...document.querySelectorAll("[data-testid],[data-test],[data-cy]")].flatMap((el) => ["data-testid", "data-test", "data-cy"].map((name) => el.hasAttribute(name) ? `${name}=${el.getAttribute(name)}` : null))),
     heading: pick("h1,h2,h3,h4,h5,h6", (el) => JSON.stringify({ level: Number(el.tagName.slice(1)), id: el.id || null, text: clean(el.textContent) }), true),
     media: pick("img,video,audio,source", (el) => JSON.stringify({ tag: el.tagName.toLowerCase(), id: el.id || null, src: el.getAttribute("src") || el.getAttribute("srcset") || "", alt: el.getAttribute("alt") }), true),
+    landmarkStructure: [JSON.stringify(ordered([...document.querySelectorAll("header,nav,main,aside,footer,[role='banner'],[role='navigation'],[role='main'],[role='complementary'],[role='contentinfo']")]
+      .filter(shown).map((el) => {
+        const parent = el.parentElement?.closest("header,nav,main,aside,footer,[role='banner'],[role='navigation'],[role='main'],[role='complementary'],[role='contentinfo']");
+        return { tag: el.tagName.toLowerCase(), role: el.getAttribute("role"), id: el.id || null, label: label(el),
+          parent: parent ? { tag: parent.tagName.toLowerCase(), id: parent.id || null, label: label(parent) } : null };
+      })))],
+    navigation: ordered([...document.querySelectorAll("nav,[role='navigation']")].filter(shown).map((nav) => JSON.stringify({
+      id: nav.id || null, label: label(nav), links: [...nav.querySelectorAll("a[href]")].filter(shown).map((el) => ({ href: el.getAttribute("href"), text: clean(el.textContent) })),
+    }))),
+    formStructure: ordered([...document.forms].filter(shown).map((form) => JSON.stringify({
+      id: form.id || null, name: form.getAttribute("name"), fields: [...form.querySelectorAll("input,select,textarea,button")].filter(shown).map(field),
+    }))),
+    tableStructure: ordered([...document.querySelectorAll("table")].filter(shown).map((table) => JSON.stringify({
+      id: table.id || null, caption: clean(table.querySelector("caption")?.textContent), headers: [...table.querySelectorAll("thead th")].map((el) => clean(el.textContent)),
+    }))),
+    actionTarget: ordered([...document.querySelectorAll("button[aria-controls],a[aria-controls],[role='button'][aria-controls]")].filter(shown).map((el) => JSON.stringify({
+      id: el.id || null, text: clean(el.textContent), controls: el.getAttribute("aria-controls"),
+    }))),
+    waivers,
   };
 }
 async function readPageContract() { return evaluate(`(${pageContract.toString()})()`); }
-const contractTiers = { link: "floor", form: "floor", field: "floor", id: "floor", testHook: "floor", heading: "reflex", media: "reflex" };
-function comparePageContract(before, current) {
+const contractSpecs = {
+  link: { tier: "floor", gate: true }, form: { tier: "floor", gate: true }, field: { tier: "floor", gate: true },
+  id: { tier: "floor", gate: true }, testHook: { tier: "floor", gate: true },
+  heading: { tier: "reflex", gate: false }, media: { tier: "reflex", gate: false },
+  landmarkStructure: { tier: "reflex", gate: true, structure: true }, navigation: { tier: "reflex", gate: true, structure: true },
+  formStructure: { tier: "reflex", gate: true, structure: true }, tableStructure: { tier: "reflex", gate: true, structure: true },
+  actionTarget: { tier: "reflex", gate: true, structure: true },
+};
+function comparePageContract(before, current, enforceGates = false) {
   const missing = [];
-  for (const [kind, tier] of Object.entries(contractTiers)) {
+  for (const [kind, spec] of Object.entries(contractSpecs)) {
     const now = new Set(current?.[kind] || []);
-    for (const value of before?.[kind] || []) if (!now.has(value)) missing.push({ kind, tier, value });
+    for (const value of before?.[kind] || []) if (!now.has(value)) {
+      const reason = spec.structure ? current?.waivers?.[`structure.${kind}`] || current?.waivers?.structure : null;
+      missing.push({ kind, tier: spec.tier, status: reason ? "waived" : "open", value, ...(reason ? { reason } : {}), gate: spec.gate });
+    }
   }
-  return { missing, blocking: missing.some((item) => item.tier === "floor") };
+  return { missing, blocking: missing.some((item) => item.status === "open" && (item.tier === "floor" || (enforceGates && item.gate))) };
+}
+
+// ---------- 真实素材证据：复用现有来源与许可要求，只在显式 --materials 时运行 ----------
+function materialEvidence() {
+  const clean = (value) => String(value || "").trim().replace(/\s+/g, " ").slice(0, 180);
+  const shown = (el) => { const style = getComputedStyle(el), rect = el.getBoundingClientRect(); return style.display !== "none" && style.visibility !== "hidden" && rect.width > 0 && rect.height > 0; };
+  const directives = (el, attribute) => Object.fromEntries(String(el.getAttribute(attribute) || "").split(";").map((item) => {
+    const split = item.indexOf(":"); return split < 0 ? null : [item.slice(0, split).trim(), item.slice(split + 1).trim()];
+  }).filter((item) => item?.[1].length >= 4));
+  const source = (el) => {
+    if (el.matches("img")) return el.getAttribute("src") || el.getAttribute("srcset") || "";
+    if (el.matches("video,audio,source")) return el.getAttribute("src") || el.getAttribute("poster") || "";
+    const image = getComputedStyle(el).backgroundImage;
+    const match = image && image !== "none" ? image.match(/url\(["']?(.*?)["']?\)/) : null;
+    return match?.[1] || "";
+  };
+  const tagged = [...document.querySelectorAll("[data-joyally-material]")].filter(shown).map((el) => ({
+    id: clean(el.getAttribute("data-joyally-material")), src: clean(source(el)), tag: el.tagName.toLowerCase(), alt: clean(el.getAttribute("alt")),
+    loaded: el.matches("img") ? el.complete && el.naturalWidth > 0 : el.matches("video,audio") ? el.readyState > 0 : !!source(el),
+    waivers: directives(el, "data-joyally-waive"), answers: directives(el, "data-joyally-answer"),
+  }));
+  const untracked = [...document.querySelectorAll("img,video")].filter((el) => shown(el) && !el.hasAttribute("data-joyally-material"))
+    .filter((el) => { const rect = el.getBoundingClientRect(); return rect.width * rect.height >= 20000; })
+    .map((el) => ({ tag: el.tagName.toLowerCase(), src: clean(source(el)), alt: clean(el.getAttribute("alt")), answers: directives(el, "data-joyally-answer") }));
+  return { tagged, untracked };
+}
+async function readMaterialEvidence() { return evaluate(`(${materialEvidence.toString()})()`); }
+function compareMaterialManifest(manifest, evidence) {
+  const findings = [], declared = new Map(manifest.assets.map((asset) => [asset.id, asset]));
+  const add = (rule, tier, label, details, reason = null) => findings.push({ rule, tier, status: reason ? (tier === "reflex" ? "waived" : "answered") : "open", label, ...details, ...(reason ? { reason } : {}) });
+  for (const asset of manifest.assets) {
+    const matches = evidence.tagged.filter((item) => item.id === asset.id);
+    if (!matches.length && asset.required !== false) { add("materialMissing", "floor", "清单素材没有接到页面", { id: asset.id, expected: asset.expected }); continue; }
+    for (const item of matches) {
+      const actual = item.src.split(/[?#]/)[0], expected = asset.expected.split(/[?#]/)[0];
+      if (!(actual === expected || actual.endsWith(expected) || (expected.startsWith("data:") && item.src.startsWith(expected)))) {
+        add("materialMismatch", "floor", "页面素材与清单不一致", { id: asset.id, expected: asset.expected, actual: item.src });
+      }
+      if (!item.loaded) add("materialLoad", "floor", "清单素材没有成功加载", { id: asset.id, actual: item.src });
+      if (!item.alt && item.tag === "img") add("materialAlt", "finish", "内容图片缺少替代文本", { id: asset.id, actual: item.src }, item.answers?.materialAlt);
+      if (/placeholder|sample|dummy|lorem|unsplash\.com\/photo-0/i.test(item.src)) add("materialPlaceholder", "reflex", "清单素材仍像占位内容", { id: asset.id, actual: item.src }, item.waivers?.materialPlaceholder);
+    }
+  }
+  for (const item of evidence.tagged) if (!declared.has(item.id)) add("materialUndeclared", "floor", "页面标记的素材不在清单中", item);
+  for (const item of evidence.untracked) add("materialUntracked", "finish", "大幅内容媒体尚未纳入素材清单", item, item.answers?.materialUntracked);
+  return { manifest: materialManifestPath, checked: manifest.assets.length, findings };
 }
 
 async function settleAnimations(limit) {
@@ -2079,23 +2186,29 @@ async function captureBatch(selectedStates, selectedZooms, selectedGroups, useMa
         await screenshot(file, flags.has("full"), selector ? await selectorClip() : thumb ? { x: 0, y: 0, width: w, height: h, scale: 0.5 } : null);
         const issues = await check(), hints = thumb ? [] : await lint();
         const openGates = hints.filter((hint) => hint.status === "open" && (hint.tier === "floor" || hint.tier === "reflex"));
-        let preservation;
+        let preservation, materials;
         if (beforeContractPath || keptContractPath) {
           const key = contractKey(meta), contract = await readPageContract();
           if (beforeContractPath) beforePages.set(key, { key, ...meta, target: activeTarget.target, contract });
           if (keptContractPath) {
             const baseline = keptPages.get(key);
-            preservation = baseline ? comparePageContract(baseline.contract, contract) : {
-              missing: [{ kind: "page", tier: "floor", value: key }], blocking: true,
+            preservation = baseline ? comparePageContract(baseline.contract, contract, flags.has("gates")) : {
+              missing: [{ kind: "page", tier: "floor", status: "open", value: key, gate: true }], blocking: true,
             };
             if (preservation.blocking) process.exitCode = 1;
           }
         }
+        if (materialManifest) materials = compareMaterialManifest(materialManifest, await readMaterialEvidence());
+        const preservationGates = preservation?.missing.filter((item) => item.status === "open" && item.gate) || [];
+        const materialGates = materials?.findings.filter((item) => item.status === "open" && (item.tier === "floor" || item.tier === "reflex")) || [];
+        const gateCount = openGates.length + preservationGates.length + materialGates.length;
         entry = { file: basename(file), ...meta, ...(thumb ? { thumb: true } : {}), animationWaitMs, issues, lint: hints,
-          ...(flags.has("gates") ? { gates: { open: openGates.length, passed: openGates.length === 0 } } : {}), ...(preservation ? { preservation } : {}) };
-        if (flags.has("gates") && openGates.length) process.exitCode = 1;
+          ...(flags.has("gates") ? { gates: { open: gateCount, passed: gateCount === 0 } } : {}),
+          ...(preservation ? { preservation } : {}), ...(materials ? { materials } : {}) };
+        if (flags.has("gates") && gateCount) process.exitCode = 1;
         lines.push(`${basename(file)}${issues.length ? "  ⚠ " + issues.join("；") : ""}${hints.length ? "  ◇ 质量门禁：" + lintLine(hints) : ""}` +
-          (preservation?.missing.length ? `  ⚠ 存量契约缺失 ${preservation.missing.length} 项` : preservation ? "  ✓ 存量契约保持" : ""));
+          (preservation?.missing.length ? `  ⚠ 存量契约变化 ${preservation.missing.length} 项` : preservation ? "  ✓ 存量契约保持" : "") +
+          (materials?.findings.length ? `  ⚠ 素材证据 ${materials.findings.length} 项待处理` : materials ? "  ✓ 素材证据完整" : ""));
         report.push(entry); shots.push({ path: file, label: state || "page" });
         if (batchMode) targetShots.push({ path: file, label: [meta.name, state, suffix].filter(Boolean).join(" · ") });
       });
