@@ -21,7 +21,7 @@
     "name": "joyally-report",
     "category": "engineering",
     "path": "skills/engineering/joyally-report",
-    "summary": "向人说明进展、交付、排障与评审结论，按事情大小调整篇幅"
+    "summary": "默认用于工作进度、测试、排障、评审和交付回复，无需点名，按事情大小调整篇幅"
   },
   {
     "name": "joyally-test-quality",

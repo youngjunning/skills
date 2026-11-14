@@ -1,6 +1,6 @@
 ---
 name: joyally-report
-description: Turn completed or ongoing work into clear, evidence-based communication for a person. Use for progress and completion updates, engineering handoffs, bug diagnoses, reviews, incident summaries, release conclusions, and decision briefs, including brief updates after small changes or tests. Scale the response to the decision: a few sentences for a small update, structured sections for consequential work. Do not activate for unrelated factual Q&A or simple acknowledgments.
+description: Default reporting workflow for work updates and delivery replies. Apply automatically to progress, small fixes, test results, diagnoses, reviews, releases, handoffs, and completion reports, even when the user does not ask for a report. Also use whenever the user names report or joyally-report. Scale length to the work.
 ---
 
 # Joyally Report
@@ -9,7 +9,9 @@ Turn verified work into a decision artifact. The report should let its reader un
 
 ## When to use
 
-Use this workflow whenever the agent needs to tell a person what work achieved, where it stands, what evidence supports it, or what needs attention. Include brief status and completion replies, small changes, test outcomes, diagnoses, reviews, and complex handoffs. An unrelated factual question or acknowledgment does not need this workflow. A topic keyword alone does not demand a formal report.
+Apply this workflow by default before sending a work progress update or delivery reply. Load it when reporting starts and reuse it throughout the task. This includes small changes, test outcomes, diagnoses, reviews, releases, and handoffs; the user does not need to request a report or name the skill. Explicit requests for report or joyally-report always activate it. Simple factual answers and acknowledgments can remain direct replies.
+
+For skill routing, ordinary engineering updates belong here. Reader-facing articles and formal prose may additionally use a writing skill; that separate route does not exclude this reporting workflow.
 
 Scale the output to the reader's decision. For a small change or progress update, use one to three direct sentences with no template or heading. For a consequential delivery, failure, or handoff, add only the sections needed to show evidence and next action. Do not turn every update into an audit of all possible risks.
 
