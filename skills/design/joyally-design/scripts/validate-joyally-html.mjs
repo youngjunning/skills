@@ -35,7 +35,7 @@ requireText(/class=["'][^"']*report-summary/, 'report summary is missing');
 requireText(/class=["'][^"']*report-finding/, 'at least one report finding is required');
 requireText(/class=["'][^"']*report-evidence/, 'report evidence region is missing');
 
-for (const name of ['report-base.css', 'joyally-theme.css']) {
+for (const name of ['report-base.css', 'joyally-theme.css', 'LICENSE']) {
   try {
     await access(resolve(assetDir, name), constants.R_OK);
   } catch {

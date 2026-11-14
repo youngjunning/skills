@@ -21,8 +21,16 @@ class ReportRuntimeTests(unittest.TestCase):
                 self.run_command('node', generator, mode, str(target), '--title', 'Example <safe>')
                 report = json.loads(self.run_command('node', str(ROOT / 'scripts/validate-joyally-html.mjs'), str(target / 'index.html')).stdout)
                 self.assertEqual(report['errors'], [])
-                self.assertIn('<title>Example &lt;safe&gt; · Joyally Design</title>', (target / 'index.html').read_text())
-                self.assertTrue((target / 'joyally-design/LICENSE').is_file())
+                if mode == 'report':
+                    self.assertIn('<title>Example &lt;safe&gt; · Joyally Design</title>', (target / 'index.html').read_text())
+                    license_source = ROOT / 'LICENSE'
+                else:
+                    self.assertIn('<title>项目汇报 · Joyally Design</title>', (target / 'index.html').read_text())
+                    license_source = ROOT / 'assets/presentation/LICENSE'
+                self.assertEqual(
+                    (target / 'joyally-design/LICENSE').read_bytes(),
+                    license_source.read_bytes(),
+                )
                 original = (target / 'index.html').read_bytes()
                 retry = subprocess.run(['node', generator, mode, str(target)], capture_output=True)
                 self.assertNotEqual(retry.returncode, 0)

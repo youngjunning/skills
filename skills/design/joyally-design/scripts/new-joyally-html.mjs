@@ -40,6 +40,7 @@ try {
 await Promise.all([
   cp(join(skillRoot, 'assets/report-base.css'), join(artifactAssets, 'report-base.css')),
   cp(join(skillRoot, 'assets/joyally-report-theme.css'), join(artifactAssets, 'joyally-theme.css')),
+  cp(join(skillRoot, 'LICENSE'), join(artifactAssets, 'LICENSE')),
 ]);
 
 const template = await readFile(join(skillRoot, 'assets/starter-report.html'), 'utf8');
