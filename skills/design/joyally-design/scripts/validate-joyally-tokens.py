@@ -11,7 +11,7 @@ from pathlib import Path
 
 SKILL_ROOT = Path(__file__).resolve().parents[1]
 TOKEN_FILE = SKILL_ROOT / "assets" / "joyally-design.tokens.json"
-THEME_FILE = SKILL_ROOT / "assets" / "joyally-html-theme.css"
+THEME_FILE = SKILL_ROOT / "assets" / "joyally-report-theme.css"
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
 REFERENCE = re.compile(r"^\{([a-zA-Z0-9_.]+)\}$")
 CSS_TOKEN = re.compile(r"(--[a-zA-Z0-9-]+)\s*:\s*(#[0-9A-Fa-f]{6})\s*;")

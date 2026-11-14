@@ -14,7 +14,7 @@
 
 ## 预设与平台适配
 
-- `assets/joyally-design.tokens.json` 与 `joyally-html-theme.css`：报告和 React 的完整分层、青山湖主题与材质契约；四季画面共同提供取色与构图依据。
+- `assets/joyally-design.tokens.json` 与 `assets/joyally-report-theme.css`：报告和 React 的完整分层、青山湖主题与材质契约；四季画面共同提供取色与构图依据。
 - `assets/joyally-native.tokens.json`：现有湖色预设的语义值与对比度声明；`JoyallyPalette.swift`、`JoyallyTheme.kt`、`JoyallyTheme.ts`、`joyally-native.css` 是对应平台的起点。
 - `assets/xiaoxiang-theme.tokens.json`：香奈儿风主题的浅色与深色语义色及几何样本；按[主题规则](fashion-xiaoxiang.md)与[20 张参考图](../assets/references/xiaoxiang/README.md)映射到目标产品组件，不自动替换现有平台预设。
 - `assets/space-theme.tokens.json`：太空主题的浅色与深色语义色及几何样本；按[主题规则](space.md)映射到目标产品组件，不自动替换现有平台预设。
